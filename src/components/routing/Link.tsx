@@ -58,7 +58,7 @@ export default forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
 
 		if (forceSameTab || pathname?.startsWith('/')) {
 			return (
-				<NextComposed className={className} ref={ref} href={href} as={`${process.env.BACKEND_URL}${pathname}`} {...other}>
+				<NextComposed className={className} ref={ref} href={href} {...other}>
 					<If condition={Boolean(text)}>
 						<Then>
 							<Typography

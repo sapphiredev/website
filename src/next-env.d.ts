@@ -2,9 +2,7 @@
 /// <reference types="next/types/global" />
 
 declare namespace NodeJS {
-	interface ProcessEnv {
-		readonly BACKEND_URL: string;
-	}
+	interface ProcessEnv {}
 }
 
 declare module '*.css' {
