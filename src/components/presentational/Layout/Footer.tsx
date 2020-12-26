@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Left = () => (
 	<Box textAlign="left" display="flex" flexDirection="column">
 		<Link href="https://ko-fi.com/sapphireproject" text="Ko-fi" />
-		<Link href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SP738BQTQQYZY" text="Paypal" />
+		<Link href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SP738BQTQQYZY" text="PayPal" />
 		<Link href="https://www.patreon.com/sapphire_project" text="Patreon" />
 		<Link href="https://opencollective.com/sapphire-project" text="Open Collective" />
 	</Box>

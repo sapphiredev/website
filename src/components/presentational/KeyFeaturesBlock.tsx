@@ -41,7 +41,6 @@ const KeyFeaturesBlock: FC = () => {
 						<TimelineItem text="Supports both CommonJS and ESM" />
 						<TimelineItem text="Completely modular and extendable" />
 						<TimelineItem text="Designed with first class TypeScript support in mind" />
-						<TimelineItem text="Quality is controlled democratically by the community" />
 						<TimelineItem text="Includes optional utilities that you can use in any project" />
 					</Timeline>
 				</Grid>

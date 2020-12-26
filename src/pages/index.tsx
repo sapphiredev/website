@@ -1,9 +1,9 @@
 import SapphireLogo from '#assets/SapphireLogo';
 import { createSeoProps } from '#config/next-seo.config';
-import GeneralPage from '#layout/General';
 import AboutBlock from '#presentational/AboutBlock';
 import InstallFrameworkBlock from '#presentational/InstallFrameworkBlock';
 import KeyFeaturesBlock from '#presentational/KeyFeaturesBlock';
+import GeneralPage from '#presentational/Layout/General';
 import { createStyles, makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';

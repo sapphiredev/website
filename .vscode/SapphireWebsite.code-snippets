@@ -26,7 +26,7 @@
             "\t);",
 			"};",
 			"",
-            "export default ${TM_FILENAME_BASE/(.{1})/${1:/upcase}/};",
+            "export default memo(${TM_FILENAME_BASE/(.{1})/${1:/upcase}/});",
             ""
 		],
 		"description": "Creates a functional component skeleton"

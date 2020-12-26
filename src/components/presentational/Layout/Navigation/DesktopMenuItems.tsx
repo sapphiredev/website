@@ -2,6 +2,7 @@ import Tooltip from '#mui/Tooltip';
 import Link from '#routing/Link';
 import { GithubUrl, ServerURL } from '#utils/constants';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -10,7 +11,6 @@ import DiscordIcon from 'mdi-react/DiscordIcon';
 import DocumentationIcon from 'mdi-react/FileDocumentMultipleIcon';
 import { useRouter } from 'next/router';
 import React, { FC, memo } from 'react';
-import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		popper: {
 			marginTop: theme.spacing(-1),
 			zIndex: theme.zIndex.drawer + 1
+		},
+		muiSvgIcon: {
+			width: 24,
+			height: 24
 		}
 	})
 );
@@ -42,7 +46,12 @@ const DesktopMenuItems: FC = () => {
 			{router.pathname !== '/' && (
 				<Tooltip title="Go back to the homepage" placement="bottom">
 					<Link href="/">
-						<Button color="primary" variant="contained" classes={{ root: classes.transparentButton }} startIcon={<HomeIcon />}>
+						<Button
+							color="primary"
+							variant="contained"
+							classes={{ root: classes.transparentButton }}
+							startIcon={<HomeIcon className={classes.muiSvgIcon} />}
+						>
 							<Typography variant="body2" color="textPrimary">
 								Home
 							</Typography>
@@ -72,7 +81,12 @@ const DesktopMenuItems: FC = () => {
 			</Tooltip>
 			<Tooltip title="View Sapphire Project on GitHub" placement="bottom">
 				<Link href={GithubUrl}>
-					<Button color="primary" variant="contained" classes={{ root: classes.transparentButton }} startIcon={<GitHubIcon />}>
+					<Button
+						color="primary"
+						variant="contained"
+						classes={{ root: classes.transparentButton }}
+						startIcon={<GitHubIcon className={classes.muiSvgIcon} />}
+					>
 						<Typography variant="body2" color="textPrimary">
 							GitHub
 						</Typography>

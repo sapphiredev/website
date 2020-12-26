@@ -8,9 +8,14 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import type { NextPage } from 'next';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import NextNprogress from 'nextjs-progressbar';
 import React, { useEffect } from 'react';
+
+const ProjectSelectionProvider = dynamic(() => import('#contexts/ProjectSelectionContext'), { ssr: false });
+const ProjectTagsProvider = dynamic(() => import('#contexts/ProjectTagsContext'), { ssr: false });
+const ProjectCurrentTagProvider = dynamic(() => import('#contexts/ProjectCurrentTagContext'), { ssr: false });
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	useEffect(() => {
@@ -75,9 +80,15 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 
 			<ThemeProvider theme={theme}>
 				<MobileContextProvider value={{ isMobile }}>
-					<CssBaseline />
-					<NextNprogress color="#0A5699" startPosition={0.3} stopDelayMs={200} height={3} />
-					<Component {...pageProps} />
+					<ProjectSelectionProvider>
+						<ProjectTagsProvider>
+							<ProjectCurrentTagProvider>
+								<CssBaseline />
+								<NextNprogress color="#0A5699" startPosition={0.3} stopDelayMs={200} height={3} />
+								<Component {...pageProps} />
+							</ProjectCurrentTagProvider>
+						</ProjectTagsProvider>
+					</ProjectSelectionProvider>
 				</MobileContextProvider>
 			</ThemeProvider>
 		</>
