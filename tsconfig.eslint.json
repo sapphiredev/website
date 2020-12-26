@@ -1,4 +1,10 @@
 {
-	"extends": "./tsconfig.base.json",
-	"include": ["src", "tests", "jest.config.ts"]
+	"extends": "./src/tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"allowJs": true,
+		"checkJs": true
+	},
+	"include": ["scripts", "src"],
+	"exclude": ["src/next-env.d.ts", "src/next.config.js"]
 }

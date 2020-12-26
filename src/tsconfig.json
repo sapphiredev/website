@@ -1,10 +1,36 @@
 {
-	"extends": "../tsconfig.base.json",
+	"extends": "@sapphire/ts-config",
+	"compileOnSave": false,
 	"compilerOptions": {
-		"rootDir": "./",
-		"outDir": "../dist",
-		"composite": true,
-		"preserveConstEnums": true
+		"allowJs": true,
+		"checkJs": true,
+		"module": "ESNext",
+		"lib": ["ESNext", "DOM"],
+		"declaration": false,
+		"declarationMap": false,
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"jsx": "preserve",
+		"noEmit": true,
+		"tsBuildInfoFile": "./.tsbuildinfo",
+		"baseUrl": ".",
+		"rootDir": ".",
+		"paths": {
+			"#config/*": ["config/*"],
+			"#contexts/*": ["contexts/*"],
+			"#assets/*": ["components/assets/*"],
+			"#layout/*": ["components/presentational/Layout/*"],
+			"#mods/*": ["components/mods/*"],
+			"#mui/*": ["components/material/*"],
+			"#next/*": ["components/next/*"],
+			"#pages/*": ["components/pages/*"],
+			"#presentational/*": ["components/presentational/*"],
+			"#routing/*": ["components/routing/*"],
+			"#components/*": ["components/*"],
+			"#utils/*": ["utils/*"]
+		},
+		"skipLibCheck": true
 	},
-	"include": ["."]
+	"include": ["."],
+	"exclude": ["public/sw.js", "public/workbox*.js", ".next", "out"]
 }

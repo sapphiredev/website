@@ -2,42 +2,23 @@
 
 ![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire.png)
 
-# @sapphire/template
+# Sapphire Website
 
-**Template for Sapphire Repositories.**
+**Source code for Sapphire Project website.**
 
-[![GitHub](https://img.shields.io/github/license/sapphire-project/template)](https://github.com/sapphire-project/template/blob/main/LICENSE.md)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/template.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/template/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/sapphire-project/template.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/template/context:javascript)
-[![Coverage Status](https://coveralls.io/repos/github/sapphire-project/template/badge.svg?branch=main)](https://coveralls.io/github/sapphire-project/template?branch=main)
-[![npm](https://img.shields.io/npm/v/@sapphire/template?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/template)
-[![Depfu](https://badges.depfu.com/badges/template/count.svg)](https://depfu.com/github/sapphire-project/template?project_id=template)
+[![GitHub](https://img.shields.io/github/license/sapphire-project/website)](https://github.com/sapphire-project/website/blob/main/LICENSE.md)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/website/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/sapphire-project/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/website/context:javascript)
+[![Depfu](https://badges.depfu.com/badges/45f1454ca1f7f722f421325d0e66acfd/count.svg)](https://depfu.com/github/sapphire-project/website?project_id=17718)
 
 </div>
 
-# Steps after creating a repo with this template
+## Running locally
 
-1. Find and replace all instances of `template` with the proper word / ID / etc
-2. Ensure the primary branch is called `main`
-3. Ensure branch protection is on
-4. Disable `Packages` from being included in the repository homepage
-5. Enable LGTM for the repository
-6. Enable Depfu for the repository
-7. Enable Coveralls for the repository
-8. Remove this section from the README
+After forking/cloning this repo to a folder locally:
 
-## Features
-
--   This
--   Needs
--   Some
--   More
--   Filling
--   In
-
-## API Documentation
-
-For the full API documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/template).
+1. Install dependencies with `yarn`.
+2. Run `yarn dev` to start the NextJS dev server
 
 ## Buy us some doughnuts
 
@@ -59,7 +40,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/sapphire-project/website/issues?q=author%3AFavna" title="Bug reports">🐛</a> <a href="https://github.com/sapphire-project/website/commits?author=Favna" title="Code">💻</a> <a href="#content-Favna" title="Content">🖋</a> <a href="#design-Favna" title="Design">🎨</a> <a href="#infra-Favna" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-Favna" title="Maintenance">🚧</a> <a href="#platform-Favna" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-Favna" title="Project Management">📆</a> <a href="https://github.com/sapphire-project/website/pulls?q=is%3Apr+reviewed-by%3AFavna" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
