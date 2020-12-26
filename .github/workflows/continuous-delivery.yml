@@ -28,7 +28,7 @@ jobs:
         run: yarn lint
 
   Build:
-    name: Publish Build
+    name: Build & Export
     runs-on: ubuntu-latest
     needs: Linting
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
