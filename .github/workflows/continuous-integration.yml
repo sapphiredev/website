@@ -24,9 +24,9 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --ignore-scripts --frozen-lockfile
       - name: Run ESLint
-        run: yarn lint
+        uses: icrawl/action-eslint@v1
 
   Build:
     name: Compiling NextJS source code
