@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 14
       - name: Restore CI Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
@@ -40,7 +40,7 @@ jobs:
         with:
           node-version: 14
       - name: Restore CI Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
