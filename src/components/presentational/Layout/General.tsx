@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme: Theme) =>
 		container: {
 			display: 'flex',
 			flexDirection: 'column',
-			justifyContent: 'space-between'
+			justifyContent: 'space-between',
+			width: '100vw'
 		},
 		contentBox: {
 			paddingBottom: theme.spacing(16),

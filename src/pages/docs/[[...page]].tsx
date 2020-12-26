@@ -15,7 +15,7 @@ const DocumentationPage: NextPage<InferGetServerSidePropsType<typeof getServerSi
 	const setProjectSelection = updateProjectSelection();
 	const currentProjectTag = getCurrentProjectTag();
 
-	const [pkg, version, section, page] = router.query.page ?? [undefined, 'stable', 'getting-started', 'getting-started'];
+	const [pkg /* , version, section, page*/] = router.query.page ?? [undefined, 'stable', 'getting-started', 'getting-started'];
 
 	useEffect(() => {
 		if (!pkg) {
