@@ -36,7 +36,7 @@ const Index: NextPage = () => {
 						<Grid item xs={12} lg={12}>
 							<Box display="flex" alignItems="center" alignContent="center" justifyContent="center">
 								<Typography variant="h1" classes={{ root: classes.header }}>
-									<SapphireLogo style={{ paddingRight: '3rem' }} height="80" /> Sapphire
+									<SapphireLogo height="100" /> Sapphire
 								</Typography>
 							</Box>
 						</Grid>
