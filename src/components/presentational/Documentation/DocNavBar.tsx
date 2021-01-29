@@ -78,13 +78,10 @@ const DocNavBar: FC = () => {
 								</Typography>
 							</Grid>
 						</Hidden>
-						<Hidden mdUp>
-							<Grid item xs={1}></Grid>
-						</Hidden>
-						<Grid item xs={4} lg={2}>
+						<Grid item xs={6} md={4} lg={3}>
 							<ProjectSelector />
 						</Grid>
-						<Grid item xs={7} md={4} lg={3}>
+						<Grid item xs={6} md={4} lg={3}>
 							<TagSelector />
 						</Grid>
 					</Grid>
