@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
+export default forwardRef<HTMLSpanElement | HTMLAnchorElement, PropsWithChildren<LinkProps>>(
 	({ href, forceSameTab, activeClassName = 'active', className: classNameFromProps, text, children, TextTypographyProps, ...other }, ref) => {
 		const router = useRouter();
 		const classes = useStyles();

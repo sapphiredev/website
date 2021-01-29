@@ -11,12 +11,12 @@ interface NextComposedProps {
 	prefetch?: boolean;
 }
 
-export default forwardRef<HTMLAnchorElement, PropsWithChildren<NextComposedProps>>(({ as, href, prefetch, children, className }, ref) => (
+export default forwardRef<HTMLSpanElement, PropsWithChildren<NextComposedProps>>(({ as, href, prefetch, children, className }, ref) => (
 	<NextLink href={href} prefetch={prefetch} as={as}>
 		<Typography component="span" variant="body2" color="textPrimary">
-			<a ref={ref} className={className}>
+			<span ref={ref} className={className}>
 				{children}
-			</a>
+			</span>
 		</Typography>
 	</NextLink>
 ));
