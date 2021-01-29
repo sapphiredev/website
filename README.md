@@ -20,6 +20,12 @@ After forking/cloning this repo to a folder locally:
 1. Install dependencies with `yarn`.
 2. Run `yarn dev` to start the NextJS dev server
 
+## Special thanks
+
+This project is being hosted by the amazing team at [Vercel]. We use their service to ensure you always get the latest version of the documentation, as well as being able to preview builds internally. Thank you [Vercel]!
+
+[![Vercel](./.github/powered-by-vercel.svg)][vercel]
+
 ## Buy us some doughnuts
 
 Sapphire Project is and always will be open source, even if we don't get donations. That being said, we know there are amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
@@ -52,3 +58,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+[vercel]: https://vercel.com?utm_source=sapphire-project&utm_campaign=oss

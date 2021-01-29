@@ -1,4 +1,4 @@
-import SapphireLogo from '#assets/SapphireLogo';
+import VercelLogo from '#assets/VercelLogo';
 import Link from '#routing/Link';
 import { GithubUrl, NpmOrgUrl, ServerURL } from '#utils/constants';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
@@ -14,12 +14,14 @@ const useStyles = makeStyles((theme: Theme) =>
 			position: 'fixed',
 			bottom: 0,
 			width: '100%',
-			padding: '15px 0px',
+			padding: '10px 0px',
 			background: theme.palette.secondary.main
 		},
 		container: {
 			display: 'flex',
 			justifyContent: 'space-around',
+			alignContent: 'center',
+			alignItems: 'center',
 			[theme.breakpoints.down('xs')]: {
 				flexDirection: 'column',
 				alignContent: 'center',
@@ -45,7 +47,7 @@ const Left = () => (
 );
 const Right = () => (
 	<Box textAlign="right" display="flex" flexDirection="column">
-		<Link href="/" text="// TODO: FILL IN" />
+		<Link href="https://vercel.com?utm_source=sapphire-project&utm_campaign=oss" text="Vercel" />
 		<Link href={ServerURL} text="Support Server" />
 		<Link href={NpmOrgUrl} text="NPM Organization" />
 		<Link href={GithubUrl} text="GitHub Organization" />
@@ -53,11 +55,13 @@ const Right = () => (
 );
 
 const Middle = () => (
-	<Box display="flex" flexDirection="column">
-		<SapphireLogo />
-		<Typography style={{ marginTop: 15 }} variant="caption">
+	<Box display="flex" flexDirection="column" alignItems="center" alignContent="center">
+		<Typography variant="caption" align="center">
 			Copyright © 2020 The Sapphire Project and its contributors.
 		</Typography>
+		<Link href="https://vercel.com?utm_source=sapphire-project&utm_campaign=oss">
+			<VercelLogo style={{ marginTop: 15, cursor: 'pointer' }} />
+		</Link>
 	</Box>
 );
 
