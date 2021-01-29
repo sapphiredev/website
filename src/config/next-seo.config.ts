@@ -4,7 +4,7 @@ import theme from './theme';
 
 type KeyedObject = Record<PropertyKey, unknown>;
 
-export const BaseUrl = 'https://sapphire-project.github.io/website';
+export const BaseUrl = 'https://website.sapphire-project.vercel.app';
 export const DefaultSeo: DefaultSeoProps & KeyedObject = {
 	titleTemplate: 'Sapphire | %s',
 	title: 'Home',
@@ -41,7 +41,7 @@ export const DefaultSeo: DefaultSeoProps & KeyedObject = {
 		{ name: 'application-name', content: 'Sapphire' },
 		{ name: 'msapplication-TileColor', content: theme.palette.primary.main },
 		{ name: 'msapplication-TileImage', content: '/icons/mstile-144x144.png' },
-		{ name: 'msapplication-config', content: '/icons/browserconfig.xml' },
+		{ name: 'msapplication-config', content: '/browserconfig.xml' },
 		{ name: 'theme-color', content: theme.palette.primary.main },
 		{ name: 'revisit-after', content: '7 days' },
 		{ property: 'og:email', content: 'sapphireproject@vivaldi.com' }
