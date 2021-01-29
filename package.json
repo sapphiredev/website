@@ -14,7 +14,7 @@
 		"export": "next export src",
 		"clean": "rimraf src/.tsbuildinfo src/.next src/out src/public/sw.js src/public/workbox* src/public/sitemap.xml",
 		"build:sitemap": "node scripts/sitemapGenerator.mjs",
-		"format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+		"format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,json}",
 		"update": "yarn upgrade-interactive --latest",
 		"lint": "eslint src --ext js,jsx,ts,tsx --fix",
 		"commit": "git-cz",
