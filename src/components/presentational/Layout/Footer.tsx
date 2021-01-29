@@ -11,11 +11,10 @@ import React, { memo } from 'react';
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
-			position: 'fixed',
-			bottom: 0,
 			width: '100%',
 			padding: '10px 0px',
-			background: theme.palette.secondary.main
+			background: theme.palette.secondary.main,
+			marginTop: 'auto'
 		},
 		container: {
 			display: 'flex',
