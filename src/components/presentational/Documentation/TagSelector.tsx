@@ -1,12 +1,12 @@
-import theme from '#config/theme';
-import { updateCurrentProjectTag } from '#contexts/ProjectCurrentTagContext';
-import { getProjectSelection } from '#contexts/ProjectSelectionContext';
-import { getProjectTags, updateProjectTags } from '#contexts/ProjectTagsContext';
-import AutoComplete from '#mui/AutoComplete';
-import { LocalStorageKeys, LocalStorageStructure, ProjectTagOption } from '#utils/constants';
-import { fetchBranchesAndTags, SapphireProject } from '#utils/gh-fetch';
-import { loadState, saveState, Time } from '#utils/util';
+import theme from '@config/theme';
+import { updateCurrentProjectTag } from '@contexts/ProjectCurrentTagContext';
+import { getProjectSelection } from '@contexts/ProjectSelectionContext';
+import { getProjectTags, updateProjectTags } from '@contexts/ProjectTagsContext';
+import AutoComplete from '@mui/AutoComplete';
 import { toTitleCase } from '@sapphire/utilities';
+import { LocalStorageKeys, LocalStorageStructure, ProjectTagOption } from '@utils/constants';
+import { fetchBranchesAndTags, SapphireProject } from '@utils/gh-fetch';
+import { loadState, saveState, Time } from '@utils/util';
 import React, { FC, memo, useCallback, useEffect, useMemo, useState } from 'react';
 
 const projectsToLocalStorageKeys: Record<SapphireProject, LocalStorageKeys> = {

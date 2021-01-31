@@ -1,5 +1,3 @@
-import MenuItemLink from '#routing/MenuItemLink';
-import { GithubUrl, ServerURL } from '#utils/constants';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -10,6 +8,8 @@ import Popper from '@material-ui/core/Popper';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
+import MenuItemLink from '@routing/MenuItemLink';
+import { GithubUrl, ServerURL } from '@utils/constants';
 import DiscordIcon from 'mdi-react/DiscordIcon';
 import DocumentationIcon from 'mdi-react/FileDocumentMultipleIcon';
 import { useRouter } from 'next/router';

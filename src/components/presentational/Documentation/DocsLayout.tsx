@@ -1,8 +1,8 @@
-import Footer from '#presentational/Layout/Footer';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Box, { BoxProps } from '@material-ui/core/Box';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Footer from '@presentational/Layout/Footer';
 import React, { FC } from 'react';
 import NavBar from '../Layout/Navigation/NavBar';
 import ScrollToTopButton from '../Layout/ScrollToTopButton';

@@ -1,9 +1,9 @@
-import TimelineItem from '#mui/TimelineItem';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Timeline from '@material-ui/lab/Timeline';
+import TimelineItem from '@mui/TimelineItem';
 import React, { FC, memo } from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>

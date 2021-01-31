@@ -1,12 +1,12 @@
-import Tooltip from '#mui/Tooltip';
-import Link from '#routing/Link';
-import { GithubUrl, ServerURL } from '#utils/constants';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import HomeIcon from '@material-ui/icons/Home';
+import Tooltip from '@mui/Tooltip';
+import Link from '@routing/Link';
+import { GithubUrl, ServerURL } from '@utils/constants';
 import DiscordIcon from 'mdi-react/DiscordIcon';
 import DocumentationIcon from 'mdi-react/FileDocumentMultipleIcon';
 import { useRouter } from 'next/router';

@@ -1,6 +1,6 @@
-import theme from '#config/theme';
-import type { GroupableAutoCompleteOption } from '#mui/AutoComplete';
-import { SapphireProject } from '#utils/gh-fetch';
+import theme from '@config/theme';
+import type { GroupableAutoCompleteOption } from '@mui/AutoComplete';
+import { SapphireProject } from '@utils/gh-fetch';
 
 export interface ProjectSelectionOption extends GroupableAutoCompleteOption {
 	label: SapphireProject;

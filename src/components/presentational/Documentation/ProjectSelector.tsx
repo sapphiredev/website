@@ -1,10 +1,10 @@
-import theme from '#config/theme';
-import { updateCurrentProjectTag } from '#contexts/ProjectCurrentTagContext';
-import { updateProjectSelection } from '#contexts/ProjectSelectionContext';
-import { updateProjectTags } from '#contexts/ProjectTagsContext';
-import AutoComplete from '#mui/AutoComplete';
-import { ProjectSelectionOption, SapphireProjects } from '#utils/constants';
-import { SapphireProject } from '#utils/gh-fetch';
+import theme from '@config/theme';
+import { updateCurrentProjectTag } from '@contexts/ProjectCurrentTagContext';
+import { updateProjectSelection } from '@contexts/ProjectSelectionContext';
+import { updateProjectTags } from '@contexts/ProjectTagsContext';
+import AutoComplete from '@mui/AutoComplete';
+import { ProjectSelectionOption, SapphireProjects } from '@utils/constants';
+import { SapphireProject } from '@utils/gh-fetch';
 import React, { FC, memo } from 'react';
 
 const ProjectSelector: FC = () => {

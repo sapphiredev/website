@@ -1,4 +1,4 @@
-import { SapphireProject } from '#utils/gh-fetch';
+import { SapphireProject } from '@utils/gh-fetch';
 import constate from 'constate';
 import { useState } from 'react';
 

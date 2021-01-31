@@ -1,9 +1,9 @@
-import { createSeoProps } from '#config/next-seo.config';
-import { getCurrentProjectTag } from '#contexts/ProjectCurrentTagContext';
-import { updateProjectSelection } from '#contexts/ProjectSelectionContext';
-import { updateProjectTags } from '#contexts/ProjectTagsContext';
-import DocsLayout from '#presentational/Documentation/DocsLayout';
-import { fetchBranchesAndTags, SapphireProject } from '#utils/gh-fetch';
+import { createSeoProps } from '@config/next-seo.config';
+import { getCurrentProjectTag } from '@contexts/ProjectCurrentTagContext';
+import { updateProjectSelection } from '@contexts/ProjectSelectionContext';
+import { updateProjectTags } from '@contexts/ProjectTagsContext';
+import DocsLayout from '@presentational/Documentation/DocsLayout';
+import { fetchBranchesAndTags, SapphireProject } from '@utils/gh-fetch';
 import type { InferGetServerSidePropsType, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';

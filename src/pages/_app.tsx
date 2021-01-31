@@ -1,7 +1,7 @@
-import '#config/globals.css';
-import { DefaultSeo as DefaultSeoProps } from '#config/next-seo.config';
-import theme from '#config/theme';
-import { MobileContextProvider } from '#contexts/MobileContext';
+import '@config/globals.css';
+import { DefaultSeo as DefaultSeoProps } from '@config/next-seo.config';
+import theme from '@config/theme';
+import { MobileContextProvider } from '@contexts/MobileContext';
 import { useMediaQuery } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -13,9 +13,9 @@ import Head from 'next/head';
 import NextNprogress from 'nextjs-progressbar';
 import React, { useEffect } from 'react';
 
-const ProjectSelectionProvider = dynamic(() => import('#contexts/ProjectSelectionContext'), { ssr: false });
-const ProjectTagsProvider = dynamic(() => import('#contexts/ProjectTagsContext'), { ssr: false });
-const ProjectCurrentTagProvider = dynamic(() => import('#contexts/ProjectCurrentTagContext'), { ssr: false });
+const ProjectSelectionProvider = dynamic(() => import('@contexts/ProjectSelectionContext'), { ssr: false });
+const ProjectTagsProvider = dynamic(() => import('@contexts/ProjectTagsContext'), { ssr: false });
+const ProjectCurrentTagProvider = dynamic(() => import('@contexts/ProjectCurrentTagContext'), { ssr: false });
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	useEffect(() => {

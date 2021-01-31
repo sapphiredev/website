@@ -1,11 +1,11 @@
-import VercelLogo from '#assets/VercelLogo';
-import Link from '#routing/Link';
-import { GithubUrl, NpmOrgUrl, ServerURL } from '#utils/constants';
+import VercelLogo from '@assets/VercelLogo';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
+import Link from '@routing/Link';
+import { GithubUrl, NpmOrgUrl, ServerURL } from '@utils/constants';
 import React, { memo } from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>

@@ -1,4 +1,4 @@
-import type { Branch, Tag } from '#config/types/gh-api-types';
+import type { Branch, Tag } from '@config/types/gh-api-types';
 import { fetchJson } from './util';
 
 export enum SapphireProject {
