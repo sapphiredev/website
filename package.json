@@ -19,7 +19,7 @@
 		"lint": "eslint src --ext js,jsx,ts,tsx --fix",
 		"commit": "git-cz",
 		"cz": "git-cz",
-		"postinstall": "husky install .github/husky"
+		"prepare": "husky install .github/husky"
 	},
 	"dependencies": {
 		"@material-ui/core": "^4.11.3",
