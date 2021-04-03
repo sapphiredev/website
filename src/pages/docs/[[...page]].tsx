@@ -1,4 +1,3 @@
-import { createSeoProps } from '@config/next-seo.config';
 import { getCurrentProjectTag } from '@contexts/ProjectCurrentTagContext';
 import { updateProjectSelection } from '@contexts/ProjectSelectionContext';
 import { updateProjectTags } from '@contexts/ProjectTagsContext';
@@ -35,7 +34,7 @@ const DocumentationPage: NextPage<InferGetServerSidePropsType<typeof getServerSi
 
 	return (
 		<>
-			<NextSeo {...createSeoProps({ title: 'Documentation' })} />
+			<NextSeo title="Documentation" />
 
 			<DocsLayout branchesAndTags={selectableBranchesAndTags}>
 				<div>Hello World Default!</div>

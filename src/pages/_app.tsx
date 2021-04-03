@@ -1,5 +1,5 @@
 import '@config/globals.css';
-import { DefaultSeo as DefaultSeoProps } from '@config/next-seo.config';
+import DefaultSeoProps from '@config/SEO/DefaultSeoProps';
 import theme from '@config/theme';
 import { MobileContextProvider } from '@contexts/MobileContext';
 import { useMediaQuery } from '@material-ui/core';
@@ -13,9 +13,9 @@ import Head from 'next/head';
 import NextNprogress from 'nextjs-progressbar';
 import React, { useEffect } from 'react';
 
-const ProjectSelectionProvider = dynamic(() => import('@contexts/ProjectSelectionContext'), { ssr: false });
-const ProjectTagsProvider = dynamic(() => import('@contexts/ProjectTagsContext'), { ssr: false });
-const ProjectCurrentTagProvider = dynamic(() => import('@contexts/ProjectCurrentTagContext'), { ssr: false });
+const ProjectSelectionProvider = dynamic(() => import('@contexts/ProjectSelectionContext'));
+const ProjectTagsProvider = dynamic(() => import('@contexts/ProjectTagsContext'));
+const ProjectCurrentTagProvider = dynamic(() => import('@contexts/ProjectCurrentTagContext'));
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	useEffect(() => {
@@ -56,7 +56,6 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 
 	return (
 		<>
-			<DefaultSeo {...DefaultSeoProps} />
 			<Head>
 				<meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
@@ -77,6 +76,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 				<link rel="shortcut icon" href="/icons/favicon.ico" />
 				<link rel="apple-touch-startup-image" href="/icons/apple-startup.png" />
 			</Head>
+			<DefaultSeo {...DefaultSeoProps} />
 
 			<ThemeProvider theme={theme}>
 				<MobileContextProvider value={{ isMobile }}>

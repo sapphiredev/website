@@ -1,11 +1,9 @@
-import { mergeDefault } from '@sapphire/utilities';
-import type { DefaultSeoProps, NextSeoProps } from 'next-seo';
-import theme from './theme';
-
-type KeyedObject = Record<PropertyKey, unknown>;
+import theme from '@config/theme';
+import type { DefaultSeoProps as DefaultSeoPropsType } from 'next-seo';
+import type { AdditionalRobotsProps } from 'next-seo/lib/types';
 
 export const BaseUrl = 'https://website.sapphire-project.vercel.app';
-export const DefaultSeo: DefaultSeoProps & KeyedObject = {
+export const DefaultSeoProps: DefaultSeoPropsType = {
 	titleTemplate: 'Sapphire | %s',
 	title: 'Home',
 	description:
@@ -73,4 +71,14 @@ export const DefaultSeo: DefaultSeoProps & KeyedObject = {
 	}
 };
 
-export const createSeoProps = (seoProps?: NextSeoProps & KeyedObject) => mergeDefault(DefaultSeo, seoProps);
+export const robotBlockingPageProps: AdditionalRobotsProps = {
+	nosnippet: true,
+	notranslate: true,
+	noimageindex: true,
+	noarchive: true,
+	maxSnippet: -1,
+	maxImagePreview: 'none',
+	maxVideoPreview: -1
+};
+
+export default DefaultSeoProps;

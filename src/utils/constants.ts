@@ -15,7 +15,7 @@ export const ServerURL = 'https://discord.com/invite/j8ACK6u';
 export const GithubUrl = 'https://github.com/sapphire-project';
 export const NpmOrgUrl = 'https://www.npmjs.com/org/sapphire';
 export const DiscordJsUrl = 'https://discord.js.org/';
-export const KlasaUrl = 'https://klasa.js.org/';
+export const VercelUrl = 'https://vercel.com?utm_source=sapphire-project&utm_campaign=oss';
 
 export const SapphireProjects = Object.values(SapphireProject).map<ProjectSelectionOption>((label) => ({
 	color: theme.palette.primary.contrastText,

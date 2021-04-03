@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Link from '@routing/Link';
-import { GithubUrl, NpmOrgUrl, ServerURL } from '@utils/constants';
+import { GithubUrl, NpmOrgUrl, ServerURL, VercelUrl } from '@utils/constants';
 import React, { memo } from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -46,7 +46,7 @@ const Left = () => (
 );
 const Right = () => (
 	<Box textAlign="right" display="flex" flexDirection="column">
-		<Link href="https://vercel.com?utm_source=sapphire-project&utm_campaign=oss" text="Vercel" />
+		<Link href={VercelUrl} text="Vercel" />
 		<Link href={ServerURL} text="Support Server" />
 		<Link href={NpmOrgUrl} text="NPM Organization" />
 		<Link href={GithubUrl} text="GitHub Organization" />
@@ -58,7 +58,7 @@ const Middle = () => (
 		<Typography variant="caption" align="center">
 			Copyright © 2020 The Sapphire Project and its contributors.
 		</Typography>
-		<Link href="https://vercel.com?utm_source=sapphire-project&utm_campaign=oss">
+		<Link href={VercelUrl}>
 			<VercelLogo style={{ marginTop: 15, cursor: 'pointer' }} />
 		</Link>
 	</Box>

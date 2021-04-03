@@ -1,5 +1,4 @@
 import SapphireLogo from '@assets/SapphireLogo';
-import { createSeoProps } from '@config/next-seo.config';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
@@ -10,7 +9,6 @@ import InstallFrameworkBlock from '@presentational/InstallFrameworkBlock';
 import KeyFeaturesBlock from '@presentational/KeyFeaturesBlock';
 import GeneralPage from '@presentational/Layout/General';
 import type { NextPage } from 'next';
-import { NextSeo } from 'next-seo';
 import React from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -46,7 +44,6 @@ const Index: NextPage = () => {
 
 	return (
 		<>
-			<NextSeo {...createSeoProps()} />
 			<GeneralPage>
 				<Container maxWidth="lg">
 					<Grid container spacing={4} direction="column" justify="center" alignContent="center" alignItems="center">
