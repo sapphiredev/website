@@ -1,17 +1,17 @@
 import type { Branch, Tag } from '@config/types/gh-api-types';
 import { fetchJson } from './util';
 
-export enum SapphireProject {
+export enum SapphireCommunity {
 	Framework = 'framework',
 	Plugins = 'plugins',
 	Utilities = 'utilities',
 	Pieces = 'pieces'
 }
 
-export const fetchBranchesAndTags = async (project: SapphireProject) => {
+export const fetchBranchesAndTags = async (project: SapphireCommunity) => {
 	const [branches, tags] = await Promise.all<Branch[], Tag[]>([
-		fetchJson(`https://api.github.com/repos/sapphire-project/${project}/branches`),
-		fetchJson(`https://api.github.com/repos/sapphire-project/${project}/tags`)
+		fetchJson(`https://api.github.com/repos/sapphire-community/${project}/branches`),
+		fetchJson(`https://api.github.com/repos/sapphire-community/${project}/tags`)
 	]);
 
 	return [...branches.map((b) => b.name), ...tags.map((t) => t.name)].filter(
@@ -19,6 +19,6 @@ export const fetchBranchesAndTags = async (project: SapphireProject) => {
 	);
 };
 
-export const fetchDocsJson = async (project: SapphireProject, tag: string) => {
-	return fetchJson(`https://raw.githubusercontent.com/sapphire-project/${project}/docs/${tag}.json`);
+export const fetchDocsJson = async (project: SapphireCommunity, tag: string) => {
+	return fetchJson(`https://raw.githubusercontent.com/sapphire-community/${project}/docs/${tag}.json`);
 };

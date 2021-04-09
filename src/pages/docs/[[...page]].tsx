@@ -2,7 +2,7 @@ import { getCurrentProjectTag } from '@contexts/ProjectCurrentTagContext';
 import { updateProjectSelection } from '@contexts/ProjectSelectionContext';
 import { updateProjectTags } from '@contexts/ProjectTagsContext';
 import DocsLayout from '@presentational/Documentation/DocsLayout';
-import { fetchBranchesAndTags, SapphireProject } from '@utils/gh-fetch';
+import { fetchBranchesAndTags, SapphireCommunity } from '@utils/gh-fetch';
 import type { InferGetServerSidePropsType, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
@@ -24,7 +24,7 @@ const DocumentationPage: NextPage<InferGetServerSidePropsType<typeof getServerSi
 
 	useEffect(() => {
 		setProjectTags(selectableBranchesAndTags);
-		setProjectSelection((pkg as SapphireProject | undefined) ?? SapphireProject.Framework);
+		setProjectSelection((pkg as SapphireCommunity | undefined) ?? SapphireCommunity.Framework);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -45,7 +45,7 @@ const DocumentationPage: NextPage<InferGetServerSidePropsType<typeof getServerSi
 
 export const getServerSideProps = async () => ({
 	props: {
-		selectableBranchesAndTags: await fetchBranchesAndTags(SapphireProject.Framework)
+		selectableBranchesAndTags: await fetchBranchesAndTags(SapphireCommunity.Framework)
 	}
 });
 

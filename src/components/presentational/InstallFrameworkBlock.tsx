@@ -68,7 +68,7 @@ const InstallFrameworkBlock: FC<InstallFrameworkBlockProps> = ({ canaryBuild = f
 				<Grid item xs={12}>
 					<Box className={clsx(classes.padding, classes.codeBlock)}>
 						<Typography variant="body1" align="center" classes={{ root: classes.codeText }}>
-							npm install {canaryBuild ? 'github:sapphire-project/framework#build' : '@sapphire/framework'}
+							npm install {canaryBuild ? 'github:sapphire-community/framework#build' : '@sapphire/framework'}
 						</Typography>
 					</Box>
 				</Grid>

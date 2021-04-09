@@ -1,9 +1,9 @@
 import theme from '@config/theme';
 import type { GroupableAutoCompleteOption } from '@mui/AutoComplete';
-import { SapphireProject } from '@utils/gh-fetch';
+import { SapphireCommunity } from '@utils/gh-fetch';
 
 export interface ProjectSelectionOption extends GroupableAutoCompleteOption {
-	label: SapphireProject;
+	label: SapphireCommunity;
 	groupName: 'Projects';
 }
 
@@ -12,12 +12,12 @@ export interface ProjectTagOption extends GroupableAutoCompleteOption {
 }
 
 export const ServerURL = 'https://discord.com/invite/j8ACK6u';
-export const GithubUrl = 'https://github.com/sapphire-project';
+export const GithubUrl = 'https://github.com/sapphire-community';
 export const NpmOrgUrl = 'https://www.npmjs.com/org/sapphire';
 export const DiscordJsUrl = 'https://discord.js.org/';
-export const VercelUrl = 'https://vercel.com?utm_source=sapphire-project&utm_campaign=oss';
+export const VercelUrl = 'https://vercel.com?utm_source=sapphire-community&utm_campaign=oss';
 
-export const SapphireProjects = Object.values(SapphireProject).map<ProjectSelectionOption>((label) => ({
+export const SapphireProjects = Object.values(SapphireCommunity).map<ProjectSelectionOption>((label) => ({
 	color: theme.palette.primary.contrastText,
 	groupName: 'Projects',
 	label

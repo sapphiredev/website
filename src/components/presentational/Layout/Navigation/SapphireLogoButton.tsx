@@ -35,7 +35,7 @@ const SkyraLogoButton: FC = () => {
 						<SapphireLogo />
 						<Box display="flex" flexDirection="column" ml={3}>
 							<Typography variant="h5" component="h1">
-								Sapphire Project
+								Sapphire Community
 							</Typography>
 							<Hidden smDown>
 								<Typography variant="caption" component="h1">
