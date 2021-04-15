@@ -1,10 +1,10 @@
-import { SapphireProject } from '@utils/gh-fetch';
+import { SapphireCommunity } from '@utils/gh-fetch';
 import constate from 'constate';
 import { useState } from 'react';
 
 export const [ProjectSelectionProvider, getProjectSelection, updateProjectSelection] = constate(
 	() => {
-		const [project, setProject] = useState<SapphireProject>(SapphireProject.Framework);
+		const [project, setProject] = useState<SapphireCommunity>(SapphireCommunity.Framework);
 
 		return { project, setProject };
 	},

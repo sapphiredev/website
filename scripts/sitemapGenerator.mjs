@@ -3,8 +3,8 @@ import { fileURLToPath } from 'url';
 
 const srcDir = new URL('../src/', import.meta.url);
 
-sitemapGenerator({
-	baseUrl: 'https://website.sapphire-project.vercel.app',
+void sitemapGenerator({
+	baseUrl: 'https://sapphirejs.com',
 	pagesDirectory: fileURLToPath(new URL('pages/', srcDir)),
 	targetDirectory: fileURLToPath(new URL('public/', srcDir)),
 	nextConfigPath: fileURLToPath(new URL('next.config.js', srcDir)),

@@ -70,7 +70,7 @@ const DesktopMenuItems: FC = () => {
 					</Link>
 				</Box>
 			</Tooltip>
-			<Tooltip title="Click to join Sapphire Project Discord server" placement="bottom">
+			<Tooltip title="Click to join Sapphire Community Discord server" placement="bottom">
 				<Link href={ServerURL}>
 					<Button color="primary" variant="contained" classes={{ root: classes.transparentButton }} startIcon={<DiscordIcon />}>
 						<Typography variant="body2" color="textPrimary">
@@ -79,7 +79,7 @@ const DesktopMenuItems: FC = () => {
 					</Button>
 				</Link>
 			</Tooltip>
-			<Tooltip title="View Sapphire Project on GitHub" placement="bottom">
+			<Tooltip title="View Sapphire Community on GitHub" placement="bottom">
 				<Link href={GithubUrl}>
 					<Button
 						color="primary"

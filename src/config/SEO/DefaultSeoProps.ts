@@ -2,7 +2,7 @@ import theme from '@config/theme';
 import type { DefaultSeoProps as DefaultSeoPropsType } from 'next-seo';
 import type { AdditionalRobotsProps } from 'next-seo/lib/types';
 
-export const BaseUrl = 'https://website.sapphire-project.vercel.app';
+export const BaseUrl = 'https://sapphirejs.com';
 export const DefaultSeoProps: DefaultSeoPropsType = {
 	titleTemplate: 'Sapphire | %s',
 	title: 'Home',
@@ -20,12 +20,12 @@ export const DefaultSeoProps: DefaultSeoPropsType = {
 			content:
 				'Sapphire is a next-gen Discord bot framework for developers of all skill levels to make the best JavaScript/TypeScript based bots possible.'
 		},
-		{ name: 'subject', content: 'Documentation website for Sapphire Project' },
+		{ name: 'subject', content: 'Documentation website for Sapphire Community' },
 		{ name: 'robots', content: 'archive,follow,imageindex,index,odp,snippet,translate' },
 		{ name: 'googlebot', content: 'index,follow' },
-		{ name: 'author', content: `Sapphire Project, sapphireproject@vivaldi.com` },
-		{ name: 'owner', content: `Sapphire Project, sapphireproject@vivaldi.com` },
-		{ name: 'designer', content: `Sapphire Project, sapphireproject@vivaldi.com` },
+		{ name: 'author', content: `Sapphire Community, sapphireproject@vivaldi.com` },
+		{ name: 'owner', content: `Sapphire Community, sapphireproject@vivaldi.com` },
+		{ name: 'designer', content: `Sapphire Community, sapphireproject@vivaldi.com` },
 		{ name: 'reply-to', content: 'sapphireproject@vivaldi.com' },
 		{ name: 'target', content: 'all' },
 		{ name: 'audience', content: 'all' },
@@ -59,7 +59,7 @@ export const DefaultSeoProps: DefaultSeoPropsType = {
 		locale: 'en_US',
 		site_name: 'Sapphire',
 		profile: {
-			firstName: 'Sapphire Project',
+			firstName: 'Sapphire Community',
 			username: 'Sapphire',
 			gender: 'Unspecified'
 		}

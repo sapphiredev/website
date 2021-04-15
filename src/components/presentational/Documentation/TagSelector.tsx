@@ -5,15 +5,15 @@ import { getProjectTags, updateProjectTags } from '@contexts/ProjectTagsContext'
 import AutoComplete from '@mui/AutoComplete';
 import { toTitleCase } from '@sapphire/utilities';
 import { LocalStorageKeys, LocalStorageStructure, ProjectTagOption } from '@utils/constants';
-import { fetchBranchesAndTags, SapphireProject } from '@utils/gh-fetch';
+import { fetchBranchesAndTags, SapphireCommunity } from '@utils/gh-fetch';
 import { loadState, saveState, Time } from '@utils/util';
 import React, { FC, memo, useCallback, useEffect, useMemo, useState } from 'react';
 
-const projectsToLocalStorageKeys: Record<SapphireProject, LocalStorageKeys> = {
-	[SapphireProject.Framework]: LocalStorageKeys.FrameworkTags,
-	[SapphireProject.Pieces]: LocalStorageKeys.PiecesTags,
-	[SapphireProject.Plugins]: LocalStorageKeys.PluginsTags,
-	[SapphireProject.Utilities]: LocalStorageKeys.UtilitiesTags
+const projectsToLocalStorageKeys: Record<SapphireCommunity, LocalStorageKeys> = {
+	[SapphireCommunity.Framework]: LocalStorageKeys.FrameworkTags,
+	[SapphireCommunity.Pieces]: LocalStorageKeys.PiecesTags,
+	[SapphireCommunity.Plugins]: LocalStorageKeys.PluginsTags,
+	[SapphireCommunity.Utilities]: LocalStorageKeys.UtilitiesTags
 };
 
 const PluginRegex = /@sapphire\/plugin-([a-z]+).+/;
@@ -63,10 +63,10 @@ const TagSelector: FC = () => {
 			defaultSearchValue={{ color: theme.palette.primary.contrastText, groupName: 'Branches & Tags', label: 'main' }}
 			triggerValueReset={triggerValueReset}
 			groupBy={(option) => {
-				if (projectSelection === SapphireProject.Plugins) {
+				if (projectSelection === SapphireCommunity.Plugins) {
 					const groupName = PluginRegex.exec(option.label)?.[1] ?? 'Branches';
 					return toTitleCase(groupName);
-				} else if (projectSelection === SapphireProject.Utilities) {
+				} else if (projectSelection === SapphireCommunity.Utilities) {
 					const groupName = UtilitiesRegex.exec(option.label)?.[1] ?? 'Branches';
 					return toTitleCase(groupName);
 				}

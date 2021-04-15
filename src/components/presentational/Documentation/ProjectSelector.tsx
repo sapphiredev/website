@@ -4,7 +4,7 @@ import { updateProjectSelection } from '@contexts/ProjectSelectionContext';
 import { updateProjectTags } from '@contexts/ProjectTagsContext';
 import AutoComplete from '@mui/AutoComplete';
 import { ProjectSelectionOption, SapphireProjects } from '@utils/constants';
-import { SapphireProject } from '@utils/gh-fetch';
+import { SapphireCommunity } from '@utils/gh-fetch';
 import React, { FC, memo } from 'react';
 
 const ProjectSelector: FC = () => {
@@ -20,7 +20,7 @@ const ProjectSelector: FC = () => {
 				setCurrentProjectTag('main');
 				setProjectSelection(newSelectedProject.label);
 			}}
-			defaultSearchValue={{ color: theme.palette.primary.contrastText, groupName: 'Projects', label: SapphireProject.Framework }}
+			defaultSearchValue={{ color: theme.palette.primary.contrastText, groupName: 'Projects', label: SapphireCommunity.Framework }}
 			disableClearable
 		/>
 	);

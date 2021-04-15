@@ -38,10 +38,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Left = () => (
 	<Box textAlign="left" display="flex" flexDirection="column">
-		<Link href="https://ko-fi.com/sapphireproject" text="Ko-fi" />
-		<Link href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SP738BQTQQYZY" text="PayPal" />
-		<Link href="https://www.patreon.com/sapphire_project" text="Patreon" />
-		<Link href="https://opencollective.com/sapphire-project" text="Open Collective" />
+		<Link href="https://sapphirejs.com/kofi" text="Ko-fi" />
+		<Link href="https://sapphirejs.com/paypal" text="PayPal" />
+		<Link href="https://sapphirejs.com/patreon" text="Patreon" />
+		<Link href="https://sapphirejs.com/opencollective" text="Open Collective" />
 	</Box>
 );
 const Right = () => (
@@ -56,7 +56,7 @@ const Right = () => (
 const Middle = () => (
 	<Box display="flex" flexDirection="column" alignItems="center" alignContent="center">
 		<Typography variant="caption" align="center">
-			Copyright © 2020 The Sapphire Project and its contributors.
+			Copyright © 2020 The Sapphire Community and its contributors.
 		</Typography>
 		<Link href={VercelUrl}>
 			<VercelLogo style={{ marginTop: 15, cursor: 'pointer' }} />
