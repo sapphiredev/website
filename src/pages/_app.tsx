@@ -46,7 +46,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 				'font-size: 18px; font-weight: bold; color: red;'
 			);
 			console.log(
-				'%cIf you do understand exactly what you are doing, you should join the Sapphire Development team https://www.sapphirejs.dev/discord',
+				'%cIf you do understand exactly what you are doing, you should join the Sapphire Development team https://sapphirejs.dev/discord',
 				'font-size: 16px;'
 			);
 		}
