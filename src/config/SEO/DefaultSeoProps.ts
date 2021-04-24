@@ -2,7 +2,7 @@ import theme from '@config/theme';
 import type { DefaultSeoProps as DefaultSeoPropsType } from 'next-seo';
 import type { AdditionalRobotsProps } from 'next-seo/lib/types';
 
-export const BaseUrl = 'https://sapphirejs.com';
+export const BaseUrl = 'https://www.sapphirejs.dev';
 export const DefaultSeoProps: DefaultSeoPropsType = {
 	titleTemplate: 'Sapphire | %s',
 	title: 'Home',

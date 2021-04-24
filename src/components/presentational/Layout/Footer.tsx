@@ -38,10 +38,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Left = () => (
 	<Box textAlign="left" display="flex" flexDirection="column">
-		<Link href="https://sapphirejs.com/kofi" text="Ko-fi" />
-		<Link href="https://sapphirejs.com/paypal" text="PayPal" />
-		<Link href="https://sapphirejs.com/patreon" text="Patreon" />
-		<Link href="https://sapphirejs.com/opencollective" text="Open Collective" />
+		<Link href="https://www.sapphirejs.dev/kofi" text="Ko-fi" />
+		<Link href="https://www.sapphirejs.dev/paypal" text="PayPal" />
+		<Link href="https://www.sapphirejs.dev/patreon" text="Patreon" />
+		<Link href="https://www.sapphirejs.dev/opencollective" text="Open Collective" />
 	</Box>
 );
 const Right = () => (
