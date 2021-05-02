@@ -12,10 +12,10 @@ export interface ProjectTagOption extends GroupableAutoCompleteOption {
 }
 
 export const ServerURL = 'https://discord.com/invite/j8ACK6u';
-export const GithubUrl = 'https://github.com/sapphire-community';
+export const GithubUrl = 'https://github.com/sapphiredev';
 export const NpmOrgUrl = 'https://www.npmjs.com/org/sapphire';
 export const DiscordJsUrl = 'https://discord.js.org/';
-export const VercelUrl = 'https://vercel.com?utm_source=sapphire-community&utm_campaign=oss';
+export const VercelUrl = 'https://vercel.com?utm_source=sapphiredev&utm_campaign=oss';
 
 export const SapphireProjects = Object.values(SapphireCommunity).map<ProjectSelectionOption>((label) => ({
 	color: theme.palette.primary.contrastText,

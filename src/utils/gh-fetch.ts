@@ -10,8 +10,8 @@ export enum SapphireCommunity {
 
 export const fetchBranchesAndTags = async (project: SapphireCommunity) => {
 	const [branches, tags] = await Promise.all<Branch[], Tag[]>([
-		fetchJson(`https://api.github.com/repos/sapphire-community/${project}/branches`),
-		fetchJson(`https://api.github.com/repos/sapphire-community/${project}/tags`)
+		fetchJson(`https://api.github.com/repos/sapphiredev/${project}/branches`),
+		fetchJson(`https://api.github.com/repos/sapphiredev/${project}/tags`)
 	]);
 
 	return [...branches.map((b) => b.name), ...tags.map((t) => t.name)].filter(
@@ -20,5 +20,5 @@ export const fetchBranchesAndTags = async (project: SapphireCommunity) => {
 };
 
 export const fetchDocsJson = async (project: SapphireCommunity, tag: string) => {
-	return fetchJson(`https://raw.githubusercontent.com/sapphire-community/${project}/docs/${tag}.json`);
+	return fetchJson(`https://raw.githubusercontent.com/sapphiredev/${project}/docs/${tag}.json`);
 };

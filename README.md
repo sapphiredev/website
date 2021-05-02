@@ -6,10 +6,8 @@
 
 **Source code for Sapphire Community website.**
 
-[![GitHub](https://img.shields.io/github/license/sapphire-community/website)](https://github.com/sapphire-community/website/blob/main/LICENSE.md)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-community/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-community/website/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/sapphire-community/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-community/website/context:javascript)
-[![Depfu](https://badges.depfu.com/badges/45f1454ca1f7f722f421325d0e66acfd/count.svg)](https://depfu.com/github/sapphire-community/website?project_id=17718)
+[![GitHub](https://img.shields.io/github/license/sapphiredev/website)](https://github.com/sapphiredev/website/blob/main/LICENSE.md)
+[![Depfu](https://badges.depfu.com/badges/45f1454ca1f7f722f421325d0e66acfd/count.svg)](https://depfu.com/github/sapphiredev/website?project_id=17718)
 
 </div>
 
@@ -48,7 +46,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/sapphire-community/website/issues?q=author%3AFavna" title="Bug reports">🐛</a> <a href="https://github.com/sapphire-community/website/commits?author=Favna" title="Code">💻</a> <a href="#content-Favna" title="Content">🖋</a> <a href="#design-Favna" title="Design">🎨</a> <a href="#infra-Favna" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-Favna" title="Maintenance">🚧</a> <a href="#platform-Favna" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-Favna" title="Project Management">📆</a> <a href="https://github.com/sapphire-community/website/pulls?q=is%3Apr+reviewed-by%3AFavna" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/sapphiredev/website/issues?q=author%3AFavna" title="Bug reports">🐛</a> <a href="https://github.com/sapphiredev/website/commits?author=Favna" title="Code">💻</a> <a href="#content-Favna" title="Content">🖋</a> <a href="#design-Favna" title="Design">🎨</a> <a href="#infra-Favna" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-Favna" title="Maintenance">🚧</a> <a href="#platform-Favna" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-Favna" title="Project Management">📆</a> <a href="https://github.com/sapphiredev/website/pulls?q=is%3Apr+reviewed-by%3AFavna" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
@@ -59,4 +57,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-[vercel]: https://vercel.com?utm_source=sapphire-community&utm_campaign=oss
+[vercel]: https://vercel.com?utm_source=sapphiredev&utm_campaign=oss
