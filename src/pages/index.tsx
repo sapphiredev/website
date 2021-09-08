@@ -46,7 +46,7 @@ const Index: NextPage = () => {
 		<>
 			<GeneralPage>
 				<Container maxWidth="lg">
-					<Grid container spacing={4} direction="column" justify="center" alignContent="center" alignItems="center">
+					<Grid container spacing={4} direction="column" justifyContent="center" alignContent="center" alignItems="center">
 						<Grid item xs={12} lg={12}>
 							<Box display="flex" alignItems="center" alignContent="center" justifyContent="center">
 								<Typography variant="h1" classes={{ root: classes.header }}>

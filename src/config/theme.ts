@@ -1,8 +1,8 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import type { TimelineClassKey } from '@material-ui/lab/Timeline';
 import type { TimelineItemClassKey } from '@material-ui/lab/TimelineItem';
 
-export default createMuiTheme({
+export default createTheme({
 	typography: {
 		fontFamily: [
 			'Lato',

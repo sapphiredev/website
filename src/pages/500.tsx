@@ -34,7 +34,14 @@ const Page500: NextPage = () => {
 			<NextSeo title="500" description="Server Error!" nofollow noindex robotsProps={robotBlockingPageProps} />
 			<GeneralPage>
 				<Container maxWidth="md">
-					<Grid container direction="column" justify="center" alignContent="stretch" alignItems="center" classes={{ root: classes.root }}>
+					<Grid
+						container
+						direction="column"
+						justifyContent="center"
+						alignContent="stretch"
+						alignItems="center"
+						classes={{ root: classes.root }}
+					>
 						<Grid item>
 							<Typography variant={isOnMobile ? 'h5' : 'h4'} color="textPrimary" classes={{ root: classes.text }}>
 								Oh dear! It looks like the server is having issues. This website is being hosted on{' '}

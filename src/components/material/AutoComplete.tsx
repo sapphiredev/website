@@ -146,7 +146,7 @@ function AutoComplete<T extends GroupableAutoCompleteOption>({
 				const parts = parse(label, matches);
 
 				return (
-					<Grid container={true} alignItems="center" alignContent="flex-start" justify="flex-start">
+					<Grid container={true} alignItems="center" alignContent="flex-start" justifyContent="flex-start">
 						<Grid item={true} xs={12}>
 							{parts.map((part, index) => (
 								<Typography
