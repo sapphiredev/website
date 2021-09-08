@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import InputBase from '@material-ui/core/InputBase';
-import { createStyles, fade, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, alpha, makeStyles, Theme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		search: {
 			position: 'relative',
 			borderRadius: theme.shape.borderRadius,
-			backgroundColor: fade(theme.palette.common.white, 0.15),
+			backgroundColor: alpha(theme.palette.common.white, 0.15),
 			'&:hover': {
-				backgroundColor: fade(theme.palette.common.white, 0.25)
+				backgroundColor: alpha(theme.palette.common.white, 0.25)
 			},
 			marginLeft: 0,
 			width: '100%',
@@ -69,7 +69,7 @@ const DocNavBar: FC = () => {
 		<Box flexGrow={1}>
 			<AppBar position="static" color="secondary">
 				<Toolbar>
-					<Grid container spacing={2} alignItems="center" alignContent="stretch" justify="flex-start">
+					<Grid container spacing={2} alignItems="center" alignContent="stretch" justifyContent="flex-start">
 						<Hidden smDown>
 							<Grid item />
 							<Grid item>
