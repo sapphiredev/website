@@ -7,7 +7,6 @@
 **Source code for Sapphire Community website.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/website)](https://github.com/sapphiredev/website/blob/main/LICENSE.md)
-[![Depfu](https://badges.depfu.com/badges/45f1454ca1f7f722f421325d0e66acfd/count.svg)](https://depfu.com/github/sapphiredev/website?project_id=17718)
 
 </div>
 
