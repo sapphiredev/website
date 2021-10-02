@@ -11,7 +11,7 @@ export interface ProjectTagOption extends GroupableAutoCompleteOption {
 	groupName: 'Branches & Tags';
 }
 
-export const ServerURL = 'https://discord.com/invite/j8ACK6u';
+export const ServerURL = 'https://discord.com/invite/sapphiredev';
 export const GithubUrl = 'https://github.com/sapphiredev';
 export const NpmOrgUrl = 'https://www.npmjs.com/org/sapphire';
 export const DiscordJsUrl = 'https://discord.js.org/';
