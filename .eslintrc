@@ -14,6 +14,14 @@
 			"version": "detect"
 		}
 	},
+	"overrides": [
+		{
+			"files": ["docusaurus.config.js", "babel.config.js", "sidebars.js"],
+			"rules": {
+				"@typescript-eslint/no-var-requires": "off"
+			}
+		}
+	],
 	"rules": {
 		"no-extra-label": "warn",
 		"no-iterator": "warn",

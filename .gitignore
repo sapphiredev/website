@@ -1,28 +1,26 @@
-# dependencies
+# Dependencies
 node_modules/
 .pnp/
 package-lock.json
-.pnp.js
 
-# production
+# Yarn files
+.yarn/install-state.gz
+.yarn/build-state.yml
+
+# Production
 build/
-dist/
-out/
-.next/
-.tsbuildinfo
-sitemap.xml
-sw.js
-workbox*.js
+
+# Generated Files
+.docusaurus/
+.cache-loader/
+docs/Documentation/
 
 # misc
 .DS_Store
 Thumbs.db
 
 # Local env vars
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env
 
 # IDE Settings
 .idea/
@@ -33,3 +31,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 *.log
+
+# Lockfile backups
+scripts/backup/

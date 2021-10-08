@@ -37,6 +37,8 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # renovate: tag=v2
+        with:
+          submodules: true
       - name: Add problem matcher
         run: echo "::add-matcher::.github/problemMatchers/tsc.json"
       - name: Use Node.js v16
@@ -49,13 +51,12 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
-      - name: Restore Next Cache
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353 # renovate: tag=v2.1.6
-        with:
-          path: ${{ github.workspace }}/src/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
         run: yarn --frozen-lockfile
-      - name: Build Code
+      - name: Clean Submodule Lockfiles
+        run: node scripts/remove-submodule-lockfiles.mjs
+      - name: Build All Submodules
+        run: yarn build-all-projects
+      - name: Build Website Code
         run: yarn build
