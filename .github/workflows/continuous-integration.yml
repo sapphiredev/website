@@ -10,6 +10,8 @@ jobs:
   Linting:
     name: Linting
     runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
     steps:
       - name: Checkout Project
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # renovate: tag=v2
@@ -34,6 +36,8 @@ jobs:
   Build:
     name: Build
     runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=4096'
     steps:
       - name: Checkout Project
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # renovate: tag=v2
