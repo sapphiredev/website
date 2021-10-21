@@ -17179,6 +17179,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"replace-in-file@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "replace-in-file@npm:6.3.1"
+  dependencies:
+    chalk: ^4.1.2
+    glob: ^7.2.0
+    yargs: ^17.2.1
+  bin:
+    replace-in-file: bin/cli.js
+  checksum: 6c7ab0084930f5f6d4f3ca83793991ac8646be7750341d8d2fbd1ba5dff9a89c0ccbceb6f87894e0bd51f6900ce8b1c03bcd68d63692fb087646349b13105bc2
+  languageName: node
+  linkType: hard
+
 "request@npm:^2.88.0, request@npm:^2.88.2":
   version: 2.88.2
   resolution: "request@npm:2.88.2"
@@ -17656,6 +17669,7 @@ resolve@^2.0.0-next.3:
     prism-react-renderer: ^1.2.1
     react: ^17.0.2
     react-dom: ^17.0.2
+    replace-in-file: ^6.3.1
     rimraf: ^3.0.2
     swr: ^1.0.1
     typedoc: ^0.22.6
@@ -21240,7 +21254,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0":
+"yargs@npm:^17.0.0, yargs@npm:^17.2.1":
   version: 17.2.1
   resolution: "yargs@npm:17.2.1"
   dependencies:
