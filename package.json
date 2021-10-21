@@ -25,6 +25,7 @@
 		"update": "yarn upgrade-interactive --latest",
 		"prepare": "husky install .github/husky",
 		"vercel-build": "yarn remove-submodule-lockfiles && yarn build-all-projects && yarn build",
+		"update-submodules": "git pull --recurse-submodules && git submodule update --remote --recursive",
 		"revert-submodule-edits": "git checkout -q --recurse-submodules projects/",
 		"remove-submodule-lockfiles": "node scripts/remove-submodule-lockfiles.mjs",
 		"restore-submodule-lockfiles": "node scripts/restore-submodule-lockfiles.mjs",
