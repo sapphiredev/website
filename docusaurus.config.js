@@ -105,7 +105,7 @@ const config = {
 				id: 'Type',
 				entryPoints: ['./projects/type/src/index.ts'],
 				tsconfig: './projects/type/src/tsconfig.json',
-				readme: 'none',
+				readme: './projects/type/README.md',
 				out: 'Documentation/api-type',
 				sidebar: {
 					categoryLabel: '@sapphire/type',

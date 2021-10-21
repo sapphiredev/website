@@ -1,20 +1,18 @@
 {
-	"extends": "@sapphire/ts-config",
-	"display": "Docusaurus v2",
-	"docs": "https://v2.docusaurus.io/docs/typescript-support",
+	"extends": "./projects/utilities/packages/ts-config/src/tsconfig.json",
 	"compilerOptions": {
 		"allowJs": true,
-		"esModuleInterop": true,
 		"jsx": "react",
 		"lib": ["ESNext", "DOM"],
 		"noEmit": true,
 		"noImplicitAny": false,
-		"types": ["node", "@docusaurus/module-type-aliases", "@docusaurus/theme-classic"],
 		"baseUrl": ".",
-		"rootDir": "src",
 		"paths": {
 			"@site/*": ["./*"]
-		}
+		},
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"importsNotUsedAsValues": "remove"
 	},
 	"include": ["src", "docs/General"]
 }
