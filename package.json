@@ -31,6 +31,7 @@
 		"remove-submodule-lockfiles": "node scripts/remove-submodule-lockfiles.mjs",
 		"restore-submodule-lockfiles": "node scripts/restore-submodule-lockfiles.mjs",
 		"make-djs-node-14-compatible": "node scripts/make-djs-node-14-compatible.mjs",
+		"build-github-workflows": "yarn workspace root-utilities build:1",
 		"build-all-projects": "yarn build-all-projects-sequential && yarn build-all-projects-parallel",
 		"build-all-projects-sequential": "yarn workspace root-utilities build:123 && yarn workspace @sapphire/pieces prepublishOnly && yarn workspace @sapphire/framework prepublishOnly && yarn workspace root-utilities build:4",
 		"build-all-projects-parallel": "concurrently --kill-others-on-fail --names \"Plugins,Cli,Type\" \"yarn workspace root-plugins build\" \"yarn workspace @sapphire/cli build\" \"yarn workspace @sapphire/type build\""
