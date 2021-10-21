@@ -7,7 +7,7 @@ const files = `${fileURLToPath(discordJsSrcFolder)}**${sep}*.js`;
 
 const optionsLogicalNullish = {
 	files,
-	from: /([\w_\.]{9,}) \?\?= (.+);/g,
+	from: /([\w_\.]+) \?\?= (.+);/g,
 	to: '$1 !== null && $1 !== void 0 ? $1 : ($1 = $2);'
 };
 
