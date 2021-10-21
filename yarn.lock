@@ -4746,6 +4746,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^16.11.2":
+  version: 16.11.2
+  resolution: "@types/node@npm:16.11.2"
+  checksum: 1617b61160943121165ff89d72d3f7b4d55265a0129fd2ab6eb0ce81a3340ce9b3bd2ce8ec2d9f0f8b3702b434870596cd327ba472ba6e7d1faa5eedb8208e3a
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.1
   resolution: "@types/normalize-package-data@npm:2.4.1"
@@ -4802,7 +4809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.9":
+"@types/react-dom@npm:^17.0.10":
   version: 17.0.10
   resolution: "@types/react-dom@npm:17.0.10"
   dependencies:
@@ -4811,7 +4818,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.30":
+"@types/react@npm:*":
   version: 17.0.30
   resolution: "@types/react@npm:17.0.30"
   dependencies:
@@ -4819,6 +4826,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: e3aaac1b8fda6e3622b75db0bd7d8dc412c2f2b77a00afdd32cae8c71fb0b1ca6926ab1fbe1c536dd51d96c0ba372738993837a8df1637637aaab7b86e421b7f
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17.0.31":
+  version: 17.0.31
+  resolution: "@types/react@npm:17.0.31"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: c2ea547b3e3398f53971908ae34bdb1ca1f2d8f1cf57a6f21c37b2bb77c2e625b5349de69b3c573f969056362eddac4bbac075d5d470716feef4161e26692b83
   languageName: node
   linkType: hard
 
@@ -11034,6 +11052,15 @@ fsevents@^1.2.7:
   bin:
     husky: lib/bin.js
   checksum: 2ccfe6ddc51dc05ae8ea1e2fbb893344e93a813e00c595d6b5f5e704b7b998d6b0e2adda7c57f99b5e46a60dc07c7d860269a2ea91661c6bacef0eca8e0b8e96
+  languageName: node
+  linkType: hard
+
+"husky@npm:^7.0.4":
+  version: 7.0.4
+  resolution: "husky@npm:7.0.4"
+  bin:
+    husky: lib/bin.js
+  checksum: c6ec4af63da2c9522da8674a20ad9b48362cc92704896cc8a58c6a2a39d797feb2b806f93fbd83a6d653fbdceb2c3b6e0b602c6b2e8565206ffc2882ef7db9e9
   languageName: node
   linkType: hard
 
@@ -17645,9 +17672,9 @@ resolve@^2.0.0-next.3:
     "@sapphire/ts-config": ^3.1.2
     "@svgr/webpack": ^5.5.0
     "@tippyjs/react": ^4.2.5
-    "@types/node": ^16.11.1
-    "@types/react": ^17.0.30
-    "@types/react-dom": ^17.0.9
+    "@types/node": ^16.11.2
+    "@types/react": ^17.0.31
+    "@types/react-dom": ^17.0.10
     "@typescript-eslint/eslint-plugin": ^5.1.0
     "@typescript-eslint/parser": ^5.1.0
     clsx: ^1.1.1
@@ -17662,7 +17689,7 @@ resolve@^2.0.0-next.3:
     eslint-plugin-react: ^7.26.1
     eslint-plugin-react-hooks: ^4.2.0
     file-loader: ^6.2.0
-    husky: ^7.0.2
+    husky: ^7.0.4
     lint-staged: ^11.2.3
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
