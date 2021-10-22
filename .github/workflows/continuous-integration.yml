@@ -30,8 +30,6 @@ jobs:
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
         run: yarn --immutable
-      - name: Clean Submodule Lockfiles
-        run: node scripts/remove-submodule-lockfiles.mjs
       - name: Run ESLint
         run: yarn lint --fix=false
 
@@ -56,7 +54,5 @@ jobs:
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
         run: yarn --immutable
-      - name: Clean Submodule Lockfiles
-        run: node scripts/remove-submodule-lockfiles.mjs
       - name: Run Prettier
         run: yarn format:check
