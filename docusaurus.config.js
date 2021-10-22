@@ -30,7 +30,7 @@ const config = {
 					{
 						tagName: 'link',
 						rel: 'manifest',
-						href: '/manifest.json'
+						href: '/manifest.webmanifest'
 					},
 					{
 						tagName: 'meta',
