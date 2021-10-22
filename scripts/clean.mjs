@@ -1,4 +1,4 @@
-import { rm } from 'fs/promises';
+import { rm } from 'node:fs/promises';
 
 const rootDir = new URL('../', import.meta.url);
 const documentationDir = new URL('docs/Documentation/', rootDir);
