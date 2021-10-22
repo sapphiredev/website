@@ -32,8 +32,6 @@ jobs:
         run: yarn --immutable
       - name: Clean Submodule Lockfiles
         run: node scripts/remove-submodule-lockfiles.mjs
-      - name: Build ESLint Config & Prettier Config
-        run: yarn build-github-workflows
       - name: Run ESLint
         run: yarn lint --fix=false
 
@@ -60,7 +58,5 @@ jobs:
         run: yarn --immutable
       - name: Clean Submodule Lockfiles
         run: node scripts/remove-submodule-lockfiles.mjs
-      - name: Build ESLint Config & Prettier Config
-        run: yarn build-github-workflows
       - name: Run Prettier
         run: yarn format:check
