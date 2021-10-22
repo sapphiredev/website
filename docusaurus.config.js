@@ -193,7 +193,6 @@ const config = {
 			],
 			navbar: {
 				title: 'Sapphire',
-				hideOnScroll: true,
 				logo: {
 					alt: 'Sapphire Logo',
 					src: 'img/gem.svg'
