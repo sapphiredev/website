@@ -21,7 +21,7 @@ After forking/cloning this repo to a folder locally:
 
 This project is being hosted by the amazing team at [Vercel]. We use their service to ensure you always get the latest version of the documentation, as well as being able to preview builds internally. Thank you [Vercel]!
 
-[![Vercel](./.github/powered-by-vercel.svg)][vercel]
+[![Vercel](./static/img/powered-by-vercel.svg)][vercel]
 
 ## Buy us some doughnuts
 

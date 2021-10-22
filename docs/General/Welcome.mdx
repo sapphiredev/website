@@ -1,0 +1,237 @@
+---
+sidebar_position: 0
+---
+
+import OptionalPackageLink from './OptionalPackageLink';
+import SimpleLink from './SimpleLink';
+
+<div style={{ textAlign: 'center' }}>
+
+![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+
+# Sapphire
+
+[![Discord server](https://img.shields.io/discord/737141877803057244?color=5865F2&logo=discord&logoColor=white)](https://sapphirejs.dev/discord)
+[![NPM version](https://img.shields.io/npm/v/@sapphire/framework?color=crimson&label=NPM%20Version&logo=npm)](https://www.npmjs.com/package/@favware/graphql-pokemon)
+[![NPM downloads](https://img.shields.io/npm/dt/@sapphire/framework.svg?label=NPM%20Downloads&logo=npm)](https://www.npmjs.com/package/@sapphire/framework)
+[![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg?label=Patreon&logo=patreon&colorB=F96854&style=flat-square&link=https://sapphirejs.dev/patreon)](https://sapphirejs.dev/patreon)
+[![PayPal](https://img.shields.io/badge/paypal-donate-brightgreen.svg?label=Paypal&logo=paypal&colorB=00457C&style=flat-square&link=https://sapphirejs.dev/paypal)](https://sapphirejs.dev/paypal)
+
+</div>
+
+## About
+
+Sapphire is a next-gen object-oriented [Discord.js](https://discord.js.org/) bot framework.
+
+Sapphire is a community driven framework that aims to give you all the features you need to make your Discord bot.
+
+With a history of many other Discord bot frameworks (both for NodeJS and other languages) to inspire Sapphire, it has become the ultimate modern experience of writing your code.
+
+### Key Features
+
+-   Advanced plugin support
+-   Supports both CommonJS and ESM
+-   Completely modular and extendable
+-   Designed with first class TypeScript support in mind
+-   Includes optional utilities that you can use in any project
+
+## Installation
+
+**Node.js 16.6.0 or newer is required.**
+
+```sh-session
+npm install @sapphire/framework discord.js
+yarn add @sapphire/framework discord.js
+pnpm add @sapphire/framework discord.js
+```
+
+### Optional packages
+
+#### Official Plugins
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/plugin-api"
+    	linkName="@sapphire/plugin-api"
+    	description="Expose a REST API within the same process as your bot."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/plugin-editable-commands"
+    	linkName="@sapphire/plugin-editable-commands"
+    	description="Make it possible to edit your command messages and trigger new commands."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/plugin-i18next"
+    	linkName="@sapphire/plugin-i18next"
+    	description={
+    		<>
+    			Integrate <a href="https://i18next.com">i18next</a> into your bot for internationalization.
+    		</>
+    	}
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/plugin-logger"
+    	linkName="@sapphire/plugin-logger"
+    	description="Add beautiful stylized logging to your bot."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/plugin-subcommands"
+    	linkName="@sapphire/plugin-subcommands"
+    	description="Add subcommands to your bot."
+    />
+
+#### Official Utilities and configurations
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/cli"
+    	linkName="@sapphire/cli"
+    	description="CLI to generate a new Sapphire bot, as we as add components to your current one."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/utilities"
+    	linkName="@sapphire/utilities"
+    	description="A plethora of awesome utility functions that are more useful than you can probably imagine."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/ts-config"
+    	linkName="@sapphire/ts-config"
+    	description="Our ts-config. We use it for all Sapphire projects, but it's also a great starting point for your TypeScript Discord bot."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/discord-utilities"
+    	linkName="@sapphire/discord-utilities"
+    	description="Useful utilities for any JavaScript/TypeScript based Discord bot."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/discord.js-utilities"
+    	linkName="@sapphire/discord.js-utilities"
+    	description="Useful utilities for a bot using Discord.JS such as paginated responses, type checks and prompts."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/decorators"
+    	linkName="@sapphire/decorators"
+    	description="Awesome decorators that let you write really clean code."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/fetch"
+    	linkName="@sapphire/fetch"
+    	description={
+    		<>
+    			A tiny wrapper around <a href="https://npmjs.com/package/cross-fetch">cross-fetch</a> that adds extra ease-of-use and type safety.
+    		</>
+    	}
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/time-utilities"
+    	linkName="@sapphire/time-utilities"
+    	description={
+    		<>
+    			Various methods and classes related to manipulating{' '}
+    			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> and time.
+    		</>
+    	}
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/embed-jsx"
+    	linkName="@sapphire/embed-jsx"
+    	description="Ever wanted to write your Discord embeds using JSX? Use this library."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/eslint-config"
+    	linkName="@sapphire/eslint-config"
+    	description="Our opinionated ESLint config that we use for all Sapphire projects."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/prettier-config"
+    	linkName="@sapphire/prettier-config"
+    	description="Our opinionated Prettier config that we use for all Sapphire projects."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/event-iterator"
+    	linkName="@sapphire/event-iterator"
+    	description="Turn your event emitter events into async iterators."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/ratelimits"
+    	linkName="@sapphire/ratelimits"
+    	description="Handle ratelimits with efficient bucket strategies."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/snowflake"
+    	linkName="@sapphire/snowflake"
+    	description={
+    		<>
+    			Generate and parse various forms of{' '}
+    			<a href="https://betterprogramming.pub/uuid-generation-snowflake-identifiers-unique-2aed8b1771bc">Snowflakes</a>.
+    		</>
+    	}
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/stopwatch"
+    	linkName="@sapphire/stopwatch"
+    	description="Accurately measure passing time with this stopwatch utility."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/type"
+    	linkName="@sapphire/type"
+    	description="A type detection utility leveraging NodeJS internals."
+    />
+
+-   <OptionalPackageLink
+    	href="https://www.npmjs.com/package/@sapphire/async-queue"
+    	linkName="@sapphire/async-queue"
+    	description="Sequential asynchronous lock-based queue for promises."
+    />
+
+## Example usage
+
+```js
+const { SapphireClient } = require('@sapphire/framework');
+
+const client = new SapphireClient({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
+
+client.login('your-token-goes-here');
+```
+
+## Links
+
+-   <span style={{ display: 'flex' }}>
+    	<SimpleLink href="https://sapphirejs.dev" linkName="Website" /> (
+    	<SimpleLink href="https://github.com/sapphiredev/website" linkName="source" noRightMargin />)
+    </span>
+-   <SimpleLink href="https://sapphirejs.dev/docs/General/Welcome" linkName="Documentation" />
+-   <SimpleLink href="https://sapphirejs.dev/docs/guide" linkName="Guide" />
+-   <SimpleLink href="https://sapphirejs.dev/discord" linkName="Sapphire Discord Server" />
+-   <SimpleLink href="https://discord.gg/djs" linkName="Discord.js Discord server" />
+-   <SimpleLink href="https://discord.gg/discord-developers" linkName="Discord Developers Discord server" />
+-   <SimpleLink href="https://github.com/sapphiredev/" linkName="GitHub" />
+
+## Contributing
+
+Before creating an issue, please ensure that it hasn't already been reported/suggested, and double-check the
+[documentation](https://sapphirejs.dev/docs/General/Welcome).
+
+See [the contribution guide](https://github.com/sapphiredev/readme/blob/main/CONTRIBUTING.md) if you'd like to submit a PR.
+
+## Help
+
+If you don't understand something in the documentation, you are experiencing problems, or you just need a gentle
+nudge in the right direction, please don't hesitate to join our official [Sapphire Community Server](https://sapphirejs.dev/discord).

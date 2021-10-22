@@ -1,10 +1,4 @@
 {
-	"extends": "./src/tsconfig.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"allowJs": true,
-		"checkJs": true
-	},
-	"include": ["scripts", "src"],
-	"exclude": ["src/next-env.d.ts", "src/next.config.js"]
+	"extends": "./tsconfig.json",
+	"include": ["src", "static", "docs/General", "projects", "scripts", "babel.config.js", "docusaurus.config.js", "sidebars.js"]
 }

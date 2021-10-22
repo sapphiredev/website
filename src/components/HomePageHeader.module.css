@@ -1,0 +1,32 @@
+.heroBanner {
+	padding: 4rem 0;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 966px) {
+	.heroBanner {
+		padding: 2rem;
+	}
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.buttonContent {
+	display: flex;
+	align-items: center;
+}
+
+.copyIcon {
+	height: 20px;
+	margin-left: 8px;
+}
+
+.colorGreen {
+	color: #3ba55c;
+}

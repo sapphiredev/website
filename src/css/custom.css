@@ -1,0 +1,46 @@
+:root {
+	--ifm-color-primary: #2563eb;
+	--ifm-color-primary-dark: #1d4ed8;
+	--ifm-color-primary-darker: #1e40af;
+	--ifm-color-primary-darkest: #1e3a8a;
+	--ifm-color-primary-light: #3b82f6;
+	--ifm-color-primary-lighter: #60a5fa;
+	--ifm-color-primary-lightest: #93c5fd;
+	--ifm-code-font-size: 95%;
+	--ifm-font-family-monospace: 'Fira Code', 'Meslo NGF', 'JetBrains Mono', 'Menlo', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+		'Courier New', monospace;
+}
+
+.docusaurus-highlight-code-line {
+	background-color: rgba(0, 0, 0, 0.1);
+	display: block;
+	margin: 0 calc(-1 * var(--ifm-pre-padding));
+	padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.prism-code {
+	counter-reset: line-number;
+}
+
+.prism-code .token-line::marker {
+	color: var(--ifm-color-gray-700);
+	content: counter(line-number);
+}
+
+.prism-code .token-line {
+	counter-increment: line-number;
+	display: list-item;
+	padding-left: var(--ifm-pre-padding);
+	margin-left: var(--ifm-global-spacing);
+}
+
+.footer--dark {
+	--ifm-footer-background-color: var(--ifm-footer-background-color);
+	--ifm-footer-color: var(--ifm-font-color-base);
+	--ifm-footer-link-color: var(--ifm-link-color);
+	--ifm-footer-title-color: var(--ifm-font-color-base);
+}
