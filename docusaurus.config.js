@@ -4,11 +4,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 const config = {
 	title: 'Sapphire',
-	url: 'https://www.sapphirejs.dev',
+	url: 'https://sapphirejs.dev',
 	baseUrl: '/',
 	onBrokenLinks: 'throw',
-	onBrokenMarkdownLinks: 'warn',
+	onBrokenMarkdownLinks: 'throw',
+	onDuplicateRoutes: 'throw',
 	favicon: 'img/favicon.ico',
+	tagline: 'Sapphire is a next-gen Discord bot framework for developers of all skill levels to make the best JavaScript/TypeScript based bots possible.',
 	organizationName: 'sapphiredev',
 	projectName: 'framework',
 
