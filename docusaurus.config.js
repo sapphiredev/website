@@ -1,16 +1,21 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const Description =
+	'Sapphire is a next-gen Discord bot framework for developers of all skill levels to make the best JavaScript/TypeScript based bots possible.';
+const BaseUrl = 'https://sapphirejs.dev';
+const Email = 'contact@sapphirejs.dev';
+const Title = 'Sapphire Framework';
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 const config = {
 	title: 'Sapphire',
-	url: 'https://sapphirejs.dev',
+	url: BaseUrl,
 	baseUrl: '/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'throw',
 	onDuplicateRoutes: 'throw',
 	favicon: 'img/favicon.ico',
-	tagline: 'Sapphire is a next-gen Discord bot framework for developers of all skill levels to make the best JavaScript/TypeScript based bots possible.',
+	tagline: Description,
 	organizationName: 'sapphiredev',
 	projectName: 'framework',
 
@@ -136,6 +141,55 @@ const config = {
 	themeConfig:
 		/** @type {Partial<import('@docusaurus/preset-classic').ThemeConfig>} */
 		({
+			image: '/icons/opengraph.png',
+			colorMode: {
+				defaultMode: 'dark',
+				respectPrefersColorScheme: true
+			},
+			metadatas: [
+				{ name: 'apple-mobile-web-app-capable', content: 'yes' },
+				{ name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+				{ name: 'apple-mobile-web-app-title', content: Title },
+				{ name: 'application-name', content: Title },
+				{ name: 'audience', content: 'all' },
+				{ name: 'author', content: `Sapphire Community, ${Email}` },
+				{ name: 'coverage', content: 'Worldwide' },
+				{ name: 'description', content: Description },
+				{ name: 'designer', content: `Sapphire Community, ${Email}` },
+				{ name: 'distribution', content: 'Global' },
+				{ name: 'googlebot', content: 'index,follow' },
+				{ name: 'HandheldFriendly', content: 'True' },
+				{ name: 'identifier-URL', content: BaseUrl },
+				{ name: 'keywords', content: 'discord, bot, framework, documentation, guide, sapphire' },
+				{ name: 'msapplication-config', content: '/browserconfig.xml' },
+				{ name: 'msapplication-TileColor', content: '#23529B' },
+				{ name: 'msapplication-TileImage', content: '/icons/mstile-144x144.png' },
+				{ name: 'owner', content: `Sapphire Community, ${Email}` },
+				{ name: 'rating', content: 'safe for kids' },
+				{ name: 'reply-to', content: Email },
+				{ name: 'revisit-after', content: '7 days' },
+				{ name: 'robots', content: 'archive,follow,imageindex,index,odp,snippet,translate' },
+				{ name: 'shortlink', content: BaseUrl },
+				{ name: 'subject', content: 'Documentation website for Sapphire Projects' },
+				{ name: 'summary', content: Description },
+				{ name: 'target', content: 'all' },
+				{ name: 'theme-color', content: '#23529B' },
+				{ name: 'twitter:card', content: 'summary' },
+				{ name: 'twitter:creator', content: '@WolfgalVlad' },
+				{ name: 'twitter:site', content: '@WolfgalVlad' },
+				{ name: 'url', content: BaseUrl },
+				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+				{ property: 'og:description', content: Description },
+				{ property: 'og:email', content: Email },
+				{ property: 'og:image:alt', content: 'OpenGraphImage' },
+				{ property: 'og:image:height', content: '512' },
+				{ property: 'og:image:width', content: '1024' },
+				{ property: 'og:locale', content: 'en_US' },
+				{ property: 'og:site_name', content: Title },
+				{ property: 'og:title', content: Title },
+				{ property: 'og:type', content: 'website' },
+				{ property: 'og:url', content: BaseUrl }
+			],
 			navbar: {
 				title: 'Sapphire',
 				logo: {

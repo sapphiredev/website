@@ -6,7 +6,6 @@
  */
 import Link from '@docusaurus/Link';
 import React, { FC } from 'react';
-import { DiscordJsUrl } from '../utils/constants';
 import Feature from './Features/Feature';
 import StatisticsFeature from './Features/StatisticsFeature';
 import type { FeatureItem } from './Features/Types';
@@ -17,7 +16,7 @@ const FeatureList: FeatureItem[] = [
 		title: 'Image a framework',
 		description: (
 			<>
-				Sapphire is a next-gen object-oriented <Link to={DiscordJsUrl}>Discord.js</Link> bot framework.
+				Sapphire is a next-gen object-oriented <Link to="https://discord.js.org">Discord.js</Link> bot framework.
 				<br />
 				<br />
 				Sapphire is a community driven framework that aims to give you all the features you need to make your Discord bot.
