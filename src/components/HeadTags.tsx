@@ -8,7 +8,6 @@ const HeadTags: FC = () => {
 			<title>{Title}</title>
 			<meta charSet="utf-8" />
 			<meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
-			<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 			<meta httpEquiv="Expires" content="1y" />
 			<meta httpEquiv="Pragma" content="1y" />
 			<meta httpEquiv="Cache-Control" content="1y" />
@@ -23,7 +22,7 @@ const HeadTags: FC = () => {
 			<link rel="icon" type="image/png" sizes="194x194" href="/icons/android-chrome-194x194.png" />
 			<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
 			<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-			<link rel="manifest" href="/manifest.json" />
+			<link rel="manifest" href="/manifest.webmanifest" />
 			<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#23529B" />
 			<link rel="shortcut icon" href="/icons/favicon.ico" />
 			<link rel="apple-touch-startup-image" href="/icons/apple-startup.png" />
