@@ -8,7 +8,7 @@ const StatisticsFeature: FC = () => (
 	<div className={clsx('col col--4')}>
 		<div className="text--left padding-horiz--md">
 			<h3>Statistics</h3>
-			<p>
+			<div>
 				<BrowserOnly fallback={<LoadingSkeleton />}>
 					{() => (
 						<Suspense fallback={<LoadingSkeleton />}>
@@ -16,7 +16,7 @@ const StatisticsFeature: FC = () => (
 						</Suspense>
 					)}
 				</BrowserOnly>
-			</p>
+			</div>
 		</div>
 	</div>
 );

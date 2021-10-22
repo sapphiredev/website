@@ -6,7 +6,7 @@ const Feature: FC<FeatureItem> = ({ title, description }) => (
 	<div className={clsx('col col--4')}>
 		<div className="text--left padding-horiz--md">
 			<h3>{title}</h3>
-			<p>{description}</p>
+			<div>{description}</div>
 		</div>
 	</div>
 );

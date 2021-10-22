@@ -2,6 +2,7 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import { formatNumber } from '@site/src/utils/Intl';
 import React, { FC, memo } from 'react';
 import useSWR from 'swr';
+import styles from './Statistics.module.css';
 import type { ContributorsData, NpmData, RepoData } from './Types';
 
 const Statistics: FC = () => {
@@ -19,14 +20,18 @@ const Statistics: FC = () => {
 
 	return (
 		<ul>
-			{npmData && <li>{formatNumber(npmData.downloads.reduce((acc: number, curr) => (acc += curr.downloads), 0))}+ downloads</li>}
+			{npmData && (
+				<li className={styles.downloads}>
+					{formatNumber(npmData.downloads.reduce((acc: number, curr) => (acc += curr.downloads), 0))}+ downloads
+				</li>
+			)}
 			{repoData && (
 				<>
-					<li>{formatNumber(repoData['stargazers_count'])}+ stars</li>
-					<li>{formatNumber(repoData['forks_count'])}+ forks</li>
+					<li className={styles.stars}>{formatNumber(repoData['stargazers_count'])}+ stars</li>
+					<li className={styles.forks}>{formatNumber(repoData['forks_count'])}+ forks</li>
 				</>
 			)}
-			{contributorsData && <li>{formatNumber(contributorsData.length)}+ contributors</li>}
+			{contributorsData && <li className={styles.contributors}>{formatNumber(contributorsData.length)}+ contributors</li>}
 		</ul>
 	);
 };

@@ -12,7 +12,7 @@ export default function Home(): JSX.Element {
 	return (
 		<>
 			<HeadTags />
-			<Layout title={siteConfig.title} description={siteConfig.tagline}>
+			<Layout title="Home" description={siteConfig.tagline}>
 				<SWRConfig
 					value={{
 						fetcher: (resource: string, init: RequestInit) => fetch(resource, init).then((res) => res.json())
