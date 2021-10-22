@@ -31,9 +31,9 @@
 		"make-djs-node-14-compatible": "node scripts/make-djs-node-14-compatible.mjs"
 	},
 	"dependencies": {
-		"@docusaurus/core": "2.0.0-beta.8",
-		"@docusaurus/plugin-pwa": "2.0.0-beta.8",
-		"@docusaurus/preset-classic": "2.0.0-beta.8",
+		"@docusaurus/core": "2.0.0-beta.6",
+		"@docusaurus/plugin-pwa": "2.0.0-beta.6",
+		"@docusaurus/preset-classic": "2.0.0-beta.6",
 		"@heroicons/react": "^1.0.5",
 		"@mdx-js/react": "^1.6.22",
 		"@svgr/webpack": "^5.5.0",
@@ -49,7 +49,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",
 		"@commitlint/config-conventional": "^13.2.0",
-		"@docusaurus/module-type-aliases": "2.0.0-beta.8",
+		"@docusaurus/module-type-aliases": "2.0.0-beta.6",
 		"@sapphire/eslint-config": "^4.0.1",
 		"@sapphire/prettier-config": "^1.2.3",
 		"@sapphire/ts-config": "^3.1.2",
@@ -107,6 +107,9 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
+	},
+	"resolutions": {
+		"ua-parser-js": "0.7.28"
 	},
 	"prettier": "@sapphire/prettier-config",
 	"packageManager": "yarn@3.0.2"

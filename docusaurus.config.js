@@ -6,7 +6,7 @@ const BaseUrl = 'https://sapphirejs.dev';
 const Email = 'contact@sapphirejs.dev';
 const Title = 'Sapphire Framework';
 
-/** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
+/** @type {import('@docusaurus/types').Config} */
 const config = {
 	title: 'Sapphire',
 	url: BaseUrl,
@@ -131,6 +131,7 @@ const config = {
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/sapphiredev/website/edit/main/'
 				},
+				blog: false,
 				theme: {
 					customCss: [require.resolve('./src/css/custom.css'), require.resolve('./src/css/tippy-discord.css')]
 				}
@@ -192,6 +193,7 @@ const config = {
 			],
 			navbar: {
 				title: 'Sapphire',
+				hideOnScroll: true,
 				logo: {
 					alt: 'Sapphire Logo',
 					src: 'img/gem.svg'
