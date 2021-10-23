@@ -9,9 +9,9 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"docusaurus": "docusaurus",
-		"start": "docusaurus start",
-		"build": "docusaurus build",
+		"docusaurus": "cross-env NODE_OPTIONS=\"--max-old-space-size=5120\"",
+		"start": "cross-env NODE_OPTIONS=\"--max-old-space-size=5120\" docusaurus start",
+		"build": "cross-env NODE_OPTIONS=\"--max-old-space-size=5120\" docusaurus build",
 		"swizzle": "docusaurus swizzle",
 		"deploy": "docusaurus deploy",
 		"clear": "docusaurus clear",
@@ -31,9 +31,9 @@
 		"make-djs-node-14-compatible": "node scripts/make-djs-node-14-compatible.mjs"
 	},
 	"dependencies": {
-		"@docusaurus/core": "2.0.0-beta.6",
-		"@docusaurus/plugin-pwa": "2.0.0-beta.6",
-		"@docusaurus/preset-classic": "2.0.0-beta.6",
+		"@docusaurus/core": "2.0.0-beta.8",
+		"@docusaurus/plugin-pwa": "2.0.0-beta.8",
+		"@docusaurus/preset-classic": "2.0.0-beta.8",
 		"@heroicons/react": "^1.0.5",
 		"@mdx-js/react": "^1.6.22",
 		"@svgr/webpack": "^5.5.0",
@@ -49,7 +49,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",
 		"@commitlint/config-conventional": "^13.2.0",
-		"@docusaurus/module-type-aliases": "2.0.0-beta.6",
+		"@docusaurus/module-type-aliases": "2.0.0-beta.8",
 		"@sapphire/eslint-config": "^4.0.1",
 		"@sapphire/prettier-config": "^1.2.3",
 		"@sapphire/ts-config": "^3.1.2",
@@ -59,6 +59,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.1.0",
 		"@typescript-eslint/parser": "^5.1.0",
 		"concurrently": "^6.3.0",
+		"cross-env": "^7.0.3",
 		"cz-conventional-changelog": "^3.3.0",
 		"docusaurus-plugin-typedoc": "^0.16.3",
 		"eslint": "^8.0.1",
@@ -109,7 +110,8 @@
 		}
 	},
 	"resolutions": {
-		"ua-parser-js": "0.7.28"
+		"ua-parser-js": "0.7.28",
+		"@types/webpack": "^5.28.0"
 	},
 	"prettier": "@sapphire/prettier-config",
 	"packageManager": "yarn@3.0.2"
