@@ -285,6 +285,17 @@ const config = {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
 				additionalLanguages: ['powershell', 'batch']
+			},
+			algolia: {
+				// If Algolia did not provide you any appId, use 'BH4D9OD16A'
+				appId: 'BH4D9OD16A', // TODO: Validate the appId after Docsearch application
+				// Public API key: it is safe to commit it
+				apiKey: 'YOUR_SEARCH_API_KEY', // TODO: Get key from Docsearch application
+				indexName: 'sapphirejs', // TODO: Get proper indexName from Docsearch application
+				// Optional: see doc section below
+				contextualSearch: false,
+				// Optional: Algolia search parameters
+				searchParameters: {}
 			}
 		})
 };
