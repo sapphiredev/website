@@ -126,14 +126,14 @@ export class EchoCommand extends Command {
 
 The way Sapphire's arguments work is by "consuming" the parameters one by one upon success, similar to how an [iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterators) works. We'll go into more details and examples in another command.
 
-In this command, `args.pick('<type>')` is used to read a single parameter from the user's input. The `<type>` here is `string`, which means it'll pick the current parameter and return it as is.
+In this command, [`args.pick('<type>')`][pick] is used to read a single parameter from the user's input. The `<type>` here is `string`, which means it'll pick the current parameter and return it as is.
 
-If `@bot say Hello there!` is sent, it'll send back `Hello`. The reason for this is that each word is a parameter, so `Hello there!` is converted to `['Hello', 'there!']`, and `args.pick()` reads only one. However, there are alternatives:
+If `@bot say Hello there!` is sent, it'll send back `Hello`. The reason for this is that each word is a parameter, so `Hello there!` is converted to `['Hello', 'there!']`, and [`args.pick()`][pick] reads only one. However, there are alternatives:
 
 - **Quoted parameters**:
   If the argument content is wrapped in quotes, i.e. `"Hello there!"` or `“Hello there!”` instead of `Hello there!`, the entire content (excluding the quotes) will be read as a single parameter.
 
-- **`args.rest()`, such as**:
+- **[`args.rest()`][rest], such as**:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -208,12 +208,12 @@ By default, `Command` defines 3 pairs of valid quotes:
 This is troublesome if you want to allow sending quotes within the content, as those would be excluded from `rest`, so `quotes` must be set to an empty array. This way, when `@bot echo Hello "there!"` is sent, your bot will reply with `Hello "there!"`.
 
 :::caution
-`args.rest()` consumes all the parameters and then processes them, so you will not be able to consume any more parameters after it.
+[`args.rest()`][rest] consumes all the parameters and then processes them, so you will not be able to consume any more parameters after it.
 :::
 
 ## Multiple arguments
 
-Let's make an `add` command, which takes two numbers and adds them. Create an `add.js` file in your `commands` folder and set up the command class again. Since two arguments are needed, use `args.pick()` twice:
+Let's make an `add` command, which takes two numbers and adds them. Create an `add.js` file in your `commands` folder and set up the command class again. Since two arguments are needed, use [`args.pick()`][pick] twice:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -280,7 +280,7 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-Each time `args.pick('<type>')` is called, it consumes the arguments one by one and parses them as the `<type>` given. So `@bot add 1 2` would return `The result is 3!`.
+Each time [`args.pick('<type>')`][pick] is called, it consumes the arguments one by one and parses them as the `<type>` given. So `@bot add 1 2` would return `The result is 3!`.
 
 ## Optional arguments
 
@@ -396,7 +396,7 @@ Each pattern has its use-cases. The former is especially helpful for handling se
 
 ## Repeating arguments
 
-To do repeating arguments, you can use `args.repeat()`, which works exactly the same as `args.pick()` but returns an array of elements, resolving when it can validate at least the first parameter, and up to the desired amount of `times`:
+To do repeating arguments, you can use [`args.repeat()`][repeat], which works exactly the same as [`args.pick()`][pick] but returns an array of elements, resolving when it can validate at least the first parameter, and up to the desired amount of `times`:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -526,7 +526,7 @@ The code above allows the following uses:
 - `@bot ban @User1 @User2` (`members` is `[User1, User2]` and `reason` is `null`).
 - `@bot ban Hello there` throws an error as it could not match a member.
 
-Additionally, we can tell the argument parser how many times maximum we want to match, for which, we specify an option called `times` in the `args.repeat()` call:
+Additionally, we can tell the argument parser how many times maximum we want to match, for which, we specify an option called `times` in the [`args.repeat()`][repeat] call:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -591,3 +591,7 @@ export class RepeatMembers extends Command {
 </Tabs>
 
 The code above matches up to 5 members, and will never return an array of 6 or more members.
+
+[pick]: ../../Documentation/api-framework/classes/Args#pick
+[rest]: ../../Documentation/api-framework/classes/Args#rest
+[repeat]: ../../Documentation/api-framework/classes/Args#repeat

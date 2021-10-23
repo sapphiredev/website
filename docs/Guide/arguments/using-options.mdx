@@ -11,16 +11,16 @@ Now that we've gone over flags and how to get boolean values, what about if we d
 Just like with flags, you can use options in two ways: declarative and imperative.
 
 :::tip
-Options are either `string` values, `string[]` values, or `undefined`
+Options are either strings, an array of strings, or `undefined`.
 :::
 
 :::caution
-When an option is read through [`args.getOption('<optionName>')`](../../Documentation/api-framework/classes/Args#getOptions) but it is not provided by the user, the value of that variable will default to `undefined`.
+When an option is read through [`args.getOption('<optionName>')`][getoption] but it is not provided by the user, the value of that variable will default to `undefined`.
 :::
 
 ## Imperative Options
 
-When opting for imperative options it means that Sapphire will only parse those options you specify in the command options. We recommend this method because it can avoid unexpected situations where something in, for example, [`args.rest('string')`](../../Documentation/api-framework/classes/Args#rest) is parsed as an options when in reality it was not.
+When opting for imperative options it means that Sapphire will only parse those options you specify in the command options. We recommend this method because it can avoid unexpected situations where something in, for example, [`args.rest('string')`][rest] is parsed as an options when in reality it was not.
 
 To add imperative options to your command you specify them on your command options like so:
 
@@ -61,7 +61,7 @@ export class OptionsCommand extends Command {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {6,10}
+```typescript {6}
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command, CommandOptions, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
@@ -81,9 +81,9 @@ export class OptionsCommand extends Command {
 We only parse the options that you specify when using imperative options. If the user provides anything else like `--this=cool`, that won't be parsed as options with this code, because we only set `--size=`.
 :::
 
-Next, to read the values for the provided options we use [`args.getOption('<optionName>')`](../../Documentation/api-framework/classes/Args#getOption) or [`args.getOptions('<optionName>')`](../../Documentation/api-framework/classes/Args#getOptions)
+Next, to read the values for the provided options we use [`args.getOption('<optionName>')`][getoption] or [`args.getOptions('<optionName>')`][getoption]
 
-The difference between [`args.getOption('<optionName>')`](../../Documentation/api-framework/classes/Args#getOption) and [`args.getOptions('<optionName>')`](../../Documentation/api-framework/classes/Args#getOptions) is that the former will only read the _last_ value provided for an option and return a `string`, whereas the latter will read _all_ valuess provided and return a `string[]`.
+The difference between [`args.getOption('<optionName>')`][getoption] and [`args.getOptions('<optionName>')`][getoptions] is that the former will only read the _last_ value provided for an option and return a `string`, whereas the latter will read _all_ values provided and return an array of strings.
 
 For example consider the following:
 
@@ -153,12 +153,12 @@ export class OptionsCommand extends Command {
 </Tabs>
 
 :::info
-Unlike Methods like [`args.pick`](../../Documentation/api-framework/classes/Args#pick) and [`args.rest`](../../Documentation/api-framework/classes/Args#rest), [`args.getOption('<optionName>')`](../../Documentation/api-framework/classes/Args#getOption) and [`args.getOptions('<optionName>')`](../../Documentation/api-framework/classes/Args#getOptions) do **_not_** need to be `await`ed. These methods do not return a `Promise<string | string[] | undefined>` but rather a regular `string | string[] | undefined`.
+Unlike Methods like [`args.pick`][pick] and [`args.rest`][rest], [`args.getOption('<optionName>')`][getoption] and [`args.getOptions('<optionName>')`][getoption] do **_not_** need to be `await`ed. These methods do not return a `Promise` that resolves to a `string`, array of strings, or undefined, but rather a regular string, array of strings, or undefined.
 :::
 
 ## Declarative Options
 
-When opting for declarative options it means that Sapphire will try to parse everything that starts with 2 consecutive hyphens. That means that `--these=..` `--will=...` `--all=..` `--be=...` `--options=...`. This can lead to unexpected situations, especially when using [`args.rest('string')`](../../Documentation/api-framework/classes/Args#rest). However, the flipside is that it's easy for you as a developer because you won't need to keep track of what options you have specified and are trying to get from the args.
+When opting for declarative options it means that Sapphire will try to parse everything that starts with 2 consecutive hyphens. That means that `--these=..` `--will=...` `--all=..` `--be=...` `--options=...`. This can lead to unexpected situations, especially when using [`args.rest('string')`][rest]. However, the flipside is that it's easy for you as a developer because you won't need to keep track of what options you have specified and are trying to get from the args.
 
 To use and configure declarative options you can follow most of the same for imperative options, with the difference being that instead of providing an array of items to the options option, you simply set that property to `true`. Here is an example:
 
@@ -223,3 +223,8 @@ export class OptionsCommand extends Command {
 
 </TabItem>
 </Tabs>
+
+[getoption]: ../../Documentation/api-framework/classes/Args#getOption
+[getoptions]: ../../Documentation/api-framework/classes/Args#getOptions
+[pick]: ../../Documentation/api-framework/classes/Args#pick
+[rest]: ../../Documentation/api-framework/classes/Args#rest

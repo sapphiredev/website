@@ -15,12 +15,12 @@ Flags are _always_ `boolean` values
 :::
 
 :::caution
-When a flag is read through [`args.getFlags('<flagName>')`](../../Documentation/api-framework/classes/Args#getflags) but it is not provided by the user, the value of that variable will default to `false`.
+When a flag is read through [`args.getFlags('<flagName>')`][getflags] but it is not provided by the user, the value of that variable will default to `false`.
 :::
 
 ## Imperative Flags
 
-When opting for imperative flags it means that Sapphire will only parse those flags you specify in the command options. We recommend this method because it can avoid unexpected situations where something in, for example, [`args.rest('string')`](../../Documentation/api-framework/classes/Args#rest) is parsed as a flag when in reality it was not.
+When opting for imperative flags it means that Sapphire will only parse those flags you specify in the command options. We recommend this method because it can avoid unexpected situations where something in, for example, [`args.rest('string')`][rest] is parsed as a flag when in reality it was not.
 
 To add imperative flags to your command you specify them on your command options like so:
 
@@ -81,7 +81,7 @@ export class FlagsCommand extends Command {
 We only parse the flags that you specify when using imperative flags. If the user provides `--anything` `--else` like `--this`, that won't be parsed as flags with this code, because we only set `--version` and `--v`.
 :::
 
-Next, to read the values for the provided flags we use [`args.getFlags('<flagName>')`](../../Documentation/api-framework/classes/Args#getflags)
+Next, to read the values for the provided flags we use [`args.getFlags('<flagName>')`][getflags]
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -152,12 +152,12 @@ export class FlagsCommand extends Command {
 </Tabs>
 
 :::info
-Unlike Methods like [`args.pick`](../../Documentation/api-framework/classes/Args#pick) and [`args.rest`](../../Documentation/api-framework/classes/Args#rest), [`args.getFlags('<flagName>')`](../../Documentation/api-framework/classes/Args#getflags) does **_not_** need to be `await`ed. It does not return a `Promise<boolean>` but rather a regular `boolean`.
+Unlike methods like [`args.pick('<argumentName>')`](../../Documentation/api-framework/classes/Args#pick) and [`args.rest`][rest], [`args.getFlags('<flagName>')`][getflags] does **_not_** need to be `await`ed. It does not return a `Promise` that resolves with a `boolean`, but rather a regular `boolean`.
 :::
 
 ## Declarative Flags
 
-When opting for declarative flags it means that Sapphire will try to parse everything that starts with 2 consecutive hyphens. That means that `--these` `--will` `--all` `--be` `--flags`. This can lead to unexpected situations, especially when using [`args.rest('string')`](../../Documentation/api-framework/classes/Args#rest). However, the flipside is that it's easy for you as a developer because you won't need to keep track of what flags you have specified and are trying to get from the args.
+When opting for declarative flags it means that Sapphire will try to parse everything that starts with 2 consecutive hyphens. That means that `--these` `--will` `--all` `--be` `--flags`. This can lead to unexpected situations, especially when using [`args.rest('string')`][rest]. However, the flipside is that it's easy for you as a developer because you won't need to keep track of what flags you have specified and are trying to get from the args.
 
 To use and configure declarative flags you can follow most of the same for imperative flags, with the difference being that instead of providing an array of items to the flags option, you simply set that property to `true`. Here is an example:
 
@@ -228,3 +228,6 @@ export class FlagsCommand extends Command {
 
 </TabItem>
 </Tabs>
+
+[getflags]: ../../Documentation/api-framework/classes/Args#getflags
+[rest]: ../../Documentation/api-framework/classes/Args#rest

@@ -6,7 +6,7 @@ title: Creating your own listeners
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Similar to what you learnt in [Creating Commands](../getting-started/creating-a-basic-command), we will create a `listeners` folder in the same directory as your `main` file. For this page, we will make a listener for the `ready` event.
+Similar to what you learned in [Creating Commands](../getting-started/creating-a-basic-command), we will create a `listeners` folder in the same directory as your `main` file. For this page, we will make a listener for the `ready` event.
 
 Your folder structure should now look something like:
 
@@ -110,15 +110,15 @@ An overview of what's defined in the constructor:
 
 - `context`: an object that contains file metadata required by the `Piece` class (which `Command` extends) in order to function.
 - `name`: by default, the name of the file without the extension, i.e. `ready.js` becomes `ready`, so there's no need to define it.
-- `event`: by default, the resolved `name`, it defines the event to listen for.
+- `event`: by default, the resolved `name`, which represents the event to listen for.
 - `once`: by default `false`, but since we want the listener to fire only once, we will set it to `true`.
 
-If you pay attention to the example, the `event` field is unnecessary, this allows for constructor-less listeners when the file name matches the event's name.
+If you pay attention to the example, the `event` field is unnecessary. This allows for constructor-less listeners when the file name matches the event's name and no other options needs to be changed.
 
 ## Creating the `run` method
 
 :::caution
-Unlike with commands, the method for running a listener is called `run`, not `messageRun`. This distinction is because `mesasgeRun` is our first step towards supporting Slash Command / Context Actions which need seperately named methods.
+Unlike with commands, the method for running a listener is called `run`, not `messageRun`. This distinction is because `messageRun` is our first step towards supporting Slash Command / Context Actions which need separately named methods.
 :::
 
 Listeners have a `run` method, which executes the listener logic. Define this below the listener's constructor:

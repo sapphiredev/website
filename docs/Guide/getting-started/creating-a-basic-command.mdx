@@ -6,15 +6,15 @@ title: Creating a basic Command
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In order to start registering commands you need to create a folder called `commands` (lowercase!) in the same directory as your "main" file. If you were following [Getting Started](./getting-started) that would be in your `src` directory.
+In order to start registering commands you need to create a folder called `commands` (lowercase!) in the same directory as your "main" file. If you were following [Getting Started](./getting-started), that would be in your `src` directory.
 
-Normally when creating commands you would define 1 command per 1 file, however as we support various forms of exporting commands from the file (`export class ...`, `export default class`, `module.expors = class ...` and `exports.MyCommand = class ...`) you can theoretically export multiple commands from the same file. Note that this does not make subcommands. We'll cover those in [Plugin Subcommands](../plugins/plugin-subcommands)
+Normally, when creating commands, you would define one command per file. However, as we support various forms of exporting commands from the file (`export class ...`, `export default class`, `module.exports = class ...` and `exports.MyCommand = class ...`) you can theoretically export multiple commands from the same file. Note that this does not make subcommands. We'll cover those in [Plugin Subcommands](../plugins/plugin-subcommands)
 
 Create a `ping.js` file in your `commands` folder, which will send a message and then edit it with the elapsed time. Arguments and other features are covered in other pages.
 
 ## Creating a command class
 
-Lets start by creating the file for the command class. In your `commands` folder create a file named `ping.js` (or `ping.mjs` / `ping.ts` if you're using ESM or TypeScript respectively). This command will send a message, an then edit it with the bot websocket latency.
+Let's start by creating the file for the command class. In your `commands` folder, create a file named `ping.js` (or `ping.mjs` / `ping.ts` if you're using ESM or TypeScript respectively). This command will send a message, and then edit it with the bot's WebSocket latency.
 
 Your folder structure should now look something like:
 
@@ -27,7 +27,7 @@ Your folder structure should now look something like:
     └── index.js
 ```
 
-With the file created we can start writing our commands. Commands in Sapphire need to extend the [`Command`](../../Documentation/api-framework/classes/Command) class.
+With the file created, we can start writing our commands. Commands in Sapphire need to extend the [`Command`](../../Documentation/api-framework/classes/Command) class.
 
 That all said, here is an example of a `ping` command:
 
@@ -82,7 +82,7 @@ export class PingCommand extends Command {}
 </TabItem>
 </Tabs>
 
-Lets go over what is defined in the constructor in this code:
+Let's go over what is defined in the constructor in this code:
 
 - `context`: an object that contains file metadata required by the `Piece` class (which `Command` extends) in order to function.
 - `name`: by default, the name of the file without the extension, i.e. `ping.js` becomes `ping`, so there's no need to define it.
@@ -168,11 +168,11 @@ export class PingCommand extends Command {
 </TabItem>
 </Tabs>
 
-Any discord.js code can be executed here, since Sapphire Framework is an extension of it. The command can be triggered with `@bot ping` or `@bot pong`.
+Any discord.js code can be executed here since the Sapphire framework is an extension of it. The command can be triggered with `@bot ping` or `@bot pong`.
 
 ## Resulting code
 
-Once you've set up the constructor and the `messageRun` method your code should look like this:
+Once you've set up the constructor and the `messageRun` method, your code should look like this:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>

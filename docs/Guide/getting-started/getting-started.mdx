@@ -6,7 +6,7 @@ title: Getting started with Sapphire
 When installing the Sapphire Framework, you need to install both discord.js and @sapphire/framework. You can do this by running the following command:
 
 ```bash npm2yarn
-npm install discord.js @sapphire/framework discord.js
+npm install @sapphire/framework discord.js
 ```
 
 :::caution
@@ -21,7 +21,9 @@ While it doesn't have to be called `index.js`, this file is the main file for yo
 Make sure that the `main` property in your `package.json` points to the right path, such as `src/index.js`.
 :::
 
-To begin, require `@sapphire/framework` and create a new `SapphireClient`. This is where you can customize Sapphire's and discord.js' behaviour. The Sapphire client extends discord.js', so everything from `Client` is available in `SapphireClient`!
+To begin, require `@sapphire/framework` and create a new [`SapphireClient`][sapphire]. This is where you can customize Sapphire's and discord.js' behaviour. The Sapphire client extends discord.js', so everything from [`Client`](https://discord.js.org/#/docs/main/stable/class/Client) is available in [`SapphireClient`][sapphire]!
+
+[sapphire]: ../../Documentation/api-framework/classes/SapphireClient
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -59,9 +61,9 @@ void client.login('your-token-goes-here');
 </TabItem>
 </Tabs>
 
-Sapphire uses mention prefix (`@bot command`), but you can optionally define a default prefix (or prefixes) with the `defaultPrefix` option, as well as `regexPrefix` if you are familiar with regexes.
+Sapphire will detect a mention prefix (`@bot command`), but you can optionally define a default prefix (or prefixes) with the `defaultPrefix` option, as well as `regexPrefix` if you are familiar with regexes.
 
-There is also the advanced option `baseUserDirectory`, which allows you to define the base directory for Sapphire to scan. By default, Sapphire will register this as the directory where your `main` file is at, joined by the store's name. As such, if the root directory is `src`, it will register `src/commands` as one of the command directories.
+There is also the advanced option [`baseUserDirectory`](../../Documentation/api-framework/interfaces/SapphireClientOptions#baseuserdirectory), which allows you to define the base directory for Sapphire to scan. By default, Sapphire will register this as the directory where your `main` file is at, joined by the store's name. As such, if the root directory is `src`, it will register `src/commands` as one of the command directories.
 
 :::danger
 You should use environment variables or a `config.json` for your token instead of passing it directly!
