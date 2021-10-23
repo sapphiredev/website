@@ -29,6 +29,6 @@ jobs:
             echo "No changes to commit, exiting with code 0"
             exit 0;
           else
-            git commit -sam "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
+            git commit -snam "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
             git push origin main
           fi
