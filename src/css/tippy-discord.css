@@ -1,36 +1,4 @@
-/* Unclicked */
 .tippy-box[data-theme~='discord'] {
-	color: rgba(229, 231, 235, 1);
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-	border-radius: 0.25rem;
-	background-color: #3c45a5;
-}
-
-.tippy-box[data-theme~='discord'] > .tippy-content {
-	font-weight: 600;
-}
-
-.tippy-box[data-theme~='discord'][data-placement^='top'] > .tippy-arrow::before {
-	border-top-color: rgba(60, 69, 165, 1);
-}
-
-.tippy-box[data-theme~='discord'][data-placement^='bottom'] > .tippy-arrow::before {
-	border-top-color: rgba(60, 69, 165, 1);
-}
-
-.tippy-box[data-theme~='discord'][data-placement^='left'] > .tippy-arrow::before {
-	border-top-color: rgba(60, 69, 165, 1);
-}
-
-.tippy-box[data-theme~='discord'][data-placement^='right'] > .tippy-arrow::before {
-	border-top-color: rgba(60, 69, 165, 1);
-}
-
-/* Clicked */
-.tippy-box[data-theme~='discord-clicked'] {
 	color: rgba(229, 231, 235, 1);
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
@@ -40,22 +8,22 @@
 	background-color: #3ba55c;
 }
 
-.tippy-box[data-theme~='discord-clicked'] > .tippy-content {
+.tippy-box[data-theme~='discord'] > .tippy-content {
 	font-weight: 600;
 }
 
-.tippy-box[data-theme~='discord-clicked'][data-placement^='top'] > .tippy-arrow::before {
+.tippy-box[data-theme~='discord'][data-placement^='top'] > .tippy-arrow::before {
 	border-top-color: rgba(59, 165, 92, 1);
 }
 
-.tippy-box[data-theme~='discord-clicked'][data-placement^='bottom'] > .tippy-arrow::before {
+.tippy-box[data-theme~='discord'][data-placement^='bottom'] > .tippy-arrow::before {
 	border-top-color: rgba(59, 165, 92, 1);
 }
 
-.tippy-box[data-theme~='discord-clicked'][data-placement^='left'] > .tippy-arrow::before {
+.tippy-box[data-theme~='discord'][data-placement^='left'] > .tippy-arrow::before {
 	border-top-color: rgba(59, 165, 92, 1);
 }
 
-.tippy-box[data-theme~='discord-clicked'][data-placement^='right'] > .tippy-arrow::before {
+.tippy-box[data-theme~='discord'][data-placement^='right'] > .tippy-arrow::before {
 	border-top-color: rgba(59, 165, 92, 1);
 }

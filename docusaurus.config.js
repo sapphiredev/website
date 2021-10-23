@@ -129,7 +129,10 @@ const config = {
 			({
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/sapphiredev/website/edit/main/'
+					editUrl: 'https://github.com/sapphiredev/website/edit/main/',
+					remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]],
+					showLastUpdateAuthor: true,
+					showLastUpdateTime: true
 				},
 				blog: false,
 				theme: {
@@ -142,7 +145,7 @@ const config = {
 	themeConfig:
 		/** @type {Partial<import('@docusaurus/preset-classic').ThemeConfig>} */
 		({
-			image: '/icons/opengraph.png',
+			image: 'https://www.sapphirejs.dev/icons/opengraph.png',
 			colorMode: {
 				defaultMode: 'dark',
 				respectPrefersColorScheme: true
