@@ -13,7 +13,7 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList: FeatureItem[] = [
 	{
-		title: 'Image a framework',
+		title: 'Imagine a framework',
 		description: (
 			<>
 				Sapphire is a next-gen object-oriented <Link to="https://discord.js.org">Discord.js</Link> bot framework.
