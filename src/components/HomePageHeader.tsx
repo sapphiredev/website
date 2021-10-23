@@ -25,7 +25,10 @@ const HomePageHeader: FC = () => {
 		<>
 			<header className={clsx('hero', styles.heroBanner)}>
 				<div className="container">
-					<h1 className="hero__title">{siteConfig.title}</h1>
+					<img src="/img/gem.svg" alt="Sapphire Logo" className={styles.logo}></img>
+					<h1 className="hero__title" style={{ marginBottom: 25 }}>
+						{siteConfig.title}
+					</h1>
 					<div className={styles.buttons}>
 						<Tippy
 							interactive
