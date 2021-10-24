@@ -2230,18 +2230,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/remark-plugin-npm2yarn@npm:^2.0.0-beta.8":
-  version: 2.0.0-beta.ff31de0ff
-  resolution: "@docusaurus/remark-plugin-npm2yarn@npm:2.0.0-beta.ff31de0ff"
-  dependencies:
-    npm-to-yarn: ^1.0.1
-  peerDependencies:
-    react: ^16.8.4 || ^17.0.0
-    react-dom: ^16.8.4 || ^17.0.0
-  checksum: f58aca344d41a7438299a61ec3815e0356a88f7876340c78fec7cdb89cd6ba6db0acb687c14f624676988d8270215a66ea5283ec3e4df33bd27e15c9842d19d5
-  languageName: node
-  linkType: hard
-
 "@docusaurus/theme-classic@npm:2.0.0-beta.8":
   version: 2.0.0-beta.8
   resolution: "@docusaurus/theme-classic@npm:2.0.0-beta.8"
@@ -17918,7 +17906,6 @@ resolve@^2.0.0-next.3:
     "@docusaurus/module-type-aliases": 2.0.0-beta.8
     "@docusaurus/plugin-pwa": 2.0.0-beta.8
     "@docusaurus/preset-classic": 2.0.0-beta.8
-    "@docusaurus/remark-plugin-npm2yarn": ^2.0.0-beta.8
     "@heroicons/react": ^1.0.5
     "@mdx-js/react": ^1.6.22
     "@sapphire/decorators": ^3.1.2
@@ -17947,6 +17934,7 @@ resolve@^2.0.0-next.3:
     file-loader: ^6.2.0
     husky: ^7.0.4
     lint-staged: ^11.2.3
+    npm-to-yarn: ^1.0.1
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
     prism-react-renderer: ^1.2.1

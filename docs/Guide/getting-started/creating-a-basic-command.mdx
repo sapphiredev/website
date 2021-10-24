@@ -107,13 +107,13 @@ module.exports = class PingCommand extends Command {
   }
 
   async messageRun(message) {
-    const msg = await message.channel.send(message, 'Ping?');
+    const msg = await message.channel.send('Ping?');
 
     const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
       msg.createdTimestamp - message.createdTimestamp
     }ms.`;
 
-    return message.channel.send(message, content);
+    return msg.edit(content);
   }
 };
 ```
@@ -196,7 +196,7 @@ module.exports = class PingCommand extends Command {
       msg.createdTimestamp - message.createdTimestamp
     }ms.`;
 
-    return message.channel.send(content);
+    return msg.edit(content);
   }
 };
 ```
