@@ -12,23 +12,17 @@ const npmToPnpmTable = {
 		if (/^install *$/.test(command)) {
 			return 'install';
 		}
-		const ret = command
-			.replace('install', 'add')
-			.replace('--save-dev', '--save-dev')
-			.replace(/\s*--save/, '--save-prod')
-			.replace('--no-package-lock', '')
-			.replace('--save-optional', '--save-optional')
-			.replace('--save-exact', '--save-exact');
 
-		return ret;
-	},
-	uninstall(command) {
-		const ret = command
-			.replace('uninstall', 'remove')
-			.replace('--save-dev', '--save-dev')
+		return command
+			.replace('install', 'add')
 			.replace(/\s*--save/, '--save-prod')
 			.replace('--no-package-lock', '');
-		return ret;
+	},
+	uninstall(command) {
+		return command
+			.replace('uninstall', 'remove')
+			.replace(/\s*--save/, '--save-prod')
+			.replace('--no-package-lock', '');
 	},
 	version(command) {
 		return command.replace(/(major|minor|patch)/, '--$1');
