@@ -6,13 +6,17 @@ title: Using arguments in your commands
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Often when using commands, you may want to get data from the user and change the response accordingly. In this section, we'll demonstrate how to create a command that pulls a string from the message and echoes it back to the user!
+Often when using commands, you may want to get data from the user and change the response accordingly. In this section,
+we'll demonstrate how to create a command that pulls a string from the message and echoes it back to the user!
 
 ## String arguments
 
-A `string` argument is simply the text after the command name and prefix. For example: `@bot say Hello!` would cause the argument to be `Hello!`, although multiple words (e.g. `Hello there!`) are separated in different parameters. We'll look into how to handle those later.
+A `string` argument is simply the text after the command name and prefix.
+For example: `@bot say Hello!` would cause the argument to be `Hello!`, although multiple words (e.g. `Hello there!`)
+are separated in different parameters. We'll look into how to handle those later.
 
-In your `commands` folder, make a new file called `echo.js` and set up the command class just like the one in the `ping` command.
+In your `commands` folder, make a new file called `echo.js` and
+set up the command class just like the one in the `ping` command.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -124,14 +128,19 @@ export class EchoCommand extends Command {
 </TabItem>
 </Tabs>
 
-The way Sapphire's arguments work is by "consuming" the parameters one by one upon success, similar to how an [iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterators) works. We'll go into more details and examples in another command.
+The way Sapphire's arguments work is by "consuming" the parameters one by one upon success,
+similar to how an [iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterators)
+works. We'll go into more details and examples in another command.
 
-In this command, [`args.pick('<type>')`][pick] is used to read a single parameter from the user's input. The `<type>` here is `string`, which means it'll pick the current parameter and return it as is.
+In this command, [`args.pick('<type>')`][pick] is used to read a single parameter from the user's input.
+The `<type>` here is `string`, which means it'll pick the current parameter and return it as is.
 
-If `@bot say Hello there!` is sent, it'll send back `Hello`. The reason for this is that each word is a parameter, so `Hello there!` is converted to `['Hello', 'there!']`, and [`args.pick()`][pick] reads only one. However, there are alternatives:
+If `@bot say Hello there!` is sent, it'll send back `Hello`. The reason for this is that each word is a parameter,
+so `Hello there!` is converted to `['Hello', 'there!']`, and [`args.pick()`][pick] reads only one. However, there are alternatives:
 
 - **Quoted parameters**:
-  If the argument content is wrapped in quotes, i.e. `"Hello there!"` or `“Hello there!”` instead of `Hello there!`, the entire content (excluding the quotes) will be read as a single parameter.
+  If the argument content is wrapped in quotes, i.e. `"Hello there!"` or `“Hello there!”` instead of `Hello there!`,
+  the entire content (excluding the quotes) will be read as a single parameter.
 
 - **[`args.rest()`][rest], such as**:
 
@@ -205,15 +214,19 @@ By default, `Command` defines 3 pairs of valid quotes:
 - `“` and `”` (iOS smart quotes)
 - `「` and `」` (CJK corner brackets)
 
-This is troublesome if you want to allow sending quotes within the content, as those would be excluded from `rest`, so `quotes` must be set to an empty array. This way, when `@bot echo Hello "there!"` is sent, your bot will reply with `Hello "there!"`.
+This is troublesome if you want to allow sending quotes within the content, as those would be excluded from `rest`,
+so `quotes` must be set to an empty array. This way, when `@bot echo Hello "there!"` is sent,
+your bot will reply with `Hello "there!"`.
 
 :::caution
-[`args.rest()`][rest] consumes all the parameters and then processes them, so you will not be able to consume any more parameters after it.
+[`args.rest()`][rest] consumes all the parameters and then processes them, so you will not be able to consume any more
+parameters after it.
 :::
 
 ## Multiple arguments
 
-Let's make an `add` command, which takes two numbers and adds them. Create an `add.js` file in your `commands` folder and set up the command class again. Since two arguments are needed, use [`args.pick()`][pick] twice:
+Let's make an `add` command, which takes two numbers and adds them. Create an `add.js` file in your `commands`
+folder and set up the command class again. Since two arguments are needed, use [`args.pick()`][pick] twice:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -280,11 +293,13 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-Each time [`args.pick('<type>')`][pick] is called, it consumes the arguments one by one and parses them as the `<type>` given. So `@bot add 1 2` would return `The result is 3!`.
+Each time [`args.pick('<type>')`][pick] is called, it consumes the arguments one by one and parses them as the `<type>` given.
+So `@bot add 1 2` would return `The result is 3!`.
 
 ## Optional arguments
 
-Sapphire offers two options regarding optional arguments. Let's make a `pow.js` command that takes two numbers, where the `base` is required, and the `exponent` defaults to 2.
+Sapphire offers two options regarding optional arguments. Let's make a `pow.js` command that takes two numbers,
+where the `base` is required, and the `exponent` defaults to 2.
 
 - **Optional Pattern**
 
@@ -337,7 +352,10 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-Since `exponent` defaults to `2`, this allows users to send `@bot pow 4`, returning `The result is 16!`. However, this pattern ignores any possible errors, including invalid numbers, so `@bot pow 4 hello!` would return the same response as before. There is another pattern to solve this:
+Since `exponent` defaults to `2`, this allows users to send `@bot pow 4`, returning `The result is 16!`.
+However, this pattern ignores any possible errors, including invalid numbers,
+so `@bot pow 4 hello!` would return the same response as before.
+There is another pattern to solve this:
 
 - **Semi-required Pattern**
 
@@ -390,13 +408,20 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-This is slightly more verbose, but it defaults `exponent` to `2` **only** if there were no parameters left to parse, so `@bot pow 4` will return `The result is 16!`, while `@bot pow 4 hello!` will return an error.
+This is slightly more verbose, but it defaults `exponent` to `2` **only** if there were no parameters left to parse,
+so `@bot pow 4` will return `The result is 16!`, while `@bot pow 4 hello!` will return an error.
 
-Each pattern has its use-cases. The former is especially helpful for handling several optional parameters, although you can also discriminate all errors from `args` by checking `error.identifier`. This way you can tell if a number failed to parse for reasons such as it's not a number, it doesn't meet the minimum and/or maximum (if set), among other possible options.
+Each pattern has its use-cases. The former is especially helpful for handling several optional parameters,
+although you can also discriminate all errors from `args` by checking `error.identifier`.
+This way you can tell if a number failed to parse for reasons such as it's not a number,
+it doesn't meet the minimum and/or maximum (if set), among other possible options.
 
 ## Repeating arguments
 
-To do repeating arguments, you can use [`args.repeat()`][repeat], which works exactly the same as [`args.pick()`][pick] but returns an array of elements, resolving when it can validate at least the first parameter, and up to the desired amount of `times`:
+To do repeating arguments, you can use [`args.repeat()`][repeat],
+which works exactly the same as [`args.pick()`][pick]
+but returns an array of elements,
+resolving when it can validate at least the first parameter, and up to the desired amount of `times`:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -444,13 +469,17 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-Sapphire will try to parse all the parameters until there are none left to consume or finds a parameter that cannot be validated. As such, the following inputs will yield the following results:
+Sapphire will try to parse all the parameters until there are none left to consume or finds a parameter that cannot be validated.
+As such, the following inputs will yield the following results:
 
 - `@bot max 42 2 5 60 3` will return `The highest number is 60!`.
 - `@bot max aa 42 2 5 6` will throw an error as it cannot parse `aa` to a number.
-- `@bot max 42 2 5 aa 60` will return `The highest number is 42!`. The `60` is not included because it stopped parsing at `aa`.
+- `@bot max 42 2 5 aa 60` will return `The highest number is 42!`.
+  The `60` is not included because it stopped parsing at `aa`.
 
-While it looks limiting, the last case can be used to parse repeating parameters at the start or at the middle of all possible parameters, e.g. a `ban` command that takes multiple users could be written as:
+While it looks limiting, the last case can be used to parse repeating parameters at the start
+or at the middle of all possible parameters,
+e.g. a `ban` command that takes multiple users could be written as:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -526,7 +555,8 @@ The code above allows the following uses:
 - `@bot ban @User1 @User2` (`members` is `[User1, User2]` and `reason` is `null`).
 - `@bot ban Hello there` throws an error as it could not match a member.
 
-Additionally, we can tell the argument parser how many times maximum we want to match, for which, we specify an option called `times` in the [`args.repeat()`][repeat] call:
+Additionally, we can tell the argument parser how many times maximum we want to match, for which,
+we specify an option called `times` in the [`args.repeat()`][repeat] call:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>

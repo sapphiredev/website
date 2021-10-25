@@ -3,7 +3,15 @@ sidebar_position: 1
 title: Built-in arguments
 ---
 
-# Built-in arguments
+:::tip
+They can be used anytime with the `Args` class, and can be accessed via `container.stores.get('arguments')`.
+:::
+
+:::caution Overriding
+If you define an `Argument` with the same name as a built-in one, e.g. [`boolean`][boolean],
+the one you define will replace the built-in one.
+This same mechanism applies to all other stores from the framework and plugins.
+:::
 
 To facilitate with getting your bot running, Sapphire Framework defines a large set of built-in argument resolvers.
 
@@ -13,12 +21,17 @@ To facilitate with getting your bot running, Sapphire Framework defines a large 
 - `dmChannel`: Resolves to a [`DMChannel`][dmchannel] instance, given a DM channel ID or user's ID.
 - `float` / `number`: Resolves to any number.
 - `guildCategoryChannel`: Resolves to a [`CategoryChannel`][categorychannel] instance, given a category channel ID.
-- `guildChannel`: Resolves to a [`GuildChannel`][guildchannel] or a [`ThreadChannel`][threadchannel] instance, given a channel mention or ID.
+- `guildChannel`: Resolves to a [`GuildChannel`][guildchannel] or a [`ThreadChannel`][threadchannel] instance,
+  given a channel mention or ID.
 - `guildNewsChannel`: Resolves to a [`NewsChannel`][newschannel] instance, given a news channel mention or ID.
-- `guildNewsThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_NEWS_THREAD`, given a thread channel mention or ID.
-- `guildPrivateThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PRIVATE_THREAD`, given a thread channel mention or ID.
-- `guildPublicThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PUBLIC_THREAD`, given a thread channel mention or ID.
-- `guildStageVoiceChannel`: Resolves to a [`StageChannel`][stagechannel] instance, given a stage voice channel mention or ID.
+- `guildNewsThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_NEWS_THREAD`,
+  given a thread channel mention or ID.
+- `guildPrivateThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PRIVATE_THREAD`,
+  given a thread channel mention or ID.
+- `guildPublicThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PUBLIC_THREAD`,
+  given a thread channel mention or ID.
+- `guildStageVoiceChannel`: Resolves to a [`StageChannel`][stagechannel] instance,
+  given a stage voice channel mention or ID.
 - `guildTextChannel`: Resolves to a [`TextChannel`][textchannel] instance, given a text channel mention or ID.
 - `guildThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance, given a thread channel mention or ID.
 - `guildVoiceChannel`: Resolves to a [`VoiceChannel`][voicechannel] instance, given a voice channel mention or ID.
@@ -30,14 +43,6 @@ To facilitate with getting your bot running, Sapphire Framework defines a large 
 - `role`: Resolves to a [`Role`][role] instance, given a role mention or ID.
 - `string`: Resolves to a string containing the parameter.
 - `user`: Resolves to a [`User`][user] instance, given a user mention or ID.
-
-:::tip
-They can be used anytime with the `Args` class, and can be accessed via `container.stores.get('arguments')`.
-:::
-
-:::caution Overriding
-If you define an `Argument` with the same name as a built-in one, e.g. [`boolean`][boolean], the one you define will replace the built-in one. This same mechanism applies to all other stores from the framework and plugins.
-:::
 
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [categorychannel]: https://discord.js.org/#/docs/main/stable/class/CategoryChannel
