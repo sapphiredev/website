@@ -6,10 +6,10 @@ title: Creating your own listeners
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Similar to what you learned in [Creating Commands](../getting-started/creating-a-basic-command), we will create
-a `listeners` folder in the same directory as your `main` file. For this page, we will make a listener for the `ready` event.
+Similar to what you learned in [Creating Commands], we will create
+a `listeners` subdirectory in your project's entry point directory. In this document, we'll make a `ready` event listener.
 
-Your folder structure should now look something like:
+Your directory should now look something like this:
 
 ```bash {7-8}
 ├── node_modules
@@ -24,8 +24,7 @@ Your folder structure should now look something like:
 
 ## Creating a listener class
 
-To create a listener in Sapphire, the [`Listener`](../../Documentation/api-framework/classes/Listener) class needs to be
-imported from `@sapphire/framework`. A listener can be exported through default or named exports.
+To create a listener in Sapphire, the [`Listener`] class needs to be extended from `@sapphire/framework` and exported from a listener file.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -57,7 +56,7 @@ export class ReadyListener extends Listener {}
 </TabItem>
 </Tabs>
 
-Let's begin populating the listener class:
+Let's begin populating the listener class with our desired options, specifying that it'll only run once and listens for the `ready` event:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>

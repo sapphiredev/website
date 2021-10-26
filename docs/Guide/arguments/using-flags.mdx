@@ -6,12 +6,9 @@ title: Using Flags
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-So far we have covered arguments, which as shown are positional.
-That is to say, the order in which they appear matters and they are parsed in the specified order.
-So what if we want to have an argument that can appear anywhere in the command?
-That's where flags come in.
-Flags are a term that is likely to be known to people who have used command line tools.
-They are formatted as `--flag`. For example, `node --version` to get the version of your NodeJS installation.
+So far we have covered arguments, which are positional - i.e., the order of the arguments matters and they are parsed in the given order. But, what if we want to have a boolean argument that can appear anywhere after the command invocation? That's where flags come in.
+
+Flags are likely familiar to people who have used UNIX-style command-line programs and are formatted as `--flag` in much the same way. For example, you'd use `node --version` to get the version of your NodeJS installation.
 
 With Sapphire you can use flags in two ways: declarative and imperative.
 
@@ -20,8 +17,7 @@ Flags are _always_ `boolean` values
 :::
 
 :::caution
-When a flag is read through [`args.getFlags('<flagName>')`][getflags] but it is not provided by the user,
-the value of that variable will default to `false`.
+If a flag is read via [`args.getFlags('<flagName>')`][getflags] but it is not provided by the user, it will default to `false` as it is not set.
 :::
 
 ## Imperative Flags
@@ -30,7 +26,7 @@ When opting for imperative flags it means that Sapphire will only parse those fl
 We recommend this method because it can avoid unexpected situations where something in, for example,
 [`args.rest('string')`][rest] is parsed as a flag when in reality it was not.
 
-To add imperative flags to your command you specify them on your command options like so:
+To add imperative flags to your command you specify them in your command's options, like so:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -90,7 +86,7 @@ We only parse the flags that you specify when using imperative flags. If the use
 that won't be parsed as flags with this code, because we only set `--version` and `--v`.
 :::
 
-Next, to read the values for the provided flags we use [`args.getFlags('<flagName>')`][getflags]
+Next, to check the flags that were set we use [`args.getFlags('<flagName>')`][getflags]
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -161,22 +157,14 @@ export class FlagsCommand extends Command {
 </Tabs>
 
 :::info
-Unlike methods like [`args.pick('<argumentName>')`](../../Documentation/api-framework/classes/Args#pick) and
-[`args.rest`][rest], [`args.getFlags('<flagName>')`][getflags] does **_not_** need to be `await`ed.
-It does not return a `Promise` that resolves with a `boolean`, but rather a regular `boolean`.
+Unlike methods like [`args.pick('<argumentName>')`][pick] and [`args.rest`][rest], [`args.getFlags('<flagName>')`][getflags] isn't asynchronous, so it doesn't need to be awaited - it returns a regular boolean, rather than a promise.
 :::
 
 ## Declarative Flags
 
-When opting for declarative flags it means that Sapphire will try to parse everything that starts with 2 consecutive hyphens.
-That means that `--these` `--will` `--all` `--be` `--flags`.
-This can lead to unexpected situations, especially when using [`args.rest('string')`][rest].
-However, the flipside is that it's easy for you as a developer because you won't need to keep track of what flags
-you have specified and are trying to get from the args.
+If you use declarative flags, Sapphire will treat everything starting with 2 consecutive hyphens as a flag without validating against command options, meaning that `--these --will --all --be --flags`. This can lead to unexpected situations, especially when using [`args.rest('string')`][rest]; however, it enables dynamic flag setting and it's easier for you as a developer because you don't need to keep track of all the valid flags.
 
-To use and configure declarative flags you can follow most of the same for imperative flags,
-with the difference being that instead of providing an array of items to the flags option,
-you simply set that property to `true`. Here is an example:
+The process of configuring declarative flags is similar to imperative flags, but instead of providing an array of flags, you just set `flags` to `true`, like so:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>

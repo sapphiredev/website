@@ -13,10 +13,10 @@ the one you define will replace the built-in one.
 This same mechanism applies to all other stores from the framework and plugins.
 :::
 
-To facilitate with getting your bot running, Sapphire Framework defines a large set of built-in argument resolvers.
+To facilitate creating commands and getting your bot running, Sapphire bundles a large set of argument resolvers.
 
 - `boolean`: Resolves to a [`boolean`][boolean] value.
-- `channel`: Resolves to a [`Channel`][channel] instance, given a channel mention or ID.
+- `channel`: Resolves to a [`Channel`][channel] instance, given a channel name, mention or ID.
 - `date`: Resolves to a [`Date`][date] instance, given a valid date format.
 - `dmChannel`: Resolves to a [`DMChannel`][dmchannel] instance, given a DM channel ID or user's ID.
 - `float` / `number`: Resolves to any number.

@@ -11,9 +11,8 @@ we'll demonstrate how to create a command that pulls a string from the message a
 
 ## String arguments
 
-A `string` argument is simply the text after the command name and prefix.
-For example: `@bot say Hello!` would cause the argument to be `Hello!`, although multiple words (e.g. `Hello there!`)
-are separated in different parameters. We'll look into how to handle those later.
+A `string` argument is any textual data after the command's invocation.
+For example, in `@bot say Hello!`, `Hello!` would be the first string argument; however, note that multiple words (e.g. `Hello there!`) are separated individually into multiple arguments. We'll look into how to handle those later.
 
 In your `commands` folder, make a new file called `echo.js` and
 set up the command class just like the one in the `ping` command.
@@ -80,7 +79,7 @@ export class EchoCommand extends Command {
 </TabItem>
 </Tabs>
 
-We have a new parameter in the `run` method: `args`! This is a structure that abstracts all the parameter parsing and resolution.
+We have a new parameter in the `run` method: `args`! This is a structure that abstracts all the argument parsing and resolution.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -128,19 +127,18 @@ export class EchoCommand extends Command {
 </TabItem>
 </Tabs>
 
-The way Sapphire's arguments work is by "consuming" the parameters one by one upon success,
-similar to how an [iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#iterators)
-works. We'll go into more details and examples in another command.
+Sapphire's arguments work by consuming the delimited elements of user input one by one upon success,
+similar to how an [iterator] works. We'll go into more details and examples in another
+command.
 
-In this command, [`args.pick('<type>')`][pick] is used to read a single parameter from the user's input.
-The `<type>` here is `string`, which means it'll pick the current parameter and return it as is.
+In this command, [`args.pick('<type>')`][pick] is used to read a single argument from the user's input.
+The `<type>` here is `string`, so it'll return the argument as-is since all data in a message's body is textual.
 
-If `@bot say Hello there!` is sent, it'll send back `Hello`. The reason for this is that each word is a parameter,
-so `Hello there!` is converted to `['Hello', 'there!']`, and [`args.pick()`][pick] reads only one. However, there are alternatives:
+If `@bot say Hello there!` is sent, it'll return `Hello` since each word is split into its own argument as aforementioned, so `Hello there!` is converted to `['Hello', 'there!']` but [`args.pick()`][pick] only reads one argument. However, there are alternatives:
 
-- **Quoted parameters**:
-  If the argument content is wrapped in quotes, i.e. `"Hello there!"` or `“Hello there!”` instead of `Hello there!`,
-  the entire content (excluding the quotes) will be read as a single parameter.
+- **Quoted arguments**:
+  If the argument content is quoted, e.g. `"Hello there!"` or `“Hello there!”` instead of `Hello there!`,
+  the entire argument (excluding the quotes) will be read as one.
 
 - **[`args.rest()`][rest], such as**:
 
@@ -293,8 +291,7 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-Each time [`args.pick('<type>')`][pick] is called, it consumes the arguments one by one and parses them as the `<type>` given.
-So `@bot add 1 2` would return `The result is 3!`.
+Each time [`args.pick('<type>')`][pick] is called, it consumes the next argument and parses it as the `<type>` given, so `@bot add 1 2` would return `The result is 3!` for instance.
 
 ## Optional arguments
 
@@ -355,7 +352,7 @@ export class MathCommand extends Command {
 Since `exponent` defaults to `2`, this allows users to send `@bot pow 4`, returning `The result is 16!`.
 However, this pattern ignores any possible errors, including invalid numbers,
 so `@bot pow 4 hello!` would return the same response as before.
-There is another pattern to solve this:
+There is another pattern that enables you to use optional arguments but retain error reporting:
 
 - **Semi-required Pattern**
 
@@ -408,20 +405,18 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-This is slightly more verbose, but it defaults `exponent` to `2` **only** if there were no parameters left to parse,
+This is slightly more verbose, but it only uses the default value for `exponent` of `2` if there were no arguments left to parse,
 so `@bot pow 4` will return `The result is 16!`, while `@bot pow 4 hello!` will return an error.
 
-Each pattern has its use-cases. The former is especially helpful for handling several optional parameters,
-although you can also discriminate all errors from `args` by checking `error.identifier`.
-This way you can tell if a number failed to parse for reasons such as it's not a number,
-it doesn't meet the minimum and/or maximum (if set), among other possible options.
+Each pattern has its use-cases. The former is especially helpful for handling several optional arguments,
+although you can also distinguish all errors by checking `error.identifier`.
+This way you can tell why something failed to parse, for instance, a number may fail to parse
+if the user did not provide a valid number.
 
 ## Repeating arguments
 
-To do repeating arguments, you can use [`args.repeat()`][repeat],
-which works exactly the same as [`args.pick()`][pick]
-but returns an array of elements,
-resolving when it can validate at least the first parameter, and up to the desired amount of `times`:
+To work with repeating arguments, you can use [`args.repeat()`][repeat],
+which works like [`args.pick()`][pick] but returns an array of parsed elements up to the desired amount of `times`, resolving when it can validate at least the first argument.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -469,7 +464,7 @@ export class MathCommand extends Command {
 </TabItem>
 </Tabs>
 
-Sapphire will try to parse all the parameters until there are none left to consume or finds a parameter that cannot be validated.
+Sapphire will try to parse all the arguments until there are none left to consume or one fails to parse.
 As such, the following inputs will yield the following results:
 
 - `@bot max 42 2 5 60 3` will return `The highest number is 60!`.
@@ -477,9 +472,8 @@ As such, the following inputs will yield the following results:
 - `@bot max 42 2 5 aa 60` will return `The highest number is 42!`.
   The `60` is not included because it stopped parsing at `aa`.
 
-While it looks limiting, the last case can be used to parse repeating parameters at the start
-or at the middle of all possible parameters,
-e.g. a `ban` command that takes multiple users could be written as:
+While the last case seems restrictive, it can be used to parse repeated arguments at any given position in the user's input.
+For example, a `ban` command that takes multiple users could be written as:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -555,8 +549,7 @@ The code above allows the following uses:
 - `@bot ban @User1 @User2` (`members` is `[User1, User2]` and `reason` is `null`).
 - `@bot ban Hello there` throws an error as it could not match a member.
 
-Additionally, we can tell the argument parser how many times maximum we want to match, for which,
-we specify an option called `times` in the [`args.repeat()`][repeat] call:
+Additionally, we can tell the argument parser how many times it should parse at most by specifying `times` when we call [`args.repeat()`][repeat]:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -620,7 +613,7 @@ export class RepeatMembers extends Command {
 </TabItem>
 </Tabs>
 
-The code above matches up to 5 members, and will never return an array of 6 or more members.
+The code above matches any number of members up to 5, so it will never return an array of 6 or more.
 
 [pick]: ../../Documentation/api-framework/classes/Args#pick
 [rest]: ../../Documentation/api-framework/classes/Args#rest
