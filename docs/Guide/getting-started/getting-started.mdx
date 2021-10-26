@@ -27,8 +27,6 @@ This is where you can customize Sapphire's and discord.js' behaviour.
 Sapphire's client extends discord.js',
 so everything from [`Client`][djs-client] is available in [`SapphireClient`][sapphire]!
 
-[sapphire]: ../../Documentation/api-framework/classes/SapphireClient
-
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
 
@@ -74,7 +72,7 @@ Sapphire registers this as the directory containing your entry point and locates
 
 :::danger
 You should use environment variables or a `config.json` for your token instead of passing it directly!
-You can read more about why you should [here](https://discordjs.guide/preparations/setting-up-a-bot-application.html#your-token).
+You can read more about why you should [here][securing-your-token].
 :::
 
 And that's it for your `index.js` file! In the end, your directory should look like this,
@@ -86,3 +84,8 @@ along with whatever `.gitignore` or `config.json` files you may have:
 └── src
     └── index.js
 ```
+
+[sapphire]: ../../Documentation/api-framework/classes/SapphireClient
+[djs-client]: https://discord.js.org/#/docs/main/stable/class/Client
+[baseuserdirectory]: ../../Documentation/api-framework/interfaces/SapphireClientOptions#baseuserdirectory
+[securing-your-token]: https://discordjs.guide/preparations/setting-up-a-bot-application.html#your-token

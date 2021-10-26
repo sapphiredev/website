@@ -6,7 +6,7 @@ title: Creating your own listeners
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Similar to what you learned in [Creating Commands], we will create
+Similar to what you learned in [Creating Commands][creating-commands], we will create
 a `listeners` subdirectory in your project's entry point directory. In this document, we'll make a `ready` event listener.
 
 Your directory should now look something like this:
@@ -194,3 +194,5 @@ for example, if you have a `guildMemberAdd` listener that sends a log to a chann
 and another that sends a greeting message,
 you can name them `guildMemberAddSendLog` and `guildMemberAddSendGreeting`,
 both of which would specify `{ event: 'guildMemberAdd' }` in their options.
+
+[creating-commands]: ../getting-started/creating-a-basic-command

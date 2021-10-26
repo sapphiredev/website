@@ -22,9 +22,11 @@ If a flag is read via [`args.getFlags('<flagName>')`][getflags] but it is not pr
 
 ## Imperative Flags
 
-When opting for imperative flags it means that Sapphire will only parse those flags you specify in the command options.
-We recommend this method because it can avoid unexpected situations where something in, for example,
-[`args.rest('string')`][rest] is parsed as a flag when in reality it was not.
+Imperative flags are flags you specify in the command options, and using them means Sapphire will _only_ parse the
+specified flags. We recommend this method because it can avoid unexpected situations where something,
+for example in [`args.rest('string')`][rest], is parsed as a flag mistakenly. An example of where this could go wrong
+is when writing an announcement command, and you want to show your users that you added a flag. You cannot easily include
+that flag in your announcement text, when Sapphire will parse it as a flag instead of string content.
 
 To add imperative flags to your command you specify them in your command's options, like so:
 
