@@ -6,9 +6,13 @@ title: Using Flags
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-So far we have covered arguments, which are positional - i.e., the order of the arguments matters and they are parsed in the given order. But, what if we want to have a boolean argument that can appear anywhere after the command invocation? That's where flags come in.
+So far we have covered arguments, which are positional - i.e.,
+the order of the arguments matters and they are parsed in the given order.
+But, what if we want to have a boolean argument that can appear anywhere after the command invocation?
+That's where flags come in.
 
-Flags are likely familiar to people who have used UNIX-style command-line programs and are formatted as `--flag` in much the same way. For example, you'd use `node --version` to get the version of your NodeJS installation.
+Flags are likely familiar to people who have used UNIX-style command-line programs and are formatted as
+`--flag` in much the same way. For example, you'd use `node --version` to get the version of your NodeJS installation.
 
 With Sapphire you can use flags in two ways: declarative and imperative.
 
@@ -17,7 +21,8 @@ Flags are _always_ `boolean` values
 :::
 
 :::caution
-If a flag is read via [`args.getFlags('<flagName>')`][getflags] but it is not provided by the user, it will default to `false` as it is not set.
+If a flag is read via [`args.getFlags('<flagName>')`][getflags] but it is not provided by the user,
+it will default to `false` as it is not set.
 :::
 
 ## Imperative Flags
@@ -105,7 +110,7 @@ module.exports = class FlagsCommand extends Command {
 
   async messageRun(message, args) {
     const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('vesion', 'v');
+    const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
     // ...
   }
@@ -127,7 +132,7 @@ export class FlagsCommand extends Command {
 
   async messageRun(message, args) {
     const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('vesion', 'v');
+    const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
     // ...
   }
@@ -148,7 +153,7 @@ import type { Message } from 'discord.js';
 export class FlagsCommand extends Command {
   public async messageRun(message: Message, args: Args) {
     const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('vesion', 'v');
+    const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
     // ...
   }
@@ -159,14 +164,20 @@ export class FlagsCommand extends Command {
 </Tabs>
 
 :::info
-Unlike methods like [`args.pick('<argumentName>')`][pick] and [`args.rest`][rest], [`args.getFlags('<flagName>')`][getflags] isn't asynchronous, so it doesn't need to be awaited - it returns a regular boolean, rather than a promise.
+Unlike methods like [`args.pick('<argumentName>')`][pick] and [`args.rest`][rest], [`args.getFlags('<flagName>')`][getflags]
+isn't asynchronous, so it doesn't need to be awaited - it returns a regular boolean, rather than a promise.
 :::
 
 ## Declarative Flags
 
-If you use declarative flags, Sapphire will treat everything starting with 2 consecutive hyphens as a flag without validating against command options, meaning that `--these --will --all --be --flags`. This can lead to unexpected situations, especially when using [`args.rest('string')`][rest]; however, it enables dynamic flag setting and it's easier for you as a developer because you don't need to keep track of all the valid flags.
+If you use declarative flags, Sapphire will treat everything starting with 2 consecutive hyphens as a flag without
+validating against command options, meaning that `--these --will --all --be --flags`.
+This can lead to unexpected situations, especially when using [`args.rest('string')`][rest]; however,
+it enables dynamic flag setting and it's easier for you as a developer
+because you don't need to keep track of all the valid flags.
 
-The process of configuring declarative flags is similar to imperative flags, but instead of providing an array of flags, you just set `flags` to `true`, like so:
+The process of configuring declarative flags is similar to imperative flags,
+but instead of providing an array of flags, you just set `flags` to `true`, like so:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -183,7 +194,7 @@ module.exports = class FlagsCommand extends Command {
 
   async messageRun(message, args) {
     const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('vesion', 'v');
+    const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
     // ...
   }
@@ -205,7 +216,7 @@ export class FlagsCommand extends Command {
 
   async messageRun(message, args) {
     const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('vesion', 'v');
+    const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
     // ...
   }
@@ -226,7 +237,7 @@ import type { Message } from 'discord.js';
 export class FlagsCommand extends Command {
   public async messageRun(message: Message, args: Args) {
     const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('vesion', 'v');
+    const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
     // ...
   }

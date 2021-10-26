@@ -12,7 +12,9 @@ we'll demonstrate how to create a command that pulls a string from the message a
 ## String arguments
 
 A `string` argument is any textual data after the command's invocation.
-For example, in `@bot say Hello!`, `Hello!` would be the first string argument; however, note that multiple words (e.g. `Hello there!`) are separated individually into multiple arguments. We'll look into how to handle those later.
+For example, in `@bot say Hello!`, `Hello!` would be the first string argument;
+however, note that multiple words (e.g. `Hello there!`) are separated individually into multiple arguments.
+We'll look into how to handle those later.
 
 In your `commands` folder, make a new file called `echo.js` and
 set up the command class just like the one in the `ping` command.
@@ -134,7 +136,9 @@ command.
 In this command, [`args.pick('<type>')`][pick] is used to read a single argument from the user's input.
 The `<type>` here is `string`, so it'll return the argument as-is since all data in a message's body is textual.
 
-If `@bot say Hello there!` is sent, it'll return `Hello` since each word is split into its own argument as aforementioned, so `Hello there!` is converted to `['Hello', 'there!']` but [`args.pick()`][pick] only reads one argument. However, there are alternatives:
+If `@bot say Hello there!` is sent, it'll return `Hello` since each word is split into its own argument as aforementioned,
+so `Hello there!` is converted to `['Hello', 'there!']` but [`args.pick()`][pick] only reads one argument.
+However, there are alternatives:
 
 - **Quoted arguments**:
   If the argument content is quoted, e.g. `"Hello there!"` or `“Hello there!”` instead of `Hello there!`,
@@ -291,7 +295,8 @@ export class MathsCommand extends Command {
 </TabItem>
 </Tabs>
 
-Each time [`args.pick('<type>')`][pick] is called, it consumes the next argument and parses it as the `<type>` given, so `@bot add 1 2` would return `The result is 3!` for instance.
+Each time [`args.pick('<type>')`][pick] is called, it consumes the next argument and parses it as the `<type>` given,
+so `@bot add 1 2` would return `The result is 3!` for instance.
 
 ## Optional arguments
 
@@ -405,8 +410,9 @@ export class MathsCommand extends Command {
 </TabItem>
 </Tabs>
 
-This is slightly more verbose, but it only uses the default value for `exponent` of `2` if there were no arguments left to parse,
-so `@bot pow 4` will return `The result is 16!`, while `@bot pow 4 hello!` will return an error.
+This is slightly more verbose, but it only uses the default value for `exponent` of `2`
+if there were no arguments left to parse, so `@bot pow 4` will return `The result is 16!`,
+while `@bot pow 4 hello!` will return an error.
 
 Each pattern has its use-cases. The former is especially helpful for handling several optional arguments,
 although you can also distinguish all errors by checking `error.identifier`.
@@ -416,7 +422,8 @@ if the user did not provide a valid number.
 ## Repeating arguments
 
 To work with repeating arguments, you can use [`args.repeat()`][repeat],
-which works like [`args.pick()`][pick] but returns an array of parsed elements up to the desired amount of `times`, resolving when it can validate at least the first argument.
+which works like [`args.pick()`][pick] but returns an array of parsed elements up to the desired amount of `times`,
+resolving when it can validate at least the first argument.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>

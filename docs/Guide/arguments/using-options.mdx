@@ -6,7 +6,10 @@ title: Using Options
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Now that we've gone over boolean flags, what if we want a string instead of a boolean value? That's where options come in. Options are formatted like flags, but followed by `=value`. For example, an option could be `--size=2048`. Users of UNIX-like command-line tools may once again be familiar with this format, such as in `help --find=entry`.
+Now that we've gone over boolean flags, what if we want a string instead of a boolean value? That's where options come in.
+Options are formatted like flags, but followed by `=value`.
+For example, an option could be `--size=2048`.
+Users of UNIX-like command-line tools may once again be familiar with this format, such as in `help --find=entry`.
 
 Just like with flags, you can use options in two ways: declarative and imperative.
 
@@ -21,9 +24,11 @@ the value of that variable will default to `undefined`.
 
 ## Imperative Options
 
-Imperative optionsare options you specify in the command options, and using them means Sapphire will *only* parse the specified options.
+Imperative options are options you specify in the command options,
+and using them means Sapphire will _only_ parse the specified options.
 
-We recommend this method because it can avoid unexpected situations where something, for example in [`args.rest('string')`][rest], is parsed as an option mistakenly.
+We recommend this method because it can avoid unexpected situations where something,
+for example in [`args.rest('string')`][rest], is parsed as an option mistakenly.
 
 To add imperative options to your command you specify them in your command's options, like so:
 
