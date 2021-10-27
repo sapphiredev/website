@@ -124,7 +124,8 @@ This allows you to omit constructors when the file name matches the event's name
 
 :::caution
 Unlike commands, listeners use `run` methods instead of `messageRun`.
-This distinction is made because listeners do not typically run from message contexts, and commands need different methods to support slash commands or context actions.
+This distinction is made because listeners do not typically run from message contexts,
+and commands need different methods to support slash commands or context actions.
 :::
 
 Listeners have a `run` method, which executes the listener logic. Define this below the listener's constructor:
@@ -175,7 +176,8 @@ export class ReadyListener extends Listener {
 </TabItem>
 </Tabs>
 
-Once discord.js emits the `ready` event, `run` will be executed, and the piece will then be unloaded since `once` is set. This code is equivalent to the following:
+Once discord.js emits the `ready` event, `run` will be executed, and the piece will then be unloaded since `once` is set.
+This code is equivalent to the following:
 
 ```js
 client.once('ready', (client) => {
@@ -186,8 +188,14 @@ client.once('ready', (client) => {
 
 ## Duplicated listeners
 
-You may want to create multiple listeners executing different logic that listen to the same event for use cases like auto-moderation. While Sapphire does not allow you to declare pieces with the same name, you can give them different names and specify the same `event` field.
+You may want to create multiple listeners executing different logic that listen to the same event
+for use cases like auto-moderation.
+While Sapphire does not allow you to declare pieces with the same name,
+you can give them different names and specify the same `event` field.
 
-A common practice is to name the listeners by joining the event's name with the purpose of the piece. For example, if you have a `guildMemberAdd` listener that sends a log to a channel and another that sends a greeting message, you can name them `guildMemberAddSendLog` and `guildMemberAddSendGreeting` respectively, specifying `{ event: 'guildMemberAdd' }` in both of their options.
+A common practice is to name the listeners by joining the event's name with the purpose of the piece.
+For example, if you have a `guildMemberAdd` listener that sends a log to a channel and another
+that sends a greeting message, you can name them `guildMemberAddSendLog` and `guildMemberAddSendGreeting` respectively,
+specifying `{ event: 'guildMemberAdd' }` in both of their options.
 
 [creating-commands]: ../getting-started/creating-a-basic-command
