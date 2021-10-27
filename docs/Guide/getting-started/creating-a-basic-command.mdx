@@ -6,14 +6,13 @@ title: Creating a basic Command
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In order to start registering commands you need to create a folder called `commands` (lowercase!) in the same directory
-as your "main" file. If you were following [Getting Started](./getting-started), that would be in your `src` directory.
+In order to start registering commands you need to create a subdirectory called `commands` (lowercase!) in your entry point directory. If you were following [Getting Started](./getting-started), it'll be `src/commands`.
 
-Normally, when creating commands, you would define one command per file.
-However, as we support various forms of exporting commands from the file
-(`export class ...`, `export default class`, `module.exports = class ...` and `exports.MyCommand = class ...`)
-you can theoretically export multiple commands from the same file.
-Note that this does not make subcommands. We'll cover those in [Plugin Subcommands](../plugins/plugin-subcommands)
+Normally, you'd export one command per file to keep things organized. However, as we support various ways of exporting commands from the file (`export class ...`, `export default class`, `module.exports = class ...` and `exports.MyCommand = class ...`) you can export multiple commands from the same file. 
+
+:::info
+Note that this doesn't create subcommands. We'll cover those in [Plugin Subcommands](../plugins/plugin-subcommands)
+:::
 
 Create a `ping.js` file in your `commands` folder, which will send a message
 and then edit it with the elapsed time. Arguments and other features are covered in other pages.
@@ -24,7 +23,7 @@ Let's start by creating the file for the command class. In your `commands` folde
 create a file named `ping.js` (or `ping.mjs` / `ping.ts` if you're using ESM or TypeScript respectively).
 This command will send a message, and then edit it with the bot's WebSocket latency.
 
-Your folder structure should now look something like:
+Your project directory should now look something like this:
 
 ```bash {4-5}
 ├── node_modules
@@ -35,10 +34,9 @@ Your folder structure should now look something like:
     └── index.js
 ```
 
-With the file created, we can start writing our commands.
-Commands in Sapphire need to extend the [`Command`](../../Documentation/api-framework/classes/Command) class.
+With the file created, we can start writing our commands by extending the [`Command`] class, from which all commands must be derived.
 
-That all said, here is an example of a `ping` command:
+That said, here is an example of a `ping` command:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -99,13 +97,11 @@ Let's go over what is defined in the constructor in this code:
 - `aliases`: other ways users can call the command. You can have as many as you want!
 - `description`: some text that you can use to display when a "help" command is used.
 
-There are many other properties available.
-The full list can be viewed at the [CommandOptions](../../Documentation/api-framework/interfaces/CommandOptions) interface.
-They will also be explained in upcoming sections.
+There are many other properties available, all of which can be seen in the [CommandOptions] interface, but will also be explained in upcoming sections.
 
 ## Creating the `messageRun` method
 
-Commands have a `messageRun` method, which executes the command logic. Define this below the command's constructor:
+Commands have a `messageRun` method, which executes the command logic when it is invoked from a message. Define this below the command's constructor:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -180,8 +176,8 @@ export class PingCommand extends Command {
 </TabItem>
 </Tabs>
 
-Any discord.js code can be executed here since the Sapphire framework is an extension of it.
-The command can be triggered with `@bot ping` or `@bot pong`.
+Any discord.js code can be executed here since the Sapphire Framework is an extension of it.
+The command can be triggered with `@bot ping` or `@bot pong` (custom prefixes are mentioned in other documents).
 
 ## Resulting code
 

@@ -96,7 +96,7 @@ The difference between [`args.getOption('<optionName>')`][getoption] and [`args.
 is that the former will only read the _last_ value provided for an option and return a `string`,
 whereas the latter will read _all_ values provided and return an array of strings.
 
-For example consider the following:
+For example, consider the following:
 
 - `@bot avatar --size=2048 --size=4096` with `getOption` will return `'4096'`
 - `@bot avatar --size=2048 --size=4096` with `getOptions` will return `['2048', '4096']`
@@ -164,10 +164,7 @@ export class OptionsCommand extends Command {
 </Tabs>
 
 :::info
-Unlike Methods like [`args.pick`][pick] and [`args.rest`][rest], [`args.getOption('<optionName>')`][getoption]
-and [`args.getOptions('<optionName>')`][getoption] do **_not_** need to be `await`ed.
-These methods do not return a `Promise` that resolves to a `string`, array of strings, or undefined,
-but rather a regular string, array of strings, or undefined.
+Unlike methods like [`args.pick`][pick] and [`args.rest`][rest], [`args.getOption('<optionName>')`][getoption] and [`args.getOptions('<optionName>')` [getoption] aren't asynchronous, so they don't need to be awaited - they return regular strings, arrays of strings, or undefined, rather than a promise.
 :::
 
 ## Declarative Options

@@ -29,9 +29,7 @@ it will default to `false` as it is not set.
 
 Imperative flags are flags you specify in the command options, and using them means Sapphire will _only_ parse the
 specified flags. We recommend this method because it can avoid unexpected situations where something,
-for example in [`args.rest('string')`][rest], is parsed as a flag mistakenly. An example of where this could go wrong
-is when writing an announcement command, and you want to show your users that you added a flag. You cannot easily include
-that flag in your announcement text, when Sapphire will parse it as a flag instead of string content.
+for example in [`args.rest('string')`][rest], is parsed as a flag mistakenly. An example of where this could go wrong is adding flags to an announcement command - the user will struggle if they attempt to use the flag as part of the announcement text because Sapphire will parse it as a flag instead of string content.
 
 To add imperative flags to your command you specify them in your command's options, like so:
 
@@ -89,8 +87,7 @@ export class FlagsCommand extends Command {
 </Tabs>
 
 :::info
-We only parse the flags that you specify when using imperative flags. If the user provides `--anything` `--else` like `--this`,
-that won't be parsed as flags with this code, because we only set `--version` and `--v`.
+We only parse the specified flags when using imperative flags. If the user provides `--anything --else --like --this`, it'll be parsed as textual data rather than flags with this code, because we told Sapphire the only valid flags are `--version` and `--v`.
 :::
 
 Next, to check the flags that were set we use [`args.getFlags('<flagName>')`][getflags]
