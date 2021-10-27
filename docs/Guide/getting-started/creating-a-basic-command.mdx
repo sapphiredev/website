@@ -6,9 +6,14 @@ title: Creating a basic Command
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In order to start registering commands you need to create a subdirectory called `commands` (lowercase!) in your entry point directory. If you were following [Getting Started](./getting-started), it'll be `src/commands`.
+In order to start registering commands you need to create a subdirectory called
+`commands` (lowercase!) in your entry point directory.
+If you were following [Getting Started][getting-started], it'll be `src/commands`.
 
-Normally, you'd export one command per file to keep things organized. However, as we support various ways of exporting commands from the file (`export class ...`, `export default class`, `module.exports = class ...` and `exports.MyCommand = class ...`) you can export multiple commands from the same file. 
+Normally, you'd export one command per file to keep things organized.
+However, as we support various ways of exporting commands from the file
+(`export class ...`, `export default class`, `module.exports = class ...` and `exports.MyCommand = class ...`)
+you can export multiple commands from the same file.
 
 :::info
 Note that this doesn't create subcommands. We'll cover those in [Plugin Subcommands](../plugins/plugin-subcommands)
@@ -34,7 +39,8 @@ Your project directory should now look something like this:
     └── index.js
 ```
 
-With the file created, we can start writing our commands by extending the [`Command`] class, from which all commands must be derived.
+With the file created, we can start writing our commands by extending the [`Command`][command] class,
+from which all commands must be derived.
 
 That said, here is an example of a `ping` command:
 
@@ -48,6 +54,7 @@ module.exports = class PingCommand extends Command {
   constructor(context, options) {
     super(context, {
       ...options,
+      name: 'ping',
       aliases: ['pong'],
       description: 'ping pong'
     });
@@ -65,6 +72,7 @@ export class PingCommand extends Command {
   constructor(context, options) {
     super(context, {
       ...options,
+      name: 'ping',
       aliases: ['pong'],
       description: 'ping pong'
     });
@@ -80,6 +88,7 @@ import { ApplyOptions } from '@sapphire/decorators';
 import { Command, CommandOptions } from '@sapphire/framework';
 
 @ApplyOptions<CommandOptions>({
+  name: 'ping',
   aliases: ['pong'],
   description: 'ping pong'
 })
@@ -97,11 +106,13 @@ Let's go over what is defined in the constructor in this code:
 - `aliases`: other ways users can call the command. You can have as many as you want!
 - `description`: some text that you can use to display when a "help" command is used.
 
-There are many other properties available, all of which can be seen in the [CommandOptions] interface, but will also be explained in upcoming sections.
+There are many other properties available, all of which can be seen in the [`CommandOptions`] interface,
+but will also be explained in upcoming sections.
 
 ## Creating the `messageRun` method
 
-Commands have a `messageRun` method, which executes the command logic when it is invoked from a message. Define this below the command's constructor:
+Commands have a `messageRun` method, which executes the command logic when it is invoked from a message.
+Define this below the command's constructor:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -264,3 +275,7 @@ export class PingCommand extends Command {
 
 </TabItem>
 </Tabs>
+
+[command]: ../../Documentation/api-framework/classes/Command
+[commandoptions]: ../../Documentation/api-framework/interfaces/CommandOptions
+[getting-started]: ./getting-started
