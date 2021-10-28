@@ -208,10 +208,16 @@ const config = {
 						activeBaseRegex: '^/$'
 					},
 					{
-						type: 'doc',
-						docId: 'General/Welcome',
+						to: 'docs/General/Welcome',
 						position: 'left',
-						label: 'Documentation'
+						label: 'Documentation',
+						activeBaseRegex: '^/docs/(General|Documentation)/.+$'
+					},
+					{
+						to: 'docs/Guide/getting-started/getting-started',
+						position: 'left',
+						label: 'Guides',
+						activeBaseRegex: '^/docs/Guide/.+$'
 					},
 					{
 						href: 'https://sapphirejs.dev/discord',
