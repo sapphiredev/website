@@ -4,12 +4,16 @@ title: Built-in Arguments
 ---
 
 :::tip
+
 They can be used anytime with the `Args` class, and can be accessed via `container.stores.get('arguments')`.
+
 :::
 
-:::caution Overriding
-If you define an `Argument` with the same name as a built-in one, e.g. [`boolean`][boolean],
-the one you define will replace the built-in one. This applies to all other stores from the framework and plugins.
+:::caution
+
+Overriding If you define an `Argument` with the same name as a built-in one, e.g. [`boolean`][boolean], the one you
+define will replace the built-in one. This applies to all other stores from the framework and plugins.
+
 :::
 
 To facilitate creating commands and getting your bot running, Sapphire bundles a large set of argument resolvers.
@@ -20,22 +24,22 @@ To facilitate creating commands and getting your bot running, Sapphire bundles a
   [Several ways to create a Date object on MDN][mdn-date]
 - `dmChannel`: Resolves to a [`DMChannel`][dmchannel] instance, given a DM channel ID or user's ID.
 - `float` / `number`: Resolves to any number.
-- `guildCategoryChannel`: Resolves to a [`CategoryChannel`][categorychannel] instance, given a category channel
-  name, mention or ID.
-- `guildChannel`: Resolves to a [`GuildChannel`][guildchannel] or a [`ThreadChannel`][threadchannel] instance,
-  given a channel name, mention or ID.
+- `guildCategoryChannel`: Resolves to a [`CategoryChannel`][categorychannel] instance, given a category channel name,
+  mention or ID.
+- `guildChannel`: Resolves to a [`GuildChannel`][guildchannel] or a [`ThreadChannel`][threadchannel] instance, given a
+  channel name, mention or ID.
 - `guildNewsChannel`: Resolves to a [`NewsChannel`][newschannel] instance, given a news channel name, mention or ID.
-- `guildNewsThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_NEWS_THREAD`,
-  given a thread channel name, mention or ID.
+- `guildNewsThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_NEWS_THREAD`, given a
+  thread channel name, mention or ID.
 - `guildPrivateThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PRIVATE_THREAD`,
   given a thread channel name, mention or ID.
 - `guildPublicThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PUBLIC_THREAD`,
   given a thread channel name, mention or ID.
-- `guildStageVoiceChannel`: Resolves to a [`StageChannel`][stagechannel] instance,
-  given a stage voice channel name, mention or ID.
+- `guildStageVoiceChannel`: Resolves to a [`StageChannel`][stagechannel] instance, given a stage voice channel name,
+  mention or ID.
 - `guildTextChannel`: Resolves to a [`TextChannel`][textchannel] instance, given a text channel name, mention or ID.
-- `guildThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance, given a thread
-  channel name, mention or ID.
+- `guildThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance, given a thread channel name, mention or
+  ID.
 - `guildVoiceChannel`: Resolves to a [`VoiceChannel`][voicechannel] instance, given a voice channel name, mention or ID.
 - `hyperlink` / `url`: Resolves to a [`URL`][url] instance, given a valid URL.
 - `integer`: Resolves to a safe integer.
@@ -62,4 +66,5 @@ To facilitate creating commands and getting your bot running, Sapphire bundles a
 [url]: https://nodejs.org/api/url.html
 [user]: https://discord.js.org/#/docs/main/stable/class/User
 [voicechannel]: https://discord.js.org/#/docs/main/stable/class/VoiceChannel
-[mdn-date]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#several_ways_to_create_a_date_object
+[mdn-date]:
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#several_ways_to_create_a_date_object

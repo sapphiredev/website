@@ -3,32 +3,34 @@ sidebar_position: 0
 title: Getting started with Sapphire
 ---
 
-To install Sapphire, you need to install both `discord.js` and `@sapphire/framework`.
-You can do this by running the following command:
+To install Sapphire, you need to install both `discord.js` and `@sapphire/framework`. You can do this by running the
+following command:
 
 ```bash npm2yarn2pnpm
 npm install @sapphire/framework discord.js
 ```
 
 :::caution
+
 You need at least Node.js version 16.6.0 to use Sapphire.
+
 :::
 
 ## Creating an `index.js` file
 
-While it doesn't have to be called `index.js`, this file will be the main file for your bot
-(otherwise known as the entry point) as it'll handle the bot's setup and login.
-It's recommended to put this inside a subdirectory of your project, typically `src`,
-both for organization and for [Creating Commands](creating-a-basic-command).
+While it doesn't have to be called `index.js`, this file will be the main file for your bot (otherwise known as the
+entry point) as it'll handle the bot's setup and login. It's recommended to put this inside a subdirectory of your
+project, typically `src`, both for organization and for [Creating Commands](creating-a-basic-command).
 
 :::caution
+
 Make sure that the `main` property in your `package.json` points to the right path, such as `src/index.js`.
+
 :::
 
-To begin, import `@sapphire/framework` and instantiate [`SapphireClient`][sapphire].
-This is where you can customize Sapphire's and discord.js' behaviour.
-Sapphire's client extends discord.js',
-so everything from [`Client`][djs-client] is available in [`SapphireClient`][sapphire]!
+To begin, import `@sapphire/framework` and instantiate [`SapphireClient`][sapphire]. This is where you can customize
+Sapphire's and discord.js' behaviour. Sapphire's client extends discord.js', so everything from [`Client`][djs-client]
+is available in [`SapphireClient`][sapphire]!
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -66,22 +68,23 @@ void client.login('your-token-goes-here');
 </TabItem>
 </Tabs>
 
-Sapphire detects mention prefixes (`@bot command`),
-but you can optionally define any number of default prefixes with the
-`defaultPrefix` option and `regexPrefix` for more complex cases.
+Sapphire detects mention prefixes (`@bot command`), but you can optionally define any number of default prefixes with
+the `defaultPrefix` option and `regexPrefix` for more complex cases.
 
-There is also the advanced option [`baseUserDirectory`][baseuserdirectory],
-which allows you to define the base directory Sapphire will scan. By default,
-Sapphire registers this as the directory containing your entry point and locates stores within it.
-As such, if the root directory is `src`, it will register `src/commands` as one of the command directories.
+There is also the advanced option [`baseUserDirectory`][baseuserdirectory], which allows you to define the base
+directory Sapphire will scan. By default, Sapphire registers this as the directory containing your entry point and
+locates stores within it. As such, if the root directory is `src`, it will register `src/commands` as one of the command
+directories.
 
 :::danger
-You should use environment variables or a `config.json` for your token instead of passing it directly!
-You can read more about why you should [here][securing-your-token].
+
+You should use environment variables or a `config.json` for your token instead of passing it directly! You can read more
+about why you should [here][securing-your-token].
+
 :::
 
-And that's it for your `index.js` file! In the end, your directory should look like this,
-along with whatever `.gitignore` or `config.json` files you may have:
+And that's it for your `index.js` file! In the end, your directory should look like this, along with whatever
+`.gitignore` or `config.json` files you may have:
 
 ```bash {4}
 ├── node_modules
