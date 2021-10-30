@@ -1,9 +1,16 @@
 {
-	"eslint.validate": ["typescript"],
-	"editor.tabSize": 4,
-	"editor.useTabStops": true,
-	"editor.insertSpaces": false,
-	"editor.detectIndentation": false,
+	"editor.detectIndentation": true,
+	// "[markdown]": {
+	// 	"editor.wordWrap": "on"
+	// },
+	// "[mdx]": {
+	// 	"editor.wordWrap": "on"
+	// },
 	"files.eol": "\n",
-	"deno.enable": false
+	"files.associations": {
+		"*.mdx": "markdown"
+	},
+	"cSpell.language": "en-GB",
+	"cSpell.maxNumberOfProblems": 8,
+	"cSpell.numSuggestions": 24
 }

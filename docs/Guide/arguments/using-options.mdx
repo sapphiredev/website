@@ -1,0 +1,256 @@
+---
+sidebar_position: 5
+title: Using options
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Now that we've gone over boolean flags, what if we want a string instead of a boolean value? That's where options come
+in. Options are formatted like flags, but followed by `=value`. For example, an option could be `--size=2048`. Users of
+UNIX-like command-line tools may once again be familiar with this format, such as in `help --find=entry`.
+
+Just like with flags, you can use options in two ways: declarative and imperative.
+
+:::tip
+
+Options are either strings, an array of strings, or `undefined`.
+
+:::
+
+:::caution
+
+When an option is read through [`args.getOption('<optionName>')`][getoption] but it is not provided by the user, the
+value of that variable will default to `undefined`.
+
+:::
+
+## Imperative Options
+
+Imperative options are options you specify in the command options, and using them means Sapphire will _only_ parse the
+specified options.
+
+We recommend this method because it can avoid unexpected situations where something, for example in
+[`args.rest('string')`][rest], is parsed as an option mistakenly.
+
+To add imperative options to your command you specify them in your command's options, like so:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {6}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class OptionsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      options: ['size']
+    });
+  }
+
+  async messageRun(message, args) {}
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {6}
+import { Command } from '@sapphire/framework';
+
+export class OptionsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      options: ['size']
+    });
+  }
+
+  async messageRun(message, args) {}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  options: ['size']
+})
+export class OptionsCommand extends Command {
+  public async messageRun(message: Message, args: Args) {}
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+We only parse the options that you specify when using imperative options. If the user provides anything else like
+`--this=cool`, that won't be parsed as options with this code, because we only set `--size=`.
+
+:::
+
+Next, to read the values for the provided options we use [`args.getOption('<optionName>')`][getoption] or
+[`args.getOptions('<optionName>')`][getoption]
+
+The difference between [`args.getOption('<optionName>')`][getoption] and [`args.getOptions('<optionName>')`][getoptions]
+is that the former will only read the _last_ value provided for an option and return a `string`, whereas the latter will
+read _all_ values provided and return an array of strings.
+
+For example, consider the following:
+
+- `@bot avatar --size=2048 --size=4096` with `getOption` will return `'4096'`
+- `@bot avatar --size=2048 --size=4096` with `getOptions` will return `['2048', '4096']`
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {6}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class OptionsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      options: ['size']
+    });
+  }
+
+  async messageRun(message, args) {
+    const sizeForAvatar = args.getOption('size');
+    // ...
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {6}
+import { Command } from '@sapphire/framework';
+
+export class OptionsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      options: ['size']
+    });
+  }
+
+  async messageRun(message, args) {
+    const sizeForAvatar = args.getOption('size');
+    // ...
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6,10}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  options: ['size']
+})
+export class OptionsCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    const sizeForAvatar = args.getOption('size');
+    // ...
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+Unlike methods like [`args.pick`][pick] and [`args.rest`][rest], [`args.getOption('<optionName>')`][getoption] and
+[`args.getOptions('<optionName>')`][getoption] aren't asynchronous, so they don't need to be awaited - they return
+regular strings, arrays of strings, or undefined, rather than a promise.
+
+:::
+
+## Declarative Options
+
+When opting for declarative options it means that Sapphire will try to parse everything that starts with 2 consecutive
+hyphens. That means that `--these=.. --will=... --all=.. --be=... --options=...`. This can lead to unexpected
+situations, especially when using [`args.rest('string')`][rest]. However, the flipside is that it's easy for you as a
+developer because you won't need to keep track of what options you have specified and are trying to get from the args.
+
+To use and configure declarative options you can follow most of the same for imperative options, with the difference
+being that instead of providing an array of items to the options option, you simply set that property to `true`. Here is
+an example:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {6}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class OptionsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      options: true
+    });
+  }
+
+  async messageRun(message, args) {
+    const [size, format] = args.getOptions('size', 'format');
+    // ...
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {6}
+import { Command } from '@sapphire/framework';
+
+export class OptionsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      options: true
+    });
+  }
+
+  async messageRun(message, args) {
+    const [size, format] = args.getOptions('size', 'format');
+    // ...
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6,10}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  options: true
+})
+export class OptionsCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    const [size, format] = args.getOptions('size', 'format');
+    // ...
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+[getoption]: ../../Documentation/api-framework/classes/Args#getOption
+[getoptions]: ../../Documentation/api-framework/classes/Args#getOptions
+[pick]: ../../Documentation/api-framework/classes/Args#pick
+[rest]: ../../Documentation/api-framework/classes/Args#rest

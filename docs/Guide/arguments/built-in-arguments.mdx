@@ -1,0 +1,70 @@
+---
+sidebar_position: 1
+title: Built-in arguments
+---
+
+:::tip
+
+These can be used anytime with the `Args` class, and can be accessed via `container.stores.get('arguments')`.
+
+:::
+
+:::caution Overriding
+
+If you define an `Argument` with the same name as a built-in one, e.g. [`boolean`][boolean], the one you define will
+replace the built-in one. This applies to all other stores from the framework and plugins.
+
+:::
+
+To facilitate creating commands and getting your bot running, Sapphire bundles a large set of argument resolvers.
+
+- `boolean`: Resolves to a [`boolean`][boolean] value.
+- `channel`: Resolves to a [`Channel`][channel] instance, given a channel name, mention or ID.
+- `date`: Resolves to a [`Date`][date] instance, given a valid date format. For a list of valid date formats see
+  [Several ways to create a Date object on MDN][mdn-date]
+- `dmChannel`: Resolves to a [`DMChannel`][dmchannel] instance, given a DM channel ID or user's ID.
+- `float` / `number`: Resolves to any number.
+- `guildCategoryChannel`: Resolves to a [`CategoryChannel`][categorychannel] instance, given a category channel name,
+  mention or ID.
+- `guildChannel`: Resolves to a [`GuildChannel`][guildchannel] or a [`ThreadChannel`][threadchannel] instance, given a
+  channel name, mention or ID.
+- `guildNewsChannel`: Resolves to a [`NewsChannel`][newschannel] instance, given a news channel name, mention or ID.
+- `guildNewsThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_NEWS_THREAD`, given a
+  thread channel name, mention or ID.
+- `guildPrivateThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PRIVATE_THREAD`,
+  given a thread channel name, mention or ID.
+- `guildPublicThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance of type `GUILD_PUBLIC_THREAD`,
+  given a thread channel name, mention or ID.
+- `guildStageVoiceChannel`: Resolves to a [`StageChannel`][stagechannel] instance, given a stage voice channel name,
+  mention or ID.
+- `guildTextChannel`: Resolves to a [`TextChannel`][textchannel] instance, given a text channel name, mention or ID.
+- `guildThreadChannel`: Resolves to a [`ThreadChannel`][threadchannel] instance, given a thread channel name, mention or
+  ID.
+- `guildVoiceChannel`: Resolves to a [`VoiceChannel`][voicechannel] instance, given a voice channel name, mention or ID.
+- `hyperlink` / `url`: Resolves to a [`URL`][url] instance, given a valid URL.
+- `integer`: Resolves to a safe integer.
+- `member`: Resolves to a [`GuildMember`][guildmember] instance, given a member name, mention or ID.
+- `message`: Resolves to a [`Message`][message] instance, given a message link or ID.
+- `partialDMChannel`: Resolves to a `PartialDMChannel` instance, given a DM channel ID or user's ID.
+- `role`: Resolves to a [`Role`][role] instance, given a role name, mention or ID.
+- `string`: Resolves to a string containing the parameter.
+- `user`: Resolves to a [`User`][user] instance, given a user mention or ID.
+
+[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[categorychannel]: https://discord.js.org/#/docs/main/stable/class/CategoryChannel
+[channel]: https://discord.js.org/#/docs/main/stable/class/Channel
+[date]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+[dmchannel]: https://discord.js.org/#/docs/main/stable/class/DMChannel
+[guildchannel]: https://discord.js.org/#/docs/main/stable/class/GuildChannel
+[guildmember]: https://discord.js.org/#/docs/main/stable/class/GuildMember
+[message]: https://discord.js.org/#/docs/main/stable/class/Message
+[newschannel]: https://discord.js.org/#/docs/main/stable/class/NewsChannel
+[role]: https://discord.js.org/#/docs/main/stable/class/Role
+[stagechannel]: https://discord.js.org/#/docs/main/stable/class/StageChannel
+[textchannel]: https://discord.js.org/#/docs/main/stable/class/TextChannel
+[threadchannel]: https://discord.js.org/#/docs/main/stable/class/ThreadChannel
+[url]: https://nodejs.org/api/url.html
+[user]: https://discord.js.org/#/docs/main/stable/class/User
+[voicechannel]: https://discord.js.org/#/docs/main/stable/class/VoiceChannel
+[mdn-date]:
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#several_ways_to_create_a_date_object

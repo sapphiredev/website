@@ -129,7 +129,10 @@ const config = {
 			({
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/sapphiredev/website/edit/main/'
+					editUrl: 'https://github.com/sapphiredev/website/edit/main/',
+					remarkPlugins: [[require('./src/utils/npm2yarn2pnpm'), { sync: true }]],
+					showLastUpdateAuthor: true,
+					showLastUpdateTime: true
 				},
 				blog: false,
 				theme: {
@@ -142,7 +145,7 @@ const config = {
 	themeConfig:
 		/** @type {Partial<import('@docusaurus/preset-classic').ThemeConfig>} */
 		({
-			image: '/icons/opengraph.png',
+			image: 'https://www.sapphirejs.dev/icons/opengraph.png',
 			colorMode: {
 				defaultMode: 'dark',
 				respectPrefersColorScheme: true
@@ -205,10 +208,16 @@ const config = {
 						activeBaseRegex: '^/$'
 					},
 					{
-						type: 'doc',
-						docId: 'General/Welcome',
+						to: 'docs/General/Welcome',
 						position: 'left',
-						label: 'Documentation'
+						label: 'Documentation',
+						activeBaseRegex: '^/docs/(General|Documentation)/.+$'
+					},
+					{
+						to: 'docs/Guide/getting-started/getting-started',
+						position: 'left',
+						label: 'Guides',
+						activeBaseRegex: '^/docs/Guide/.+$'
 					},
 					{
 						href: 'https://sapphirejs.dev/discord',

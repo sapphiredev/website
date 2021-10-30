@@ -1,0 +1,259 @@
+---
+sidebar_position: 4
+title: Using flags
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+So far we have covered arguments, which are positional - i.e., the order of the arguments matters and they are parsed in
+the given order. But, what if we want to have a boolean argument that can appear anywhere after the command invocation?
+That's where flags come in.
+
+Flags are likely familiar to people who have used UNIX-style command-line programs and are formatted as `--flag` in much
+the same way. For example, you'd use `node --version` to get the version of your NodeJS installation.
+
+With Sapphire you can use flags in two ways: declarative and imperative.
+
+:::tip
+
+Flags are _always_ `boolean` values
+
+:::
+
+:::caution
+
+If a flag is read via [`args.getFlags('<flagName>')`][getflags] but it is not provided by the user, it will default to
+`false` as it is not set.
+
+:::
+
+## Imperative Flags
+
+Imperative flags are flags you specify in the command options, and using them means Sapphire will _only_ parse the
+specified flags. We recommend this method because it can avoid unexpected situations where something, for example in
+[`args.rest('string')`][rest], is parsed as a flag mistakenly. An example of where this could go wrong is adding flags
+to an announcement command - the user will struggle if they attempt to use the flag as part of the announcement text
+because Sapphire will parse it as a flag instead of string content.
+
+To add imperative flags to your command you specify them in your command's options, like so:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {6}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class FlagsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      flags: ['version', 'v']
+    });
+  }
+
+  async messageRun(message, args) {}
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {6}
+import { Command } from '@sapphire/framework';
+
+export class FlagsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      flags: ['version', 'v']
+    });
+  }
+
+  async messageRun(message, args) {}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6,10}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  flags: ['version', 'v']
+})
+export class FlagsCommand extends Command {
+  public async messageRun(message: Message, args: Args) {}
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+We only parse the specified flags when using imperative flags. If the user provides `--anything --else --like --this`,
+it'll be parsed as textual data rather than flags with this code, because we told Sapphire the only valid flags are
+`--version` and `--v`.
+
+:::
+
+Next, to check the flags that were set we use [`args.getFlags('<flagName>')`][getflags]
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {6}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class FlagsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      flags: ['version', 'v']
+    });
+  }
+
+  async messageRun(message, args) {
+    const firstArgument = await args.pick('string');
+    const isRequestingVersion = args.getFlags('version', 'v');
+    const secondArgument = await args.pick('string');
+    // ...
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {6}
+import { Command } from '@sapphire/framework';
+
+export class FlagsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      flags: ['version', 'v']
+    });
+  }
+
+  async messageRun(message, args) {
+    const firstArgument = await args.pick('string');
+    const isRequestingVersion = args.getFlags('version', 'v');
+    const secondArgument = await args.pick('string');
+    // ...
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6,10}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  flags: ['version', 'v']
+})
+export class FlagsCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    const firstArgument = await args.pick('string');
+    const isRequestingVersion = args.getFlags('version', 'v');
+    const secondArgument = await args.pick('string');
+    // ...
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+Unlike methods like [`args.pick('<argumentName>')`][pick] and [`args.rest`][rest],
+[`args.getFlags('<flagName>')`][getflags] isn't asynchronous, so it doesn't need to be awaited - it returns a regular
+boolean, rather than a promise.
+
+:::
+
+## Declarative Flags
+
+If you use declarative flags, Sapphire will treat everything starting with 2 consecutive hyphens as a flag without
+validating against command options, meaning that `--these --will --all --be --flags`. This can lead to unexpected
+situations, especially when using [`args.rest('string')`][rest]; however, it enables dynamic flag setting and it's
+easier for you as a developer because you don't need to keep track of all the valid flags.
+
+The process of configuring declarative flags is similar to imperative flags, but instead of providing an array of flags,
+you just set `flags` to `true`, like so:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {6}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class FlagsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      flags: true
+    });
+  }
+
+  async messageRun(message, args) {
+    const firstArgument = await args.pick('string');
+    const isRequestingVersion = args.getFlags('version', 'v');
+    const secondArgument = await args.pick('string');
+    // ...
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {6}
+import { Command } from '@sapphire/framework';
+
+export class FlagsCommand extends Command {
+  constructor(context) {
+    super(context, {
+      flags: true
+    });
+  }
+
+  async messageRun(message, args) {
+    const firstArgument = await args.pick('string');
+    const isRequestingVersion = args.getFlags('version', 'v');
+    const secondArgument = await args.pick('string');
+    // ...
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6,10}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  flags: true
+})
+export class FlagsCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    const firstArgument = await args.pick('string');
+    const isRequestingVersion = args.getFlags('version', 'v');
+    const secondArgument = await args.pick('string');
+    // ...
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+[getflags]: ../../Documentation/api-framework/classes/Args#getflags
+[rest]: ../../Documentation/api-framework/classes/Args#rest

@@ -1,0 +1,282 @@
+---
+sidebar_position: 1
+title: Creating a basic command
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+In order to start registering commands you need to create a subdirectory called `commands` (lowercase!) in your entry
+point directory. If you were following [Getting Started][getting-started], it'll be `src/commands`.
+
+Normally, you'd export one command per file to keep things organized. However, as we support various ways of exporting
+commands from the file (`export class ...`, `export default class`, `module.exports = class ...` and
+`exports.MyCommand = class ...`) you can export multiple commands from the same file.
+
+:::info
+
+Note that this doesn't create subcommands. We'll cover those in [Plugin Subcommands](../plugins/plugin-subcommands)
+
+:::
+
+Create a `ping.js` file in your `commands` folder, which will send a message and then edit it with the elapsed time.
+Arguments and other features are covered in other pages.
+
+## Creating a command class
+
+Let's start by creating the file for the command class. In your `commands` folder, create a file named `ping.js` (or
+`ping.mjs` / `ping.ts` if you're using ESM or TypeScript respectively). This command will send a message, and then edit
+it with the bot's WebSocket latency.
+
+Your project directory should now look something like this:
+
+```bash {4-5}
+├── node_modules
+├── package.json
+└── src
+    ├── commands
+    │   └── ping.js
+    └── index.js
+```
+
+With the file created, we can start writing our commands by extending the [`Command`][command] class, from which all
+commands must be derived.
+
+That said, here is an example of a `ping` command:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-10}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      aliases: ['pong'],
+      description: 'ping pong'
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-10}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      aliases: ['pong'],
+      description: 'ping pong'
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {4-7}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  name: 'ping',
+  aliases: ['pong'],
+  description: 'ping pong'
+})
+export class PingCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+Let's go over what is defined in the constructor in this code:
+
+- `context`: an object that contains file metadata required by the `Piece` class (which `Command` extends) in order to
+  function.
+- `name`: by default, the name of the file without the extension, i.e. `ping.js` becomes `ping`, so there's no need to
+  define it.
+- `aliases`: other ways users can call the command. You can have as many as you want!
+- `description`: some text that you can use to display when a "help" command is used.
+
+There are many other properties available, all of which can be seen in the [`CommandOptions`] interface, but will also
+be explained in upcoming sections.
+
+## Creating the `messageRun` method
+
+Commands have a `messageRun` method, which executes the command logic when it is invoked from a message. Define this
+below the command's constructor:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {8-16}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class PingCommand extends Command {
+  constructor(context, options) {
+    // ...
+  }
+
+  async messageRun(message) {
+    const msg = await message.channel.send('Ping?');
+
+    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
+      msg.createdTimestamp - message.createdTimestamp
+    }ms.`;
+
+    return msg.edit(content);
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {8-16}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  constructor(context, options) {
+    // ...
+  }
+
+  async messageRun(message) {
+    const msg = await message.channel.send('Ping?');
+
+    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
+      msg.createdTimestamp - message.createdTimestamp
+    }ms.`;
+
+    return msg.edit(content);
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {9-17}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  // ...
+})
+export class PingCommand extends Command {
+  public async messageRun(message: Message) {
+    const msg = await message.channel.send('Ping?');
+
+    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
+      msg.createdTimestamp - message.createdTimestamp
+    }ms.`;
+
+    return msg.edit(content);
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Any discord.js code can be executed here since the Sapphire Framework is an extension of it. The command can be
+triggered with `@bot ping` or `@bot pong` (custom prefixes are mentioned in other documents).
+
+## Resulting code
+
+Once you've set up the constructor and the `messageRun` method, your code should look like this:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+const { Command } = require('@sapphire/framework');
+
+module.exports = class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      aliases: ['pong'],
+      description: 'ping pong'
+    });
+  }
+
+  async messageRun(message) {
+    const msg = await message.channel.send('Ping?');
+
+    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
+      msg.createdTimestamp - message.createdTimestamp
+    }ms.`;
+
+    return msg.edit(content);
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      aliases: ['pong'],
+      description: 'ping pong'
+    });
+  }
+
+  async messageRun(message) {
+    const msg = await message.channel.send('Ping?');
+
+    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
+      msg.createdTimestamp - message.createdTimestamp
+    }ms.`;
+
+    return msg.edit(content);
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  aliases: ['pong'],
+  description: 'ping pong'
+})
+export class PingCommand extends Command {
+  public async messageRun(message: Message) {
+    const msg = await message.channel.send('Ping?');
+
+    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
+      msg.createdTimestamp - message.createdTimestamp
+    }ms.`;
+
+    return msg.edit(content);
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+[command]: ../../Documentation/api-framework/classes/Command
+[commandoptions]: ../../Documentation/api-framework/interfaces/CommandOptions
+[getting-started]: ./getting-started
