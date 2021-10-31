@@ -216,7 +216,7 @@ const config = {
 					{
 						to: 'docs/Guide/getting-started/getting-started',
 						position: 'left',
-						label: 'Guides',
+						label: 'Guide',
 						activeBaseRegex: '^/docs/Guide/.+$'
 					},
 					{
