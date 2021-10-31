@@ -60,3 +60,17 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 	--ifm-footer-link-color: var(--ifm-link-color);
 	--ifm-footer-title-color: var(--ifm-font-color-base);
 }
+
+@media screen and (min-width: 966px) {
+	footer > .container {
+		display: grid;
+		place-content: center;
+	}
+}
+
+@media screen and (max-width: 966px) {
+	footer > div > div.row.footer__links {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+}
