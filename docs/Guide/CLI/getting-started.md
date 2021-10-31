@@ -132,7 +132,8 @@ Done!
 
 Congratulations, you created a bot using Sapphire CLI. Read the README to see what you need to do before running it.
 
-:::: code-group ::: code-group-item Bash
+<Tabs>
+<TabItem value="bash" label="Bash" default>
 
 ```shell:no-line-numbers
 $ cat my-sapphire-bot/README.md
@@ -142,7 +143,9 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 ...
 ```
 
-::: ::: code-group-item PowerShell
+</TabItem>
+
+<TabItem value="ps1" label="Powershell">
 
 ```shell:no-line-numbers
 $ Get-Content .\my-sapphire-bot\README.md
@@ -152,7 +155,9 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 ...
 ```
 
-::: ::: code-group-item CMD
+</TabItem>
+
+<TabItem value="commandprompt" label="CMD">
 
 ```shell:no-line-numbers
 $ type my-sapphire-bot\README.md
@@ -162,4 +167,5 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 ...
 ```
 
-::: ::::
+</TabItem>
+</Tabs>
