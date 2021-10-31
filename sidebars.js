@@ -8,7 +8,7 @@ module.exports = {
 		},
 		{
 			type: 'category',
-			label: 'Guides',
+			label: 'Guide',
 			collapsed: true,
 			items: [
 				{
