@@ -25,12 +25,6 @@ You can install the CLI as a devDependency, but we recommend installing it globa
 
 ## Creating a bot
 
-:::note
-
-If you want to use the CLI on an existing project, skip this part.
-
-:::
-
 ```bash
 $ sapphire new
 ```
@@ -165,12 +159,6 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 <details>
 <summary> Existing project </summary>
 # Using Sapphire CLI on an existing project
-
-:::note
-
-If you used Sapphire CLI to create your project, you can skip this.
-
-:::
 
 ```shell
 $ sapphire init
