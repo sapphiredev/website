@@ -19,7 +19,6 @@ You can install the CLI as a devDependency, but we recommend installing it globa
 
 :::
 
-
 <details>
 <summary>New project</summary>
 
