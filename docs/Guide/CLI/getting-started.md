@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 <Tabs groupId="packageManagers">
 <TabItem value="yarn" label="Yarn (Recommended)" default>
 
-```shell:no-line-numbers
+```bash
 $ yarn global add @sapphire/cli
 ```
 
@@ -20,7 +20,7 @@ $ yarn global add @sapphire/cli
 
 <TabItem value="npm" label="NPM">
 
-```shell:no-line-numbers
+```bash
 $ npm install @sapphire/cli -g
 ```
 
@@ -41,20 +41,20 @@ If you want to use the CLI on an existing project, skip this part.
 
 :::
 
-```shell:no-line-numbers
+```bash
 $ sapphire new
 ```
 
 Run this command to start.
 
-```shell:no-line-numbers{2}
+```bash{2}
 $ sapphire new
 ? What's the name of your project? › my-sapphire-bot
 ```
 
 Choose a name for your project, that will also be the folder name for your project. Defaults to `my-sapphire-bot`.
 
-```shell:no-line-numbers{3-5}
+```bash{3-5}
 $ sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ? Choose a language for your project › - Use arrow-keys. Return to submit.
@@ -64,7 +64,7 @@ $ sapphire new
 
 Choose a language for your project, we will choose **TypeScript** in this guide.
 
-```shell:no-line-numbers{4-6}
+```bash{4-6}
 $ sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -75,7 +75,7 @@ $ sapphire new
 
 Choose a template for your project, we will go with the **default template** in this guide.
 
-```shell:no-line-numbers{5-7}
+```bash{5-7}
 $ sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -88,7 +88,7 @@ $ sapphire new
 Choose a format for your config file, we will choose **YAML** in this guide. This config file is for Sapphire CLI, read
 more about it here.
 
-```shell:no-line-numbers{6-8}
+```bash{6-8}
 $ sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -101,7 +101,7 @@ $ sapphire new
 
 Choose a package manager for your project, we will choose **Yarn** in this guide.
 
-```shell:no-line-numbers{7}
+```bash{7}
 $ sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -116,7 +116,7 @@ repository in your project, just enter.
 
 Now wait for the CLI to create your project and install the dependencies. This should take ~2 minutes.
 
-```shell:no-line-numbers
+```bash
 $ sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -135,7 +135,7 @@ Congratulations, you created a bot using Sapphire CLI. Read the README to see wh
 <Tabs>
 <TabItem value="bash" label="Bash" default>
 
-```shell:no-line-numbers
+```bash
 $ cat my-sapphire-bot/README.md
 # TypeScript Sapphire Bot example
 
@@ -147,7 +147,7 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 <TabItem value="ps1" label="Powershell">
 
-```shell:no-line-numbers
+```bash
 $ Get-Content .\my-sapphire-bot\README.md
 # TypeScript Sapphire Bot example
 
@@ -159,7 +159,7 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 <TabItem value="commandprompt" label="CMD">
 
-```shell:no-line-numbers
+```bash
 $ type my-sapphire-bot\README.md
 # TypeScript Sapphire Bot example
 
