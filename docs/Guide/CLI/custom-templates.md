@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 <Tabs groupId="language-choice">
 <TabItem value="json" label="JSON" default>
 
-```json{11-14}
+```json {11-14}
 {
   "$schema": "https://raw.githubusercontent.com/sapphiredev/cli/main/templates/schemas/.sapphirerc.scheme.json",
   "projectLanguage": "ts",
@@ -34,7 +34,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 <TabItem value="yaml" label="YAML">
 
-```yaml{8-10}
+```yaml {8-10}
 projectLanguage: ts
 locations:
   base: src
