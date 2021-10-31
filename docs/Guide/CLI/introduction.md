@@ -2,9 +2,6 @@
 title: Introduction
 sidebar_position: 0
 ---
-
-# Introduction
-
 This guide will teach you things such as:
 
 - Installing Sapphire CLI
