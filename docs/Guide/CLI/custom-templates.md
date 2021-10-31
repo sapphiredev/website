@@ -44,7 +44,7 @@ locations:
   preconditions: preconditions
 customFileTemplates:
   enabled: true
-  location: "templates"
+  location: 'templates'
 ```
 
 </TabItem>
