@@ -157,7 +157,8 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 <details>
 <summary> Existing project </summary>
-# Using Sapphire CLI on an existing project
+
+## Using Sapphire CLI on an existing project
 
 ```shell
 $ sapphire init
