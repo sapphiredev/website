@@ -3,11 +3,9 @@ title: Generating components
 sidebar_position: 2
 ---
 
-# Generating components
-
 You can generate a component like that:
 
-```shell:no-line-numbers
+```bash
 $ sapphire generate <component> <name>
 ```
 
@@ -16,7 +14,7 @@ $ sapphire generate <component> <name>
 
 Example:
 
-```shell:no-line-numbers
+```bash
 $ sapphire generate command HelloWorld
 ```
 
