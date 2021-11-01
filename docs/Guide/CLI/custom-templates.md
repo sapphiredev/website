@@ -5,8 +5,6 @@ title: Create custom component templates
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
-# Create custom component templates
-
 ## Enable custom component templates
 
 <Tabs groupId="language-choice">
