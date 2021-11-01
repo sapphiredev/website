@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 ## Installation
 
 ```bash npm2yarn2pnpm
-npm install @sapphire/framework discord.js
+npm install @sapphire/cli -g
 ```
 
 :::caution
