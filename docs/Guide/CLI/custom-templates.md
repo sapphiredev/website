@@ -50,7 +50,7 @@ customFileTemplates:
 
 :::note
 
-If you are using json, you will get intellisense, because of our $schema
+If you are using JSON, you will get intellisense because of our JSON schema.
 
 :::
 
