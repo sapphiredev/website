@@ -99,12 +99,9 @@ export class {{name}}Command extends MyExtendedCommand {
 
 ```
 
-If you look at the name of the class, you will see it includes `{{name}}`, this is the component's name and it is
-replaced with that name when creating the component. For example: if we created this component with the name
-`HelloWorld`, the name of the exported class would be `HelloWorldCommand`. It is not required but if you need it, this
-is how it's done.
+If you look at the name of the class, you will see it includes `{{name}}`. In this context, the formatting variable `name` will be replaced with the command's name when you generate the component. For example, if we created this component with the name `HelloWorld`, the name of the exported class would be `HelloWorldCommand`. Formatting variables are not required, but they're there if you need dynamic templating.
 
-- And now you can create component with your template
+Now you can generate components using your template!
 
 ```
 sapphire generate <component> <name>
