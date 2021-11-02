@@ -103,6 +103,6 @@ If you look at the name of the class, you will see it includes `{{name}}`. In th
 
 Now you can generate components using your template!
 
-```
-sapphire generate <component> <name>
-```
+See [the page on generating components][generating-components] for more information.
+
+[generating-components]: ./generating-components.md
