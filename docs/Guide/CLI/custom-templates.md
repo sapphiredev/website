@@ -59,11 +59,9 @@ If you use JSON, our schema allows your text editor to provide automatic complet
 
 ## Create a template
 
-- Create a file with a name like this in your custom template directory: `<templateName>.<language>.sapphire` (e.g
-  `command.ts.sapphire`). If you make its name same as one of the default templates, your template will override the
-  default one.
-- Template's have 2 parts, config and the template, separated with `---`.
-- We first need to type the config:
+First, create a file in your template directory with a name in the format `<templateName>.<language>.sapphire` (e.g `command.ts.sapphire`). Note that if you give it the same name as one of our provided defaults, your local template will override the default one.
+
+All templates have two components: the config, and the template. These are separated by `---`. Let's set up our config now, like so:
 
 ```json
 {
