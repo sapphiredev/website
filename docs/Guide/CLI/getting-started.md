@@ -113,7 +113,7 @@ Done!
 
 Congratulations, you created a bot using Sapphire CLI. Read the README to see what you need to do before running it.
 
-<Tabs>
+<Tabs groupId="shell-choice">
 <TabItem value="bash" label="Bash" default>
 
 ```bash
