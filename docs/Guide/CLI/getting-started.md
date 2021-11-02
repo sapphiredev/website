@@ -241,7 +241,7 @@ Enter your preconditions directory, where your preconditions are located (don't 
 `preconditions`.
 
 ```shell {9}
-$ sapphire init
+sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
 ✔ Your base directory … src
