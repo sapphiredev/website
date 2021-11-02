@@ -11,7 +11,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 npm install @sapphire/cli -g
 ```
 
-:::caution
+:::info
 
 You can install the CLI as a development dependency, but we recommend installing it globally so you can reuse the utility in multiple projects.
 
