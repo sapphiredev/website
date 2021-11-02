@@ -36,7 +36,7 @@ sapphire new
 Choose a name for your project, that will also be the folder name for your project. Defaults to `my-sapphire-bot`.
 
 ```bash {3-5}
-$ sapphire new
+sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ? Choose a language for your project › - Use arrow-keys. Return to submit.
 ❯   TypeScript (Recommended)
@@ -46,7 +46,7 @@ $ sapphire new
 Choose a language for your project, we will choose **TypeScript** in this guide.
 
 ```bash {4-6}
-$ sapphire new
+sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
 ? Choose a template for your project › - Use arrow-keys. Return to submit.
@@ -57,7 +57,7 @@ $ sapphire new
 Choose a template for your project, we will go with the **default template** in this guide.
 
 ```bash {5-7}
-$ sapphire new
+sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
 ✔ Choose a template for your project › Default template (Recommended)
@@ -70,7 +70,7 @@ Choose a format for your config file, we will choose **YAML** in this guide. Thi
 more about it here.
 
 ```bash {6-8}
-$ sapphire new
+sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
 ✔ Choose a template for your project › Default template (Recommended)
@@ -83,7 +83,7 @@ $ sapphire new
 Choose a package manager for your project, we will choose **Yarn** in this guide.
 
 ```bash {7}
-$ sapphire new
+sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
 ✔ Choose a template for your project › Default template (Recommended)
@@ -98,7 +98,7 @@ repository in your project, just enter.
 Now wait for the CLI to create your project and install the dependencies. This should take ~2 minutes.
 
 ```bash
-$ sapphire new
+sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
 ✔ Choose a template for your project › Default template (Recommended)
@@ -117,7 +117,7 @@ Congratulations, you created a bot using Sapphire CLI. Read the README to see wh
 <TabItem value="bash" label="Bash" default>
 
 ```bash
-$ cat my-sapphire-bot/README.md
+cat my-sapphire-bot/README.md
 # TypeScript Sapphire Bot example
 
 This is a basic setup of a Discord bot using the [sapphire framework][sapphire] written in TypeScript
@@ -126,10 +126,10 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 </TabItem>
 
-<TabItem value="ps1" label="Powershell">
+<TabItem value="powershell" label="Powershell">
 
-```bash
-$ Get-Content .\my-sapphire-bot\README.md
+```powershell
+Get-Content .\my-sapphire-bot\README.md
 # TypeScript Sapphire Bot example
 
 This is a basic setup of a Discord bot using the [sapphire framework][sapphire] written in TypeScript
@@ -140,8 +140,8 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 <TabItem value="commandprompt" label="CMD">
 
-```bash
-$ type my-sapphire-bot\README.md
+```batch
+type my-sapphire-bot\README.md
 # TypeScript Sapphire Bot example
 
 This is a basic setup of a Discord bot using the [sapphire framework][sapphire] written in TypeScript
@@ -158,14 +158,14 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 ## Using Sapphire CLI on an existing project
 
-```shell
-$ sapphire init
+```bash
+sapphire init
 ```
 
 Run this command to start.
 
-```shell {2-4}
-$ sapphire init
+```bash {2-4}
+sapphire init
 ? What format do you want your config file to be in? › - Use arrow-keys. Return to submit.
     JSON
 ❯   YAML
@@ -174,8 +174,8 @@ $ sapphire init
 Choose a format for your config file, we will choose **YAML** in this guide. This config file is for Sapphire CLI, read
 more about it here.
 
-```shell {3-5}
-$ sapphire init
+```bash {3-5}
+sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ? Choose the language used in your project › - Use arrow-keys. Return to submit.
 ❯   TypeScript
@@ -184,8 +184,8 @@ $ sapphire init
 
 Choose the language you are using in your project, we are using **TypeScript** in this one, so we will go with it.
 
-```shell {4}
-$ sapphire init
+```bash {4}
+sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
 ? Your base directory › src
@@ -193,8 +193,8 @@ $ sapphire init
 
 Enter your base directory, where your project's entry point is located, defaults to `src`.
 
-```shell {5}
-$ sapphire init
+```bash {5}
+sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
 ✔ Your base directory … src
@@ -203,8 +203,8 @@ $ sapphire init
 
 Enter your commands directory, where your commands are located (don't include the base), defaults to `commands`.
 
-```shell {6}
-$ sapphire init
+```bash {6}
+sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
 ✔ Your base directory … src
@@ -214,8 +214,8 @@ $ sapphire init
 
 Enter your listeners directory, where your listeners are located (don't include the base), defaults to `listeners`.
 
-```shell {7}
-$ sapphire init
+```bash {7}
+sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
 ✔ Your base directory … src
@@ -226,7 +226,7 @@ $ sapphire init
 
 Enter your arguments directory, where your arguments are located (don't include the base), defaults to `arguments`.
 
-```shell {8}
+```bash {8}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
