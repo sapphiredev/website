@@ -15,7 +15,7 @@ sapphire generate <component> <name>
 Example:
 
 ```bash
-$ sapphire generate command HelloWorld
+sapphire generate command HelloWorld
 ```
 
 ## Default components
