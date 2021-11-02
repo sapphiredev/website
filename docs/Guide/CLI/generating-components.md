@@ -5,7 +5,7 @@ sidebar_position: 2
 
 We can generate components using:
 
-```posix
+```bash
 sapphire generate <component> <name>
 ```
 
@@ -14,7 +14,7 @@ sapphire generate <component> <name>
 
 Example:
 
-```posix
+```bash
 sapphire generate command HelloWorld
 ```
 

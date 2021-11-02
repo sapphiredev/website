@@ -284,7 +284,7 @@ const config = {
 				defaultLanguage: 'javascript',
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
-				additionalLanguages: ['powershell', 'batch', 'posix']
+				additionalLanguages: ['powershell', 'batch']
 			}
 		})
 };
