@@ -255,7 +255,7 @@ $ sapphire init
 Choose if you want to enable custom file (piece) templates, type `y` and enter if you want to enable it. If you don't
 want to enable it, just enter.
 
-```shell
+```bash
 $ sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
