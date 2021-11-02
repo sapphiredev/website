@@ -9,7 +9,7 @@ We can generate components using:
 sapphire generate <component> <name>
 ```
 
-- **component**: The component category; either a default one or a custom one
+- **component**: Component name, can be a default one or a custom one
 - **name**: Name of the created component, e.g. the name of your command
 
 Example:
