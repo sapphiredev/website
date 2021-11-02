@@ -23,7 +23,7 @@ You can install the CLI as a devDependency, but we recommend installing it globa
 ## Creating a bot
 
 ```bash
-$ sapphire new
+sapphire new
 ```
 
 Run this command to start.
