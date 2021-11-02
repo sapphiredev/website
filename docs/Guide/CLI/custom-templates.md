@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 <Tabs groupId="config-language-choice">
 <TabItem value="json" label="JSON" default>
 
-```jsonc {11-14}
+```json {11-14}
 {
   "$schema": "https://raw.githubusercontent.com/sapphiredev/cli/main/templates/schemas/.sapphirerc.scheme.json",
   "projectLanguage": "ts",
