@@ -69,9 +69,7 @@ All templates have two components: the config, and the template. These are separ
 }
 ```
 
-`category` is the category of that template, CLI uses it to know where to create the component by finding that
-category's location from the `locations` field in your `.sapphirerc` file. You can create your own categories. Default
-categories are: `commands`, `listeners`, `arguments`, `preconditions`. This example uses the `commands` category.
+The `category` field is how the Sapphire CLI determines what type of template you are creating, and therefore where it belongs by looking it up in your `.sapphirerc` file. Our default categories are `commands`, `listeners`, `arguments`, and `preconditions`, but you can add your own. We'll use the `commands` category here.
 
 - Now we add the separator.
 
