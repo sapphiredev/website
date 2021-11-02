@@ -6,7 +6,7 @@ sidebar_position: 2
 We can generate components using:
 
 ```bash
-$ sapphire generate <component> <name>
+sapphire generate <component> <name>
 ```
 
 - **component**: Component name, can be a default one or a custom one
