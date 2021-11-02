@@ -24,7 +24,3 @@ sapphire generate command HelloWorld
 - `listener`
 - `argument`
 - `precondition`
-
-## Custom component templates
-
-Read the next section to learn how to create and use custom templates.
