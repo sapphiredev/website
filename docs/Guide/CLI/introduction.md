@@ -3,9 +3,9 @@ title: Introduction
 sidebar_position: 0
 ---
 
-This guide will teach you things such as:
+In this guide, you'll learn how to:
 
-- [Installing Sapphire CLI](./getting-started.md)
-- [Creating a bot using Sapphire CLI](./getting-started.md#creating-a-bot)
-- [Creating components using Sapphire CLI](./generating-components.md)
-- [Creating custom component templates to use with Sapphire CLI](./custom-templates.md)
+- [Install the Sapphire CLI](./getting-started.md)
+- [Create a bot with the Sapphire CLI](./getting-started.md#creating-a-bot)
+- [Create components with the Sapphire CLI](./generating-components.md)
+- [Create custom component templates for the Sapphire CLI](./custom-templates.md)
