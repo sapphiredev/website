@@ -77,7 +77,7 @@ Next, we add our separator to start forming the template, like so:
 ---
 ```
 
-- And the last part, we add the template.
+Finally, we add the template. Format strings are denoted by `{{variable}}` - this means that when the components are generated, the respective values are substituted in.
 
 ```
 {
