@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 <Tabs groupId="config-language-choice">
 <TabItem value="json" label="JSON" default>
 
-```json {11-14}
+```jsonc {11-14}
 {
   "$schema": "https://raw.githubusercontent.com/sapphiredev/cli/main/templates/schemas/.sapphirerc.scheme.json",
   "projectLanguage": "ts",
@@ -22,8 +22,8 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
     "preconditions": "preconditions"
   },
   "customFileTemplates": {
-    "enabled": true,
-    "location": "templates"
+    "enabled": true, // Enables/disables custom component templates
+    "location": "templates" // The location of your templates
   }
 }
 ```
@@ -41,8 +41,8 @@ locations:
   listeners: listeners
   preconditions: preconditions
 customFileTemplates:
-  enabled: true
-  location: 'templates'
+  enabled: true # Enables/disables custom component templates
+  location: 'templates' # The location of your templates
 ```
 
 </TabItem>
@@ -53,9 +53,6 @@ customFileTemplates:
 If you use JSON, our schema allows your text editor to provide automatic completions.
 
 :::
-
-- **customFileTemplates.enabled**: Enables/disables custom component templates
-- **customFileTemplates.location**: The location of your templates
 
 ## Create a template
 
