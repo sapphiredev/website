@@ -227,7 +227,7 @@ $ sapphire init
 Enter your arguments directory, where your arguments are located (don't include the base), defaults to `arguments`.
 
 ```shell {8}
-$ sapphire init
+sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
 ✔ Your base directory … src
