@@ -3,7 +3,7 @@ title: Generating components
 sidebar_position: 2
 ---
 
-You can generate a component like that:
+We can generate components using:
 
 ```bash
 $ sapphire generate <component> <name>
