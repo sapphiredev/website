@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Installation
 
-```bash npm2yarn2pnpm
+```posix npm2yarn2pnpm
 npm install @sapphire/cli -g
 ```
 
@@ -23,20 +23,20 @@ utility in multiple projects.
 
 ## Creating a bot
 
-```bash
+```posix
 sapphire new
 ```
 
 Run this command to start.
 
-```bash {2}
+```posix {2}
 sapphire new
 ? What's the name of your project? › my-sapphire-bot
 ```
 
 Choose a name for your project, that will also be the folder name for your project. Defaults to `my-sapphire-bot`.
 
-```bash {3-5}
+```posix {3-5}
 sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ? Choose a language for your project › - Use arrow-keys. Return to submit.
@@ -46,7 +46,7 @@ sapphire new
 
 Choose a language for your project, we will choose **TypeScript** in this guide.
 
-```bash {4-6}
+```posix {4-6}
 sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -57,7 +57,7 @@ sapphire new
 
 Choose a template for your project, we will go with the **default template** in this guide.
 
-```bash {5-7}
+```posix {5-7}
 sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -70,7 +70,7 @@ sapphire new
 Choose a format for your config file, we will choose **YAML** in this guide. This config file is for Sapphire CLI, read
 more about it here.
 
-```bash {6-8}
+```posix {6-8}
 sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -83,7 +83,7 @@ sapphire new
 
 Choose a package manager for your project, we will choose **Yarn** in this guide.
 
-```bash {7}
+```posix {7}
 sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -98,7 +98,7 @@ repository in your project, just enter.
 
 Now wait for the CLI to create your project and install the dependencies. This should take ~2 minutes.
 
-```bash
+```posix
 sapphire new
 ✔ What's the name of your project? … my-sapphire-bot
 ✔ Choose a language for your project › TypeScript (Recommended)
@@ -115,9 +115,9 @@ Done!
 Congratulations, you created a bot using Sapphire CLI. Read the README to see what you need to do before running it.
 
 <Tabs groupId="shell-choice">
-<TabItem value="bash" label="Bash" default>
+<TabItem value="posix" label="posix" default>
 
-```bash
+```posix
 cat my-sapphire-bot/README.md
 # TypeScript Sapphire Bot example
 
@@ -159,13 +159,13 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 ## Using Sapphire CLI on an existing project
 
-```bash
+```posix
 sapphire init
 ```
 
 Run this command to start.
 
-```bash {2-4}
+```posix {2-4}
 sapphire init
 ? What format do you want your config file to be in? › - Use arrow-keys. Return to submit.
     JSON
@@ -175,7 +175,7 @@ sapphire init
 Choose a format for your config file, we will choose **YAML** in this guide. This config file is for Sapphire CLI, read
 more about it here.
 
-```bash {3-5}
+```posix {3-5}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ? Choose the language used in your project › - Use arrow-keys. Return to submit.
@@ -185,7 +185,7 @@ sapphire init
 
 Choose the language you are using in your project, we are using **TypeScript** in this one, so we will go with it.
 
-```bash {4}
+```posix {4}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
@@ -194,7 +194,7 @@ sapphire init
 
 Enter your base directory, where your project's entry point is located, defaults to `src`.
 
-```bash {5}
+```posix {5}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
@@ -204,7 +204,7 @@ sapphire init
 
 Enter your commands directory, where your commands are located (don't include the base), defaults to `commands`.
 
-```bash {6}
+```posix {6}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
@@ -215,7 +215,7 @@ sapphire init
 
 Enter your listeners directory, where your listeners are located (don't include the base), defaults to `listeners`.
 
-```bash {7}
+```posix {7}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
@@ -227,7 +227,7 @@ sapphire init
 
 Enter your arguments directory, where your arguments are located (don't include the base), defaults to `arguments`.
 
-```bash {8}
+```posix {8}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
@@ -241,7 +241,7 @@ sapphire init
 Enter your preconditions directory, where your preconditions are located (don't include the base), defaults to
 `preconditions`.
 
-```bash {9}
+```posix {9}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
@@ -256,7 +256,7 @@ sapphire init
 Choose if you want to enable custom file (piece) templates, type `y` and enter if you want to enable it. If you don't
 want to enable it, just enter.
 
-```bash
+```posix
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
