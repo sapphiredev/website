@@ -13,7 +13,8 @@ npm install @sapphire/cli -g
 
 :::info
 
-You can install the CLI as a development dependency, but we recommend installing it globally so you can reuse the utility in multiple projects.
+You can install the CLI as a development dependency, but we recommend installing it globally so you can reuse the
+utility in multiple projects.
 
 :::
 

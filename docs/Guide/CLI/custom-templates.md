@@ -56,9 +56,12 @@ If you use JSON, our schema allows your text editor to provide automatic complet
 
 ## Create a template
 
-First, create a file in your template directory with a name in the format `<templateName>.<language>.sapphire` (e.g `command.ts.sapphire`). Note that if you give it the same name as one of our provided defaults, your local template will override the default one.
+First, create a file in your template directory with a name in the format `<templateName>.<language>.sapphire` (e.g
+`command.ts.sapphire`). Note that if you give it the same name as one of our provided defaults, your local template will
+override the default one.
 
-All templates have two components: the config, and the template. These are separated by `---`. Let's set up our config now, like so:
+All templates have two components: the config, and the template. These are separated by `---`. Let's set up our config
+now, like so:
 
 ```json
 {
@@ -66,7 +69,9 @@ All templates have two components: the config, and the template. These are separ
 }
 ```
 
-The `category` field is how the Sapphire CLI determines what type of template you are creating, and therefore where it belongs by looking it up in your `.sapphirerc` file. Our default categories are `commands`, `listeners`, `arguments`, and `preconditions`, but you can add your own. We'll use the `commands` category here.
+The `category` field is how the Sapphire CLI determines what type of template you are creating, and therefore where it
+belongs by looking it up in your `.sapphirerc` file. Our default categories are `commands`, `listeners`, `arguments`,
+and `preconditions`, but you can add your own. We'll use the `commands` category here.
 
 Next, we add our separator to start forming the template, like so:
 
@@ -77,7 +82,8 @@ Next, we add our separator to start forming the template, like so:
 ---
 ```
 
-Finally, we add the template. Format strings are denoted by `{{variable}}` - this means that when the components are generated, the respective values are substituted in.
+Finally, we add the template. Format strings are denoted by `{{variable}}` - this means that when the components are
+generated, the respective values are substituted in.
 
 ```
 {
@@ -99,7 +105,10 @@ export class {{name}}Command extends MyExtendedCommand {
 
 ```
 
-If you look at the name of the class, you will see it includes `{{name}}`. In this context, the formatting variable `name` will be replaced with the command's name when you generate the component. For example, if we created this component with the name `HelloWorld`, the name of the exported class would be `HelloWorldCommand`. Formatting variables are not required, but they're there if you need dynamic templating.
+If you look at the name of the class, you will see it includes `{{name}}`. In this context, the formatting variable
+`name` will be replaced with the command's name when you generate the component. For example, if we created this
+component with the name `HelloWorld`, the name of the exported class would be `HelloWorldCommand`. Formatting variables
+are not required, but they're there if you need dynamic templating.
 
 Now you can generate components using your template!
 
