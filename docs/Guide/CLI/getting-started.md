@@ -18,7 +18,7 @@ You can install the CLI as a development dependency, but we recommend installing
 :::
 
 <details>
-<summary>New project</summary>
+<summary>Setting up a new project</summary>
 
 ## Creating a bot
 
