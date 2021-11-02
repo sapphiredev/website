@@ -29,7 +29,7 @@ sapphire new
 Run this command to start.
 
 ```bash {2}
-$ sapphire new
+sapphire new
 ? What's the name of your project? › my-sapphire-bot
 ```
 
