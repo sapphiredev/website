@@ -50,7 +50,7 @@ customFileTemplates:
 
 :::note
 
-If you are using JSON, you will get intellisense because of our JSON schema.
+If you use JSON, our schema allows your text editor to provide automatic completions.
 
 :::
 
