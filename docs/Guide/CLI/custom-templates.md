@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Enable custom component templates
 
-<Tabs groupId="language-choice">
+<Tabs groupId="config-language-choice">
 <TabItem value="json" label="JSON" default>
 
 ```json {11-14}
