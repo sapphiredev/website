@@ -240,7 +240,7 @@ $ sapphire init
 Enter your preconditions directory, where your preconditions are located (don't include the base), defaults to
 `preconditions`.
 
-```shell {9}
+```bash {9}
 sapphire init
 ✔ What format do you want your config file to be in? › YAML
 ✔ Choose the language used in your project › TypeScript
