@@ -55,7 +55,7 @@ If you use JSON, our schema allows your text editor to provide automatic complet
 :::
 
 | customFileTemplates.enabled  | Enables/disables custom component templates |
-|------------------------------|---------------------------------------------|
+| ---------------------------- | ------------------------------------------- |
 | customFileTemplates.location | The location of your templates              |
 
 ## Create a template
