@@ -3,7 +3,8 @@ title: Getting Started
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Installation
 
@@ -23,18 +24,24 @@ utility in multiple projects.
 
 ## Creating a bot
 
+Lets start creating a new project. The first thing to run is the `new` command:
+
 ```bash
 sapphire new
 ```
 
-Run this command to start.
+After running `sapphire new` you will be prompted with several questions that require your attention and that we will
+use to generate your project.
+
+First of all, we will need to know the name of your project. This will be used as the folder name in which we'll setup
+the project. This will default to `my-sapphire-bot`.
 
 ```bash {2}
 sapphire new
 ? What's the name of your project? › my-sapphire-bot
 ```
 
-Choose a name for your project, that will also be the folder name for your project. Defaults to `my-sapphire-bot`.
+Next you will need to choose which programming language you want to use. Currently we support JavaScript and TypeScript.
 
 ```bash {3-5}
 sapphire new
@@ -44,7 +51,8 @@ sapphire new
     JavaScript
 ```
 
-Choose a language for your project, we will choose **TypeScript** in this guide.
+After choosing the programming language we have several templates from which you can choose. We will go with the
+**default template** for this guide.
 
 ```bash {4-6}
 sapphire new
@@ -55,7 +63,8 @@ sapphire new
     with Docker
 ```
 
-Choose a template for your project, we will go with the **default template** in this guide.
+The following step is to choose the markup language to use for your config file, we support JSON and YAML. For this
+guide we will choose **YAML**.
 
 ```bash {5-7}
 sapphire new
@@ -67,8 +76,8 @@ sapphire new
 ❯   YAML
 ```
 
-Choose a format for your config file, we will choose **YAML** in this guide. This config file is for Sapphire CLI, read
-more about it here.
+The next step is to choose the package manager to use. We support `npm` and `yarn`. For this guide we will choose
+**Yarn**.
 
 ```bash {6-8}
 sapphire new
@@ -81,7 +90,8 @@ sapphire new
     npm
 ```
 
-Choose a package manager for your project, we will choose **Yarn** in this guide.
+Lastly, if you want to initialize a git repository in your project, type `y` when asked, then press enter to finish up.
+If you don't want a git repository then you can just hit enter to finish.
 
 ```bash {7}
 sapphire new
@@ -93,10 +103,8 @@ sapphire new
 ? Do you want to create a git repository for this project? › (y/N)
 ```
 
-Lastly, if you want to initialize a git repository in your project, type `y` and enter. If you don't want a git
-repository in your project, just enter.
-
-Now wait for the CLI to create your project and install the dependencies. This should take ~2 minutes.
+Now wait for the CLI to create your project and install the dependencies. This should take ~2 minutes, but it may be
+more depending on your hardware as well as on your internet speed.
 
 ```bash
 sapphire new
@@ -112,10 +120,11 @@ sapphire new
 Done!
 ```
 
-Congratulations, you created a bot using Sapphire CLI. Read the README to see what you need to do before running it.
+Congratulations! You created a bot using Sapphire CLI. You can consult the README to see what you need to do before
+running your bot.
 
 <Tabs groupId="shell-choice">
-<TabItem value="bash" label="bash" default>
+<TabItem value="bash" label="Bash" default>
 
 ```bash
 cat my-sapphire-bot/README.md
@@ -159,11 +168,14 @@ This is a basic setup of a Discord bot using the [sapphire framework][sapphire] 
 
 ## Using Sapphire CLI on an existing project
 
+Lets start initializing Sapphire CLI in your project. The first thing to run is the `init` command:
+
 ```bash
 sapphire init
 ```
 
-Run this command to start.
+The following step is to choose the markup language to use for your config file, we support JSON and YAML. For this
+guide we will choose **YAML**.
 
 ```bash {2-4}
 sapphire init
@@ -172,8 +184,8 @@ sapphire init
 ❯   YAML
 ```
 
-Choose a format for your config file, we will choose **YAML** in this guide. This config file is for Sapphire CLI, read
-more about it here.
+Next you will need to choose which programming language you are using in your project. Currently we support JavaScript
+and TypeScript.
 
 ```bash {3-5}
 sapphire init
@@ -183,7 +195,8 @@ sapphire init
     JavaScript
 ```
 
-Choose the language you are using in your project, we are using **TypeScript** in this one, so we will go with it.
+After choosing the programming language we need to know in which folder your bot's entry point is located. This will
+default to `src`.
 
 ```bash {4}
 sapphire init
@@ -192,7 +205,8 @@ sapphire init
 ? Your base directory › src
 ```
 
-Enter your base directory, where your project's entry point is located, defaults to `src`.
+Then we need to know in which folder you store your commands, without including the base as specified in the previous
+step. This will default to `commands`.
 
 ```bash {5}
 sapphire init
@@ -202,7 +216,8 @@ sapphire init
 ? Where do you store your commands? (do not include the base) › commands
 ```
 
-Enter your commands directory, where your commands are located (don't include the base), defaults to `commands`.
+We also need to know in which folder you store your listeners, without including the base as specified before. This will
+default to `listeners`.
 
 ```bash {6}
 sapphire init
@@ -213,7 +228,8 @@ sapphire init
 ? Where do you store your listeners? (do not include the base) › listeners
 ```
 
-Enter your listeners directory, where your listeners are located (don't include the base), defaults to `listeners`.
+Then we need to know in which folder you store your arguments, without including the base as specified before. This will
+default to `arguments`.
 
 ```bash {7}
 sapphire init
@@ -225,7 +241,8 @@ sapphire init
 ? Where do you store your arguments? (do not include the base) › arguments
 ```
 
-Enter your arguments directory, where your arguments are located (don't include the base), defaults to `arguments`.
+And lastly please specify in which folder you store your preconditions, without including the base as specified before.
+This will default to `preconditions`.
 
 ```bash {8}
 sapphire init
@@ -238,8 +255,8 @@ sapphire init
 ? Where do you store your preconditions? (do not include the base) › preconditions
 ```
 
-Enter your preconditions directory, where your preconditions are located (don't include the base), defaults to
-`preconditions`.
+The last step is to choose if you want to enable custom file (piece) templates, type `y` and enter if you want to enable
+it. If you don't want to enable it, just enter.
 
 ```bash {9}
 sapphire init
@@ -253,8 +270,7 @@ sapphire init
 ? Do you want to enable custom file templates? › (y/N)
 ```
 
-Choose if you want to enable custom file (piece) templates, type `y` and enter if you want to enable it. If you don't
-want to enable it, just enter.
+Done! You can now start using the Sapphire CLI in your project. 🎉
 
 ```bash
 sapphire init
@@ -267,7 +283,5 @@ sapphire init
 ✔ Where do you store your preconditions? (do not include the base) … preconditions
 ✔ Do you want to enable custom file templates? … no
 ```
-
-Done! Now you can use Sapphire CLI in your project. 🎉
 
 </details>
