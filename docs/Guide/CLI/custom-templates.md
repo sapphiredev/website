@@ -22,8 +22,8 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
     "preconditions": "preconditions"
   },
   "customFileTemplates": {
-    "enabled": true, // Enables/disables custom component templates
-    "location": "templates" // The location of your templates
+    "enabled": true,
+    "location": "templates"
   }
 }
 ```
@@ -41,8 +41,8 @@ locations:
   listeners: listeners
   preconditions: preconditions
 customFileTemplates:
-  enabled: true # Enables/disables custom component templates
-  location: 'templates' # The location of your templates
+  enabled: true
+  location: 'templates'
 ```
 
 </TabItem>
