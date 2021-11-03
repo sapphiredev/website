@@ -17,11 +17,6 @@ jobs:
       - name: Attempt to update Git Submodules
         run: git pull --recurse-submodules && git submodule update --remote --recursive
 
-      - name: Configure Git
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
       - name: Commit any changes and create a pull request
         run: |
           git add --all .;
@@ -29,6 +24,12 @@ jobs:
             echo "No changes to commit, exiting with code 0"
             exit 0;
           else
+            git config user.name "${GITHUB_ACTOR}"
+            git config user.email "${GITHUB_EMAIL}"
             git commit -snam "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
-            git push origin main
+            git push https://${GITHUB_TOKEN}@github.com/sapphiredev/website.git main
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
+          GITHUB_ACTOR: NM-EEA-Y
+          GITHUB_EMAIL: contact@skyra.pw
