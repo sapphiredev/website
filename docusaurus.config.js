@@ -283,7 +283,8 @@ const config = {
 			prism: {
 				defaultLanguage: 'javascript',
 				theme: lightCodeTheme,
-				darkTheme: darkCodeTheme
+				darkTheme: darkCodeTheme,
+				additionalLanguages: ['powershell', 'batch']
 			}
 		})
 };
