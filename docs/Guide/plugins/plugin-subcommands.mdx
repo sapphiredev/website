@@ -2,4 +2,105 @@
 title: Plugin Subcommands
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+## Introduction
+Subcommands are a way to split 1 command into multiple. This can in particular be very useful for configuration commands with subcommands such as `set`, `reset` and `remove`.
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/plugin-subcommands @sapphire/framework @sapphire/utilities discord.js
+```
+
+### Usage
+
+<Tabs groupId="language-choice">
+
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
+
+// Extend `SubCommandPluginCommand` instead of `Command`
+module.exports = class UserCommand extends SubCommandPluginCommand {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+    });
+  }
+
+  // Do not include a `messageRun` method, each method name should match with the subcommand names
+  async add(message, args) {}
+
+  async remove(message, args) {}
+
+  async list(message, args) {}
+
+  async reset(message, args) {}
+
+  async show(message, args) {}
+};
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript
+import { SubCommandPluginCommand } from '@sapphire/plugin-subcommands';
+
+// Extend `SubCommandPluginCommand` instead of `Command`
+export class UserCommand extends SubCommandPluginCommand {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+    });
+  }
+
+  // Do not include a `messageRun` method, each method name should match with the subcommand names
+  async add(message, args) {}
+
+  async remove(message, args) {}
+
+  async list(message, args) {}
+
+  async reset(message, args) {}
+
+  async show(message, args) {}
+}
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+import { SubCommandPluginCommand } from '@sapphire/plugin-subcommands';
+import { ApplyOptions } from '@sapphire/decorators';
+import type { Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+// Using ApplyOptions decorator makes it easy to configure
+@ApplyOptions<SubCommandPluginCommand.Options>({
+  subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+})
+// Extend `SubCommandPluginCommand` instead of `Command`
+export class UserCommand extends SubCommandPluginCommand {
+  // Do not include a `messageRun` method, each method name should match with the subcommand names
+  public async add(message: Message, args: Args) {}
+
+  public async remove(message: Message, args: Args) {}
+
+  public async list(message: Message, args: Args) {}
+
+  public async reset(message: Message, args: Args) {}
+
+  public async show(message: Message, args: Args) {}
+}
+```
+
+</TabItem>
+</Tabs>
