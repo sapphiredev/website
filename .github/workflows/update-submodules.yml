@@ -37,8 +37,8 @@ jobs:
             exit 0;
           else
             # Before pushing changes we update the lockfile and add files again
-            yarn
-            git add --all .
+            yarn --immutable=false
+            git add yarn.lock
             git config user.name "${GITHUB_ACTOR}"
             git config user.email "${GITHUB_EMAIL}"
             git commit -snam "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
