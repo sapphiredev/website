@@ -47,6 +47,6 @@ jobs:
             git push origin main
           fi
         env:
-          GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
-          GITHUB_ACTOR: NM-EEA-Y
-          GITHUB_EMAIL: contact@skyra.pw
+          GITHUB_TOKEN: ${{ secrets.UPDATE_SUBMODULES_TOKEN }}
+          GITHUB_ACTOR: favna
+          GITHUB_EMAIL: support@favware.tech
