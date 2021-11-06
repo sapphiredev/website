@@ -2,7 +2,8 @@ name: Update Git Submodules
 
 on:
   schedule:
-    - cron: '30 3 * * 0'
+    - cron: '30 3 * * *'
+  workflow_dispatch:
 
 jobs:
   SubmoduleSync:
