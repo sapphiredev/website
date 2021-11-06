@@ -42,8 +42,9 @@ jobs:
             git add yarn.lock
             git config user.name "${GITHUB_ACTOR}"
             git config user.email "${GITHUB_EMAIL}"
+            git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
             git commit -snam "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
-            git push https://${GITHUB_TOKEN}@github.com/sapphiredev/website.git main
+            git push origin main
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
