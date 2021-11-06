@@ -61,7 +61,6 @@
 		"@types/node": "^16.11.6",
 		"@types/react": "^17.0.34",
 		"@types/react-dom": "^17.0.11",
-		"@types/yargs": "^17",
 		"@typescript-eslint/eslint-plugin": "^5.3.0",
 		"@typescript-eslint/parser": "^5.3.0",
 		"cz-conventional-changelog": "^3.3.0",
@@ -114,6 +113,10 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
+	},
+	"resolutions": {
+		"@types/yargs": "^17",
+		"yargs": "^17"
 	},
 	"packageManager": "yarn@3.0.2"
 }
