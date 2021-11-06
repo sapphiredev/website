@@ -2,4 +2,169 @@
 title: Plugin Logger
 ---
 
-## TODO
+## Introduction
+
+A Logger implementation that implements Sapphire's `ILogger` interface and implements timestamp and style formatting
+with the blazing fast [`colorette`](https://www.npmjs.com/package/colorette) library.
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/plugin-logger @sapphire/framework
+```
+
+## Usage
+
+This registers the necessary options and methods in the Sapphire client to be able to use the log plugin.
+
+<Tabs groupId="language-choice">
+
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+// Main bot file
+// Be sure to register the plugin before instantiating the client.
+require('@sapphire/plugin-api/register');
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM" default>
+
+```javascript
+// Main bot file
+// Be sure to register the plugin before instantiating the client.
+import '@sapphire/plugin-api/register';
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="TypeScript" default>
+
+```typescript
+// Main bot file
+// Be sure to register the plugin before instantiating the client.
+import '@sapphire/plugin-api/register';
+```
+
+</TabItem>
+</Tabs>
+
+In order to use the Logger in any place other than a piece (commands, arguments, preconditions, etc.), you must first
+import the `container` property of `@sapphire/framework`. For pieces, you can simply use `this.container.logger` to
+access Logger methods.
+
+<Tabs groupId="language-choice">
+
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+const { container } = require('@sapphire/framework');
+
+module.exports = class MyAwesomeService {
+	public printAwesomeLog() {
+		container.logger.info('log message');
+	}
+}
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript
+import { container } from '@sapphire/framework';
+
+export class MyAwesomeService {
+	public printAwesomeLog() {
+		container.logger.info('log message');
+	}
+}
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+import { container } from '@sapphire/framework';
+
+export class MyAwesomeService {
+  public printAwesomeLog() {
+    container.logger.info('log message');
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Here is an example ping command, demonstrating the use of `this.container.logger` from within a piece by omitting the
+explicit import.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+// ping command
+
+const { Command } = require('@sapphire/framework');
+
+module.exports = class PingCommand extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		this.container.logger.warn('warning message');
+	}
+}
+```
+
+</TabItem>
+<TabItem value="esm" label="ESM">
+
+```javascript
+// ping command
+
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		this.container.logger.warn('warning message');
+	}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+// ping command
+
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+import { ApplyOptions } from '@sapphire/decorators';
+
+@ApplyOptions<CommandOptions>({
+  description: 'ping pong'
+})
+export class PingCommand extends Command {
+  public async messageRun(message: Message) {
+    this.container.logger.warn('warning message');
+  }
+}
+```
+
+</TabItem>
+</Tabs>
