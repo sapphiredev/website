@@ -31,13 +31,14 @@ jobs:
             echo "No changes to commit, exiting with code 0"
             exit 0;
           else
-            # Before pushing changes we update the lockfile and add files again
+            echo -e "\n# Before pushing changes we update the lockfile"
             echo -e "\nenableImmutableInstalls: false" >> ./.yarnrc.yml
             yarn
+            echo -e "\n# Adding yarn lockfile"
             git add yarn.lock
             git config user.name "${GITHUB_ACTOR}"
             git config user.email "${GITHUB_EMAIL}"
-            git commit -snam "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
+            git commit -snm "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
             git push origin $TARGET_BRANCH
           fi
         env:
