@@ -53,6 +53,7 @@ const config = {
 				tsconfig: './projects/framework/src/tsconfig.json',
 				readme: 'none',
 				out: 'Documentation/api-framework',
+				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
 				sidebar: {
 					categoryLabel: '@sapphire/framework',
 					position: 0,
@@ -68,6 +69,7 @@ const config = {
 				tsconfig: './projects/pieces/src/tsconfig.json',
 				readme: 'none',
 				out: 'Documentation/api-pieces',
+				plugin: ['typedoc-plugin-mdn-links'],
 				sidebar: {
 					categoryLabel: '@sapphire/pieces',
 					position: 1,
@@ -84,6 +86,7 @@ const config = {
 				tsconfig: './projects/utilities/tsconfig.dev.json',
 				readme: 'none',
 				out: 'Documentation/api-utilities',
+				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
 				sidebar: {
 					categoryLabel: 'Sapphire Utilities',
 					position: 2
@@ -99,6 +102,7 @@ const config = {
 				tsconfig: './projects/plugins/tsconfig.base.json',
 				readme: 'none',
 				out: 'Documentation/api-plugins',
+				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
 				sidebar: {
 					categoryLabel: 'Sapphire Plugins',
 					position: 3
@@ -113,6 +117,7 @@ const config = {
 				tsconfig: './projects/type/src/tsconfig.json',
 				readme: './projects/type/README.md',
 				out: 'Documentation/api-type',
+				plugin: ['typedoc-plugin-mdn-links'],
 				sidebar: {
 					categoryLabel: '@sapphire/type',
 					position: 4,
