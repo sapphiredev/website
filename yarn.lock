@@ -5299,6 +5299,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/yargs@npm:^17":
+  version: 17.0.5
+  resolution: "@types/yargs@npm:17.0.5"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 2be02640c84471c66aec58cfd415432fab0973283909765aa3becbdb76b5874d4770fe7f376e77b98833d5cc9d9bc258a905adce68a0baec13d430c866fce3b5
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:^5.2.0, @typescript-eslint/eslint-plugin@npm:^5.3.0":
   version: 5.3.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.3.0"
@@ -17208,6 +17217,7 @@ resolve@^2.0.0-next.3:
     "@types/node": ^16.11.6
     "@types/react": ^17.0.34
     "@types/react-dom": ^17.0.11
+    "@types/yargs": ^17
     "@typescript-eslint/eslint-plugin": ^5.3.0
     "@typescript-eslint/parser": ^5.3.0
     clsx: ^1.1.1
@@ -17238,6 +17248,7 @@ resolve@^2.0.0-next.3:
     typedoc-plugin-markdown: ^3.11.3
     typescript: ^4.4.4
     url-loader: ^4.1.1
+    yargs: ^17.2.1
   languageName: unknown
   linkType: soft
 
@@ -20507,7 +20518,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0":
+"yargs@npm:^17.0.0, yargs@npm:^17.2.1":
   version: 17.2.1
   resolution: "yargs@npm:17.2.1"
   dependencies:
