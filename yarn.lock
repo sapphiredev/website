@@ -1624,25 +1624,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^13.2.1":
-  version: 13.2.1
-  resolution: "@commitlint/cli@npm:13.2.1"
-  dependencies:
-    "@commitlint/format": ^13.2.0
-    "@commitlint/lint": ^13.2.0
-    "@commitlint/load": ^13.2.1
-    "@commitlint/read": ^13.2.0
-    "@commitlint/types": ^13.2.0
-    lodash: ^4.17.19
-    resolve-from: 5.0.0
-    resolve-global: 1.0.0
-    yargs: ^17.0.0
-  bin:
-    commitlint: cli.js
-  checksum: 41b74874ec3e3b1da69f07710ea080654017d6e9a73d98d06c061259bb255e09a4870a516da0ee92f86776f030e608eb797cdd44dac804c39f2f32e798e81a60
-  languageName: node
-  linkType: hard
-
 "@commitlint/cli@npm:^14.1.0":
   version: 14.1.0
   resolution: "@commitlint/cli@npm:14.1.0"
@@ -1662,31 +1643,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/config-conventional@npm:13.2.0"
-  dependencies:
-    conventional-changelog-conventionalcommits: ^4.3.1
-  checksum: fd659269fe31df17bf479b90e915e063c7dc61b795396458d403c4154f037e152ad015463c078a881af18456c638ab3b6c1b67966abc42b131e5a900ad3c2753
-  languageName: node
-  linkType: hard
-
 "@commitlint/config-conventional@npm:^14.1.0":
   version: 14.1.0
   resolution: "@commitlint/config-conventional@npm:14.1.0"
   dependencies:
     conventional-changelog-conventionalcommits: ^4.3.1
   checksum: ab09dbb11f257fa05ea2637312718b6a1861602a7ef961cb8d3a391b04c7436ad2165447238256cd92f09ed3d3af2c3f7379244ae171f7dc0a51fb7b85f0f1a8
-  languageName: node
-  linkType: hard
-
-"@commitlint/ensure@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/ensure@npm:13.2.0"
-  dependencies:
-    "@commitlint/types": ^13.2.0
-    lodash: ^4.17.19
-  checksum: c3193e871532c14da99525852589b3a7f81ee769c1dfcbfb9b79e339a53cf9dc02dfdf7209ab46252534c3e3f30fd944d42b8eb1744c560d67b7ae5d75347727
   languageName: node
   linkType: hard
 
@@ -1700,27 +1662,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/execute-rule@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/execute-rule@npm:13.2.0"
-  checksum: 785361665d0c6857eddbe918d8405f0cae2e35b9ee6320df17ba6ac8a351b0a438130ed8c18c558e91aef585546e64b3b8b21f2a7b4d43b121fc6da103e9baa0
-  languageName: node
-  linkType: hard
-
 "@commitlint/execute-rule@npm:^14.0.0":
   version: 14.0.0
   resolution: "@commitlint/execute-rule@npm:14.0.0"
   checksum: 05adf35da90846fdbbec2d8bf95f738c93c6e9a209d62296f21e5e46305b97d5702a91a0491d9003b3c41e585eac9a660d3cda222053923d39b1867e0f86304e
-  languageName: node
-  linkType: hard
-
-"@commitlint/format@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/format@npm:13.2.0"
-  dependencies:
-    "@commitlint/types": ^13.2.0
-    chalk: ^4.0.0
-  checksum: 2436616dfad82cf5c21a2158d84199a02af04db3bb55c1075ba6c048f6acde0e63e19f98dcbcedd5ad09b0641a3d16a40250d4f16bf8ab2816d4328b04d6a6cf
   languageName: node
   linkType: hard
 
@@ -1734,16 +1679,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/is-ignored@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/is-ignored@npm:13.2.0"
-  dependencies:
-    "@commitlint/types": ^13.2.0
-    semver: 7.3.5
-  checksum: 0a06adb765236a5ebf03be69f4bf30cbb4375ce902e1d819dc428bd725fed1d83790bdad9bcdb990ac61affd63a50c31f904ded807c62ca70da4556398e7f729
-  languageName: node
-  linkType: hard
-
 "@commitlint/is-ignored@npm:^14.0.0":
   version: 14.0.0
   resolution: "@commitlint/is-ignored@npm:14.0.0"
@@ -1751,18 +1686,6 @@ __metadata:
     "@commitlint/types": ^14.0.0
     semver: 7.3.5
   checksum: 0fcb788578c7db878e65604204632aef96c22bf08f4f9cd50294e29671684e31c40631b4f8387a6ade60e65f813cb0632b848a18f5a81d8aebdcb83f4b8b2689
-  languageName: node
-  linkType: hard
-
-"@commitlint/lint@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/lint@npm:13.2.0"
-  dependencies:
-    "@commitlint/is-ignored": ^13.2.0
-    "@commitlint/parse": ^13.2.0
-    "@commitlint/rules": ^13.2.0
-    "@commitlint/types": ^13.2.0
-  checksum: f56d9029bdf7957d8c4e5af6ab621cf0dac82422550bdc84ac28965b5828e376b986be091502bc4e60240e0fd4db9f35cecf95a6b35d5c926ea78118bab06e9f
   languageName: node
   linkType: hard
 
@@ -1795,45 +1718,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^13.2.1":
-  version: 13.2.1
-  resolution: "@commitlint/load@npm:13.2.1"
-  dependencies:
-    "@commitlint/execute-rule": ^13.2.0
-    "@commitlint/resolve-extends": ^13.2.0
-    "@commitlint/types": ^13.2.0
-    "@endemolshinegroup/cosmiconfig-typescript-loader": ^3.0.2
-    chalk: ^4.0.0
-    cosmiconfig: ^7.0.0
-    lodash: ^4.17.19
-    resolve-from: ^5.0.0
-    typescript: ^4.4.3
-  checksum: e64c32ab9f461daa6e389b613546ca3a57bac381dd57fa1252674cdbbb9c65ae4fac10f787ff305008fef9b4ea218ccfe8db09cbc716622a5695a85f1a8b5f35
-  languageName: node
-  linkType: hard
-
-"@commitlint/message@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/message@npm:13.2.0"
-  checksum: 77e4e0670490b294d4e9c55ff4788e2c76050a23e471478494a4b8efed196f0aecb7b64ce652109ecbc6847adaa95a0d3495330b7776fecac3ff6e5a6bb5f6eb
-  languageName: node
-  linkType: hard
-
 "@commitlint/message@npm:^14.0.0":
   version: 14.0.0
   resolution: "@commitlint/message@npm:14.0.0"
   checksum: 78e83db38ec9e20e0893945b2e631a10c4d26566d86b2a019aad0b7853b7727e8e57e6fbea0947215d03b8a3c255a0a69b9924db361e30ac706a8f27c7a3ebcc
-  languageName: node
-  linkType: hard
-
-"@commitlint/parse@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/parse@npm:13.2.0"
-  dependencies:
-    "@commitlint/types": ^13.2.0
-    conventional-changelog-angular: ^5.0.11
-    conventional-commits-parser: ^3.2.2
-  checksum: ef445bd5f4bf5711fe845f3e507d5776f8f57319f527b25b049671006223419af2ca8765133683bbd42c725528bf254bc1d7ee745c027e105f602f1b78e86a7e
   languageName: node
   linkType: hard
 
@@ -1845,18 +1733,6 @@ __metadata:
     conventional-changelog-angular: ^5.0.11
     conventional-commits-parser: ^3.2.2
   checksum: 64429bc59e5e3109c3e237ef9f8475c4ba272760b87e2f686257adf849709ba151789a1bcdd31d7edb0f689fa4688e2bf1a4304f110962d26cad1ac920cb45f4
-  languageName: node
-  linkType: hard
-
-"@commitlint/read@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/read@npm:13.2.0"
-  dependencies:
-    "@commitlint/top-level": ^13.2.0
-    "@commitlint/types": ^13.2.0
-    fs-extra: ^10.0.0
-    git-raw-commits: ^2.0.0
-  checksum: 440763c8e5d8529ec7ba642af0b6996a0fcba818e5078eadb265d6134c938d6a272a99937d2158f3df09937492cc72470f46e6e2f239b588611fe5cb9092699b
   languageName: node
   linkType: hard
 
@@ -1872,18 +1748,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/resolve-extends@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/resolve-extends@npm:13.2.0"
-  dependencies:
-    import-fresh: ^3.0.0
-    lodash: ^4.17.19
-    resolve-from: ^5.0.0
-    resolve-global: ^1.0.0
-  checksum: 21b07de2676543fd7967c36fbfebde4c9d1cc5c3213e2c4b8976b84b30f3085c686852d8f0078b5084eb9a0e0f743cc7b8a9e4d01928eff447e682ab626983f8
-  languageName: node
-  linkType: hard
-
 "@commitlint/resolve-extends@npm:^14.1.0":
   version: 14.1.0
   resolution: "@commitlint/resolve-extends@npm:14.1.0"
@@ -1893,19 +1757,6 @@ __metadata:
     resolve-from: ^5.0.0
     resolve-global: ^1.0.0
   checksum: 544e2c281638b68fe6193034f131a7a7eee94bbb185763405d3919d542d086d0067256456650d00eb5c36595335b15545b623ba9191e59078bfcd18e88d067b6
-  languageName: node
-  linkType: hard
-
-"@commitlint/rules@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/rules@npm:13.2.0"
-  dependencies:
-    "@commitlint/ensure": ^13.2.0
-    "@commitlint/message": ^13.2.0
-    "@commitlint/to-lines": ^13.2.0
-    "@commitlint/types": ^13.2.0
-    execa: ^5.0.0
-  checksum: 0f6d9fe431dbdbc79f1420f0ea577d2fe2010421e35a30fb87b5fda3272d5e8c257ee762de7b6affe5cf83c322383f77d5d5c7068017060c0458fae8023ea580
   languageName: node
   linkType: hard
 
@@ -1922,26 +1773,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/to-lines@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/to-lines@npm:13.2.0"
-  checksum: bd1c6597542c7dbe95817f029710ae5e206ba4523b4fded7544324832e901b8a4d4636c165bef4b911d1213606314a0c2110c3dffd2a01e7a769edc26e1da1a8
-  languageName: node
-  linkType: hard
-
 "@commitlint/to-lines@npm:^14.0.0":
   version: 14.0.0
   resolution: "@commitlint/to-lines@npm:14.0.0"
   checksum: 558088c46f57970169f3b478a578e522024f367e7c590dfd27ed734466e21cf8465fa71145ff77b5452ca509e3034cad6377e4149821cae78d1f44ca87e9608b
-  languageName: node
-  linkType: hard
-
-"@commitlint/top-level@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/top-level@npm:13.2.0"
-  dependencies:
-    find-up: ^5.0.0
-  checksum: 1dbf3940a66529fc0324741d03b63c2a18569dcbf0353de5277234c9ffe641671d80fad826e5c47cbbd1be93986b4903682eecae0eca5f475601209fc9cafd4c
   languageName: node
   linkType: hard
 
@@ -1951,15 +1786,6 @@ __metadata:
   dependencies:
     find-up: ^5.0.0
   checksum: 459802896a3ceaf33ed96bf3cbc44759076dc253a1b95b18e3dff0c01617ca074ee40f70f108fee20e9ab7d7dd2437a06834166527babea0b9fd63a602c53288
-  languageName: node
-  linkType: hard
-
-"@commitlint/types@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "@commitlint/types@npm:13.2.0"
-  dependencies:
-    chalk: ^4.0.0
-  checksum: 9035c01864bfbf9d3073c6ff45ef9fc8c47ee34bcc6135390bbfa6be868b23edc9b98dab5013f813e69c8ba1630a3a4a93f522a2aaf082588aeed0c5dd922167
   languageName: node
   linkType: hard
 
@@ -1998,13 +1824,6 @@ __metadata:
     ts-mixer: ^6.0.0
     tslib: ^2.3.1
   checksum: 6c2f6ee427b0f577ad8b7dd4e4bbaf15c4083385bef983243b9223f68dd7c02715a8fc40aac1b943e667bbba4e262f0c776ae5bc3b0c24bd2faf3eac9c89a58c
-  languageName: node
-  linkType: hard
-
-"@discordjs/collection@npm:^0.2.1":
-  version: 0.2.4
-  resolution: "@discordjs/collection@npm:0.2.4"
-  checksum: 3333b65b742a876e0fe09faaff1aa5052873a68f15d47baaee39b59364d888e01f12fd04296ab1badb41af87f624bc75eaafa2d6753fdc9c5bf280667f4cb3c2
   languageName: node
   linkType: hard
 
@@ -4118,9 +3937,9 @@ __metadata:
   linkType: hard
 
 "@sapphire/async-queue@npm:^1.1.8":
-  version: 1.1.8
-  resolution: "@sapphire/async-queue@npm:1.1.8"
-  checksum: 6a033c41dd672af51f33c262d7b901dd636b7f9c625022a5efb4da94298b5cea31e1dca8b9ab82d7f9aa124ccd7bca19aef2dde7e09a1dd0f7b179cc3cbbcef4
+  version: 1.1.9
+  resolution: "@sapphire/async-queue@npm:1.1.9"
+  checksum: 8a4cb79e01948ee9f99f47e9fdfdfd509353d267f9e18bb8fe8e813b5d45f1fb6de08297b4557eb9a76b95bea59abaab67819175238068cc4cbc808d1d183e9d
   languageName: node
   linkType: hard
 
@@ -4134,26 +3953,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/cli@workspace:projects/cli"
   dependencies:
-    "@commitlint/cli": ^13.2.1
-    "@commitlint/config-conventional": ^13.2.0
+    "@commitlint/cli": ^14.1.0
+    "@commitlint/config-conventional": ^14.1.0
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.0.1
-    "@sapphire/prettier-config": ^1.2.3
-    "@sapphire/ts-config": ^3.1.2
-    "@types/node": ^16.11.5
+    "@sapphire/eslint-config": ^4.0.3
+    "@sapphire/prettier-config": ^1.2.4
+    "@sapphire/ts-config": ^3.1.4
+    "@types/node": ^16.11.6
     "@types/prompts": ^2.0.14
-    "@typescript-eslint/eslint-plugin": ^5.2.0
-    "@typescript-eslint/parser": ^5.2.0
+    "@typescript-eslint/eslint-plugin": ^5.3.0
+    "@typescript-eslint/parser": ^5.3.0
     chalk: ^4.1.2
     commander: ^8.3.0
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.1.0
+    eslint: ^8.2.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     find-up: ^5.0.0
     globby: ^12.0.2
     husky: ^7.0.4
-    lint-staged: ^11.2.4
+    lint-staged: ^11.2.6
     ora: ^6.0.1
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
@@ -4169,11 +3988,11 @@ __metadata:
   linkType: soft
 
 "@sapphire/decorators@npm:^3.1.3":
-  version: 3.1.3
-  resolution: "@sapphire/decorators@npm:3.1.3"
+  version: 3.1.4
+  resolution: "@sapphire/decorators@npm:3.1.4"
   dependencies:
     tslib: ^2.3.1
-  checksum: 0af0054deffabdfd4d1166419c740756d883589430c88d9172237a533f6e3323cf7ecdfab029f464ed0156e43e040740b6916624ff852bea564191c9fa62aedd
+  checksum: ba86b727917f0aad8ce875ed526b4c3a2b0b25046d431e2ba4bf783ec699b901f1f0634e1df6242e8a37991f683fd00f5713bab9ae7b368f7e6683787a8d0b42
   languageName: node
   linkType: hard
 
@@ -4185,12 +4004,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord-utilities@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "@sapphire/discord-utilities@npm:2.2.2"
+"@sapphire/discord-utilities@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@sapphire/discord-utilities@npm:2.2.3"
   dependencies:
     twemoji-parser: ^13.1.0
-  checksum: 1536da4a0d5484ef629daa2973c596ef89ffce96c6b5ddb7af7bc1c027e83f714cb67cc34c7cc4ff9a2d48f984e13a810e2a5a6239c92b2bc9d150173058d272
+  checksum: 87954ebe5014a760f0f23ca574a95c4f781595ff00f717a1792da1bc81f7b76fcd635335e658eb73b9a9220b05394ef14e381a0bb13055e5a7d9d00c7df336fe
   languageName: node
   linkType: hard
 
@@ -4202,14 +4021,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "@sapphire/discord.js-utilities@npm:3.2.2"
+"@sapphire/discord.js-utilities@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@sapphire/discord.js-utilities@npm:4.1.1"
   dependencies:
-    "@sapphire/discord-utilities": ^2.2.2
-    "@sapphire/time-utilities": ^1.4.4
-    "@sapphire/utilities": ^3.0.4
-  checksum: 34338727587a306fe476493d86f39aa56552d97f156ea0fee10c8ca756061b91a2bb6888a1154c8ce3b0e476ef52560f6fa078ba61e91df36577346bd6dce53b
+    "@sapphire/discord-utilities": ^2.2.3
+    "@sapphire/time-utilities": ^1.4.7
+    "@sapphire/utilities": ^3.0.7
+    tslib: ^2.3.1
+  checksum: f2cb60b2aeda839d2dee9ba3224e64a5c9ec20b57806287caf3b176f83297ea026e79ea3d3e771ae878489ca78587205b128adbd5e2d503284fbc8ebde292f48
   languageName: node
   linkType: hard
 
@@ -4217,9 +4037,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/discord.js-utilities@workspace:projects/utilities/packages/discord.js-utilities"
   dependencies:
-    "@sapphire/discord-utilities": ^2.2.2
-    "@sapphire/time-utilities": ^1.4.6
-    "@sapphire/utilities": ^3.0.6
+    "@sapphire/discord-utilities": ^2.2.3
+    "@sapphire/time-utilities": ^1.4.7
+    "@sapphire/utilities": ^3.0.7
     tslib: ^2.3.1
   languageName: unknown
   linkType: soft
@@ -4232,18 +4052,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/eslint-config@npm:^4.0.1, @sapphire/eslint-config@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "@sapphire/eslint-config@npm:4.0.2"
+"@sapphire/eslint-config@npm:^4.0.2, @sapphire/eslint-config@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "@sapphire/eslint-config@npm:4.0.3"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.2.0
-    "@typescript-eslint/parser": ^5.2.0
-    eslint: ^8.1.0
+    "@typescript-eslint/eslint-plugin": ^5.3.0
+    "@typescript-eslint/parser": ^5.3.0
+    eslint: ^8.2.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     prettier: ^2.4.1
     typescript: ^4.4.4
-  checksum: 809745db85788f0354396d56586f35cc1ffee18419f26862285b7c418217041bd874055f4fb1c56c9c82f6adedf2951620f357d5ad495f9ed30661c4b9f458da
+  checksum: d38dc0053a74f98750d4b40cb5f627b022e300a6d2fcef9b532cdf78dc1d911ca3badfc386f101478ab13d3ef51944af97d2f75bc72b532dc1abb3d1dc6a1a72
   languageName: node
   linkType: hard
 
@@ -4251,9 +4071,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/eslint-config@workspace:projects/utilities/packages/eslint-config"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.2.0
-    "@typescript-eslint/parser": ^5.2.0
-    eslint: ^8.1.0
+    "@typescript-eslint/eslint-plugin": ^5.3.0
+    "@typescript-eslint/parser": ^5.3.0
+    eslint: ^8.2.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     prettier: ^2.4.1
@@ -4268,11 +4088,11 @@ __metadata:
   linkType: soft
 
 "@sapphire/fetch@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "@sapphire/fetch@npm:2.0.2"
+  version: 2.0.3
+  resolution: "@sapphire/fetch@npm:2.0.3"
   dependencies:
     cross-fetch: ^3.1.4
-  checksum: 3c75e42efa6cbd6ffad64a4df254994f07ce7ba38ac044c9a13fd2dea0d1a6d2173df94e9bc4b1d8165de0bb1071d5d65c1095b78938460d93a9a1f2e6026c3b
+  checksum: 7e0ddbd79c0d84f322c5ba3c50a9d353a599ff39279f698f21433cf6e3cf8eaf6e9a87d805b68b6c1c15c7106b8a47c4a049e00c0e7f715fb76d43a00cbd8595
   languageName: node
   linkType: hard
 
@@ -4284,18 +4104,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/framework@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "@sapphire/framework@npm:2.1.3"
+"@sapphire/framework@npm:^2.1.3, @sapphire/framework@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "@sapphire/framework@npm:2.1.4"
   dependencies:
-    "@sapphire/discord-utilities": ^2.2.2
-    "@sapphire/discord.js-utilities": ^3.2.2
-    "@sapphire/pieces": ^3.1.0
-    "@sapphire/ratelimits": ^2.1.4
-    "@sapphire/utilities": ^3.0.4
+    "@sapphire/discord-utilities": ^2.2.3
+    "@sapphire/discord.js-utilities": ^4.1.1
+    "@sapphire/pieces": ^3.1.1
+    "@sapphire/ratelimits": ^2.1.7
+    "@sapphire/utilities": ^3.0.7
     lexure: ^0.17.0
     tslib: ^2.3.1
-  checksum: 66df1d9939f69087e07185d0c325de16dcd89b7f17ccec9cd7ccd4d09eda2254cfda665f82fb16238cd31165260291bee0dc7ac3fb83d1517c0d3ec2cd835940
+  checksum: 0107c204acf2b8108dec106f302d84a7e32de522b955766d04af6a2f2530dbeac5b00e0f58b767ae3cbb6d8a8655b628764f15d5bfe61e3ffec942fc92771cad
   languageName: node
   linkType: hard
 
@@ -4303,33 +4123,33 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/framework@workspace:projects/framework"
   dependencies:
-    "@commitlint/cli": ^13.2.1
-    "@commitlint/config-conventional": ^13.2.0
+    "@commitlint/cli": ^14.1.0
+    "@commitlint/config-conventional": ^14.1.0
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.6
-    "@sapphire/discord-utilities": ^2.2.2
-    "@sapphire/discord.js-utilities": ^3.2.2
-    "@sapphire/eslint-config": ^4.0.1
-    "@sapphire/pieces": ^3.1.0
-    "@sapphire/prettier-config": ^1.2.3
-    "@sapphire/ratelimits": ^2.1.4
-    "@sapphire/ts-config": ^3.1.2
-    "@sapphire/utilities": ^3.0.4
+    "@sapphire/discord-utilities": ^2.2.3
+    "@sapphire/discord.js-utilities": ^4.1.1
+    "@sapphire/eslint-config": ^4.0.3
+    "@sapphire/pieces": ^3.1.1
+    "@sapphire/prettier-config": ^1.2.4
+    "@sapphire/ratelimits": ^2.1.7
+    "@sapphire/ts-config": ^3.1.4
+    "@sapphire/utilities": ^3.0.7
     "@types/jest": ^27.0.2
-    "@types/node": ^16.11.5
+    "@types/node": ^16.11.6
     "@types/ws": ^8.2.0
     cz-conventional-changelog: ^3.3.0
-    discord.js: ^13.2.0
-    eslint: ^8.1.0
+    discord.js: ^13.3.1
+    eslint: ^8.2.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
     jest: ^27.3.1
     jest-circus: ^27.3.1
     lexure: ^0.17.0
-    lint-staged: ^11.2.4
+    lint-staged: ^11.2.6
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
-    rollup: ^2.58.3
+    rollup: ^2.59.0
     rollup-plugin-version-injector: ^1.3.3
     standard-version: ^9.3.2
     ts-jest: ^27.0.7
@@ -4340,14 +4160,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/pieces@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@sapphire/pieces@npm:3.1.0"
+"@sapphire/pieces@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@sapphire/pieces@npm:3.1.1"
   dependencies:
-    "@discordjs/collection": ^0.2.1
-    "@sapphire/utilities": ^3.0.3
+    "@discordjs/collection": ^0.3.2
+    "@sapphire/utilities": ^3.0.6
     tslib: ^2.3.1
-  checksum: 53be335ed46aa58bf705a2d6fc913752f16f9476b1eec51dc6090d756b0e3e39cb790811839d9ff8003dfa7cb9139d76d251b60719b367c35a22f2d096b34180
+  checksum: b1961335bcc0480ab0291b6c591101c377871184cb73f8096cc9a71a5bbca65157be9c70438d3c4e875d69062ac2ebb6f681ec0a12f5b78161d97918074a4c71
   languageName: node
   linkType: hard
 
@@ -4355,21 +4175,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/pieces@workspace:projects/pieces"
   dependencies:
-    "@commitlint/cli": ^13.2.1
-    "@commitlint/config-conventional": ^13.2.0
-    "@discordjs/collection": ^0.2.1
+    "@commitlint/cli": ^14.1.0
+    "@commitlint/config-conventional": ^14.1.0
+    "@discordjs/collection": ^0.3.2
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.6
     "@sapphire/eslint-config": ^4.0.2
     "@sapphire/prettier-config": ^1.2.3
     "@sapphire/ts-config": ^3.1.3
-    "@sapphire/utilities": ^3.0.5
-    "@types/node": ^16.11.5
+    "@sapphire/utilities": ^3.0.6
+    "@types/node": ^16.11.6
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.1.0
+    eslint: ^8.2.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    lint-staged: ^11.2.4
+    lint-staged: ^11.2.6
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
     standard-version: ^9.3.2
@@ -4385,7 +4205,7 @@ __metadata:
   dependencies:
     "@types/node-fetch": ^2.5.12
     "@types/psl": ^1.1.0
-    "@types/ws": 8.2.0
+    "@types/ws": ^8.2.0
     node-fetch: ^2.6.5
     psl: ^1.8.0
     tslib: ^2.3.1
@@ -4405,9 +4225,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-i18next@workspace:projects/plugins/packages/i18next"
   dependencies:
-    "@sapphire/utilities": ^3.0.6
+    "@sapphire/utilities": ^3.0.7
     "@types/i18next-fs-backend": ^1.1.2
-    i18next: ^21.3.3
+    i18next: ^21.4.0
     i18next-fs-backend: ^1.1.1
     tslib: ^2.3.1
   languageName: unknown
@@ -4417,7 +4237,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-logger@workspace:projects/plugins/packages/logger"
   dependencies:
-    "@sapphire/time-utilities": ^1.4.6
+    "@sapphire/time-utilities": ^1.4.7
     colorette: ^2.0.16
     tslib: ^2.3.1
   languageName: unknown
@@ -4431,12 +4251,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/prettier-config@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "@sapphire/prettier-config@npm:1.2.3"
+"@sapphire/prettier-config@npm:^1.2.3, @sapphire/prettier-config@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@sapphire/prettier-config@npm:1.2.4"
   dependencies:
     prettier: ^2.4.1
-  checksum: 6bc48802044f2cb413d8b4e705334bb999b39541eb1bd8110f21c4644816db0538bd8113dc7d44ba0b85d8e7d3dd3c86a4c97f1ad757361147335fe9714743ce
+  checksum: d16f12d65646de8c686b2dd0293ba2b0857b6130bc0842af6f4b606cde56566648e6251764f3f0ccd66c00518d6bf9cf31c456ce077138f39b39947dcd906f0b
   languageName: node
   linkType: hard
 
@@ -4448,12 +4268,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/ratelimits@npm:^2.1.4":
-  version: 2.1.6
-  resolution: "@sapphire/ratelimits@npm:2.1.6"
+"@sapphire/ratelimits@npm:^2.1.7":
+  version: 2.1.7
+  resolution: "@sapphire/ratelimits@npm:2.1.7"
   dependencies:
-    "@sapphire/time-utilities": ^1.4.6
-  checksum: a627d66ae1361d978afa1c3b1d255eaabb711cf940c5d687987ae93393f5f9c1fb695c6ebaf81f5bb1dc249611dc815b42b6dbc9d1cf14497cebfe14ca24a0d1
+    "@sapphire/time-utilities": ^1.4.7
+  checksum: ffd3a1476d4757bb928d8c056a26cc5ca0c37fbf478a8a165de196ca2119b48401f4b87265508f9d92c98a8c8499107c32f4e1c19ac50e2dfd0867cc1fb58653
   languageName: node
   linkType: hard
 
@@ -4461,7 +4281,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/ratelimits@workspace:projects/utilities/packages/ratelimits"
   dependencies:
-    "@sapphire/time-utilities": ^1.4.6
+    "@sapphire/time-utilities": ^1.4.7
   languageName: unknown
   linkType: soft
 
@@ -4479,12 +4299,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/time-utilities@npm:^1.4.4, @sapphire/time-utilities@npm:^1.4.6":
-  version: 1.4.6
-  resolution: "@sapphire/time-utilities@npm:1.4.6"
+"@sapphire/time-utilities@npm:^1.4.7":
+  version: 1.4.7
+  resolution: "@sapphire/time-utilities@npm:1.4.7"
   dependencies:
-    "@sapphire/utilities": ^3.0.6
-  checksum: f1415ed1ea0dff26fcd98414c93daf57df11d983e241b578f208801080364e9235928a51ad340f13974535943daa0310c7be7df079a420b4ac966f158556d737
+    "@sapphire/utilities": ^3.0.7
+  checksum: 9bbc39ce1a6212274f76254789a041fe437aa6e60566f002b9aece191c8d1fd98d9462dbbd8f6dbd27915a575126a07337aa62ee59a04bbc0d5c94af05f705f4
   languageName: node
   linkType: hard
 
@@ -4492,17 +4312,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/time-utilities@workspace:projects/utilities/packages/time-utilities"
   dependencies:
-    "@sapphire/utilities": ^3.0.6
+    "@sapphire/utilities": ^3.0.7
   languageName: unknown
   linkType: soft
 
-"@sapphire/ts-config@npm:^3.1.2, @sapphire/ts-config@npm:^3.1.3":
-  version: 3.1.3
-  resolution: "@sapphire/ts-config@npm:3.1.3"
+"@sapphire/ts-config@npm:^3.1.3, @sapphire/ts-config@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "@sapphire/ts-config@npm:3.1.4"
   dependencies:
     tslib: ^2.3.1
     typescript: ^4.4.4
-  checksum: e808e4857754f5a5303b2f2de48597bc5553473a0687b29d8921ac2a46b62b6ef8f405ada87dc8b7008a102c3d0cb15b1495631bb54fa6220dfbd8ca1c085717
+  checksum: 342c9c31365d8cf14e8622b87a261953da298c4264e0b6d9dc9cef9f378dd73fd7ef0fddda003529d535f768ff51ac3f0844cdd23caa406519aa91901bc1e60f
   languageName: node
   linkType: hard
 
@@ -4519,22 +4339,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/type@workspace:projects/type"
   dependencies:
-    "@commitlint/cli": ^13.2.1
-    "@commitlint/config-conventional": ^13.2.0
+    "@commitlint/cli": ^14.1.0
+    "@commitlint/config-conventional": ^14.1.0
     "@discordjs/node-pre-gyp": ^0.4.1
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.0.1
+    "@sapphire/eslint-config": ^4.0.2
     "@sapphire/prettier-config": ^1.2.3
-    "@sapphire/ts-config": ^3.1.2
+    "@sapphire/ts-config": ^3.1.3
     "@types/jest": ^27.0.2
-    "@types/node": ^16.11.5
+    "@types/node": ^16.11.6
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.1.0
+    eslint: ^8.2.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
     jest: ^27.3.1
     jest-circus: ^27.3.1
-    lint-staged: ^11.2.4
+    lint-staged: ^11.2.6
     nan: ^2.15.0
     npm-run-all: ^4.1.5
     prettier: ^2.4.1
@@ -4548,10 +4368,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/utilities@npm:^3.0.1, @sapphire/utilities@npm:^3.0.3, @sapphire/utilities@npm:^3.0.4, @sapphire/utilities@npm:^3.0.5, @sapphire/utilities@npm:^3.0.6":
-  version: 3.0.6
-  resolution: "@sapphire/utilities@npm:3.0.6"
-  checksum: cfe4dd76ec27521cf85931a2a2fd4f8d82387667090ba61bbe985dd9a4ed55b0abd5767bf2538479d31a135ed2051b96f941732d7ef39ce23815e4f147c37037
+"@sapphire/utilities@npm:^3.0.1, @sapphire/utilities@npm:^3.0.3, @sapphire/utilities@npm:^3.0.6, @sapphire/utilities@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "@sapphire/utilities@npm:3.0.7"
+  checksum: 780a3a0e3cc39cb79d5c7dd43abb9d7f481767b60e6f1f1a69f9faf963148ef4af68fac1a6cc04686b6c4560037535ee04410c042f8f7eca0c310ef98ba28f3b
   languageName: node
   linkType: hard
 
@@ -5072,7 +4892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^16.11.5, @types/node@npm:^16.11.6":
+"@types/node@npm:*, @types/node@npm:^16.11.6":
   version: 16.11.6
   resolution: "@types/node@npm:16.11.6"
   checksum: 6e19634766ff589d3d2f361c2196b671f8f133cdadc5ad347a621c360d8994b6c4fbccfb2ad9c60c588c593831a96497c9c6b77d2b7e91be723384b94f6368e7
@@ -5265,7 +5085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ws@npm:8.2.0, @types/ws@npm:^8.2.0":
+"@types/ws@npm:^8.2.0":
   version: 8.2.0
   resolution: "@types/ws@npm:8.2.0"
   dependencies:
@@ -5299,7 +5119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.2.0, @typescript-eslint/eslint-plugin@npm:^5.3.0":
+"@typescript-eslint/eslint-plugin@npm:^5.3.0":
   version: 5.3.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.3.0"
   dependencies:
@@ -5337,7 +5157,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.2.0, @typescript-eslint/parser@npm:^5.3.0":
+"@typescript-eslint/parser@npm:^5.3.0":
   version: 5.3.0
   resolution: "@typescript-eslint/parser@npm:5.3.0"
   dependencies:
@@ -8482,14 +8302,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:0.24.0, discord-api-types@npm:^0.24.0":
+"discord-api-types@npm:^0.24.0":
   version: 0.24.0
   resolution: "discord-api-types@npm:0.24.0"
   checksum: b1a17cb3be4ade974193cedb92fb37e51ba8f1832dfe3ec0d188ba41f255f3dab8359c9d618d32469f1e648126258f9d6ed8828dc1cb50b74d9fd9d875f3390a
   languageName: node
   linkType: hard
 
-"discord.js@npm:^13.2.0, discord.js@npm:^13.3.0":
+"discord.js@npm:^13.3.1":
   version: 13.3.1
   resolution: "discord.js@npm:13.3.1"
   dependencies:
@@ -9167,7 +8987,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.2.0, eslint@npm:^8.1.0, eslint@npm:^8.2.0":
+"eslint@npm:8.2.0, eslint@npm:^8.2.0":
   version: 8.2.0
   resolution: "eslint@npm:8.2.0"
   dependencies:
@@ -10966,7 +10786,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.0.1, i18next@npm:^21.3.3":
+"i18next@npm:^21.0.1, i18next@npm:^21.4.0":
   version: 21.4.0
   resolution: "i18next@npm:21.4.0"
   dependencies:
@@ -12877,7 +12697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^11.2.4, lint-staged@npm:^11.2.5, lint-staged@npm:^11.2.6":
+"lint-staged@npm:^11.2.6":
   version: 11.2.6
   resolution: "lint-staged@npm:11.2.6"
   dependencies:
@@ -16783,6 +16603,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"replace-in-file@npm:^6.3.2":
+  version: 6.3.2
+  resolution: "replace-in-file@npm:6.3.2"
+  dependencies:
+    chalk: ^4.1.2
+    glob: ^7.2.0
+    yargs: ^17.2.1
+  bin:
+    replace-in-file: bin/cli.js
+  checksum: ae3a0486711edfc1d7d769782764902934aeb327e54a56fbf8a92df22862a56312d86dbe0067274fb3666da668457576f6a775f814742acceea70f5aedb01f49
+  languageName: node
+  linkType: hard
+
 "request@npm:^2.88.0, request@npm:^2.88.2":
   version: 2.88.2
   resolution: "request@npm:2.88.2"
@@ -17085,7 +16918,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.43.1, rollup@npm:^2.58.0, rollup@npm:^2.58.3":
+"rollup@npm:^2.43.1, rollup@npm:^2.58.0, rollup@npm:^2.59.0":
   version: 2.59.0
   resolution: "rollup@npm:2.59.0"
   dependencies:
@@ -17103,25 +16936,25 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "root-plugins@workspace:projects/plugins"
   dependencies:
-    "@commitlint/cli": ^13.2.1
-    "@commitlint/config-conventional": ^13.2.0
+    "@commitlint/cli": ^14.1.0
+    "@commitlint/config-conventional": ^14.1.0
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.0.2
-    "@sapphire/framework": ^2.1.3
-    "@sapphire/pieces": ^3.1.0
-    "@sapphire/prettier-config": ^1.2.3
-    "@sapphire/ts-config": ^3.1.3
-    "@sapphire/utilities": ^3.0.6
+    "@sapphire/eslint-config": ^4.0.3
+    "@sapphire/framework": ^2.1.4
+    "@sapphire/pieces": ^3.1.1
+    "@sapphire/prettier-config": ^1.2.4
+    "@sapphire/ts-config": ^3.1.4
+    "@sapphire/utilities": ^3.0.7
     "@types/jest": ^27.0.2
     "@types/node": ^16.11.6
     "@types/node-fetch": ^2.5.12
     "@types/ws": ^8.2.0
-    "@typescript-eslint/eslint-plugin": ^5.2.0
-    "@typescript-eslint/parser": ^5.2.0
+    "@typescript-eslint/eslint-plugin": ^5.3.0
+    "@typescript-eslint/parser": ^5.3.0
     cz-conventional-changelog: ^3.3.0
-    discord-api-types: 0.24.0
-    discord.js: ^13.3.0
-    eslint: ^8.1.0
+    discord-api-types: ^0.24.0
+    discord.js: ^13.3.1
+    eslint: ^8.2.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
@@ -17144,9 +16977,9 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "root-utilities@workspace:projects/utilities"
   dependencies:
-    "@commitlint/cli": ^13.2.1
-    "@commitlint/config-conventional": ^13.2.0
-    "@discordjs/collection": ^0.2.1
+    "@commitlint/cli": ^14.1.0
+    "@commitlint/config-conventional": ^14.1.0
+    "@discordjs/collection": ^0.3.2
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.6
     "@rollup/plugin-commonjs": ^21.0.1
@@ -17156,12 +16989,12 @@ resolve@^2.0.0-next.3:
     "@types/lodash": ^4.14.176
     "@types/node": ^16.11.6
     "@types/ws": ^8.2.0
-    "@typescript-eslint/eslint-plugin": ^5.2.0
-    "@typescript-eslint/parser": ^5.2.0
+    "@typescript-eslint/eslint-plugin": ^5.3.0
+    "@typescript-eslint/parser": ^5.3.0
     cz-conventional-changelog: ^3.3.0
-    discord-api-types: 0.24.0
-    discord.js: ^13.3.0
-    eslint: ^8.1.0
+    discord-api-types: ^0.24.0
+    discord.js: ^13.3.1
+    eslint: ^8.2.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
@@ -17170,13 +17003,13 @@ resolve@^2.0.0-next.3:
     jest-circus: ^27.3.1
     jest-extended: ^1.1.0
     lerna: ^4.0.0
-    lint-staged: ^11.2.5
+    lint-staged: ^11.2.6
     lodash: ^4.17.21
     nock: ^13.1.4
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
     rimraf: ^3.0.2
-    rollup: ^2.58.3
+    rollup: ^2.59.0
     rollup-plugin-cleaner: ^1.0.0
     rollup-plugin-typescript2: ^0.30.0
     ts-jest: ^27.0.7
@@ -17232,6 +17065,7 @@ resolve@^2.0.0-next.3:
     raw-loader: ^4.0.2
     react: ^17.0.2
     react-dom: ^17.0.2
+    replace-in-file: ^6.3.2
     rimraf: ^3.0.2
     swr: ^1.0.1
     typedoc: ^0.22.7
@@ -20507,7 +20341,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0":
+"yargs@npm:^17.0.0, yargs@npm:^17.2.1":
   version: 17.2.1
   resolution: "yargs@npm:17.2.1"
   dependencies:
