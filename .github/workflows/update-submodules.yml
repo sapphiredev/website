@@ -37,6 +37,7 @@ jobs:
             exit 0;
           else
             # Before pushing changes we update the lockfile and add files again
+            echo -e "\nenableImmutableInstalls: false" >> ./.yarnrc.yml
             yarn
             git add yarn.lock
             git config user.name "${GITHUB_ACTOR}"
@@ -48,4 +49,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
           GITHUB_ACTOR: NM-EEA-Y
           GITHUB_EMAIL: contact@skyra.pw
-          CI: false
