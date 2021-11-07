@@ -62,7 +62,7 @@ export class UserRoute extends Route {
 ```typescript
 import type { PieceContext } from '@sapphire/framework';
 import { ApiRequest, ApiResponse, methods, Route, RouteOptions } from '@sapphire/plugin-api';
-import {ApplyOptions} from '@sapphire/decorators';
+import { ApplyOptions } from '@sapphire/decorators';
 
 @ApplyOptions<RouteOptions>({
   route: 'hello-world'
@@ -86,5 +86,4 @@ A quick glance on what we did above:
 - First we extended the `Route` class to make our route
 - Second we specified the route name in the constructor
 - Third we defined the GET method
-- Finally we responded to the request with a message which we would be able to use later when we fetch
-  the route
+- Finally we responded to the request with a message which we would be able to use later when we fetch the route
