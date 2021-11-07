@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 4
+  version: 5
   cacheKey: 8
 
 "@algolia/autocomplete-core@npm:1.2.2":
@@ -218,7 +218,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.16.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.12.16, @babel/core@npm:^7.12.3, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.12.16, @babel/core@npm:^7.12.3, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
   version: 7.16.0
   resolution: "@babel/core@npm:7.16.0"
   dependencies:
@@ -3949,7 +3949,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/decorators@npm:^3.1.3":
+"@sapphire/decorators@npm:^3.1.4":
   version: 3.1.4
   resolution: "@sapphire/decorators@npm:3.1.4"
   dependencies:
@@ -4014,7 +4014,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/eslint-config@npm:^4.0.2, @sapphire/eslint-config@npm:^4.0.3":
+"@sapphire/eslint-config@npm:^4.0.3":
   version: 4.0.3
   resolution: "@sapphire/eslint-config@npm:4.0.3"
   dependencies:
@@ -4117,7 +4117,7 @@ __metadata:
     ts-jest: ^27.0.7
     ts-node: ^10.4.0
     tslib: ^2.3.1
-    typedoc: ^0.22.7
+    typedoc: ^0.22.8
     typedoc-plugin-djs-links: ^1.0.0
     typedoc-plugin-mdn-links: ^1.0.4
     typescript: ^4.4.4
@@ -4144,10 +4144,10 @@ __metadata:
     "@discordjs/collection": ^0.3.2
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.6
-    "@sapphire/eslint-config": ^4.0.2
-    "@sapphire/prettier-config": ^1.2.3
-    "@sapphire/ts-config": ^3.1.3
-    "@sapphire/utilities": ^3.0.6
+    "@sapphire/eslint-config": ^4.0.3
+    "@sapphire/prettier-config": ^1.2.4
+    "@sapphire/ts-config": ^3.1.4
+    "@sapphire/utilities": ^3.0.7
     "@types/node": ^16.11.6
     cz-conventional-changelog: ^3.3.0
     eslint: ^8.2.0
@@ -4158,7 +4158,7 @@ __metadata:
     pretty-quick: ^3.1.1
     standard-version: ^9.3.2
     tslib: ^2.3.1
-    typedoc: ^0.22.7
+    typedoc: ^0.22.8
     typedoc-plugin-mdn-links: ^1.0.4
     typescript: ^4.4.4
   languageName: unknown
@@ -4216,7 +4216,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/prettier-config@npm:^1.2.3, @sapphire/prettier-config@npm:^1.2.4":
+"@sapphire/prettier-config@npm:^1.2.4":
   version: 1.2.4
   resolution: "@sapphire/prettier-config@npm:1.2.4"
   dependencies:
@@ -4281,7 +4281,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/ts-config@npm:^3.1.3, @sapphire/ts-config@npm:^3.1.4":
+"@sapphire/ts-config@npm:^3.1.4":
   version: 3.1.4
   resolution: "@sapphire/ts-config@npm:3.1.4"
   dependencies:
@@ -4308,9 +4308,9 @@ __metadata:
     "@commitlint/config-conventional": ^14.1.0
     "@discordjs/node-pre-gyp": ^0.4.1
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.0.2
-    "@sapphire/prettier-config": ^1.2.3
-    "@sapphire/ts-config": ^3.1.3
+    "@sapphire/eslint-config": ^4.0.3
+    "@sapphire/prettier-config": ^1.2.4
+    "@sapphire/ts-config": ^3.1.4
     "@types/jest": ^27.0.2
     "@types/node": ^16.11.6
     cz-conventional-changelog: ^3.3.0
@@ -7666,24 +7666,24 @@ __metadata:
   linkType: hard
 
 "cssnano-preset-advanced@npm:^5.1.4":
-  version: 5.1.5
-  resolution: "cssnano-preset-advanced@npm:5.1.5"
+  version: 5.1.6
+  resolution: "cssnano-preset-advanced@npm:5.1.6"
   dependencies:
     autoprefixer: ^10.3.7
-    cssnano-preset-default: ^5.1.5
+    cssnano-preset-default: ^5.1.6
     postcss-discard-unused: ^5.0.1
     postcss-merge-idents: ^5.0.1
     postcss-reduce-idents: ^5.0.1
     postcss-zindex: ^5.0.1
   peerDependencies:
     postcss: ^8.2.15
-  checksum: a5e196ac3b26e0be753385a547309eff7122489e4d9989779c5f438361f4979805ad08e5317c66970034fb0a48b5e51fe17924d7535223d1d29747cf55574b59
+  checksum: dfea7f473a37bd808462476243ae8167f8e8a0bbc0f0ef7c216b65a6a7d37e889eaf88735f7592fe50b5bd0dc40d9e74bf6a69b8cbee4308af713285a98cb426
   languageName: node
   linkType: hard
 
-"cssnano-preset-default@npm:^5.1.5":
-  version: 5.1.5
-  resolution: "cssnano-preset-default@npm:5.1.5"
+"cssnano-preset-default@npm:^5.1.6":
+  version: 5.1.6
+  resolution: "cssnano-preset-default@npm:5.1.6"
   dependencies:
     css-declaration-sorter: ^6.0.3
     cssnano-utils: ^2.0.1
@@ -7694,7 +7694,7 @@ __metadata:
     postcss-discard-duplicates: ^5.0.1
     postcss-discard-empty: ^5.0.1
     postcss-discard-overridden: ^5.0.1
-    postcss-merge-longhand: ^5.0.2
+    postcss-merge-longhand: ^5.0.3
     postcss-merge-rules: ^5.0.2
     postcss-minify-font-values: ^5.0.1
     postcss-minify-gradients: ^5.0.3
@@ -7716,7 +7716,7 @@ __metadata:
     postcss-unique-selectors: ^5.0.1
   peerDependencies:
     postcss: ^8.2.15
-  checksum: 6dd84fa995045b593e7f408d54f85c10602a4e605b4a9ad767f33d752c7168655a1c74f614ff4269d08d63430c68160d7520685ac38828b99130033d0f0412c8
+  checksum: e8826ce075648a3ef3865595c9aa189c39a8a672e941d400596bedfd9df4d176a5d462caf21a8bf711bebcfa10b12cfe1d283190423825ba6ee3664fc6eec341
   languageName: node
   linkType: hard
 
@@ -7730,16 +7730,16 @@ __metadata:
   linkType: hard
 
 "cssnano@npm:^5.0.6, cssnano@npm:^5.0.8":
-  version: 5.0.9
-  resolution: "cssnano@npm:5.0.9"
+  version: 5.0.10
+  resolution: "cssnano@npm:5.0.10"
   dependencies:
-    cssnano-preset-default: ^5.1.5
+    cssnano-preset-default: ^5.1.6
     is-resolvable: ^1.1.0
     lilconfig: ^2.0.3
     yaml: ^1.10.2
   peerDependencies:
     postcss: ^8.2.15
-  checksum: c83bbf7e8476d05966c48d750f850d19235af5e60ee883c340740dd024d99e3a3b551eccbcf9430b55181d8ba27c12064da49505eb76cc84618faf2d70fff0e5
+  checksum: 65fa38069925b9ac5b97b05e04c1ad4c9ede580f402e58bef4a15eae14d8cdb8c834b76091b6d4319c1986025221f29ce57b89ae32f63a13f66625df44e12db9
   languageName: node
   linkType: hard
 
@@ -8895,7 +8895,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.2.0, eslint@npm:^8.2.0":
+"eslint@npm:^8.2.0":
   version: 8.2.0
   resolution: "eslint@npm:8.2.0"
   dependencies:
@@ -9694,21 +9694,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@^2.3.2, fsevents@~2.3.2":
+"fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
     node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
 "fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=1cc4b2"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
     node-gyp: latest
-  checksum: 78db9daf1f6526a49cefee3917cc988f62dc7f25b5dd80ad6de4ffc4af7f0cab7491ac737626ff53e482a111bc53aac9e411fe3602458eca36f6a003ecf69c16
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -11937,7 +11938,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-resolve@npm:27.3.1, jest-resolve@npm:^27.3.1":
+"jest-resolve@npm:^27.3.1":
   version: 27.3.1
   resolution: "jest-resolve@npm:27.3.1"
   dependencies:
@@ -13104,7 +13105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdownlint-cli2@npm:0.3.2, markdownlint-cli2@npm:^0.3.2":
+"markdownlint-cli2@npm:^0.3.2":
   version: 0.3.2
   resolution: "markdownlint-cli2@npm:0.3.2"
   dependencies:
@@ -15041,16 +15042,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-merge-longhand@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "postcss-merge-longhand@npm:5.0.2"
+"postcss-merge-longhand@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "postcss-merge-longhand@npm:5.0.3"
   dependencies:
     css-color-names: ^1.0.1
     postcss-value-parser: ^4.1.0
     stylehacks: ^5.0.1
   peerDependencies:
     postcss: ^8.2.15
-  checksum: d7d313299ee1efc9777fa0866a9386a7a610c0d4d9c0f99b6533b9358dab822a3c8aaf5f243c1f3e3aa7bd4b7e03754ba1c9154c60259dd159e33ebf890c2aad
+  checksum: a0982ac3533fc2cf24077917050154dd7a9f7d2ad3994e5c9a4a7495192a65fa172997923b7119ec64b7eadfb99630fa11a5d3ee555d95822a02f881d627b0aa
   languageName: node
   linkType: hard
 
@@ -16574,7 +16575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@1.20.0, resolve@^1.1.6, resolve@^1.10.0, resolve@^1.14.2, resolve@^1.17.0, resolve@^1.19.0, resolve@^1.20.0, resolve@^1.3.2":
+"resolve@npm:1.20.0, resolve@npm:^1.1.6, resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.3.2":
   version: 1.20.0
   resolution: "resolve@npm:1.20.0"
   dependencies:
@@ -16584,7 +16585,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-resolve@^2.0.0-next.3:
+"resolve@npm:^2.0.0-next.3":
   version: 2.0.0-next.3
   resolution: "resolve@npm:2.0.0-next.3"
   dependencies:
@@ -16596,21 +16597,21 @@ resolve@^2.0.0-next.3:
 
 "resolve@patch:resolve@1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#~builtin<compat/resolve>":
   version: 1.20.0
-  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=00b1ff"
+  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=07638b"
   dependencies:
     is-core-module: ^2.2.0
     path-parse: ^1.0.6
-  checksum: bed00be983cd20a8af0e7840664f655c4b269786dbd9595c5f156cd9d8a0050e65cdbbbdafc30ee9b6245b230c78a2c8ab6447a52545b582f476c29adb188cc5
+  checksum: a0dd7d16a8e47af23afa9386df2dff10e3e0debb2c7299a42e581d9d9b04d7ad5d2c53f24f1e043f7b3c250cbdc71150063e53d0b6559683d37f790b7c8c3cd5
   languageName: node
   linkType: hard
 
 "resolve@patch:resolve@^2.0.0-next.3#~builtin<compat/resolve>":
   version: 2.0.0-next.3
-  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.3#~builtin<compat/resolve>::version=2.0.0-next.3&hash=00b1ff"
+  resolution: "resolve@patch:resolve@npm%3A2.0.0-next.3#~builtin<compat/resolve>::version=2.0.0-next.3&hash=07638b"
   dependencies:
     is-core-module: ^2.2.0
     path-parse: ^1.0.6
-  checksum: eb88c5e53843bc022215744307a5f5664446c0fdb8f43c33456dce98d5ee6b3162d0cd0a177bb6f1c3d5c8bf01391ac7ab2de0e936e35318725fb40ba7efdaf6
+  checksum: 21684b4d99a4877337cdbd5484311c811b3e8910edb5d868eec85c6e6550b0f570d911f9a384f9e176172d6713f2715bd0b0887fa512cb8c6aeece018de6a9f8
   languageName: node
   linkType: hard
 
@@ -16804,7 +16805,7 @@ resolve@^2.0.0-next.3:
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
     ts-node: ^10.4.0
-    typedoc: ^0.22.7
+    typedoc: ^0.22.8
     typedoc-plugin-djs-links: ^1.0.0
     typedoc-plugin-mdn-links: ^1.0.4
     typescript: ^4.4.4
@@ -16853,7 +16854,7 @@ resolve@^2.0.0-next.3:
     ts-jest: ^27.0.7
     ts-node: ^10.4.0
     tslib: ^2.3.1
-    typedoc: ^0.22.7
+    typedoc: ^0.22.8
     typedoc-plugin-djs-links: ^1.0.0
     typedoc-plugin-mdn-links: ^1.0.4
     typescript: ^4.4.4
@@ -16872,10 +16873,10 @@ resolve@^2.0.0-next.3:
     "@docusaurus/preset-classic": 2.0.0-beta.9
     "@heroicons/react": ^1.0.5
     "@mdx-js/react": ^1.6.22
-    "@sapphire/decorators": ^3.1.3
-    "@sapphire/eslint-config": ^4.0.2
-    "@sapphire/prettier-config": ^1.2.3
-    "@sapphire/ts-config": ^3.1.3
+    "@sapphire/decorators": ^3.1.4
+    "@sapphire/eslint-config": ^4.0.3
+    "@sapphire/prettier-config": ^1.2.4
+    "@sapphire/ts-config": ^3.1.4
     "@svgr/webpack": ^5.5.0
     "@tippyjs/react": ^4.2.6
     "@types/node": ^16.11.6
@@ -16908,7 +16909,7 @@ resolve@^2.0.0-next.3:
     replace-in-file: ^6.3.2
     rimraf: ^3.0.2
     swr: ^1.0.1
-    typedoc: ^0.22.7
+    typedoc: ^0.22.8
     typedoc-plugin-markdown: ^3.11.3
     typescript: ^4.4.4
     url-loader: ^4.1.1
@@ -18782,23 +18783,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.22.7":
-  version: 0.22.7
-  resolution: "typedoc@npm:0.22.7"
-  dependencies:
-    glob: ^7.2.0
-    lunr: ^2.3.9
-    marked: ^3.0.8
-    minimatch: ^3.0.4
-    shiki: ^0.9.12
-  peerDependencies:
-    typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x
-  bin:
-    typedoc: bin/typedoc
-  checksum: cff0fc67dd069eabbd161644172e7da66cd4ad772f98c511d5d87d2bcd35851a7f8c232a9a70fdfa55c3d3f5fbcff8a44f263f2bbedeedb4202b9f8cb057d3fa
-  languageName: node
-  linkType: hard
-
 "typedoc@npm:^0.22.8":
   version: 0.22.8
   resolution: "typedoc@npm:0.22.8"
@@ -18816,7 +18800,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@^4.4.3, typescript@^4.4.4":
+"typescript@npm:^4.4.3, typescript@npm:^4.4.4":
   version: 4.4.4
   resolution: "typescript@npm:4.4.4"
   bin:
@@ -18828,11 +18812,11 @@ resolve@^2.0.0-next.3:
 
 "typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>":
   version: 4.4.4
-  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"
+  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: c97c33903f1eb4f9e178649befdfc859d93157db1eccd1e521e84976ec6861db53412d8018e5e4c5d09268771c65498d42caa64bd881878346c3644f6b7cd202
+  checksum: bd629ad0da4a15d79aaad56baf3ee7d96f6a181760d430ae77f8c5325df7bffd9edee57544a3970e3651e8b796fe03a5838a7eb39c6d46cc3866c0b23d36a0dd
   languageName: node
   linkType: hard
 
