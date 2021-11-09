@@ -285,6 +285,12 @@ const config = {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
 				additionalLanguages: ['powershell', 'batch']
+			},
+			algolia: {
+				appId: 'BH4D9OD16A',
+				apiKey: 'c7dfe8077524076b06d887dda8410506',
+				indexName: 'sapphirejs',
+				contextualSearch: false
 			}
 		})
 };
