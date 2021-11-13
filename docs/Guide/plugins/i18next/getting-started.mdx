@@ -1,0 +1,340 @@
+---
+title: Getting Started
+sidebar_position: 0
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+An implementation of i18next's [filesystem backend] for Sapphire. It allows you to use a JSON-based `languages`
+directory to add internationalization for your bot using `SapphireClient`'s `fetchLanguage` hook and a custom message
+extension, adding features such as `sendTranslated` and `resolveKey`.
+
+[filesystem backend]: https://github.com/i18next/i18next-fs-backend
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/plugin-i18next @sapphire/framework discord.js
+```
+
+## Usage
+
+This registers the methods and options necessary for message translations in the Sapphire client.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+// Main bot file
+// Be sure to register the plugin before instantiating the client.
+require('@sapphire/plugin-i18next/register');
+```
+
+</TabItem>
+<TabItem value="esm" label="ESM">
+
+```javascript
+// Main bot file
+// Be sure to register the plugin before instantiating the client.
+import '@sapphire/plugin-i18next/register';
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+// Main bot file
+// Be sure to register the plugin before instantiating the client.
+import '@sapphire/plugin-i18next/register';
+```
+
+</TabItem>
+</Tabs>
+
+The basic structure of a translation file is as follows:
+
+<!--- languages/en-US/commands/ping.json --->
+
+```json
+{
+  "success": "Pong!",
+  "success_with_args": "Pong! Took me {{latency}}ms to reply"
+}
+```
+
+The `resolveKey` function can be used anywhere to get translated text by its key. In this example, it is used in a
+method to send a message.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+const { resolveKey } = require('@sapphire/plugin-i18next');
+const { Command } = require('@sapphire/framework');
+
+module.exports = class extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message: Message) {
+		await message.channel.send(await resolveKey('commands/ping:success'));
+	}
+}
+
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript
+import { resolveKey } from '@sapphire/plugin-i18next';
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		await message.channel.send(await resolveKey('commands/ping:success'));
+	}
+}
+
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+import { resolveKey } from '@sapphire/plugin-i18next';
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { ApplyOptions } from '@sapphire/decorators';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  description: 'ping pong'
+})
+export class PingCommand extends Command {
+  public async messageRun(message: Message) {
+    await message.channel.send(await resolveKey('commands/ping:success'));
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+`sendLocalized` will send translated text resolved from a key to a specified channel.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {13}
+const { sendLocalized } = require('@sapphire/plugin-i18next');
+const { Command } = require('@sapphire/framework');
+
+module.exports = class extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		await sendLocalized(message, 'commands/ping:success');
+	}
+}
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript {13}
+import { sendLocalized } from '@sapphire/plugin-i18next';
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		await sendLocalized(message, 'commands/ping:success');
+	}
+}
+```
+
+</TabItem>
+
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {11}
+import { sendLocalized } from '@sapphire/plugin-i18next';
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { ApplyOptions } from '@sapphire/decorators';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  description: 'ping pong'
+})
+export class PingCommand extends Command {
+  public async messageRun(message: Message) {
+    await sendLocalized(message, 'commands/ping:success');
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+`editLocalized` edits a message, replacing its content with translated text resolved from its key.
+
+<Tabs groupId="language-choice">
+
+<TabItem value="javascript" label="JavaScript">
+
+```javascript {13}
+const { editLocalized } = require('@sapphire/plugin-i18next');
+const { Command } = require('@sapphire/framework');
+
+module.exports = class extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping });
+	}
+}
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript {13}
+import { editLocalized } from '@sapphire/plugin-i18next';
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		await editLocalized(message, 'commands/ping:success', { latency: ws.ping });
+	}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {11}
+import { editLocalized } from '@sapphire/plugin-i18next';
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { ApplyOptions } from '@sapphire/decorators';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  description: 'ping pong'
+})
+export class PingCommand extends Command {
+  public async messageRun(message: Message) {
+    await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping });
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+`fetchLanguage` returns the guild-specific language that the client is using.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript">
+
+```javascript {13}
+const { fetchLanguage } = require('@sapphire/plugin-i18next');
+const { Command } = require('@sapphire/framework');
+
+module.exports = class extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		return message.channel.send(await fetchLanguage(message));
+		// ===> en-US
+	}
+}
+```
+
+</TabItem>
+<TabItem value="esm" label="ESM">
+
+```javascript {13}
+import { fetchLanguage } from '@sapphire/plugin-i18next';
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+	public constructor(context, options) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async messageRun(message) {
+		return message.channel.send(await fetchLanguage(message));
+		// ===> en-US
+	}
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {11}
+import { fetchLanguage } from '@sapphire/plugin-i18next';
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { ApplyOptions } from '@sapphire/decorators';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+  description: 'ping pong'
+})
+export class PingCommand extends Command {
+  public async messageRun(message: Message) {
+    return message.channel.send(await fetchLanguage(message));
+    // ===> en-US
+  }
+}
+```
+
+</TabItem>
+</Tabs>

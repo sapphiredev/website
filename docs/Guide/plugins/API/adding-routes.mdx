@@ -1,0 +1,89 @@
+---
+title: How to add routes
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+First we create a new folder called `routes` in the `src` directory. And make a new file `hello-world`
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript">
+
+```javascript
+const { methods, Route } = require('@sapphire/plugin-api');
+
+module.exports.UserRoute = class extends Route {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      route: 'hello-world'
+    });
+  }
+
+  [methods.GET](_request, response) {
+    response.json({ message: 'Hello World' });
+  }
+
+  [methods.POST](_request, response) {
+    response.json({ message: 'Hello World' });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="esm" label="ESM">
+
+```javascript
+import { methods, Route } from '@sapphire/plugin-api';
+
+export class UserRoute extends Route {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      route: 'hello-world'
+    });
+  }
+
+  [methods.GET](_request, response) {
+    response.json({ message: 'Hello World' });
+  }
+
+  [methods.POST](_request, response) {
+    response.json({ message: 'Hello World' });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+import type { PieceContext } from '@sapphire/framework';
+import { ApiRequest, ApiResponse, methods, Route, RouteOptions } from '@sapphire/plugin-api';
+import { ApplyOptions } from '@sapphire/decorators';
+
+@ApplyOptions<RouteOptions>({
+  route: 'hello-world'
+})
+export class UserRoute extends Route {
+  public [methods.GET](_request: ApiRequest, response: ApiResponse) {
+    response.json({ message: 'Hello World' });
+  }
+
+  public [methods.POST](_request: ApiRequest, response: ApiResponse) {
+    response.json({ message: 'Hello World' });
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+A quick glance on what we did above:
+
+- First we extended the `Route` class to make our route
+- Second we specified the route name in the constructor
+- Third we defined the GET method
+- Finally we responded to the request with a message which we would be able to use later when we fetch the route

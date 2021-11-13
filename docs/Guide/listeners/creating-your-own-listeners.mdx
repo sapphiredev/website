@@ -181,7 +181,7 @@ export class ReadyListener extends Listener {
 Once discord.js emits the `ready` event, `run` will be executed, and the piece will then be unloaded since `once` is
 set. This code is equivalent to the following:
 
-```js
+```javascript
 client.once('ready', (client) => {
   const { username, id } = client.user;
   container.logger.info(`Successfully logged in as ${username} (${id})`);
