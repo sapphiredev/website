@@ -123,7 +123,7 @@ export class PingCommand extends Command {}
 ## Advanced Usage
 
 Accompanying `cooldownDelay`, you also have access to the options
-[`cooldownLimit`](cooldownLimit) and [`cooldownScope`](cooldownScope).
+[`cooldownLimit`][cooldownLimit] and [`cooldownScope`][cooldownScope].
 
 `cooldownLimit` will define how many times a
 command can be used before a cooldown is put into affect. This value is set to `1` by default.
@@ -131,7 +131,7 @@ For example, a `cooldownDelay` of 10 seconds, and a `cooldownLimit` of 2 will ef
 use the command twice every 10 seconds.
 
 Another useful option is `cooldownScope`, which will define the scope of the cooldown. This is useful if you want to have
-a cooldown that applies per guild, for example, instead of per user. [Valid options](scopes) are `'CHANNEL'`, `'GLOBAL`',
+a cooldown that applies per guild, for example, instead of per user. [Valid options][scopes] are `'CHANNEL'`, `'GLOBAL`',
 `'GUILD'`, and `'USER'` (default).
 
 ## Client-wide Cooldowns
