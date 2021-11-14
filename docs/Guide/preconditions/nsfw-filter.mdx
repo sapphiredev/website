@@ -1,6 +1,67 @@
 ---
-sidebar_position: 1
+sidebar_position: 5
 title: Locking commands to NSFW channels
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Sometimes it can be necessary to lock certain commands to NSFW (not safe for work) channels.
+This can be simply achieved by adding the `nsfw` option to the command.
+
+<Tabs>
+<TabItem value="javascript" label="Javascript">
+
+```javascript {7}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class NSFWCommand extends Command {
+  constructor(context) {
+    super(context, {
+      // ...
+      nsfw: true
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {7}
+import { Command } from '@sapphire/framework';
+
+export class NSFWCommand extends Command {
+  constructor(context) {
+    super(context, {
+      // ...
+      nsfw: true
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  // ...
+  nsfw: true
+})
+export class NSFWCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+
+To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition Failure][reporting-precondition-failure].
+
+:::
+
+[reporting-precondition-failure]: ./reporting-precondition-failure

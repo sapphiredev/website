@@ -3,4 +3,77 @@ sidebar_position: 3
 title: Setting the types of channel a command can run in
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+The [`runIn`][runIn] command option can be used to specify the types of channels a command can run in. This can be useful
+if you're developing a command that, for example, displays the roles of a user. In that scenario, you'll want to make sure
+that the command can only be run in guild channels.
+
+:::info
+
+[Valid values][runInTypes] for `runIn` are `'DM'`, `'GUILD_TEXT'`, `'GUILD_NEWS'`, `'GUILD_NEWS_THREAD'`,
+`'GUILD_PUBLIC_THREAD'`, `'GUILD_PRIVATE_THREAD'`, and `'GUILD_ANY'`
+
+:::
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {7}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class RolesCommand extends Command {
+  constructor(context) {
+    super(context, {
+      // ...
+      runIn: 'GUILD_ANY' // Only run in guild channels
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {7}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  constructor(context) {
+    super(context, {
+      // ...
+      runIn: 'GUILD_ANY' // Only run in guild channels
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  // ...
+  runIn: 'GUILD_ANY' // Only run in guild channels
+})
+export class PingCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+If you try to run a command in direct messages, you'll now find that nothing happens.
+
+:::tip
+
+To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition Failure][reporting-precondition-failure].
+
+:::
+
+[runIn]: ../../Documentation/api-framework/interfaces/CommandOptions#runin
+[runInTypes]: ../../Documentation/api-framework/enums/CommandOptionsRunTypeEnum
+[reporting-precondition-failure]: ./reporting-precondition-failure
