@@ -101,7 +101,7 @@ export class CommandDeniedListener extends Listener {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {5}
+```typescript {6}
 import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
 import { Listener } from '@sapphire/framework';
 
@@ -122,9 +122,8 @@ send a message notifying them that they don't have permission. Instead, you'd ra
 To do this, we can make use of the [`context`][context] property of `UserError`s. This property aims to contain information
 about the context in which the error was thrown, and the value can be absolutely anything.
 
-We can take advantage of this by passing the value `{ silent: true }` to the [`this.error()`][preconditionError] call of
-a function. We'll use the `OwnerOnly` precondition we made in [Creating Preconditions][creating-preconditions] to
-demonstrate this.
+We can take advantage of this by adding `context: { silent: true }` to the [`this.error()`][preconditionError] options.
+We'll use the `OwnerOnly` precondition we made in[Creating Preconditions][creating-preconditions] to demonstrate this.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -183,7 +182,7 @@ export class OwnerOnlyPrecondition extends Precondition {
 </TabItem>
 </Tabs>
 
-We can then detect this property in our listener, and ignore the failure if we find it.
+We can then check if this property exists on the error in our listener, and ignore the failure if we find it.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -222,9 +221,9 @@ import { Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
     public run(error: UserError, { message }: CommandDeniedPayload) {
-        // A bit of a type hack is required for TypeScript
-        // Since `error.context` is `unknown`
-		if (Reflect.get(Object(context), 'silent')) return;
+        // A bit of a hack is required for TypeScript
+        // Since `error.context` is of type `unknown`
+		if (Reflect.get(Object(error.context), 'silent')) return;
         return message.channel.send(error.message);
     }
 }
