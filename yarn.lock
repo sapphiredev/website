@@ -4000,8 +4000,8 @@ __metadata:
   resolution: "@sapphire/discord.js-utilities@workspace:projects/utilities/packages/discord.js-utilities"
   dependencies:
     "@sapphire/discord-utilities": ^2.2.3
-    "@sapphire/time-utilities": ^1.4.7
-    "@sapphire/utilities": ^3.0.7
+    "@sapphire/time-utilities": ^1.4.8
+    "@sapphire/utilities": ^3.0.8
     tslib: ^2.3.1
   languageName: unknown
   linkType: soft
@@ -4246,7 +4246,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/ratelimits@workspace:projects/utilities/packages/ratelimits"
   dependencies:
-    "@sapphire/time-utilities": ^1.4.7
+    "@sapphire/time-utilities": ^1.4.8
   languageName: unknown
   linkType: soft
 
@@ -4273,11 +4273,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sapphire/time-utilities@npm:^1.4.8":
+  version: 1.4.8
+  resolution: "@sapphire/time-utilities@npm:1.4.8"
+  dependencies:
+    "@sapphire/utilities": ^3.0.8
+  checksum: af9a14140a4590d61a95524e7d91dca1ea7caf3f9825d5897be3e64ae367dda1670c3aa55d99f5fba67b9b7bf28d65c82eb6309b71fa7b979356e633f7db6e12
+  languageName: node
+  linkType: hard
+
 "@sapphire/time-utilities@workspace:projects/utilities/packages/time-utilities":
   version: 0.0.0-use.local
   resolution: "@sapphire/time-utilities@workspace:projects/utilities/packages/time-utilities"
   dependencies:
-    "@sapphire/utilities": ^3.0.7
+    "@sapphire/utilities": ^3.0.8
   languageName: unknown
   linkType: soft
 
@@ -4338,6 +4347,13 @@ __metadata:
   version: 3.0.7
   resolution: "@sapphire/utilities@npm:3.0.7"
   checksum: 780a3a0e3cc39cb79d5c7dd43abb9d7f481767b60e6f1f1a69f9faf963148ef4af68fac1a6cc04686b6c4560037535ee04410c042f8f7eca0c310ef98ba28f3b
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "@sapphire/utilities@npm:3.0.8"
+  checksum: 44cdb0150a233f974b3c6a877f274f3bcebc3efad3cef6205cba5963ad1f60340d57eff54c8206eb638b881a3c3b33d8d593b6c71307768435da8ff05c9ac730
   languageName: node
   linkType: hard
 
