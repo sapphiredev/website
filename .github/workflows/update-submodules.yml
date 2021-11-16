@@ -33,12 +33,13 @@ jobs:
           else
             echo -e "\n# Before pushing changes we update the lockfile"
             echo -e "\nenableImmutableInstalls: false" >> ./.yarnrc.yml
-            yarn
+            rm -rf ./node_modules ./yarn.lock || true
+            yarn install
             echo -e "\n# Adding yarn lockfile"
             git add yarn.lock
             git config user.name "${GITHUB_ACTOR}"
             git config user.email "${GITHUB_EMAIL}"
-            git commit -snm "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true;
+            git commit -snm "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true
             git push origin $TARGET_BRANCH
           fi
         env:
