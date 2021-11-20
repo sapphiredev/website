@@ -2,3 +2,83 @@
 sidebar_position: 3
 title: Setting the types of channel a command can run in
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Some commands are explicitly required to be executed on specific channels, on servers or also on private threads. In the
+command options there is an option called `runIn` and it allows you to set on which type of channel the command should
+be executed.
+
+For example, we do not want the `!server-info` command to be executed through a DM channel, because your command code
+would fail because it would not find the `guild` parameter in the `Message` property of your command. To solve this we
+will assign the `runIn` option as `GUILD_TEXT`, and with this option the command will be executed only in server text
+channels, but if you need the command can also be executed for example in threads, you can set the `runIn` option as
+`GUILD_ANY`. Let's see an example of how we have to configure this option.
+
+By default, this option is set to `null`, which means that it can be executed on DM channels as well as on any type of
+server channel.
+
+:::tip
+
+You can see what kind of options the `runIn` option of the commands allows in the
+[documentation](../../Documentation/api-framework/#commandoptionsruntype).
+
+:::
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-11}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      aliases: ['pong'],
+      description: 'ping pong',
+      runIn: 'GUILD_TEXT'
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-11}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      aliases: ['pong'],
+      description: 'ping pong',
+      runIn: 'GUILD_TEXT'
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {4-9}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  name: 'ping',
+  aliases: ['pong'],
+  description: 'ping pong',
+  runIn: 'GUILD_TEXT'
+})
+export class PingCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
