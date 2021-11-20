@@ -7,8 +7,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 One of the most basic needs of a Discord bot is to be able to deny command access to users based on their permissions or
-lack thereof. A common example would be moderation commands. Most people wouldn't want regular users to be able to ban people,
-so we can restrict usage using the [`requiredUserPermissions`][requiredUserPermissions] option.
+lack thereof. A common example would be moderation commands. Most people wouldn't want regular users to be able to ban
+people, so we can restrict usage using the [`requiredUserPermissions`][requireduserpermissions] option.
 
 <Tabs>
 <TabItem value="javascript" label="Javascript">
@@ -64,7 +64,8 @@ Users without the `BAN_MEMBERS` permission will now be unable to use the command
 ## Handling Client Permissions
 
 It's also a good idea to verify the inverse: does the _bot_ have the `BAN_MEMBERS` permission? We can use the
-[`requiredClientPermissions`][requiredClientPermissions] option the same way to prevent the command from being used if not.
+[`requiredClientPermissions`][requiredclientpermissions] option the same way to prevent the command from being used if
+not.
 
 <Tabs>
 <TabItem value="javascript" label="Javascript">
@@ -122,10 +123,11 @@ export class BanCommand extends Command {}
 
 :::tip
 
-To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition Failure][reporting-precondition-failure].
+To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition
+Failure][reporting-precondition-failure].
 
 :::
 
-[requiredUserPermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requireduserpermissions
-[requiredClientPermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requiredclientpermissions
+[requireduserpermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requireduserpermissions
+[requiredclientpermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requiredclientpermissions
 [reporting-precondition-failure]: ./reporting-precondition-failure

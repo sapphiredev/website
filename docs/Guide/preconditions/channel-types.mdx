@@ -6,13 +6,13 @@ title: Setting the types of channel a command can run in
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [`runIn`][runIn] command option can be used to specify the types of channels a command can run in. This can be useful
-if you're developing a command that, for example, displays the roles of a user. In that scenario, you'll want to make sure
-that the command can only be run in guild channels.
+The [`runIn`][runin] command option can be used to specify the types of channels a command can run in. This can be
+useful if you're developing a command that, for example, displays the roles of a user. In that scenario, you'll want to
+make sure that the command can only be run in guild channels.
 
 :::info
 
-[Valid values][runInTypes] for `runIn` are `'DM'`, `'GUILD_TEXT'`, `'GUILD_NEWS'`, `'GUILD_NEWS_THREAD'`,
+[Valid values][runintypes] for `runIn` are `'DM'`, `'GUILD_TEXT'`, `'GUILD_NEWS'`, `'GUILD_NEWS_THREAD'`,
 `'GUILD_PUBLIC_THREAD'`, `'GUILD_PRIVATE_THREAD'`, and `'GUILD_ANY'`
 
 :::
@@ -70,10 +70,11 @@ If you try to run a command in direct messages, you'll now find that nothing hap
 
 :::tip
 
-To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition Failure][reporting-precondition-failure].
+To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition
+Failure][reporting-precondition-failure].
 
 :::
 
-[runIn]: ../../Documentation/api-framework/interfaces/CommandOptions#runin
-[runInTypes]: ../../Documentation/api-framework/enums/CommandOptionsRunTypeEnum
+[runin]: ../../Documentation/api-framework/interfaces/CommandOptions#runin
+[runintypes]: ../../Documentation/api-framework/enums/CommandOptionsRunTypeEnum
 [reporting-precondition-failure]: ./reporting-precondition-failure
