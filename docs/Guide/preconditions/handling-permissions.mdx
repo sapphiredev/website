@@ -35,7 +35,6 @@ module.exports = class BanCommand extends Command {
     super(context, {
       ...options,
       name: 'ban',
-      aliases: ['ban'],
       description: 'ban member',
       requiredClientPermissions: ['BAN_MEMBERS'],
       requiredUserPermissions: ['BAN_MEMBERS']
@@ -55,7 +54,6 @@ export class BanCommand extends Command {
     super(context, {
       ...options,
       name: 'ban',
-      aliases: ['ban'],
       description: 'ban member',
       requiredClientPermissions: ['BAN_MEMBERS'],
       requiredUserPermissions: ['BAN_MEMBERS']
@@ -73,7 +71,6 @@ import { Command, CommandOptions } from '@sapphire/framework';
 
 @ApplyOptions<CommandOptions>({
   name: 'ban',
-  aliases: ['ban'],
   description: 'ban member',
   requiredClientPermissions: ['BAN_MEMBERS'],
   requiredUserPermissions: ['BAN_MEMBERS']

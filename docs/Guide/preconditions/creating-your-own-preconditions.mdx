@@ -39,7 +39,7 @@ module.exports = class EvalCommand extends Command {
     super(context, {
       ...options,
       name: 'eval',
-      aliases: ['eval'],
+      aliases: ['ev'],
       description: 'eval code',
       preconditions: ['OWNER_BOT_ONLY', 'GUILD_MOD']
     });
@@ -58,7 +58,7 @@ export class EvalCommand extends Command {
     super(context, {
       ...options,
       name: 'eval',
-      aliases: ['eval'],
+      aliases: ['ev'],
       description: 'eval code',
       preconditions: ['OWNER_BOT_ONLY', 'GUILD_MOD']
     });
@@ -75,7 +75,7 @@ import { Command, CommandOptions } from '@sapphire/framework';
 
 @ApplyOptions<CommandOptions>({
   name: 'eval',
-  aliases: ['eval'],
+  aliases: ['ev'],
   description: 'eval code',
   preconditions: ['OWNER_BOT_ONLY', 'GUILD_MOD']
 })
@@ -115,7 +115,7 @@ module.exports = class EvalCommand extends Command {
     super(context, {
       ...options,
       name: 'eval',
-      aliases: ['eval'],
+      aliases: ['ev'],
       description: 'eval code',
       preconditions: [['GUILD_MOD', 'GUILD_OWNER'], 'GUILD_TEXT']
     });
@@ -134,7 +134,7 @@ export class EvalCommand extends Command {
     super(context, {
       ...options,
       name: 'eval',
-      aliases: ['eval'],
+      aliases: ['ev'],
       description: 'eval code',
       preconditions: [['GUILD_MOD', 'GUILD_OWNER'], 'GUILD_TEXT']
     });
@@ -151,7 +151,7 @@ import { Command, CommandOptions } from '@sapphire/framework';
 
 @ApplyOptions<CommandOptions>({
   name: 'eval',
-  aliases: ['eval'],
+  aliases: ['ev'],
   description: 'eval code',
   preconditions: [['GUILD_MOD', 'GUILD_OWNER'], 'GUILD_TEXT']
 })
