@@ -23,7 +23,6 @@ module.exports = class LewdCommand extends Command {
     super(context, {
       ...options,
       name: 'lewd',
-      aliases: ['lewd'],
       description: 'lewd content',
       nsfw: true
     });
@@ -42,7 +41,6 @@ export class LewdCommand extends Command {
     super(context, {
       ...options,
       name: 'lewd',
-      aliases: ['lewd'],
       description: 'lewd content',
       nsfw: true
     });
@@ -59,7 +57,6 @@ import { Command, CommandOptions } from '@sapphire/framework';
 
 @ApplyOptions<CommandOptions>({
   name: 'lewd',
-  aliases: ['lewd'],
   description: 'lewd content',
   nsfw: true
 })
