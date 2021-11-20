@@ -3,4 +3,180 @@ sidebar_position: 0
 title: Configuring command cooldowns
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Now we will configure the cooldown that one or all the commands of your bot must have. For that we have two types of
+configuring the cooldown time in the commands.
+
+## Short explanation
+
+In the command options, there are the options `coldownDelay`, `coldownFilteredUsers`, `coldownLimit`, and
+`coldownScope`. What each of these options do is explained below. Note that the options have default values, so they are
+optional.
+
+1. `cooldownDelay`: This option allows you to set the cooldown time that the command will have. For example, if you set
+   the cooldown time of a command to `5ee` which equals 5 seconds, the command will only be able to be executed every 5
+   seconds, and if the user executes the command while it is in cooldown time then the `commandError` event will be
+   fired. You can see the Listeners guide to see how to use these events.
+2. `cooldownFilteredUsers`: This option allows you to set which user IDs are allowed to skip the timeout. This means
+   that if you set your user ID, the timeout will not affect you and you will be able to use the command as many times
+   as you want no matter how long the set cooldown time is.
+3. `cooldownLimit`: This option is used to set how many times the user can execute the command before it enters cooldown
+   time. For example, if you set the option to `5`, then the user will be able to execute the command `5 times` and then
+   the cooldown time will start for that user.
+4. `cooldownScope`: This is a special option, and its function is to set who is affected by the cooldown. A short
+   explanation:
+   1. If it is set in the `BucketScope.Channel` scope then the cooldown time will affect the channel, this means that
+      the channel will have a type of cooldown time, like the cooldown time that can be set per channel in the channel
+      options in Discord.
+   2. If it is set in the `BucketScope.Guild` scope then the cooldown time will affect the whole server, this means that
+      the command cannot be used on any server channel by any user until the cooldown time is over. cooldown time is
+      over.
+   3. If set in the `BucketScope.User` scope, this is the default option and this option allows the cooldown time to
+      affect only the user who executes the command, this means that if the user User#0001 executes the command 5 times,
+      he will enter cooldown time, but if the user User#0002 executes the command, he will be able to execute it
+      normally since this cooldown time is individual for each user who executes the command.
+
+## Set individual cooldown for a command
+
+After a great explanation, it's time for some examples, here are some examples on how to set the cooldown individually
+by commands.
+
+:::tip
+
+Remember that it is important that you take into account the previous explanation to better understand the examples.
+
+:::
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-11}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      aliases: ['pong'],
+      description: 'ping pong',
+      cooldownDelay: 5e3,
+      cooldownLimit: 5
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-11}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      aliases: ['pong'],
+      description: 'ping pong',
+      cooldownDelay: 5e3,
+      cooldownLimit: 5
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {4-9}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  name: 'ping',
+  aliases: ['pong'],
+  description: 'ping pong',
+  cooldownDelay: 5e3,
+  cooldownLimit: 5
+})
+export class PingCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+## Set global cooldown for all commands
+
+Well, now that we know the basics of how to set cooldown times in commands, you might think it would be exhausting to do
+that in all commands, one by one, but don't worry, we have added an option in the client options so that you can set a
+global cooldown time that is set in all commands in the same way. You can override the global cooldown time setting by
+setting the cooldown time setting in a command. Below is an example of how to set the global cooldown time for all
+commands.
+
+:::tip
+
+Remember that you can use the same options explained above in the default cooling time options in the client options.
+the client options.
+
+:::
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+const { SapphireClient } = require('@sapphire/framework');
+
+const client = new SapphireClient({
+  intents: ['GUILDS', 'GUILD_MESSAGES'],
+  defaultCooldown: {
+    cooldownDelay: 5e3,
+    cooldownLimit: 5,
+    cooldownFilteredUsers: ['858367536240394259']
+  }
+});
+
+void client.login('your-token-goes-here');
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript
+import { SapphireClient } from '@sapphire/framework';
+
+const client = new SapphireClient({
+  intents: ['GUILDS', 'GUILD_MESSAGES'],
+  defaultCooldown: {
+    cooldownDelay: 5e3,
+    cooldownLimit: 5,
+    cooldownFilteredUsers: ['858367536240394259']
+  }
+});
+
+await client.login('your-token-goes-here');
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+import { SapphireClient } from '@sapphire/framework';
+
+const client = new SapphireClient({
+  intents: ['GUILDS', 'GUILD_MESSAGES'],
+  defaultCooldown: {
+    cooldownDelay: 5e3,
+    cooldownLimit: 5,
+    cooldownFilteredUsers: ['858367536240394259']
+  }
+});
+
+void client.login('your-token-goes-here');
+```
+
+</TabItem>
+</Tabs>
