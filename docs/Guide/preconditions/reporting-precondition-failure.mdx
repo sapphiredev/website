@@ -7,10 +7,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 When a precondition fails, it's usually important for the user to know why. For example, if they hit a cooldown or lack
-permissions, that should somehow be communicated. However, by default, nothing will happen if a precondition blocks a message.
+permissions, that should somehow be communicated. However, by default, nothing will happen if a precondition blocks a
+message.
 
-To change this, we'll need to create a `commandDenied` listener, which is triggered when a precondition
-fails. For more information on how to create listeners, see the [`Creating Listeners`][listeners] section.
+To change this, we'll need to create a `commandDenied` listener, which is triggered when a precondition fails. For more
+information on how to create listeners, see the [`Creating Listeners`][listeners] section.
 
 :::caution
 
@@ -19,8 +20,8 @@ an error.
 
 :::
 
-`commandDenied` supplies the following information: the [`UserError`][error] that was created from the precondition,
-and the [`CommandDeniedPayload`][payload], which includes necessary context.
+`commandDenied` supplies the following information: the [`UserError`][error] that was created from the precondition, and
+the [`CommandDeniedPayload`][payload], which includes necessary context.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -29,9 +30,9 @@ and the [`CommandDeniedPayload`][payload], which includes necessary context.
 const { Listener } = require('@sapphire/framework');
 
 module.exports = class CommandDeniedListener extends Listener {
-    run(error, { message }) {
-        // ...
-    }
+  run(error, { message }) {
+    // ...
+  }
 };
 ```
 
@@ -42,9 +43,9 @@ module.exports = class CommandDeniedListener extends Listener {
 import { Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
-    run(error, { message }) {
-        // ...
-    }
+  run(error, { message }) {
+    // ...
+  }
 }
 ```
 
@@ -56,21 +57,20 @@ import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
 import { Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
-    public run(error: UserError, { message }: CommandDeniedPayload) {
-        // ...
-    }
+  public run(error: UserError, { message }: CommandDeniedPayload) {
+    // ...
+  }
 }
 ```
 
 </TabItem>
 </Tabs>
 
-The `message` property of the `error` parameter will include the error message, as the name suggests.
-In [Creating Preconditions][creating-preconditions], you can find that we defined this property
-within the `this.error()` method!
+The `message` property of the `error` parameter will include the error message, as the name suggests. In [Creating
+Preconditions][creating-preconditions], you can find that we defined this property within the `this.error()` method!
 
-There are many possibilities for what you can do with the error, but the simplest is to just send it directly to the user.
-That is what we'll do in this example:
+There are many possibilities for what you can do with the error, but the simplest is to just send it directly to the
+user. That is what we'll do in this example:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -79,9 +79,9 @@ That is what we'll do in this example:
 const { Listener } = require('@sapphire/framework');
 
 module.exports = class CommandDeniedListener extends Listener {
-    run(error, { message }) {
-        return message.channel.send(error.message);
-    }
+  run(error, { message }) {
+    return message.channel.send(error.message);
+  }
 };
 ```
 
@@ -92,9 +92,9 @@ module.exports = class CommandDeniedListener extends Listener {
 import { Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
-    run(error, { message }) {
-        return message.channel.send(error.message);
-    }
+  run(error, { message }) {
+    return message.channel.send(error.message);
+  }
 }
 ```
 
@@ -106,9 +106,9 @@ import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
 import { Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
-    public run(error: UserError, { message }: CommandDeniedPayload) {
-        return message.channel.send(error.message);
-    }
+  public run(error: UserError, { message }: CommandDeniedPayload) {
+    return message.channel.send(error.message);
+  }
 }
 ```
 
@@ -118,11 +118,11 @@ export class CommandDeniedListener extends Listener {
 ## Ignoring Precondition Failures
 
 If someone who isn't a bot owner tries to use a command intended only for the bot owner, sometimes you don't want to
-send a message notifying them that they don't have permission. Instead, you'd rather let the command be blocked silently.
-To do this, we can make use of the [`context`][context] property of `UserError`s. This property aims to contain information
-about the context in which the error was thrown, and the value can be absolutely anything.
+send a message notifying them that they don't have permission. Instead, you'd rather let the command be blocked
+silently. To do this, we can make use of the [`context`][context] property of `UserError`s. This property aims to
+contain information about the context in which the error was thrown, and the value can be absolutely anything.
 
-We can take advantage of this by adding `context: { silent: true }` to the [`this.error()`][preconditionError] options.
+We can take advantage of this by adding `context: { silent: true }` to the [`this.error()`][preconditionerror] options.
 We'll use the `OwnerOnly` precondition we made in[Creating Preconditions][creating-preconditions] to demonstrate this.
 
 <Tabs groupId="language-choice">
@@ -135,8 +135,8 @@ module.exports = class OwnerOnlyPrecondition extends Precondition {
   public run(message) {
     return message.author.id === 'YOUR_ID'
       ? this.ok()
-      : this.error({ 
-          message: 'Only the bot owner can use this command!' 
+      : this.error({
+          message: 'Only the bot owner can use this command!'
           context: { silent: true }
         })
   }
@@ -153,7 +153,7 @@ export class OwnerOnlyPrecondition extends Precondition {
   public run(message) {
     return message.author.id === 'YOUR_ID'
       ? this.ok()
-      : this.error({ 
+      : this.error({
           message: 'Only the bot owner can use this command!',
           context: { silent: true }
         })
@@ -172,13 +172,14 @@ export class OwnerOnlyPrecondition extends Precondition {
   public run(message: Message) {
     return message.author.id === 'YOUR_ID'
       ? this.ok()
-      : this.error({ 
+      : this.error({
           message: 'Only the bot owner can use this command!'
           context: { silent: true }
         })
   }
 }
 ```
+
 </TabItem>
 </Tabs>
 
@@ -191,10 +192,10 @@ We can then check if this property exists on the error in our listener, and igno
 const { Listener } = require('@sapphire/framework');
 
 module.exports = class CommandDeniedListener extends Listener {
-    run(error, { message }) {
-        if (error.context.silent) return;
-        return message.channel.send(error.message);
-    }
+  run(error, { message }) {
+    if (error.context.silent) return;
+    return message.channel.send(error.message);
+  }
 };
 ```
 
@@ -205,10 +206,10 @@ module.exports = class CommandDeniedListener extends Listener {
 import { Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
-    run(error, { message }) {
-        if (error.context.silent) return;
-        return message.channel.send(error.message);
-    }
+  run(error, { message }) {
+    if (error.context.silent) return;
+    return message.channel.send(error.message);
+  }
 }
 ```
 
@@ -220,12 +221,12 @@ import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
 import { Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
-    public run(error: UserError, { message }: CommandDeniedPayload) {
-        // A bit of a hack is required for TypeScript
-        // Since `error.context` is of type `unknown`
-		if (Reflect.get(Object(error.context), 'silent')) return;
-        return message.channel.send(error.message);
-    }
+  public run(error: UserError, { message }: CommandDeniedPayload) {
+    // A bit of a hack is required for TypeScript
+    // Since `error.context` is of type `unknown`
+    if (Reflect.get(Object(error.context), 'silent')) return;
+    return message.channel.send(error.message);
+  }
 }
 ```
 
@@ -236,5 +237,5 @@ export class CommandDeniedListener extends Listener {
 [error]: ../../Documentation/api-framework/classes/UserError
 [payload]: ../../Documentation/api-framework/interfaces/CommandDeniedPayload
 [context]: ../../Documentation/api-framework/classes/UserError#context
-[preconditionError]: ../../Documentation/api-framework/classes/Precondition#error
+[preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
 [creating-preconditions]: ./creating-your-own-preconditions

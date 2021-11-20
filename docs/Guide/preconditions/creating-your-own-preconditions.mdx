@@ -6,14 +6,14 @@ title: Creating your own preconditions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Preconditions are classes that will determine whether or not a command should be blocked according to a certain condition.
-Sapphire has many built in preconditions ready for use that are outlined in the coming pages,
-such as for [creating cooldowns][creating-cooldowns], [restricting channel types][restricting-channel-types],
-[handling permissions][handling-permissions], and [filtering nsfw channels][nsfw-filter]. However, we also provide an
-easy system for you to create your own preconditions!
+Preconditions are classes that will determine whether or not a command should be blocked according to a certain
+condition. Sapphire has many built in preconditions ready for use that are outlined in the coming pages, such as for
+[creating cooldowns][creating-cooldowns], [restricting channel types][restricting-channel-types], [handling
+permissions][handling-permissions], and [filtering nsfw channels][nsfw-filter]. However, we also provide an easy system
+for you to create your own preconditions!
 
-Just as we did in both [Creating Commands][creating-commands] and [Creating Listeners][creating-listeners], we will create
-a `preconditions` subdirectory in your project's entry point directory. Inside, we'll make an `OwnerOnly` file.
+Just as we did in both [Creating Commands][creating-commands] and [Creating Listeners][creating-listeners], we will
+create a `preconditions` subdirectory in your project's entry point directory. Inside, we'll make an `OwnerOnly` file.
 
 Your directory should now look something like this:
 
@@ -30,8 +30,8 @@ Your directory should now look something like this:
         └── OwnerOnly.js
 ```
 
-The purpose of our `OwnerOnly` precondition is just as the name suggests: to check if the user is the bot owner.
-It can be used for developer commands, such as `eval`.
+The purpose of our `OwnerOnly` precondition is just as the name suggests: to check if the user is the bot owner. It can
+be used for developer commands, such as `eval`.
 
 ## Creating a Precondition class
 
@@ -67,8 +67,9 @@ export class OwnerOnlyPrecondition extends Precondition {}
 </TabItem>
 </Tabs>
 
-Next, we can create a [`run`][preconditionRun] function to execute our logic. This function should either return [`this.ok()`][preconditionOk]
-or [`this.error(...)`][preconditionError] to signify whether the command should be blocked.
+Next, we can create a [`run`][preconditionrun] function to execute our logic. This function should either return
+[`this.ok()`][preconditionok] or [`this.error(...)`][preconditionerror] to signify whether the command should be
+blocked.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -111,10 +112,11 @@ export class OwnerOnlyPrecondition extends Precondition {
   public run(message: Message) {
     return message.author.id === 'YOUR_ID'
       ? this.ok()
-      : this.error({ message: 'Only the bot owner can use this command!' })
+      : this.error({ message: 'Only the bot owner can use this command!' });
   }
 }
 ```
+
 </TabItem>
 </Tabs>
 
@@ -177,7 +179,8 @@ Now, if someone who is not the bot owner executes the ping command, nothing will
 :::caution
 
 For TypeScript users, there's an extra step to make this work. To increase the security of Sapphire's types, you'll need
-to augment Sapphire's [`Preconditions`][preconditions-interface] interface. Please see an official example [here][preconditions-augment].
+to augment Sapphire's [`Preconditions`][preconditions-interface] interface. Please see an official example
+[here][preconditions-augment].
 
 :::
 
@@ -186,18 +189,17 @@ configure this, please read [Reporting Precondition Failures][reporting-precondi
 
 ## Advanced Usage
 
-Sapphire also has a builtin system for advanced conditional precondition logic through nested arrays.
-By default, all preconditions in the given array must pass for the command to be run.
-However, you can use nested arrays to create `OR` functionality. This could be useful if you'd like a command to be run
-if the user is either a moderator _or_ an admin.
+Sapphire also has a builtin system for advanced conditional precondition logic through nested arrays. By default, all
+preconditions in the given array must pass for the command to be run. However, you can use nested arrays to create `OR`
+functionality. This could be useful if you'd like a command to be run if the user is either a moderator _or_ an admin.
 
-Furthermore, if you create a nested array within a nested array, you'll receive `AND` functionality once more. Arrays can
-be nested infinitely with the same pattern for optimal control over your preconditions.
+Furthermore, if you create a nested array within a nested array, you'll receive `AND` functionality once more. Arrays
+can be nested infinitely with the same pattern for optimal control over your preconditions.
 
 Consider the following array of preconditions:
 
 ```js
-[['AdminOnly', ['ModOnly', 'OwnerOnly']], 'InVoiceChannel']
+[['AdminOnly', ['ModOnly', 'OwnerOnly']], 'InVoiceChannel'];
 ```
 
 :::note
@@ -206,8 +208,8 @@ None of the above preconditions are builtin, and you'd have to create them separ
 
 :::
 
-For the command to be run, the `InVoiceChannel`  precondition must pass, as well as `AdminOnly` _or_ both `OwnerOnly`
-and `ModOnly`.
+For the command to be run, the `InVoiceChannel` precondition must pass, as well as `AdminOnly` _or_ both `OwnerOnly` and
+`ModOnly`.
 
 [creating-cooldowns]: ./command-cooldown
 [restricting-channel-types]: ./channel-types
@@ -216,10 +218,11 @@ and `ModOnly`.
 [creating-commands]: ../getting-started/creating-a-basic-command
 [creating-listeners]: ../listeners/creating-your-own-listeners
 [precondition]: ../../Documentation/api-framework/classes/Precondition
-[preconditionRun]: ../../Documentation/api-framework/classes/Precondition#run
-[preconditionOk]: ../../Documentation/api-framework/classes/Precondition#ok
-[preconditionError]: ../../Documentation/api-framework/classes/Precondition#error
+[preconditionrun]: ../../Documentation/api-framework/classes/Precondition#run
+[preconditionok]: ../../Documentation/api-framework/classes/Precondition#ok
+[preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
 [preconditions-option]: ../../Documentation/api-framework/interfaces/CommandOptions#preconditions
 [preconditions-interface]: ../../Documentation/api-framework/interfaces/Preconditions
-[preconditions-augment]: https://github.com/sapphiredev/examples/blob/main/examples/with-typescript-recommended/src/preconditions/OwnerOnly.ts#L13-L17
+[preconditions-augment]:
+  https://github.com/sapphiredev/examples/blob/main/examples/with-typescript-recommended/src/preconditions/OwnerOnly.ts#L13-L17
 [reporting-precondition-failure]: ./reporting-precondition-failure
