@@ -3,4 +3,91 @@ sidebar_position: 2
 title: Handling permissions
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Something important to take into account in your bot commands are the permissions that the bot has, since you cannot,
+for example, ban a member if the bot does not have permission to ban users. To solve this problem in the command options
+there are some options called
+[requiredClientPermissions](../../Documentation/api-framework/interfaces/CommandOptions#requiredclientpermissions) and
+[requiredUserPermissions](../../Documentation/api-framework/interfaces/CommandOptions#requiredUserPermissions) that will
+be explained later.
+
+1. `requiredClientPermissions`: This option allows you to set what permissions the client (bot) must have on the channel
+   and/or server before being able to execute the command. This ensures that the command will not fail if we try to ban
+   a member of the server.
+2. `requiredUserPermissions`: This option allows you to set the permissions that the server member must have before
+   being able to execute the command, it can be used for example to protect that the member expulsion command is
+   executed only by members who have that permission on the server.
+
+Both options accept options allow the
+[PermissionResolvable](https://discord.js.org/#/docs/main/stable/typedef/PermissionResolvable) object, so you can set
+both options in the same way without problems. Now let's see a code example.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-11}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class BanCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ban',
+      aliases: ['ban'],
+      description: 'ban member',
+      requiredClientPermissions: ['BAN_MEMBERS'],
+      requiredUserPermissions: ['BAN_MEMBERS']
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-11}
+import { Command } from '@sapphire/framework';
+
+export class BanCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'ban',
+      aliases: ['ban'],
+      description: 'ban member',
+      requiredClientPermissions: ['BAN_MEMBERS'],
+      requiredUserPermissions: ['BAN_MEMBERS']
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {5-9}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  name: 'ban',
+  aliases: ['ban'],
+  description: 'ban member',
+  requiredClientPermissions: ['BAN_MEMBERS'],
+  requiredUserPermissions: ['BAN_MEMBERS']
+})
+export class BanCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+The code in the above example tells us that the `!ban` command can only be executed if the client (bot) and the member
+executing the command have the `BAN_MEMBERS` permission, otherwise the command will not be executed and the
+`commandDenied` event will be thrown. Remember to consult the
+[on how to handle events.](../listeners/creating-your-own-listeners)
+
+Now with this option you can be sure that your `!ban` command will be executed without permissions errors because the
+bot will validate those options before the command is executed, it is up to you to set those options right!
