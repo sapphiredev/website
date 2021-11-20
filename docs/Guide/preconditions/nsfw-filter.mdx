@@ -3,4 +3,72 @@ sidebar_position: 1
 title: Locking commands to NSFW channels
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Well, we know that our bot may have NSFW (Not Safe For Work) commands, and we don't want those commands to be used by
+any member of the server! To avoid that in a simple way, we have an option called `nsfw` in the command options. This
+option defaults to `false` but if you set it to `true` then the command will only run on channels marked as NSFW.
+
+Let's see an example of how to configure this option, it is really simple.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-11}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class LewdCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'lewd',
+      aliases: ['lewd'],
+      description: 'lewd content',
+      nsfw: true
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-11}
+import { Command } from '@sapphire/framework';
+
+export class LewdCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'lewd',
+      aliases: ['lewd'],
+      description: 'lewd content',
+      nsfw: true
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {5-9}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  name: 'lewd',
+  aliases: ['lewd'],
+  description: 'lewd content',
+  nsfw: true
+})
+export class LewdCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+And that's it, easy right? Now you can rest assured that your NSFW command will be executed only on channels marked as
+NSFW, otherwise the `commandDenied` event will be executed. Remember that you can customize what message will be sent to
+that server member by configuring a custom listener for the `commandDenied` event for that option.
