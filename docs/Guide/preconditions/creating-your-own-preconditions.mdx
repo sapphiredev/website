@@ -3,4 +3,341 @@ sidebar_position: 4
 title: Creating your own preconditions
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+This guide is a bit advanced, we recommend that you read the
+[documentation on preconditions](../../Documentation/api-framework/classes/Precondition) to know what is going on here.
+Next we will show you how to create your own preconditions, so you can create the preconditions you need without
+complications.
+
+First, we need to understand what a precondition in `Sapphire` is.
+
+## What is a precondition?
+
+A precondition is a class or method that is called in order before a command is executed. In order for a command to to
+be executed all preconditions must pass, but if one fails then the command will not be executed and the `commandDenied`
+event will be fired with the event `commandDenied` will be fired with the options you have set in your preconditions,
+this will be explained later. below.
+
+In short, imagine that there is an `if` condition before your command is executed, and if all the `parameters` passed in
+the `if` condition do not pass, then the command is not executed. This serves to protect commands such as, for example,
+commands available only to the bot developer, moderators, music players, etc.
+
+## How to set preconditions in the commands?
+
+Preconditions created by you, or by `Sapphire` must go into the `preconditions` option of the command options.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-11}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class EvalCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'eval',
+      aliases: ['eval'],
+      description: 'eval code',
+      preconditions: ['OWNER_BOT_ONLY', 'GUILD_MOD']
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-11}
+import { Command } from '@sapphire/framework';
+
+export class EvalCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'eval',
+      aliases: ['eval'],
+      description: 'eval code',
+      preconditions: ['OWNER_BOT_ONLY', 'GUILD_MOD']
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {4-9}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  name: 'eval',
+  aliases: ['eval'],
+  description: 'eval code',
+  preconditions: ['OWNER_BOT_ONLY', 'GUILD_MOD']
+})
+export class EvalCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+Now let's explain what we have done. The code in the example above tells us that the command will only be executed if
+the user who executes it is the owner of the bot and is the moderator of the server where it is executed. Note that the
+logic of the `GUILD_MOD` precondition depends on how you configure it.
+
+Two important points must be taken into account:
+
+1. The command will only be executed if both preconditions pass, otherwise the command will not be executed and the
+   `commandDenied` event will be thrown.
+2. The preconditions follow the same order of the precondition array to be executed, this means that the first
+   precondition executed will be `OWNER_BOT_ONLY` and then `GUILD_MOD`.
+
+Now that we have understood the basic concept of how to set preconditions on our commands, we will learn how to create
+our own preconditions. how to create our own preconditions.
+
+## Tip
+
+Since the preconditions behave as if it were an `if` condition then we can use the `OR` condition in the preconditions,
+here is an example:
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-11}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class EvalCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'eval',
+      aliases: ['eval'],
+      description: 'eval code',
+      preconditions: [['GUILD_MOD', 'GUILD_OWNER'], 'GUILD_TEXT']
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-11}
+import { Command } from '@sapphire/framework';
+
+export class EvalCommand extends Command {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'eval',
+      aliases: ['eval'],
+      description: 'eval code',
+      preconditions: [['GUILD_MOD', 'GUILD_OWNER'], 'GUILD_TEXT']
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {4-9}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+
+@ApplyOptions<CommandOptions>({
+  name: 'eval',
+  aliases: ['eval'],
+  description: 'eval code',
+  preconditions: [['GUILD_MOD', 'GUILD_OWNER'], 'GUILD_TEXT']
+})
+export class EvalCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+The example code tells us that in the preconditions either of the `GUILD_MOD` and `GUILD_OWNER` preconditions can be met
+regardless if one of them fails and the `GUILD_TEXT` precondition passes as well, this means that even if only one
+precondition of our `OR` passes and the `GUILD_TEXT` precondition passes as well the command will be executed, otherwise
+our `OR` fails on both preconditions but the `GUILD_TEXT` precondition still passes, the command will be denied because
+the first condition of our command was denied, therefore our condition is now false, the `commandDenied` event will be
+executed and the command will not be executed for the user who invoked it.
+
+In summary, the arrangement of our preconditions would have a code represented like this:
+
+```javascript
+if ((guildMod || guildOwner) && guildText) {
+  // stuff
+} else {
+  // error
+}
+```
+
+## Create preconditions
+
+To create preconditions we need to create a folder called `preconditions` in our root directory of our bot, directory
+where all the commands, listeners, etc are in their respective folders. For a better example, here is a base structure
+that your bot should have.
+
+:::tip
+
+Remember that the file extension depends on whether you are making your bot with `JavaScript` or `TypeScript`.
+
+:::
+
+```bash {8-9}
+├── node_modules
+├── package.json
+└── src
+    ├── commands
+    │   └── ping.js
+    ├── listeners
+    │   └── ready.js
+    ├── preconditions
+    │   └── OwnerOnly.js
+    └── index.js
+```
+
+Having taken into account this file structure that your bot must have, let's see how the `OwnerOnly` precondition code
+looks like.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+const { Precondition } = require('@sapphire/framework');
+
+class UserPrecondition extends Precondition {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'OwnerOnly'
+    });
+  }
+
+  async run(message) {
+    return process.env.OWNER_ID === message.author.id
+      ? this.ok()
+      : this.error({ message: 'This command can only be used by the owners.' });
+  }
+}
+
+module.exports.UserPrecondition = UserPrecondition;
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript
+import { Precondition } from '@sapphire/framework';
+
+export class UserPrecondition extends Precondition {
+  constructor(context, options) {
+    super(context, {
+      ...options,
+      name: 'OwnerOnly'
+    });
+  }
+
+  async run(message) {
+    return process.env.OWNER_ID === message.author.id
+      ? this.ok()
+      : this.error({ message: 'This command can only be used by the owners.' });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+import { ApplyOptions } from '@sapphire/decorators';
+import { AsyncPreconditionResult, Precondition } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<PreconditionOptions>({ name: 'OwnerOnly' })
+export class UserPrecondition extends Precondition {
+  public async run(message: Message): AsyncPreconditionResult {
+    return process.env.OWNER_ID === message.author.id
+      ? this.ok()
+      : this.error({ message: 'This command can only be used by the owner.' });
+  }
+}
+
+declare module '@sapphire/framework' {
+  interface Preconditions {
+    OwnerOnly: never;
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+
+The name of the precondition may depend on the name of the precondition file, but if you do not want to use the file
+name as the name for the precondition, you can use the `name` option in the precondition options. Remember that setting
+these options is optional if you want to use the default precondition options.
+
+:::
+
+Now, let's see what happened with that example code. First we create a class with a name that can be of your choice,
+then inside the class we create a method called `run`, which will execute the logic of our precondition.
+
+Inside the `run` method we will make the validations that we will need, in this example we validate if the Id of the
+user who executes the command is equal to the value of our environment variable OWNER_ID, otherwise the command will be
+denied. To determine that everything was correct, we will execute the `this.ok();` method that comes from our
+Precondition extension that we have added to the class, and to deny the command to the user and execute the error we
+will execute the `this.error();` event, that also comes from our Precondition extension.
+
+Hay que tomar nota de que el metodo `this.error();` puede recibir parametros dentro del metodo, los parametros que puede
+recibir esta descritos en la documentacion pero tambien se explicaran aqui.
+
+1. `context`: This option is used to pass data in the error and this data will be available in the `commandDenied`
+   event, this means that if we pass `{ command: 'eval' }` in the context of our `commandDenied` event that object will
+   be included. You can use this option to pass options that can be useful in the `commandDenied` event.
+
+2. `identifier`: This option is very useful because it allows us to put an identifier to our error and thus better
+   control which listeners that listen to the `commandDenied` event will be fired. You can do something like this for
+   example:
+
+   ```typescript
+   if (error.identifier !== 'OWNER_CHECK_ERROR') return;
+   // stuff
+   ```
+
+3. `message`: This option has the function to send a custom error message to the `commandDenied` event in order to
+   display a friendly error message to the user who executed the command.
+
+4. `precondition`: Precondition that yields the error.
+
+## Note for TypeScript users
+
+If we want to use our preconditions in the command options, we need to do an augmentation, you can see more information
+[here](https://www.typescriptlang.org/docs/handbook/declaration-merging.html).
+
+When we look at the example above, we see that we have a code like this:
+
+```typescript
+declare module '@sapphire/framework' {
+  interface Preconditions {
+    OwnerOnly: never;
+  }
+}
+```
+
+With this code we tell TypeScript to register the precondition with the name `OwnerOnly` in the precondition array in
+the command options. Otherwise TypeScript will throw an error saying that it has not registered any precondition with
+that name in the precondition array of the command options.
+
+## Final
+
+We have finished, with this guide we have learned how to create a precondition, what is a precondition and how to use it
+properly in commands. Remember to validate your preconditions correctly to avoid false positives and/or negatives in
+your commands.
