@@ -4,68 +4,87 @@ title: Useful Regexes
 ---
 
 ## Introduction
+
 Sapphire provides a lot of Regexes that you can use in your code
 
 ::: note
 
-If you don't know what a Regex is check the [Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+If you don't know what a Regex is check the
+[Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 :::
 
 ### Channel Mention Regex
+
 This regex will match any mention of a channel and return the id of the channel
 
 ### Channel Message Regex
+
 This regex can capture the channel and message IDs in a channelId-messageId pattern This pattern can be found when you
 hold Shift and hover over a message, and click the "ID" button
 
 ### Discord Hostname Regex
+
 This regex captures every known discord hostname link
 
 ### Discord Invite Link Regex
+
 This regex captures discord invite links
 
 ### Emoji Regex
+
 This regex captures every animated and non-animated emoji's id
 
 ### Formatted Custom Emoji Regex
-This regex matches any animated or non-animated custom Discord emoji. Unlike EmojiRegex It can be a
-substring of a larger string.
+
+This regex matches any animated or non-animated custom Discord emoji. Unlike EmojiRegex It can be a substring of a
+larger string.
 
 ## Formatted Custom Emoji With Groups
-Regex that can capture any animated or non-animated custom Discord emoji. Similar to FormattedCustomEmoji and unlike EmojiRegex
-can also be a substring of a larger string.
+
+Regex that can capture any animated or non-animated custom Discord emoji. Similar to FormattedCustomEmoji and unlike
+EmojiRegex can also be a substring of a larger string.
 
 ### HTTP Regex
+
 This regex matches any url starting with http/https
 
 ### Message Link Regex
+
 This regex can capture the Guild, Channel, and Message ID based on a shareable Discord message link.
 
 ### Parsed CustomEmoji Regex
-This regex matches any animated or non-animated custom Discord emoji *without the wrapping `<...>` symbols. This means that
-a string that matches this regex can directly be send inside a Discord message. Other than this difference it is similar
-to FormattedCustomEmoji.
+
+This regex matches any animated or non-animated custom Discord emoji \*without the wrapping `<...>` symbols. This means
+that a string that matches this regex can directly be send inside a Discord message. Other than this difference it is
+similar to FormattedCustomEmoji.
 
 ### Parsed CustomEmojiWithGroups Regex
-Regex that matches any animated or non-animated custom Discord emoji *without the wrapping `<...>` symbols. This means that
-a string that matches this regex can directly be send inside a Discord message. Other than this difference it is similar
-to FormattedCustomEmojiWithGroups.
+
+Regex that matches any animated or non-animated custom Discord emoji \*without the wrapping `<...>` symbols. This means
+that a string that matches this regex can directly be send inside a Discord message. Other than this difference it is
+similar to FormattedCustomEmojiWithGroups.
 
 ### RoleMention Regex
+
 This regex can capture the role ID of a role mention
 
 ### Snowflake Regex
+
 This regex matches any Discord Snowflake
 
 ### Twemoji Regex
+
 This regex matches any Twitter Emoji
 
 ### UserOrMember Mention Regex
+
 This regex captures the ID of a user or member mentioned
 
 ### WebSocketURL Regex
+
 This regex matches any url starting with wss/ws
 
 ### Webhook Regex
+
 This regex captures a Discord Webhook ID and token from a webhook url
