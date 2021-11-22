@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/* eslint-disable @typescript-eslint/no-var-requires */
 const npmToYarn = require('npm-to-yarn');
 const npmToPnpm = require('./npm2pnpm');
 
@@ -57,24 +56,26 @@ const transformNode = (node, isSync) => {
 	];
 };
 
-const matchNode = (node) => node.type === 'code' && node.meta === 'npm2yarn2pnpm';
+const matchNode = (node) => node.type === 'code' && typeof node.meta === 'string' && node.meta === 'npm2yarn2pnpm';
 const nodeForImport = {
 	type: 'import',
 	value: "import Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';"
 };
 
-module.exports = (options = {}) => {
-	const { sync = false } = options;
+module.exports = ({ sync = true } = { sync: true }) => {
 	let transformed = false;
 	let alreadyImported = false;
+
 	const transformer = (node) => {
 		if (node.type === 'import' && node.value.includes('@theme/Tabs')) {
 			alreadyImported = true;
 		}
+
 		if (matchNode(node)) {
 			transformed = true;
 			return transformNode(node, sync);
 		}
+
 		if (Array.isArray(node.children)) {
 			let index = 0;
 			while (index < node.children.length) {
@@ -87,10 +88,13 @@ module.exports = (options = {}) => {
 				}
 			}
 		}
+
 		if (node.type === 'root' && transformed && !alreadyImported) {
 			node.children.unshift(nodeForImport);
 		}
+
 		return null;
 	};
+
 	return transformer;
 };

@@ -135,7 +135,10 @@ const config = {
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/sapphiredev/website/edit/main/',
-					remarkPlugins: [[require('./src/utils/npm2yarn2pnpm'), { sync: true }]],
+					remarkPlugins: [
+						[require('./src/utils/npm2yarn2pnpm'), { sync: true }],
+						[require('./src/utils/ts2esm2cjs'), { sync: true }]
+					],
 					showLastUpdateAuthor: true,
 					showLastUpdateTime: true
 				},
