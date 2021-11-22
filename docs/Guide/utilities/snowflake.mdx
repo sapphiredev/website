@@ -1,0 +1,258 @@
+---
+sidebar_position: 3
+title: Snowflake
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Introduction
+
+There is often a need to get a unique ID for entities, be that for Discord messages/channels/servers, keys in a database
+or many other similar examples. There are many ways to get such a unique ID, and one of those is using a so-called
+"snowflake". You can read more about snowflake IDs in
+[this Medium article](https://medium.com/better-programming/uuid-generation-snowflake-identifiers-unique-2aed8b1771bc).
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/snowflake
+```
+
+## Usage
+
+<details id="constructing">
+<summary>Constructing a Snowflake</summary>
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+// Import the Snowflake class
+const { Snowflake } = require('@sapphire/snowflake');
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Generate a snowflake with the given epoch
+const uniqueId = snowflake.generate();
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript
+// Import the Snowflake class
+import { Snowflake } from '@sapphire/snowflake';
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Generate a snowflake with the given epoch
+const uniqueId = snowflake.generate();
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+// Import the Snowflake class
+import { Snowflake } from '@sapphire/snowflake';
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Generate a snowflake with the given epoch
+const uniqueId = snowflake.generate();
+```
+
+</TabItem>
+</Tabs>
+</details>
+
+<details id="constructing-discord">
+<summary>Constructing a Discord Snowflake</summary>
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+// Import the Snowflake class
+const { DiscordSnowflake } = require('@sapphire/snowflake');
+
+// Create an instance of Snowflake
+const discordSnowflake = new DiscordSnowflake();
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = discordSnowflake.generate();
+
+// Alternatively, you can use the method directly
+const uniqueId = DiscordSnowflake.generate();
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript
+// Import the Snowflake class
+import { DiscordSnowflake } from '@sapphire/snowflake';
+
+// Create an instance of Snowflake
+const discordSnowflake = new DiscordSnowflake();
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = discordSnowflake.generate();
+
+// Alternatively, you can use the method directly
+const uniqueId = DiscordSnowflake.generate();
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+// Import the Snowflake class
+import { DiscordSnowflake } from '@sapphire/snowflake';
+
+// Create an instance of Snowflake
+const discordSnowflake = new DiscordSnowflake();
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = discordSnowflake.generate();
+
+// Alternatively, you can use the method directly
+const uniqueId = DiscordSnowflake.generate();
+```
+
+</TabItem>
+</Tabs>
+</details>
+
+<details id="constructing-twitter">
+<summary>Constructing a Twitter Snowflake</summary>
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+// Import the Snowflake class
+const { TwitterSnowflake } = require('@sapphire/snowflake');
+
+// Create an instance of Snowflake
+const twitterSnowflake = new TwitterSnowflake();
+
+// Generate a snowflake with Twitter's epoch
+const uniqueId = twitterSnowflake.generate();
+
+// Alternatively, you can use the method directly
+const uniqueId = TwitterSnowflake.generate();
+```
+
+</TabItem>
+
+<TabItem value="esm" label="ESM">
+
+```javascript
+// Import the Snowflake class
+import { TwitterSnowflake } from '@sapphire/snowflake';
+
+// Create an instance of Snowflake
+const twitterSnowflake = new TwitterSnowflake();
+
+// Generate a snowflake with Twitter's epoch
+const uniqueId = twitterSnowflake.generate();
+
+// Alternatively, you can use the method directly
+const uniqueId = TwitterSnowflake.generate();
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+// Import the Snowflake class
+import { TwitterSnowflake } from '@sapphire/snowflake';
+
+// Create an instance of Snowflake
+const twitterSnowflake = new TwitterSnowflake();
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = twitterSnowflake.generate();
+
+// Alternatively, you can use the method directly
+const uniqueId = TwitterSnowflake.generate();
+```
+
+</TabItem>
+</Tabs>
+</details>
+
+## Deconstructing Snowflakes
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript
+// Import the Snowflake class
+const { Snowflake } = require('@sapphire/snowflake');
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Deconstruct a snowflake with the given epoch
+const uniqueId = snowflake.deconstruct('3971046231244935168');
+```
+
+</TabItem>
+<TabItem value="esm" label="ESM">
+
+```javascript
+// Import the Snowflake class
+import { Snowflake } from '@sapphire/snowflake';
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Deconstruct a snowflake with the given epoch
+const uniqueId = snowflake.deconstruct('3971046231244935168');
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript
+// Import the Snowflake class
+import { Snowflake } from '@sapphire/snowflake';
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Deconstruct a snowflake with the given epoch
+const uniqueId = snowflake.deconstruct('3971046231244935168');
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+Deconstructing snowflakes is the same for every snowflake
+
+:::
