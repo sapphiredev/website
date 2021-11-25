@@ -6,11 +6,11 @@ title: Creating your own preconditions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Preconditions are classes that will determine whether or not a command should be blocked according to a certain
-condition. Sapphire has many built in preconditions ready for use that are outlined in the coming pages, such as for
+Preconditions are classes that will determine whether or not a command should be blocked according to certain conditions.
+Sapphire has many built in preconditions ready for use that are outlined in the coming pages, such as for
 [creating cooldowns][creating-cooldowns], [restricting channel types][restricting-channel-types], [handling
 permissions][handling-permissions], and [filtering nsfw channels][nsfw-filter]. However, we also provide an easy system
-for you to create your own preconditions!
+for you to create your own preconditions.
 
 Just as we did in both [Creating Commands][creating-commands] and [Creating Listeners][creating-listeners], we will
 create a `preconditions` subdirectory in your project's entry point directory. Inside, we'll make an `OwnerOnly` file.
@@ -68,8 +68,8 @@ export class OwnerOnlyPrecondition extends Precondition {}
 </Tabs>
 
 Next, we can create a [`run`][preconditionrun] function to execute our logic. This function should either return
-[`this.ok()`][preconditionok] or [`this.error(...)`][preconditionerror] to signify whether the command should be
-blocked.
+[`this.ok()`][preconditionok] to signify the condition has passed, or [`this.error(...)`][preconditionerror] to signify
+the command should be denied.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -208,8 +208,8 @@ None of the above preconditions are builtin, and you'd have to create them separ
 
 :::
 
-For the command to be run, the `InVoiceChannel` precondition must pass, as well as `AdminOnly` _or_ both `OwnerOnly` and
-`ModOnly`.
+For a command with these preconditions to pass the denial checks, the `InVoiceChannel` precondition must pass, as well
+as `AdminOnly` _or_ both `OwnerOnly` and
 
 [creating-cooldowns]: ./command-cooldown
 [restricting-channel-types]: ./channel-types
