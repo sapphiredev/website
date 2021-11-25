@@ -8,8 +8,8 @@ import TabItem from '@theme/TabItem';
 
 Cooldowns are of vital importance for many bots to avoid spam, API ratelimits, etc. Luckily, Sapphire makes it easy to
 integrate them into your commands! At its simplest level, cooldowns can be used in specific commands via the
-[`cooldownDelay`][cooldowndelay] property in their options. This represents the time in milliseconds a user will have to
-wait after using a command to use it again. Here's a basic example:
+[`cooldownDelay`][cooldowndelay] property in the command's options. This value is amount of milliseconds that a user will
+have to wait after using a command to use it again. Here's a basic example:
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -21,7 +21,7 @@ module.exports = class PingCommand extends Command {
   constructor(context) {
     super(context, {
       // ...
-      cooldownDelay: 10000 // 10 seconds
+      cooldownDelay: 10_000 // 10_000 milliseconds
     });
   }
 };
@@ -37,7 +37,7 @@ export class PingCommand extends Command {
   constructor(context) {
     super(context, {
       // ...
-      cooldownDelay: 10000 // 10 seconds
+      cooldownDelay: 10_000 // 10_000 milliseconds
     });
   }
 }
@@ -52,7 +52,7 @@ import { Command, CommandOptions } from '@sapphire/framework';
 
 @ApplyOptions<CommandOptions>({
   // ...
-  cooldownDelay: 10000 // 10 seconds
+  cooldownDelay: 10_000 // 10_000 milliseconds
 })
 export class PingCommand extends Command {}
 ```
@@ -60,7 +60,69 @@ export class PingCommand extends Command {}
 </TabItem>
 </Tabs>
 
-If you now try to run this command, and then run it again within 10 seconds, the command won't execute!
+If you now try to run this command, and then run it again within 10 seconds, the command won't execute, and an error will
+be thrown. You can learn how to process that error [here][reporting-precondition-failure].
+
+:::info
+
+`cooldownDelay` only accepts a value of milliseconds, which is not known to be the easiest to read or calculate. To help,
+you can use [@sapphire/time-utilities], which includes utilities for time transformers.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {7}
+const { Command } = require('@sapphire/framework');
+const { Time } = require('@sapphire/time-utilities');
+
+module.exports = class PingCommand extends Command {
+  constructor(context) {
+    super(context, {
+      // ...
+      cooldownDelay: Time.Second * 10; // Much easier for humans to parse
+    });
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {7}
+import { Command } from '@sapphire/framework';
+import { Time } from '@sapphire/time-utilities';
+
+export class PingCommand extends Command {
+  constructor(context) {
+    super(context, {
+      // ...
+      cooldownDelay: Time.Second * 10; // Much easier for humans to parse
+    });
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {6}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework';
+import { Time } from '@sapphire/time-utilities';
+
+@ApplyOptions<CommandOptions>({
+  // ...
+  cooldownDelay: Time.Second * 10; // Much easier for humans to parse
+})
+export class PingCommand extends Command {}
+```
+
+</TabItem>
+</Tabs>
+
+You can view the docs [here](timeutils).
+
+:::
 
 ## User Exceptions
 
@@ -78,7 +140,7 @@ module.exports = class PingCommand extends Command {
   constructor(context) {
     super(context, {
       // ...
-      cooldownDelay: 10000, // 10 seconds
+      cooldownDelay: 10_000, // 10_000 milliseconds
       cooldownFilteredUsers: ['YOUR_ID'] // Ignore the bot owner
     });
   }
@@ -95,7 +157,7 @@ export class PingCommand extends Command {
   constructor(context) {
     super(context, {
       // ...
-      cooldownDelay: 10000, // 10 seconds
+      cooldownDelay: 10_000, // 10_000 milliseconds
       cooldownFilteredUsers: ['YOUR_ID'] // Ignore the bot owner
     });
   }
@@ -111,7 +173,7 @@ import { Command, CommandOptions } from '@sapphire/framework';
 
 @ApplyOptions<CommandOptions>({
   // ...
-  cooldownDelay: 10000 // 10 seconds
+  cooldownDelay: 10_000 // 10_000 milliseconds
   cooldownFilteredUsers: ['YOUR_ID'] // Ignore the bot owner
 })
 export class PingCommand extends Command {}
@@ -126,8 +188,8 @@ Accompanying `cooldownDelay`, you also have access to the options [`cooldownLimi
 [`cooldownScope`][cooldownscope].
 
 `cooldownLimit` will define how many times a command can be used before a cooldown is put into affect. This value is set
-to `1` by default. For example, a `cooldownDelay` of 10 seconds, and a `cooldownLimit` of 2 will effectively mean that
-you'd be able to use the command twice every 10 seconds.
+to `1` by default. For example, a `cooldownDelay` of `10_000` milliseconds and a `cooldownLimit` of 2 will effectively
+mean that you'd be able to use the command twice every 10 seconds.
 
 Another useful option is `cooldownScope`, which will define the scope of the cooldown. This is useful if you want to
 have a cooldown that applies per guild, for example, instead of per user. [Valid options][scopes] are `'CHANNEL'`,
@@ -148,7 +210,7 @@ const { SapphireClient } = require('@sapphire/framework');
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   defaultCooldown: {
-    cooldownDelay: 10000, // 10 seconds
+    cooldownDelay: 10_000, // 10_000 milliseconds
     cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
     cooldownLimit: 2, // Allow 2 uses before ratelimiting
     cooldownScope: 'CHANNEL' // Scope cooldown to channel
@@ -167,7 +229,7 @@ import { SapphireClient } from '@sapphire/framework';
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   defaultCooldown: {
-    cooldownDelay: 10000, // 10 seconds
+    cooldownDelay: 10_000, // 10_000 milliseconds
     cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
     cooldownLimit: 2, // Allow 2 uses before ratelimiting
     cooldownScope: 'CHANNEL' // Scope cooldown to channel
@@ -186,7 +248,7 @@ import { SapphireClient } from '@sapphire/framework';
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   defaultCooldown: {
-    cooldownDelay: 10000, // 10 seconds
+    cooldownDelay: 10_000, // 10_000 milliseconds
     cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
     cooldownLimit: 2, // Allow 2 uses before ratelimiting
     cooldownScope: 'CHANNEL' // Scope cooldown to channel
@@ -213,3 +275,4 @@ Failure][reporting-precondition-failure].
 [sapphire]: ../../Documentation/api-framework/classes/SapphireClient
 [scopes]: ../../Documentation/api-framework/enums/BucketScope
 [reporting-precondition-failure]: ./reporting-precondition-failure
+[timeutils]: ../../Documentation/api-utilities/enums/sapphire_time_utilities.Time
