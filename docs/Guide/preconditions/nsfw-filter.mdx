@@ -3,4 +3,69 @@ sidebar_position: 1
 title: Locking commands to NSFW channels
 ---
 
-## TODO
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+To prevent an NSFW command to be used in a non-NSFW channel, you simply have to set the `nsfw` option to `true`.
+
+<Tabs groupId="language-choice">
+<TabItem value="javascript" label="JavaScript" default>
+
+```javascript {4-9}
+const { Command } = require('@sapphire/framework');
+
+module.exports = class NsfwCommand extends Command {
+  constructor(context) {
+    super(context, {
+      description: 'A command that should only be ran in NSFW channels',
+      nsfw: true
+    });
+  }
+
+  async messageRun(message, args) {
+    // ...
+  }
+};
+```
+
+</TabItem>
+<TabItem value="ESM" label="ESM">
+
+```javascript {4-9}
+import { Command } from '@sapphire/framework';
+
+export class NsfwCommand extends Command {
+  constructor(context) {
+    super(context, {
+      description: 'A command that should only be ran in NSFW channels',
+      nsfw: true
+    });
+  }
+
+  async messageRun(message, args) {
+    // ...
+  }
+}
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```typescript {5-8}
+import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+@ApplyOptions<CommandOptions>({
+      description: 'A command that should only be ran in NSFW channels',
+      nsfw: true
+})
+export class NsfwCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    // ...
+  }
+}
+```
+
+</TabItem>
+</Tabs>
