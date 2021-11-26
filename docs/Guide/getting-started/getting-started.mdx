@@ -32,41 +32,13 @@ To begin, import `@sapphire/framework` and instantiate [`SapphireClient`][sapphi
 Sapphire's and discord.js' behaviour. Sapphire's client extends discord.js', so everything from [`Client`][djs-client]
 is available in [`SapphireClient`][sapphire]!
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-const { SapphireClient } = require('@sapphire/framework');
-
-const client = new SapphireClient({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
-
-void client.login('your-token-goes-here');
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs|{3}|{3}
 import { SapphireClient } from '@sapphire/framework';
 
 const client = new SapphireClient({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
 
-await client.login('your-token-goes-here');
+client.login('your-token-goes-here');
 ```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-import { SapphireClient } from '@sapphire/framework';
-
-const client = new SapphireClient({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
-
-void client.login('your-token-goes-here');
-```
-
-</TabItem>
-</Tabs>
 
 Sapphire detects mention prefixes (`@bot command`), but you can optionally define any number of default prefixes with
 the `defaultPrefix` option and `regexPrefix` for more complex cases.

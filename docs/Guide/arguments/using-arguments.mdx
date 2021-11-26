@@ -15,7 +15,7 @@ into multiple arguments. We'll look into how to handle those later.
 In your `commands` folder, make a new file called `echo.js` and set up the command class just like the one in the `ping`
 command.
 
-```typescript ts2esm2cjs|{3-9}|{5-11}
+```typescript ts2esm2cjs|{4-10}|{5-11}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -37,7 +37,7 @@ export class EchoCommand extends Command {
 We have a new parameter in the `messageRun` method: `args`! This is a structure that abstracts all the argument parsing
 and resolution.
 
-```typescript ts2esm2cjs|{3}|{5}
+```typescript ts2esm2cjs|{4}|{5}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -64,7 +64,7 @@ argument. However, there are alternatives:
 
 - **[`args.rest()`][rest], such as**:
 
-```typescript ts2esm2cjs|{6,10}|{8,13}
+```typescript ts2esm2cjs|{7,12}|{8,13}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -105,7 +105,7 @@ arguments after it.
 Let's make an `add` command, which takes two numbers and adds them. Create an `add.js` file in your `commands` folder
 and set up the command class again. Since two arguments are needed, use [`args.pick()`][pick] twice:
 
-```typescript ts2esm2cjs|{10-12}|{13-15}
+```typescript ts2esm2cjs|{12-14}|{13-15}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -135,7 +135,7 @@ the `base` is required, and the `exponent` defaults to 2.
 
 - **Optional Pattern**
 
-```typescript ts2esm2cjs|{5}|{7}
+```typescript ts2esm2cjs|{6}|{7}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -154,7 +154,7 @@ before. There is another pattern that enables you to use optional arguments but 
 
 - **Semi-required Pattern**
 
-```typescript ts2esm2cjs|{5}|{7}
+```typescript ts2esm2cjs|{6}|{7}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -180,7 +180,7 @@ To work with repeating arguments, you can use [`args.repeat()`][repeat], which w
 returns an array of parsed elements up to the desired amount of `times`, resolving when it can validate at least the
 first argument.
 
-```typescript ts2esm2cjs|{4}|{6}
+```typescript ts2esm2cjs|{5}|{6}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -203,7 +203,7 @@ following inputs will yield the following results:
 While the last case seems restrictive, it can be used to parse repeated arguments at any given position in the user's
 input. For example, a `ban` command that takes multiple users could be written as:
 
-```typescript ts2esm2cjs|{10}|{12}
+```typescript ts2esm2cjs|{12}|{13}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
@@ -233,7 +233,7 @@ The code above allows the following uses:
 Additionally, we can tell the argument parser how many times it should parse at most by specifying `times` when we call
 [`args.repeat()`][repeat]:
 
-```typescript ts2esm2cjs|{10}|{13}
+```typescript ts2esm2cjs|{12}|{13}
 import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
