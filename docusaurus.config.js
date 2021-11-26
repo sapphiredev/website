@@ -1,5 +1,8 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const { npm2yarn2pnpm } = require('@sapphire/docusaurus-plugin-npm2yarn2pnpm');
+const { ts2esm2cjs } = require('@sapphire/docusaurus-plugin-ts2esm2cjs');
+
 const Description =
 	'Sapphire is a next-gen Discord bot framework for developers of all skill levels to make the best JavaScript/TypeScript based bots possible.';
 const BaseUrl = 'https://sapphirejs.dev';
@@ -44,87 +47,87 @@ const config = {
 					}
 				]
 			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'framework',
-				entryPoints: ['./projects/framework/src/index.ts'],
-				tsconfig: './projects/framework/src/tsconfig.json',
-				readme: 'none',
-				out: 'Documentation/api-framework',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/framework',
-					position: 0,
-					fullNames: true
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Pieces',
-				entryPoints: ['./projects/pieces/src/index.ts'],
-				tsconfig: './projects/pieces/src/tsconfig.json',
-				readme: 'none',
-				out: 'Documentation/api-pieces',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/pieces',
-					position: 1,
-					fullNames: true
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Utilities',
-				entryPoints: ['./projects/utilities/'],
-				entryPointStrategy: 'packages',
-				tsconfig: './projects/utilities/tsconfig.dev.json',
-				readme: 'none',
-				out: 'Documentation/api-utilities',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: 'Sapphire Utilities',
-					position: 2
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Plugins',
-				entryPoints: ['./projects/plugins/'],
-				entryPointStrategy: 'packages',
-				tsconfig: './projects/plugins/tsconfig.base.json',
-				readme: 'none',
-				out: 'Documentation/api-plugins',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: 'Sapphire Plugins',
-					position: 3
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Type',
-				entryPoints: ['./projects/type/src/index.ts'],
-				tsconfig: './projects/type/src/tsconfig.json',
-				readme: './projects/type/README.md',
-				out: 'Documentation/api-type',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/type',
-					position: 4,
-					fullNames: true
-				}
-			}
 		]
+		// [
+		// 	'docusaurus-plugin-typedoc',
+		// 	{
+		// 		id: 'framework',
+		// 		entryPoints: ['./projects/framework/src/index.ts'],
+		// 		tsconfig: './projects/framework/src/tsconfig.json',
+		// 		readme: 'none',
+		// 		out: 'Documentation/api-framework',
+		// 		plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
+		// 		sidebar: {
+		// 			categoryLabel: '@sapphire/framework',
+		// 			position: 0,
+		// 			fullNames: true
+		// 		}
+		// 	}
+		// ],
+		// [
+		// 	'docusaurus-plugin-typedoc',
+		// 	{
+		// 		id: 'Pieces',
+		// 		entryPoints: ['./projects/pieces/src/index.ts'],
+		// 		tsconfig: './projects/pieces/src/tsconfig.json',
+		// 		readme: 'none',
+		// 		out: 'Documentation/api-pieces',
+		// 		plugin: ['typedoc-plugin-mdn-links'],
+		// 		sidebar: {
+		// 			categoryLabel: '@sapphire/pieces',
+		// 			position: 1,
+		// 			fullNames: true
+		// 		}
+		// 	}
+		// ],
+		// [
+		// 	'docusaurus-plugin-typedoc',
+		// 	{
+		// 		id: 'Utilities',
+		// 		entryPoints: ['./projects/utilities/'],
+		// 		entryPointStrategy: 'packages',
+		// 		tsconfig: './projects/utilities/tsconfig.dev.json',
+		// 		readme: 'none',
+		// 		out: 'Documentation/api-utilities',
+		// 		plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
+		// 		sidebar: {
+		// 			categoryLabel: 'Sapphire Utilities',
+		// 			position: 2
+		// 		}
+		// 	}
+		// ],
+		// [
+		// 	'docusaurus-plugin-typedoc',
+		// 	{
+		// 		id: 'Plugins',
+		// 		entryPoints: ['./projects/plugins/'],
+		// 		entryPointStrategy: 'packages',
+		// 		tsconfig: './projects/plugins/tsconfig.base.json',
+		// 		readme: 'none',
+		// 		out: 'Documentation/api-plugins',
+		// 		plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
+		// 		sidebar: {
+		// 			categoryLabel: 'Sapphire Plugins',
+		// 			position: 3
+		// 		}
+		// 	}
+		// ],
+		// [
+		// 	'docusaurus-plugin-typedoc',
+		// 	{
+		// 		id: 'Type',
+		// 		entryPoints: ['./projects/type/src/index.ts'],
+		// 		tsconfig: './projects/type/src/tsconfig.json',
+		// 		readme: './projects/type/README.md',
+		// 		out: 'Documentation/api-type',
+		// 		plugin: ['typedoc-plugin-mdn-links'],
+		// 		sidebar: {
+		// 			categoryLabel: '@sapphire/type',
+		// 			position: 4,
+		// 			fullNames: true
+		// 		}
+		// 	}
+		// ]
 	],
 
 	presets: [
@@ -135,10 +138,7 @@ const config = {
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/sapphiredev/website/edit/main/',
-					remarkPlugins: [
-						[require('./src/utils/npm2yarn2pnpm'), { sync: true }],
-						[require('./src/utils/ts2esm2cjs'), { sync: true }]
-					],
+					remarkPlugins: [npm2yarn2pnpm, ts2esm2cjs],
 					showLastUpdateAuthor: true,
 					showLastUpdateTime: true
 				},
