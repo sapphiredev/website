@@ -12,8 +12,7 @@ make sure that the command can only be run in guild channels.
 
 :::info
 
-[Valid values][runintypes] for `runIn` are `'DM'`, `'GUILD_TEXT'`, `'GUILD_NEWS'`, `'GUILD_NEWS_THREAD'`,
-`'GUILD_PUBLIC_THREAD'`, `'GUILD_PRIVATE_THREAD'`, and `'GUILD_ANY'`
+You can view the valid `runIn` values [here][runintypes].
 
 :::
 
@@ -52,15 +51,17 @@ export class PingCommand extends Command {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {6}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
+```typescript {7}
+import { Command } from '@sapphire/framework';
 
-@ApplyOptions<CommandOptions>({
-  // ...
-  runIn: 'GUILD_ANY' // Only run in guild channels
-})
-export class PingCommand extends Command {}
+export class PingCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      runIn: 'GUILD_ANY' // Only run in guild channels
+    });
+  }
+}
 ```
 
 </TabItem>

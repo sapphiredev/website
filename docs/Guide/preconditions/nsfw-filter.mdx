@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Sometimes it can be necessary to lock certain commands to NSFW (not safe for work) channels. This can be simply achieved
-by adding the `nsfw` option to the command.
+by setting the `nsfw` option in the command.
 
 <Tabs>
 <TabItem value="javascript" label="Javascript">
@@ -44,15 +44,17 @@ export class NSFWCommand extends Command {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {6}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
+```typescript {7}
+import { Command } from '@sapphire/framework';
 
-@ApplyOptions<CommandOptions>({
-  // ...
-  nsfw: true
-})
-export class NSFWCommand extends Command {}
+export class NSFWCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      nsfw: true
+    });
+  }
+}
 ```
 
 </TabItem>

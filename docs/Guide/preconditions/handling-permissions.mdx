@@ -10,6 +10,8 @@ One of the most basic needs of a Discord bot is to be able to deny command acces
 lack thereof. A common example would be moderation commands. Most people wouldn't want regular users to be able to ban
 people, so we can restrict usage using the [`requiredUserPermissions`][requireduserpermissions] option.
 
+<!-- TODO: info block redirecting to subcommands ts guide for using corresponding decorators -->
+
 <Tabs>
 <TabItem value="javascript" label="Javascript">
 
@@ -45,15 +47,17 @@ export class BanCommand extends Command {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {6}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
+```typescript {7}
+import { Command } from '@sapphire/framework';
 
-@ApplyOptions<CommandOptions>({
-  // ...
-  requiredUserPermissions: ['BAN_MEMBERS']
-})
-export class BanCommand extends Command {}
+export class BanCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      requiredUserPermissions: ['BAN_MEMBERS']
+    });
+  }
+}
 ```
 
 </TabItem>
@@ -67,6 +71,8 @@ It's also a good idea to verify the inverse: does the _bot_ have the `BAN_MEMBER
 [`requiredClientPermissions`][requiredclientpermissions] option the same way to prevent the command from being used if
 not.
 
+<!-- TODO: info block redirecting to subcommands ts guide for using corresponding decorators -->
+
 <Tabs>
 <TabItem value="javascript" label="Javascript">
 
@@ -104,16 +110,18 @@ export class BanCommand extends Command {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {7}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
+```typescript {8}
+import { Command } from '@sapphire/framework';
 
-@ApplyOptions<CommandOptions>({
-  // ...
-  requiredUserPermissions: ['BAN_MEMBERS'],
-  requiredClientPermissions: ['BAN_MEMBERS']
-})
-export class BanCommand extends Command {}
+export class BanCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      requiredUserPermissions: ['BAN_MEMBERS'],
+      requiredClientPermissions: ['BAN_MEMBERS']
+    });
+  }
+}
 ```
 
 </TabItem>

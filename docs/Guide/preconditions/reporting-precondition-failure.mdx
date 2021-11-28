@@ -123,7 +123,7 @@ silently. To do this, we can make use of the [`context`][context] property of `U
 contain information about the context in which the error was thrown, and the value can be absolutely anything.
 
 We can take advantage of this by adding `context: { silent: true }` to the [`this.error()`][preconditionerror] options.
-We'll use the `OwnerOnly` precondition we made in[Creating Preconditions][creating-preconditions] to demonstrate this.
+We'll use the `OwnerOnly` precondition we made in [Creating Preconditions][creating-preconditions] to demonstrate this.
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -164,9 +164,8 @@ export class OwnerOnlyPrecondition extends Precondition {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {10}
-import type { Message } from '@sapphire/framework';
-import { Precondition } from '@sapphire/framework';
+```typescript {9}
+import { Precondition, Message } from '@sapphire/framework';
 
 export class OwnerOnlyPrecondition extends Precondition {
   public run(message: Message) {
@@ -217,8 +216,7 @@ export class CommandDeniedListener extends Listener {
 <TabItem value="typescript" label="TypeScript">
 
 ```typescript {8}
-import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
-import { Listener } from '@sapphire/framework';
+import { UserError, CommandDeniedPayload, Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
   public run(error: UserError, { message }: CommandDeniedPayload) {
