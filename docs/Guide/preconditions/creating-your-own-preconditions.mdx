@@ -1,19 +1,14 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 title: Creating your own preconditions
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Preconditions are classes that will determine whether or not a command should be ran according to certain conditions.
-Sapphire has many built in preconditions ready for use that are outlined in the coming pages, such as for [creating
-cooldowns][creating-cooldowns], [restricting channel types][restricting-channel-types], [handling
-permissions][handling-permissions], and [filtering nsfw channels][nsfw-filter]. However, we also provide an easy system
-for you to create your own preconditions.
-
 Just as we did in both [Creating Commands][creating-commands] and [Creating Listeners][creating-listeners], we will
-create a `preconditions` subdirectory in your project's entry point directory. Inside, we'll make an `OwnerOnly` file.
+start by creating a `preconditions` subdirectory in your project's entry point directory. Inside, we'll make an `OwnerOnly`
+file.
 
 Your directory should now look something like this:
 
@@ -217,10 +212,6 @@ None of the above preconditions are builtin, and you'd have to create them separ
 For a command with these preconditions to pass the denial checks, the `InVoiceChannel` precondition must pass, as well
 as `AdminOnly` _or_ both `OwnerOnly` and `ModOnly`.
 
-[creating-cooldowns]: ./command-cooldown
-[restricting-channel-types]: ./channel-types
-[handling-permissions]: ./handling-permissions
-[nsfw-filter]: ./nsfw-filter
 [creating-commands]: ../getting-started/creating-a-basic-command
 [creating-listeners]: ../listeners/creating-your-own-listeners
 [precondition]: ../../Documentation/api-framework/classes/Precondition
