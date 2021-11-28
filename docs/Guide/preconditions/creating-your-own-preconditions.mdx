@@ -6,9 +6,9 @@ title: Creating your own preconditions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Preconditions are classes that will determine whether or not a command should be blocked according to certain conditions.
-Sapphire has many built in preconditions ready for use that are outlined in the coming pages, such as for
-[creating cooldowns][creating-cooldowns], [restricting channel types][restricting-channel-types], [handling
+Preconditions are classes that will determine whether or not a command should be ran according to certain conditions.
+Sapphire has many built in preconditions ready for use that are outlined in the coming pages, such as for [creating
+cooldowns][creating-cooldowns], [restricting channel types][restricting-channel-types], [handling
 permissions][handling-permissions], and [filtering nsfw channels][nsfw-filter]. However, we also provide an easy system
 for you to create your own preconditions.
 
@@ -104,9 +104,8 @@ export class OwnerOnlyPrecondition extends Precondition {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {5-9}
-import type { Message } from '@sapphire/framework';
-import { Precondition } from '@sapphire/framework';
+```typescript {4-8}
+import { Precondition, Message } from '@sapphire/framework';
 
 export class OwnerOnlyPrecondition extends Precondition {
   public run(message: Message) {
@@ -160,15 +159,17 @@ export class PingCommand extends Command {
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```typescript {6}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
+```typescript {7}
+import { Command } from '@sapphire/framework';
 
-@ApplyOptions<CommandOptions>({
-  // ...
-  preconditions: ['OwnerOnly']
-})
-export class PingCommand extends Command {}
+export class PingCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      preconditions: ['OwnerOnly']
+    });
+  }
+}
 ```
 
 </TabItem>
@@ -181,6 +182,11 @@ Now, if someone who is not the bot owner executes the ping command, nothing will
 For TypeScript users, there's an extra step to make this work. To increase the security of Sapphire's types, you'll need
 to augment Sapphire's [`Preconditions`][preconditions-interface] interface. Please see an official example
 [here][preconditions-augment].
+
+<!--
+  TODO: Once we have a dedicated TypeScript page this should link to that instead of a code example.
+  Including why augmenting with `never` works and the difference between that and augmenting with an object.
+-->
 
 :::
 
@@ -198,18 +204,18 @@ can be nested infinitely with the same pattern for optimal control over your pre
 
 Consider the following array of preconditions:
 
-```js
-[['AdminOnly', ['ModOnly', 'OwnerOnly']], 'InVoiceChannel'];
-```
-
-:::note
+:::warning
 
 None of the above preconditions are builtin, and you'd have to create them separately.
 
 :::
 
+```js
+[['AdminOnly', ['ModOnly', 'OwnerOnly']], 'InVoiceChannel'];
+```
+
 For a command with these preconditions to pass the denial checks, the `InVoiceChannel` precondition must pass, as well
-as `AdminOnly` _or_ both `OwnerOnly` and
+as `AdminOnly` _or_ both `OwnerOnly` and `ModOnly`.
 
 [creating-cooldowns]: ./command-cooldown
 [restricting-channel-types]: ./channel-types
