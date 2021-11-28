@@ -209,7 +209,7 @@ any of the properties shown above with this option.
 <TabItem value="javascript" label="JavaScript" default>
 
 ```javascript {5-10}
-const { SapphireClient } = require('@sapphire/framework');
+const { SapphireClient, BucketScope } = require('@sapphire/framework');
 
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
@@ -217,7 +217,7 @@ const client = new SapphireClient({
     cooldownDelay: 10_000, // 10_000 milliseconds
     cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
     cooldownLimit: 2, // Allow 2 uses before ratelimiting
-    cooldownScope: 'CHANNEL' // Scope cooldown to channel
+    cooldownScope: BucketScope.Channel // Scope cooldown to channel
   }
 });
 
@@ -228,7 +228,7 @@ void client.login('your-token-goes-here');
 <TabItem value="ESM" label="ESM">
 
 ```javascript {5-10}
-import { SapphireClient } from '@sapphire/framework';
+import { SapphireClient, BucketScope } from '@sapphire/framework';
 
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
@@ -236,7 +236,7 @@ const client = new SapphireClient({
     cooldownDelay: 10_000, // 10_000 milliseconds
     cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
     cooldownLimit: 2, // Allow 2 uses before ratelimiting
-    cooldownScope: 'CHANNEL' // Scope cooldown to channel
+    cooldownScope: BucketScope.Channel // Scope cooldown to channel
   }
 });
 
@@ -247,7 +247,7 @@ void client.login('your-token-goes-here');
 <TabItem value="typescript" label="TypeScript">
 
 ```typescript {5-10}
-import { SapphireClient } from '@sapphire/framework';
+import { SapphireClient, BucketScope } from '@sapphire/framework';
 
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
@@ -255,7 +255,7 @@ const client = new SapphireClient({
     cooldownDelay: 10_000, // 10_000 milliseconds
     cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
     cooldownLimit: 2, // Allow 2 uses before ratelimiting
-    cooldownScope: 'CHANNEL' // Scope cooldown to channel
+    cooldownScope: BucketScope.Channel // Scope cooldown to channel
   }
 });
 
