@@ -4600,13 +4600,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-type/package-dts@npm:^1.0.53":
-  version: 1.0.53
-  resolution: "@ts-type/package-dts@npm:1.0.53"
+"@ts-type/package-dts@npm:^1.0.54":
+  version: 1.0.54
+  resolution: "@ts-type/package-dts@npm:1.0.54"
   dependencies:
     "@types/semver": ^7.3.9
-    ts-type: ^1.2.40
-  checksum: c8498b58f3a996a0b4d95471321f5f0fd26d9171ee0ad2f1c06be9438a79e6ee7126cb3679cbb5a974991fbd8b686a72a84b8ff65c59422a6229db24132b0df2
+    ts-type: ^2.0.3
+  checksum: b9c1a8c66939ece32000a20eb87cb2caeee4ba1fe0ad188d2e3be245c9ce0c119e175703d220418bcd1d9bc5c8a8f0eb559ae731576a22a8c1c9f6c867f3b2fa
   languageName: node
   linkType: hard
 
@@ -5370,14 +5370,14 @@ __metadata:
   linkType: hard
 
 "@yarn-tool/resolve-package@npm:^1.0.36":
-  version: 1.0.38
-  resolution: "@yarn-tool/resolve-package@npm:1.0.38"
+  version: 1.0.39
+  resolution: "@yarn-tool/resolve-package@npm:1.0.39"
   dependencies:
-    "@ts-type/package-dts": ^1.0.53
+    "@ts-type/package-dts": ^1.0.54
     pkg-dir: < 6 >= 5
     tslib: ^2.3.1
     upath2: ^3.1.10
-  checksum: 400b13c2c1c4655ac352fe5d633f9acaffe0e1bb58363ce4b5928bce3d4b789629b27231581a735556bb48c2f79a5229e900dbb3233950bfcac53bb151ba7503
+  checksum: b905c7614e23cf086218f3a1a6b654893c7d03c155dc6015a6dcbe26972720cc745dd5d3e0d77f8b878ac9254307cfedff733f06c2cc6f6076185dc7710411de
   languageName: node
   linkType: hard
 
@@ -18702,17 +18702,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-type@npm:^1.2.40":
-  version: 1.2.40
-  resolution: "ts-type@npm:1.2.40"
+"ts-type@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "ts-type@npm:2.0.3"
   dependencies:
-    tslib: ^2.3.0
+    tslib: ^2.3.1
     typedarray-dts: ^1.0.0
   peerDependencies:
     "@types/bluebird": "*"
     "@types/node": "*"
-    ts-toolbelt: ^8.0.7
-  checksum: 2f5c10ee987a2e313634b45c582c05d9a593fc61dd893fdbcd9ad292f29b1b2ab2d97403e664f6baf0e96b70d5e0038fb2fd18fcb18098642206df36846d1967
+    ts-toolbelt: ^9.6.0
+  checksum: 2b6004154e6762a1067d02173d2d4a22959daff03575be3e027894544a445e86229b0ad9e0908a53a4f8aeface697a19b4998f0d25371a8ca8baab893d9cc72d
   languageName: node
   linkType: hard
 
@@ -18742,7 +18742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2, tslib@npm:^2.0.3, tslib@npm:^2.3.0, tslib@npm:^2.3.1":
+"tslib@npm:^2, tslib@npm:^2.0.3, tslib@npm:^2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
