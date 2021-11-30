@@ -75,16 +75,16 @@ import { Command } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-	public constructor(context: Command.Context, options: Command.Options) {
-		super(context, {
-			...options,
-			description: 'ping pong'
-		});
-	}
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'ping pong'
+    });
+  }
 
-	public async messageRun(message: Message) {
-		this.container.logger.warn('warning message');
-	}
+  public async messageRun(message: Message) {
+    this.container.logger.warn('warning message');
+  }
 }
 ```
 
