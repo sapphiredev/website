@@ -3,9 +3,6 @@ sidebar_position: 5
 title: Using options
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Now that we've gone over boolean flags, what if we want a string instead of a boolean value? That's where options come
 in. Options are formatted like flags, but followed by `=value`. For example, an option could be `--size=2048`. Users of
 UNIX-like command-line tools may once again be familiar with this format, such as in `help --find=entry`.
@@ -35,58 +32,22 @@ We recommend this method because it can avoid unexpected situations where someth
 
 To add imperative options to your command you specify them in your command's options, like so:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {6}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class OptionsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      options: ['size']
-    });
-  }
-
-  async messageRun(message, args) {}
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {6}
-import { Command } from '@sapphire/framework';
-
-export class OptionsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      options: ['size']
-    });
-  }
-
-  async messageRun(message, args) {}
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6}
+```typescript ts2esm2cjs|{7}|{9}
 import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions, Args } from '@sapphire/framework';
+import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  options: ['size']
-})
 export class OptionsCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      options: ['size']
+    });
+  }
+
   public async messageRun(message: Message, args: Args) {}
 }
 ```
-
-</TabItem>
-</Tabs>
 
 :::info
 
@@ -107,67 +68,24 @@ For example, consider the following:
 - `@bot avatar --size=2048 --size=4096` with `getOption` will return `'4096'`
 - `@bot avatar --size=2048 --size=4096` with `getOptions` will return `['2048', '4096']`
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {6}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class OptionsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      options: ['size']
-    });
-  }
-
-  async messageRun(message, args) {
-    const sizeForAvatar = args.getOption('size');
-    // ...
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {6}
-import { Command } from '@sapphire/framework';
-
-export class OptionsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      options: ['size']
-    });
-  }
-
-  async messageRun(message, args) {
-    const sizeForAvatar = args.getOption('size');
-    // ...
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6,10}
+```typescript ts2esm2cjs|{7,12}|{9,14}
 import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions, Args } from '@sapphire/framework';
+import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  options: ['size']
-})
 export class OptionsCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      options: ['size']
+    });
+  }
+
   public async messageRun(message: Message, args: Args) {
     const sizeForAvatar = args.getOption('size');
-    // ...
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 :::info
 
@@ -188,67 +106,24 @@ To use and configure declarative options you can follow most of the same for imp
 being that instead of providing an array of items to the options option, you simply set that property to `true`. Here is
 an example:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {6}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class OptionsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      options: true
-    });
-  }
-
-  async messageRun(message, args) {
-    const [size, format] = args.getOptions('size', 'format');
-    // ...
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {6}
-import { Command } from '@sapphire/framework';
-
-export class OptionsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      options: true
-    });
-  }
-
-  async messageRun(message, args) {
-    const [size, format] = args.getOptions('size', 'format');
-    // ...
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6,10}
+```typescript ts2esm2cjs|{7,12}|{9,14}
 import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions, Args } from '@sapphire/framework';
+import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  options: true
-})
 export class OptionsCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      options: true
+    });
+  }
+
   public async messageRun(message: Message, args: Args) {
     const [size, format] = args.getOptions('size', 'format');
-    // ...
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 [getoption]: ../../Documentation/api-framework/classes/Args#getOption
 [getoptions]: ../../Documentation/api-framework/classes/Args#getOptions

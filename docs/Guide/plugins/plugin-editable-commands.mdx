@@ -3,9 +3,6 @@ sidebar_position: 0
 title: Plugin Editable Commands
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Introduction
 
 `@sapphire/plugin-editable-commands` is a tiny wrapper on top of [`@skyra/editable-commands`][editable-commands] that
@@ -50,83 +47,23 @@ import '@sapphire/plugin-editable-commands/register';
 
 Then use `send` or `reply` from the package, as shown below:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-const { Command } = require('@sapphire/framework');
-const { MessageEmbed } = require('discord.js');
-const { send } = require('@sapphire/plugin-editable-commands');
-
-module.exports = class UserCommand extends Command {
-  constructor(context, options) {
-    super(context, {
-      ...options,
-      description: 'A very cool command',
-      requiredClientPermissions: ['EMBED_LINKS']
-    });
-  }
-
-  messageRun(message) {
-    const embed = new MessageEmbed()
-      .setURL('https://github.com/skyra-project/editable-commands')
-      .setColor('#7586D8')
-      .setDescription('Example description')
-      .setTimestamp();
-
-    return send(message, { embeds: [embed] });
-  }
-};
-```
-
-</TabItem>
-
-<TabItem value="esm" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs
 import { Command } from '@sapphire/framework';
-import { MessageEmbed } from 'discord.js';
-import { send } from '@sapphire/plugin-editable-commands';
-
-export class UserCommand extends Command {
-  constructor(context, options) {
-    super(context, {
-      ...options,
-      description: 'A very cool command',
-      requiredClientPermissions: ['EMBED_LINKS']
-    });
-  }
-
-  messageRun(message) {
-    const embed = new MessageEmbed()
-      .setURL('https://github.com/skyra-project/editable-commands')
-      .setColor('#7586D8')
-      .setDescription('Example description')
-      .setTimestamp();
-
-    return send(message, { embeds: [embed] });
-  }
-}
-```
-
-</TabItem>
-
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
 import { Message, MessageEmbed } from 'discord.js';
 import { send } from '@sapphire/plugin-editable-commands';
 
-@ApplyOptions<CommandOptions>({
-  description: 'A very cool command',
-  requiredClientPermissions: ['EMBED_LINKS']
-})
 export class UserCommand extends Command {
-  public messageRun(message: Message) {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'A very cool command',
+      requiredClientPermissions: ['EMBED_LINKS']
+    });
+  }
+
+  messageRun(message: Message) {
     const embed = new MessageEmbed()
-      .setURL('https://github.com/sapphiredev/plugins')
+      .setURL('https://github.com/skyra-project/editable-commands')
       .setColor('#7586D8')
       .setDescription('Example description')
       .setTimestamp();
@@ -135,8 +72,5 @@ export class UserCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 [editable-commands]: https://www.npmjs.com/package/@skyra/editable-commands
