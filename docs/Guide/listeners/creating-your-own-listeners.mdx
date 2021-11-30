@@ -3,9 +3,6 @@ sidebar_position: 1
 title: Creating your own listeners
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Similar to what you learned in [Creating Commands][creating-commands], we will create a `listeners` subdirectory in your
 project's entry point directory. In this document, we'll make a `ready` event listener.
 
@@ -27,87 +24,28 @@ Your directory should now look something like this:
 To create a listener in Sapphire, the [`Listener`] class needs to be extended from `@sapphire/framework` and exported
 from a listener file.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {4-10}
-const { Listener } = require('@sapphire/framework');
-
-module.exports = class ReadyListener extends Listener {};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {4-10}
+```typescript ts2esm2cjs
 import { Listener } from '@sapphire/framework';
 
 export class ReadyListener extends Listener {}
 ```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {4-7}
-import { Listener } from '@sapphire/framework';
-
-export class ReadyListener extends Listener {}
-```
-
-</TabItem>
-</Tabs>
 
 Let's begin populating the listener class with our desired options, specifying that it'll only run once and listens for
 the `ready` event:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {4-9}
-const { Listener } = require('@sapphire/framework');
-
-module.exports = class ReadyListener extends Listener {
-  constructor(context) {
-    super(context, {
-      once: true,
-      event: 'ready'
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {4-9}
+```typescript ts2esm2cjs|{4-10}|{4-10}
 import { Listener } from '@sapphire/framework';
 
 export class ReadyListener extends Listener {
-  constructor(context) {
+  public constructor(context: Listener.Context, options: Listener.Options) {
     super(context, {
+      ...options,
       once: true,
       event: 'ready'
     });
   }
 }
 ```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {4-7}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Listener, ListenerOptions } from '@sapphire/framework';
-
-@ApplyOptions<ListenerOptions>({
-  once: true,
-  event: 'ready'
-})
-export class ReadyListener extends Listener {}
-```
-
-</TabItem>
-</Tabs>
 
 An overview of what's defined in the constructor:
 
@@ -132,38 +70,7 @@ typically run from message contexts, and commands need different methods to supp
 
 Listeners have a `run` method, which executes the listener logic. Define this below the listener's constructor:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {4-7}
-const { Listener } = require('@sapphire/framework');
-
-module.exports = class ReadyListener extends Listener {
-  run(client) {
-    const { username, id } = client.user;
-    this.container.logger.info(`Successfully logged in as ${username} (${id})`);
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {4-7}
-import { Listener } from '@sapphire/framework';
-
-export class ReadyListener extends Listener {
-  run(client) {
-    const { username, id } = client.user;
-    this.container.logger.info(`Successfully logged in as ${username} (${id})`);
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {5-8}
+```typescript ts2esm2cjs|{4-7}|{5-8}
 import { Listener } from '@sapphire/framework';
 import type { Client } from 'discord.js';
 
@@ -175,13 +82,10 @@ export class ReadyListener extends Listener {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 Once discord.js emits the `ready` event, `run` will be executed, and the piece will then be unloaded since `once` is
 set. This code is equivalent to the following:
 
-```javascript
+```typescript ts2esm2cjs
 client.once('ready', (client) => {
   const { username, id } = client.user;
   container.logger.info(`Successfully logged in as ${username} (${id})`);

@@ -3,9 +3,6 @@ sidebar_position: 4
 title: Using flags
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 So far we have covered arguments, which are positional - i.e., the order of the arguments matters and they are parsed in
 the given order. But, what if we want to have a boolean argument that can appear anywhere after the command invocation?
 That's where flags come in.
@@ -38,58 +35,22 @@ because Sapphire will parse it as a flag instead of string content.
 
 To add imperative flags to your command you specify them in your command's options, like so:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {6}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class FlagsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      flags: ['version', 'v']
-    });
-  }
-
-  async messageRun(message, args) {}
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {6}
-import { Command } from '@sapphire/framework';
-
-export class FlagsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      flags: ['version', 'v']
-    });
-  }
-
-  async messageRun(message, args) {}
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6,10}
+```typescript ts2esm2cjs|{7}|{9}
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command, CommandOptions, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  flags: ['version', 'v']
-})
 export class FlagsCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      flags: ['version', 'v']
+    });
+  }
+
   public async messageRun(message: Message, args: Args) {}
 }
 ```
-
-</TabItem>
-</Tabs>
 
 :::info
 
@@ -101,73 +62,26 @@ it'll be parsed as textual data rather than flags with this code, because we tol
 
 Next, to check the flags that were set we use [`args.getFlags('<flagName>')`][getflags]
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {6}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class FlagsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      flags: ['version', 'v']
-    });
-  }
-
-  async messageRun(message, args) {
-    const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('version', 'v');
-    const secondArgument = await args.pick('string');
-    // ...
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {6}
-import { Command } from '@sapphire/framework';
-
-export class FlagsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      flags: ['version', 'v']
-    });
-  }
-
-  async messageRun(message, args) {
-    const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('version', 'v');
-    const secondArgument = await args.pick('string');
-    // ...
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6,10}
+```typescript ts2esm2cjs|{7,13}|{9,15}
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command, CommandOptions, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  flags: ['version', 'v']
-})
 export class FlagsCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      flags: ['version', 'v']
+    });
+  }
+
   public async messageRun(message: Message, args: Args) {
     const firstArgument = await args.pick('string');
     const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
-    // ...
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 :::info
 
@@ -187,73 +101,26 @@ easier for you as a developer because you don't need to keep track of all the va
 The process of configuring declarative flags is similar to imperative flags, but instead of providing an array of flags,
 you just set `flags` to `true`, like so:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {6}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class FlagsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      flags: true
-    });
-  }
-
-  async messageRun(message, args) {
-    const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('version', 'v');
-    const secondArgument = await args.pick('string');
-    // ...
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {6}
-import { Command } from '@sapphire/framework';
-
-export class FlagsCommand extends Command {
-  constructor(context) {
-    super(context, {
-      flags: true
-    });
-  }
-
-  async messageRun(message, args) {
-    const firstArgument = await args.pick('string');
-    const isRequestingVersion = args.getFlags('version', 'v');
-    const secondArgument = await args.pick('string');
-    // ...
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6,10}
+```typescript ts2esm2cjs|{7,13}|{9,15}
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command, CommandOptions, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  flags: true
-})
 export class FlagsCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      flags: true
+    });
+  }
+
   public async messageRun(message: Message, args: Args) {
     const firstArgument = await args.pick('string');
     const isRequestingVersion = args.getFlags('version', 'v');
     const secondArgument = await args.pick('string');
-    // ...
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 [getflags]: ../../Documentation/api-framework/classes/Args#getflags
 [rest]: ../../Documentation/api-framework/classes/Args#rest
