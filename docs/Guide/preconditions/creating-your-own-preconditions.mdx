@@ -4,8 +4,8 @@ title: Creating your own preconditions
 ---
 
 Just as we did in both [Creating Commands][creating-commands] and [Creating Listeners][creating-listeners], we will
-start by creating a `preconditions` subdirectory in your project's entry point directory. Inside, we'll make an
-`OwnerOnly` file.
+start by creating a `preconditions` subdirectory in your project's entry point directory. For this guide, we'll be building
+out an `OwnerOnly` precondition, that prevents anyone but the application owner from running the command.
 
 Your directory should now look something like this:
 
@@ -23,7 +23,7 @@ Your directory should now look something like this:
 ```
 
 The purpose of our `OwnerOnly` precondition is just as the name suggests: to check if the user is the bot owner. It can
-be used for developer commands, such as `eval`.
+be used for developer commands, such as commands that evaluate expressions or present internal debugging information.
 
 ## Creating a Precondition class
 
@@ -69,7 +69,7 @@ export class PingCommand extends Command {
 }
 ```
 
-Now, if someone who is not the bot owner executes the ping command, nothing will happen!
+Now, if someone who is not the bot owner executes the `ping` command, nothing will happen!
 
 :::caution
 
