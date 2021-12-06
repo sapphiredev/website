@@ -3983,7 +3983,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:^4.1.3":
+"@sapphire/discord.js-utilities@npm:^4.1.3, @sapphire/discord.js-utilities@npm:^4.1.4":
   version: 4.1.4
   resolution: "@sapphire/discord.js-utilities@npm:4.1.4"
   dependencies:
@@ -4060,12 +4060,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/eslint-config@workspace:projects/utilities/packages/eslint-config"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.4.0
-    "@typescript-eslint/parser": ^5.4.0
-    eslint: ^8.3.0
+    "@typescript-eslint/eslint-plugin": ^5.5.0
+    "@typescript-eslint/parser": ^5.5.0
+    eslint: ^8.4.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
-    prettier: ^2.5.0
+    prettier: ^2.5.1
     typescript: ^4.5.2
   languageName: unknown
   linkType: soft
@@ -4116,32 +4116,32 @@ __metadata:
     "@commitlint/config-conventional": ^15.0.0
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.6
-    "@sapphire/discord-utilities": ^2.2.3
-    "@sapphire/discord.js-utilities": ^4.1.3
+    "@sapphire/discord-utilities": ^2.3.0
+    "@sapphire/discord.js-utilities": ^4.1.4
     "@sapphire/eslint-config": ^4.0.7
     "@sapphire/pieces": ^3.2.0
     "@sapphire/prettier-config": ^1.2.6
-    "@sapphire/ratelimits": ^2.1.9
+    "@sapphire/ratelimits": ^2.1.10
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/utilities": ^3.1.0
     "@types/jest": ^27.0.3
-    "@types/node": ^16.11.10
-    "@types/ws": ^8.2.0
+    "@types/node": ^16.11.11
+    "@types/ws": ^8.2.1
     cz-conventional-changelog: ^3.3.0
     discord.js: ^13.3.1
-    eslint: ^8.3.0
+    eslint: ^8.4.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.3.1
-    jest-circus: ^27.3.1
+    jest: ^27.4.3
+    jest-circus: ^27.4.2
     lexure: ^0.17.0
     lint-staged: ^12.1.2
-    prettier: ^2.5.0
+    prettier: ^2.5.1
     pretty-quick: ^3.1.2
-    rollup: ^2.60.1
+    rollup: ^2.60.2
     rollup-plugin-version-injector: ^1.3.3
     standard-version: ^9.3.2
-    ts-jest: ^27.0.7
+    ts-jest: ^27.1.0
     ts-node: ^10.4.0
     tslib: ^2.3.1
     typedoc: ^0.22.10
@@ -4175,13 +4175,13 @@ __metadata:
     "@sapphire/prettier-config": ^1.2.6
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/utilities": ^3.1.0
-    "@types/node": ^16.11.10
+    "@types/node": ^16.11.11
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.3.0
+    eslint: ^8.4.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
     lint-staged: ^12.1.2
-    prettier: ^2.5.0
+    prettier: ^2.5.1
     pretty-quick: ^3.1.2
     standard-version: ^9.3.2
     tslib: ^2.3.1
@@ -4197,7 +4197,7 @@ __metadata:
   dependencies:
     "@types/node-fetch": 2.5.12
     "@types/psl": ^1.1.0
-    "@types/ws": ^8.2.0
+    "@types/ws": ^8.2.1
     node-fetch: 2.6.6
     psl: ^1.8.0
     tslib: ^2.3.1
@@ -4219,7 +4219,7 @@ __metadata:
   dependencies:
     "@sapphire/utilities": ^3.1.0
     "@types/i18next-fs-backend": ^1.1.2
-    i18next: ^21.5.3
+    i18next: ^21.5.4
     i18next-fs-backend: ^1.1.4
     tslib: ^2.3.1
   languageName: unknown
@@ -4229,7 +4229,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-logger@workspace:projects/plugins/packages/logger"
   dependencies:
-    "@sapphire/time-utilities": ^1.4.9
+    "@sapphire/time-utilities": ^1.5.0
     colorette: ^2.0.16
     tslib: ^2.3.1
   languageName: unknown
@@ -4256,11 +4256,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/prettier-config@workspace:projects/utilities/packages/prettier-config"
   dependencies:
-    prettier: ^2.5.0
+    prettier: ^2.5.1
   languageName: unknown
   linkType: soft
 
-"@sapphire/ratelimits@npm:^2.1.9":
+"@sapphire/ratelimits@npm:^2.1.10, @sapphire/ratelimits@npm:^2.1.9":
   version: 2.1.10
   resolution: "@sapphire/ratelimits@npm:2.1.10"
   dependencies:
@@ -4291,7 +4291,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/time-utilities@npm:^1.4.9, @sapphire/time-utilities@npm:^1.5.0":
+"@sapphire/time-utilities@npm:^1.5.0":
   version: 1.5.0
   resolution: "@sapphire/time-utilities@npm:1.5.0"
   dependencies:
@@ -4339,20 +4339,20 @@ __metadata:
     "@sapphire/prettier-config": ^1.2.6
     "@sapphire/ts-config": ^3.1.6
     "@types/jest": ^27.0.3
-    "@types/node": ^16.11.10
+    "@types/node": ^16.11.11
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.3.0
+    eslint: ^8.4.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.4.0
-    jest-circus: ^27.4.0
+    jest: ^27.4.3
+    jest-circus: ^27.4.2
     lint-staged: ^12.1.2
     nan: ^2.15.0
     npm-run-all: ^4.1.5
-    prettier: ^2.5.0
+    prettier: ^2.5.1
     pretty-quick: ^3.1.2
     standard-version: ^9.3.2
-    ts-jest: ^27.0.7
+    ts-jest: ^27.1.0
     ts-node: ^10.4.0
     tslib: ^2.3.1
     typedoc: ^0.22.10
@@ -4781,7 +4781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-type/package-dts@npm:^1.0.54":
+"@ts-type/package-dts@npm:^1.0.56":
   version: 1.0.56
   resolution: "@ts-type/package-dts@npm:1.0.56"
   dependencies:
@@ -5058,7 +5058,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^16.11.10, @types/node@npm:^16.11.11":
+"@types/node@npm:*, @types/node@npm:^16.11.11":
   version: 16.11.11
   resolution: "@types/node@npm:16.11.11"
   checksum: 1c472bd63f23ca0e4effc96e6e0c693b83b027f613a1f41b6d1bd7791f65ce171a351e0a5c92575cb59e84ad0a930875397bfbbb91a7c925ddbbb558f7461af8
@@ -5251,7 +5251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ws@npm:^8.2.0":
+"@types/ws@npm:^8.2.0, @types/ws@npm:^8.2.1":
   version: 8.2.1
   resolution: "@types/ws@npm:8.2.1"
   dependencies:
@@ -5551,14 +5551,14 @@ __metadata:
   linkType: hard
 
 "@yarn-tool/resolve-package@npm:^1.0.36":
-  version: 1.0.39
-  resolution: "@yarn-tool/resolve-package@npm:1.0.39"
+  version: 1.0.40
+  resolution: "@yarn-tool/resolve-package@npm:1.0.40"
   dependencies:
-    "@ts-type/package-dts": ^1.0.54
+    "@ts-type/package-dts": ^1.0.56
     pkg-dir: < 6 >= 5
     tslib: ^2.3.1
     upath2: ^3.1.10
-  checksum: b905c7614e23cf086218f3a1a6b654893c7d03c155dc6015a6dcbe26972720cc745dd5d3e0d77f8b878ac9254307cfedff733f06c2cc6f6076185dc7710411de
+  checksum: 79a87189863b2f3023b9cc6063ae424a45127a79d2bfad51197644b4b274a6b8d78c2944687f5f92f36d02e69bc3ba414c1e912b3b074708d23d57a2eba33c92
   languageName: node
   linkType: hard
 
@@ -8368,6 +8368,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"discord-api-types@npm:^0.25.2":
+  version: 0.25.2
+  resolution: "discord-api-types@npm:0.25.2"
+  checksum: bb80a9db706d8ae391ab5eae4536827832ffe744b69659029597aaf90d9b9ece6e9642bd44eb3f38b32a3783ad1eebce378403fc785ca5405f8b71d8d32678a5
+  languageName: node
+  linkType: hard
+
 "discord.js@npm:^13.3.1":
   version: 13.3.1
   resolution: "discord.js@npm:13.3.1"
@@ -11008,7 +11015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.0.1, i18next@npm:^21.5.3":
+"i18next@npm:^21.0.1, i18next@npm:^21.5.4":
   version: 21.5.4
   resolution: "i18next@npm:21.5.4"
   dependencies:
@@ -11883,7 +11890,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-circus@npm:^27.3.1, jest-circus@npm:^27.4.0, jest-circus@npm:^27.4.2":
+"jest-circus@npm:^27.4.2":
   version: 27.4.2
   resolution: "jest-circus@npm:27.4.2"
   dependencies:
@@ -12039,7 +12046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-extended@npm:^1.1.0":
+"jest-extended@npm:^1.2.0":
   version: 1.2.0
   resolution: "jest-extended@npm:1.2.0"
   dependencies:
@@ -12419,7 +12426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.3.1, jest@npm:^27.4.0":
+"jest@npm:^27.4.3":
   version: 27.4.3
   resolution: "jest@npm:27.4.3"
   dependencies:
@@ -16987,7 +16994,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.43.1, rollup@npm:^2.58.0, rollup@npm:^2.60.1":
+"rollup@npm:^2.43.1, rollup@npm:^2.58.0, rollup@npm:^2.60.2":
   version: 2.60.2
   resolution: "rollup@npm:2.60.2"
   dependencies:
@@ -17015,27 +17022,27 @@ __metadata:
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/utilities": ^3.1.0
     "@types/jest": ^27.0.3
-    "@types/node": ^16.11.10
+    "@types/node": ^16.11.11
     "@types/node-fetch": ^2.5.12
-    "@types/ws": ^8.2.0
-    "@typescript-eslint/eslint-plugin": ^5.4.0
-    "@typescript-eslint/parser": ^5.4.0
+    "@types/ws": ^8.2.1
+    "@typescript-eslint/eslint-plugin": ^5.5.0
+    "@typescript-eslint/parser": ^5.5.0
     cz-conventional-changelog: ^3.3.0
-    discord-api-types: ^0.24.0
+    discord-api-types: ^0.25.2
     discord.js: ^13.3.1
-    eslint: ^8.3.0
+    eslint: ^8.4.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.3.1
-    jest-circus: ^27.3.1
+    jest: ^27.4.3
+    jest-circus: ^27.4.2
     lerna: ^4.0.0
     lint-staged: ^12.1.2
-    prettier: ^2.5.0
+    prettier: ^2.5.1
     pretty-quick: ^3.1.2
     rimraf: ^3.0.2
-    ts-jest: ^27.0.7
+    ts-jest: ^27.1.0
     ts-node: ^10.4.0
     typedoc: ^0.22.10
     typedoc-plugin-djs-links: ^1.0.3
@@ -17058,32 +17065,32 @@ __metadata:
     "@sapphire/framework": ^2.2.0
     "@types/jest": ^27.0.3
     "@types/lodash": ^4.14.177
-    "@types/node": ^16.11.10
-    "@types/ws": ^8.2.0
-    "@typescript-eslint/eslint-plugin": ^5.4.0
-    "@typescript-eslint/parser": ^5.4.0
+    "@types/node": ^16.11.11
+    "@types/ws": ^8.2.1
+    "@typescript-eslint/eslint-plugin": ^5.5.0
+    "@typescript-eslint/parser": ^5.5.0
     cz-conventional-changelog: ^3.3.0
     discord-api-types: ^0.24.0
     discord.js: ^13.3.1
-    eslint: ^8.3.0
+    eslint: ^8.4.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.3.1
-    jest-circus: ^27.3.1
-    jest-extended: ^1.1.0
+    jest: ^27.4.3
+    jest-circus: ^27.4.2
+    jest-extended: ^1.2.0
     lerna: ^4.0.0
     lint-staged: ^12.1.2
     lodash: ^4.17.21
     nock: ^13.2.1
-    prettier: ^2.5.0
+    prettier: ^2.5.1
     pretty-quick: ^3.1.2
     rimraf: ^3.0.2
-    rollup: ^2.60.1
+    rollup: ^2.60.2
     rollup-plugin-cleaner: ^1.0.0
     rollup-plugin-typescript2: ^0.31.1
-    ts-jest: ^27.0.7
+    ts-jest: ^27.1.0
     ts-node: ^10.4.0
     tslib: ^2.3.1
     typedoc: ^0.22.10
@@ -18729,7 +18736,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^27.0.7":
+"ts-jest@npm:^27.1.0":
   version: 27.1.0
   resolution: "ts-jest@npm:27.1.0"
   dependencies:
