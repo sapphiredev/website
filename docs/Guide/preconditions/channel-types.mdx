@@ -3,9 +3,6 @@ sidebar_position: 4
 title: Setting the types of channel a command can run in
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 The [`runIn`][runin] command option can be used to specify the types of channels a command can run in. This can be
 useful if you're developing a command that, for example, displays the roles of a user. In that scenario, you'll want to
 make sure that the command can only be run in guild channels.
@@ -16,42 +13,7 @@ You can view the valid `runIn` values [here][runintypes].
 
 :::
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {7}
-const { Command, CommandOptionsRunTypeEnum } = require('@sapphire/framework');
-
-module.exports = class RolesCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      runIn: CommandOptionsRunTypeEnum.GuildAny // Only run in guild channels
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {7}
-import { Command, CommandOptionsRunTypeEnum } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      runIn: CommandOptionsRunTypeEnum.GuildAny // Only run in guild channels
-    });
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {7}
+```typescript ts2esm2cjs|{7}|{7}
 import { Command, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 
 export class PingCommand extends Command {
@@ -63,9 +25,6 @@ export class PingCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 If you try to run a command in direct messages, you'll now find that nothing happens.
 

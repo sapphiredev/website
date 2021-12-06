@@ -3,9 +3,6 @@ sidebar_position: 1
 title: Creating your own preconditions
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Just as we did in both [Creating Commands][creating-commands] and [Creating Listeners][creating-listeners], we will
 start by creating a `preconditions` subdirectory in your project's entry point directory. Inside, we'll make an `OwnerOnly`
 file.
@@ -32,74 +29,17 @@ be used for developer commands, such as `eval`.
 
 Preconditions are made by extending the Sapphire [`Precondition`][precondition] class and exporting it.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-const { Precondition } = require('@sapphire/framework');
-
-module.exports = class OwnerOnlyPrecondition extends Precondition {};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs
 import { Precondition } from '@sapphire/framework';
 
 export class OwnerOnlyPrecondition extends Precondition {}
 ```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-import { Precondition } from '@sapphire/framework';
-
-export class OwnerOnlyPrecondition extends Precondition {}
-```
-
-</TabItem>
-</Tabs>
 
 Next, we can create a [`run`][preconditionrun] function to execute our logic. This function should either return
 [`this.ok()`][preconditionok] to signify the condition has passed, or [`this.error(...)`][preconditionerror] to signify
 the command should be denied.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {4-8}
-const { Precondition } = require('@sapphire/framework');
-
-module.exports = class OwnerOnlyPrecondition extends Precondition {
-  public run(message) {
-    return message.author.id === 'YOUR_ID'
-      ? this.ok()
-      : this.error({ message: 'Only the bot owner can use this command!' })
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {4-8}
-import { Precondition } from '@sapphire/framework';
-
-export class OwnerOnlyPrecondition extends Precondition {
-  public run(message) {
-    return message.author.id === 'YOUR_ID'
-      ? this.ok()
-      : this.error({ message: 'Only the bot owner can use this command!' })
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {4-8}
+```typescript ts2esm2cjs|{4-8}|{4-8}
 import { Precondition, Message } from '@sapphire/framework';
 
 export class OwnerOnlyPrecondition extends Precondition {
@@ -111,50 +51,12 @@ export class OwnerOnlyPrecondition extends Precondition {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ## Using Preconditions in Commands
 
 To attach a precondition to a command, you simply have to input its name in an array in the command's
 [`preconditions`][preconditions-option] option.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {7}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      preconditions: ['OwnerOnly']
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {7}
-import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      preconditions: ['OwnerOnly']
-    });
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {7}
+```typescript ts2esm2cjs|{7}|{7}
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
@@ -166,9 +68,6 @@ export class PingCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 Now, if someone who is not the bot owner executes the ping command, nothing will happen!
 

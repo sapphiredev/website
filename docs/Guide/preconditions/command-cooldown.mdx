@@ -3,50 +3,12 @@ sidebar_position: 3
 title: Configuring command cooldowns
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Cooldowns are of vital importance for many bots to avoid excessive command usage, API ratelimits, and so on. Luckily,
 Sapphire makes it easy to integrate them into your commands! At its simplest level, cooldowns can be used in specific
 commands via the [`cooldownDelay`][cooldowndelay] property in the command's options. This value is amount of
 milliseconds that a user will have to wait after using a command to use it again. Here's a basic example:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {7}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      cooldownDelay: 10_000 // 10_000 milliseconds
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {7}
-import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      cooldownDelay: 10_000 // 10_000 milliseconds
-    });
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {7}
+```typescript ts2esm2cjs|{7}|{7}
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
@@ -59,9 +21,6 @@ export class PingCommand extends Command {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 If you now try to run this command, and then run it again within 10 seconds, the command won't execute, and an error
 will be thrown. You can learn how to process that error [here][reporting-precondition-failure].
 
@@ -70,43 +29,7 @@ will be thrown. You can learn how to process that error [here][reporting-precond
 `cooldownDelay` only accepts a value of milliseconds, which is not known to be the easiest to read or calculate. To
 help, you can use [@sapphire/time-utilities][timeutils], which includes utilities for time transformers.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {7}
-const { Command } = require('@sapphire/framework');
-const { Time } = require('@sapphire/time-utilities');
-
-module.exports = class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      cooldownDelay: Time.Second * 10; // Much easier for humans to read
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {7}
-import { Command } from '@sapphire/framework';
-import { Time } from '@sapphire/time-utilities';
-
-export class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      cooldownDelay: Time.Second * 10; // Much easier for humans to read
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6}
+```typescript ts2esm2cjs|{8}|{8}
 import { Command } from '@sapphire/framework';
 import { Time } from '@sapphire/time-utilities';
 
@@ -120,9 +43,6 @@ export class PingCommand extends Command {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 You can view the docs [here][timeenum].
 
 :::
@@ -133,44 +53,7 @@ It's very common to not want cooldowns to apply to certain people, for example, 
 adding [`cooldownFilteredUsers`][cooldownfilteredusers] to the options. This option should be an array of users ID that
 the bot can ignore when calculating cooldowns.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {8}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      cooldownDelay: 10_000, // 10_000 milliseconds
-      cooldownFilteredUsers: ['YOUR_ID'] // Ignore the bot owner
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {8}
-import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      cooldownDelay: 10_000, // 10_000 milliseconds
-      cooldownFilteredUsers: ['YOUR_ID'] // Ignore the bot owner
-    });
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {7}
+```typescript ts2esm2cjs|{7}|{7}
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
@@ -183,9 +66,6 @@ export class PingCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 ## Advanced Usage
 
@@ -205,29 +85,7 @@ Sometimes you'll find a use case where you want specific cooldown options to app
 can be achieved by adding [`defaultCooldown`][defaultcooldown] to your [`SapphireClient`][sapphire] options. You can use
 any of the properties shown above with this option.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {5-10}
-const { SapphireClient, BucketScope } = require('@sapphire/framework');
-
-const client = new SapphireClient({
-  intents: ['GUILDS', 'GUILD_MESSAGES'],
-  defaultCooldown: {
-    cooldownDelay: 10_000, // 10_000 milliseconds
-    cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
-    cooldownLimit: 2, // Allow 2 uses before ratelimiting
-    cooldownScope: BucketScope.Channel // Scope cooldown to channel
-  }
-});
-
-void client.login('your-token-goes-here');
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {5-10}
+```typescript ts2esm2cjs|{5-10}|{5-10}
 import { SapphireClient, BucketScope } from '@sapphire/framework';
 
 const client = new SapphireClient({
@@ -242,28 +100,6 @@ const client = new SapphireClient({
 
 void client.login('your-token-goes-here');
 ```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {5-10}
-import { SapphireClient, BucketScope } from '@sapphire/framework';
-
-const client = new SapphireClient({
-  intents: ['GUILDS', 'GUILD_MESSAGES'],
-  defaultCooldown: {
-    cooldownDelay: 10_000, // 10_000 milliseconds
-    cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
-    cooldownLimit: 2, // Allow 2 uses before ratelimiting
-    cooldownScope: BucketScope.Channel // Scope cooldown to channel
-  }
-});
-
-void client.login('your-token-goes-here');
-```
-
-</TabItem>
-</Tabs>
 
 :::tip
 

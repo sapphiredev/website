@@ -3,51 +3,13 @@ sidebar_position: 5
 title: Handling permissions
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 One of the most basic needs of a Discord bot is to be able to deny command access to users based on their permissions or
 lack thereof. A common example would be moderation commands. Most people wouldn't want regular users to be able to ban
 people, so we can restrict usage using the [`requiredUserPermissions`][requireduserpermissions] option.
 
 <!-- TODO: info block redirecting to subcommands ts guide for using corresponding decorators -->
 
-<Tabs>
-<TabItem value="javascript" label="Javascript">
-
-```javascript {7}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class BanCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      requiredUserPermissions: ['BAN_MEMBERS']
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {7}
-import { Command } from '@sapphire/framework';
-
-export class BanCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      requiredUserPermissions: ['BAN_MEMBERS']
-    });
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {7}
+```typescript ts2esm2cjs|{7}|{7}
 import { Command } from '@sapphire/framework';
 
 export class BanCommand extends Command {
@@ -59,9 +21,6 @@ export class BanCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 Users without the `BAN_MEMBERS` permission will now be unable to use the command!
 
@@ -73,44 +32,7 @@ not.
 
 <!-- TODO: info block redirecting to subcommands ts guide for using corresponding decorators -->
 
-<Tabs>
-<TabItem value="javascript" label="Javascript">
-
-```javascript {8}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class BanCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      requiredUserPermissions: ['BAN_MEMBERS'],
-      requiredClientPermissions: ['BAN_MEMBERS']
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {8}
-import { Command } from '@sapphire/framework';
-
-export class BanCommand extends Command {
-  constructor(context) {
-    super(context, {
-      // ...
-      requiredUserPermissions: ['BAN_MEMBERS'],
-      requiredClientPermissions: ['BAN_MEMBERS']
-    });
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {8}
+```typescript ts2esm2cjs|{8}|{8}
 import { Command } from '@sapphire/framework';
 
 export class BanCommand extends Command {
@@ -123,9 +45,6 @@ export class BanCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 `BanCommand` now requires the command executor _and_ the client to have sufficient permissions to execute!
 

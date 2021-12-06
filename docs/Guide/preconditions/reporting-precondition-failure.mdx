@@ -3,9 +3,6 @@ sidebar_position: 2
 title: Reporting precondition failure
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 When a precondition fails, it's usually important for the user to know why. For example, if they hit a cooldown or lack
 permissions, that should somehow be communicated. However, by default, nothing will happen if a precondition blocks a
 message.
@@ -23,36 +20,7 @@ an error.
 `commandDenied` supplies the following information: the [`UserError`][error] that was created from the precondition, and
 the [`CommandDeniedPayload`][payload], which includes necessary context.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-const { Listener } = require('@sapphire/framework');
-
-module.exports = class CommandDeniedListener extends Listener {
-  run(error, { message }) {
-    // ...
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript
-import { Listener } from '@sapphire/framework';
-
-export class CommandDeniedListener extends Listener {
-  run(error, { message }) {
-    // ...
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
+```typescript ts2esm2cjs
 import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
 import { Listener } from '@sapphire/framework';
 
@@ -62,9 +30,6 @@ export class CommandDeniedListener extends Listener {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 The `message` property of the `error` parameter will include the error message, as the name suggests. In [Creating
 Preconditions][creating-preconditions], you can find that we defined this property within the `this.error()` method!
@@ -72,38 +37,8 @@ Preconditions][creating-preconditions], you can find that we defined this proper
 There are many possibilities for what you can do with the error, but the simplest is to just send it directly to the
 user. That is what we'll do in this example:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {5}
-const { Listener } = require('@sapphire/framework');
-
-module.exports = class CommandDeniedListener extends Listener {
-  run(error, { message }) {
-    return message.channel.send(error.message);
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {5}
-import { Listener } from '@sapphire/framework';
-
-export class CommandDeniedListener extends Listener {
-  run(error, { message }) {
-    return message.channel.send(error.message);
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {6}
-import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
-import { Listener } from '@sapphire/framework';
+```typescript ts2esm2cjs|{6}|{6}
+import { Listener, UserError, CommandDeniedPayload } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
   public run(error: UserError, { message }: CommandDeniedPayload) {
@@ -111,9 +46,6 @@ export class CommandDeniedListener extends Listener {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 ## Ignoring Precondition Failures
 
@@ -125,46 +57,7 @@ contain information about the context in which the error was thrown, and the val
 We can take advantage of this by adding `context: { silent: true }` to the [`this.error()`][preconditionerror] options.
 We'll use the `OwnerOnly` precondition we made in [Creating Preconditions][creating-preconditions] to demonstrate this.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {9}
-const { Precondition } = require('@sapphire/framework');
-
-module.exports = class OwnerOnlyPrecondition extends Precondition {
-  public run(message) {
-    return message.author.id === 'YOUR_ID'
-      ? this.ok()
-      : this.error({
-          message: 'Only the bot owner can use this command!'
-          context: { silent: true }
-        })
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {9}
-import { Precondition } from '@sapphire/framework';
-
-export class OwnerOnlyPrecondition extends Precondition {
-  public run(message) {
-    return message.author.id === 'YOUR_ID'
-      ? this.ok()
-      : this.error({
-          message: 'Only the bot owner can use this command!',
-          context: { silent: true }
-        })
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {9}
+```typescript ts2esm2cjs|{9}|{9}
 import { Precondition, Message } from '@sapphire/framework';
 
 export class OwnerOnlyPrecondition extends Precondition {
@@ -178,9 +71,6 @@ export class OwnerOnlyPrecondition extends Precondition {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 We can then check if this property exists on the error in our listener, and ignore the failure if we find it.
 
