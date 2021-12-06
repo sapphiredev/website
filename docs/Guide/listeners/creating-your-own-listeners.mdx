@@ -76,7 +76,7 @@ import type { Client } from 'discord.js';
 
 export class ReadyListener extends Listener {
   public run(client: Client) {
-    const { username, id } = client.user;
+    const { username, id } = client.user!;
     this.container.logger.info(`Successfully logged in as ${username} (${id})`);
   }
 }
@@ -87,7 +87,7 @@ set. This code is equivalent to the following:
 
 ```typescript ts2esm2cjs
 client.once('ready', (client) => {
-  const { username, id } = client.user;
+  const { username, id } = client.user!;
   container.logger.info(`Successfully logged in as ${username} (${id})`);
 });
 ```
