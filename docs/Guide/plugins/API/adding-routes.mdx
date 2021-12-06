@@ -3,71 +3,19 @@ title: How to add routes
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 First we create a new folder called `routes` in the `src` directory. And make a new file `hello-world`
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript">
-
-```javascript
-const { methods, Route } = require('@sapphire/plugin-api');
-
-module.exports.UserRoute = class extends Route {
-  constructor(context, options) {
-    super(context, {
-      ...options,
-      route: 'hello-world'
-    });
-  }
-
-  [methods.GET](_request, response) {
-    response.json({ message: 'Hello World' });
-  }
-
-  [methods.POST](_request, response) {
-    response.json({ message: 'Hello World' });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="esm" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs
 import { methods, Route } from '@sapphire/plugin-api';
 
 export class UserRoute extends Route {
-  constructor(context, options) {
+  public constructor(context: Route.Context, options: Route.Options) {
     super(context, {
       ...options,
       route: 'hello-world'
     });
   }
 
-  [methods.GET](_request, response) {
-    response.json({ message: 'Hello World' });
-  }
-
-  [methods.POST](_request, response) {
-    response.json({ message: 'Hello World' });
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-import type { PieceContext } from '@sapphire/framework';
-import { ApiRequest, ApiResponse, methods, Route, RouteOptions } from '@sapphire/plugin-api';
-import { ApplyOptions } from '@sapphire/decorators';
-
-@ApplyOptions<RouteOptions>({
-  route: 'hello-world'
-})
-export class UserRoute extends Route {
   public [methods.GET](_request: ApiRequest, response: ApiResponse) {
     response.json({ message: 'Hello World' });
   }
@@ -77,9 +25,6 @@ export class UserRoute extends Route {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 A quick glance on what we did above:
 

@@ -3,9 +3,6 @@ sidebar_position: 1
 title: Creating a basic command
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 In order to start registering commands you need to create a subdirectory called `commands` (lowercase!) in your entry
 point directory. If you were following [Getting Started][getting-started], it'll be `src/commands`.
 
@@ -45,32 +42,11 @@ commands must be derived.
 
 That said, here is an example of a `ping` command:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {4-10}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class PingCommand extends Command {
-  constructor(context, options) {
-    super(context, {
-      ...options,
-      name: 'ping',
-      aliases: ['pong'],
-      description: 'ping pong'
-    });
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {4-10}
+```typescript ts2esm2cjs|{4-11}|{4-11}
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  constructor(context, options) {
+  public constructor(context: Command.Context, options: Command.Options) {
     super(context, {
       ...options,
       name: 'ping',
@@ -80,24 +56,6 @@ export class PingCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {4-7}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
-
-@ApplyOptions<CommandOptions>({
-  name: 'ping',
-  aliases: ['pong'],
-  description: 'ping pong'
-})
-export class PingCommand extends Command {}
-```
-
-</TabItem>
-</Tabs>
 
 Let's go over what is defined in the constructor in this code:
 
@@ -116,64 +74,15 @@ be explained in upcoming sections.
 Commands have a `messageRun` method, which executes the command logic when it is invoked from a message. Define this
 below the command's constructor:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {8-16}
-const { Command } = require('@sapphire/framework');
-
-module.exports = class PingCommand extends Command {
-  constructor(context, options) {
-    // ...
-  }
-
-  async messageRun(message) {
-    const msg = await message.channel.send('Ping?');
-
-    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
-      msg.createdTimestamp - message.createdTimestamp
-    }ms.`;
-
-    return msg.edit(content);
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {8-16}
+```typescript ts2esm2cjs|{8-16}|{9-17}
 import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  constructor(context, options) {
-    // ...
-  }
-
-  async messageRun(message) {
-    const msg = await message.channel.send('Ping?');
-
-    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
-      msg.createdTimestamp - message.createdTimestamp
-    }ms.`;
-
-    return msg.edit(content);
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {9-17}
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  // ...
-})
 export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    // ...
+  }
+
   public async messageRun(message: Message) {
     const msg = await message.channel.send('Ping?');
 
@@ -185,84 +94,28 @@ export class PingCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 Any discord.js code can be executed here since the Sapphire Framework is an extension of it. The command can be
 triggered with `@bot ping` or `@bot pong` (custom prefixes are mentioned in other documents).
 
 ## Resulting code
 
-Once you've set up the constructor and the `messageRun` method, your code should look like this:
+Once you've set up the `constructor` and the `messageRun` method, your code should look like this:
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-const { Command } = require('@sapphire/framework');
-
-module.exports = class PingCommand extends Command {
-  constructor(context, options) {
-    super(context, {
-      ...options,
-      aliases: ['pong'],
-      description: 'ping pong'
-    });
-  }
-
-  async messageRun(message) {
-    const msg = await message.channel.send('Ping?');
-
-    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
-      msg.createdTimestamp - message.createdTimestamp
-    }ms.`;
-
-    return msg.edit(content);
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs
 import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  constructor(context, options) {
-    super(context, {
-      ...options,
-      aliases: ['pong'],
-      description: 'ping pong'
-    });
-  }
-
-  async messageRun(message) {
-    const msg = await message.channel.send('Ping?');
-
-    const content = `Pong from JavaScript! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
-      msg.createdTimestamp - message.createdTimestamp
-    }ms.`;
-
-    return msg.edit(content);
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
-@ApplyOptions<CommandOptions>({
-  aliases: ['pong'],
-  description: 'ping pong'
-})
 export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      aliases: ['pong'],
+      description: 'ping pong'
+    });
+  }
+
   public async messageRun(message: Message) {
     const msg = await message.channel.send('Ping?');
 
@@ -274,9 +127,6 @@ export class PingCommand extends Command {
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 [command]: ../../Documentation/api-framework/classes/Command
 [commandoptions]: ../../Documentation/api-framework/interfaces/CommandOptions
