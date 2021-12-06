@@ -1,5 +1,8 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const { npm2yarn2pnpm } = require('@sapphire/docusaurus-plugin-npm2yarn2pnpm');
+const { ts2esm2cjs } = require('@sapphire/docusaurus-plugin-ts2esm2cjs');
+
 const Description =
 	'Sapphire is a next-gen Discord bot framework for developers of all skill levels to make the best JavaScript/TypeScript based bots possible.';
 const BaseUrl = 'https://sapphirejs.dev';
@@ -135,7 +138,7 @@ const config = {
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/sapphiredev/website/edit/main/',
-					remarkPlugins: [[require('./src/utils/npm2yarn2pnpm'), { sync: true }]],
+					remarkPlugins: [npm2yarn2pnpm, ts2esm2cjs],
 					showLastUpdateAuthor: true,
 					showLastUpdateTime: true
 				},

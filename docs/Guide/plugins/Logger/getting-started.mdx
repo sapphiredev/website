@@ -55,39 +55,7 @@ In order to use the Logger in any place other than a piece (commands, arguments,
 import the `container` property of `@sapphire/framework`. For pieces, you can simply use `this.container.logger` to
 access Logger methods.
 
-<Tabs groupId="language-choice">
-
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-const { container } = require('@sapphire/framework');
-
-module.exports = class MyAwesomeService {
-	public printAwesomeLog() {
-		container.logger.info('log message');
-	}
-}
-```
-
-</TabItem>
-
-<TabItem value="esm" label="ESM">
-
-```javascript
-import { container } from '@sapphire/framework';
-
-export class MyAwesomeService {
-	public printAwesomeLog() {
-		container.logger.info('log message');
-	}
-}
-```
-
-</TabItem>
-
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
+```typescript ts2esm2cjs
 import { container } from '@sapphire/framework';
 
 export class MyAwesomeService {
@@ -97,78 +65,28 @@ export class MyAwesomeService {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 Here is an example ping command, demonstrating the use of `this.container.logger` from within a piece by omitting the
 explicit import.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-// ping command
-
-const { Command } = require('@sapphire/framework');
-
-module.exports = class PingCommand extends Command {
-	public constructor(context, options) {
-		super(context, {
-			...options,
-			description: 'ping pong'
-		});
-	}
-
-	public async messageRun(message) {
-		this.container.logger.warn('warning message');
-	}
-}
-```
-
-</TabItem>
-<TabItem value="esm" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs
 // ping command
 
 import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-	public constructor(context, options) {
-		super(context, {
-			...options,
-			description: 'ping pong'
-		});
-	}
-
-	public async messageRun(message) {
-		this.container.logger.warn('warning message');
-	}
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-// ping command
-
-import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
 
-@ApplyOptions<CommandOptions>({
-  description: 'ping pong'
-})
 export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'ping pong'
+    });
+  }
+
   public async messageRun(message: Message) {
     this.container.logger.warn('warning message');
   }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 ## Types of logs
 
