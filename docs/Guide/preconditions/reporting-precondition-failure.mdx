@@ -20,7 +20,7 @@ an error.
 `commandDenied` supplies the following information: the [`UserError`][error] that was created from the precondition, and
 the [`CommandDeniedPayload`][payload], which includes necessary context.
 
-```typescript ts2esm2cjs
+```typescript ts2esm2cjs|{4}|{5}
 import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
 import { Listener } from '@sapphire/framework';
 
@@ -37,7 +37,7 @@ Preconditions][creating-preconditions], you can find that we defined this proper
 There are many possibilities for what you can do with the error, but the simplest is to just send it directly to the
 user. That is what we'll do in this example:
 
-```typescript ts2esm2cjs|{6}|{6}
+```typescript ts2esm2cjs|{5}|{5}
 import { Listener, UserError, CommandDeniedPayload } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
