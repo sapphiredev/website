@@ -74,52 +74,26 @@ export class OwnerOnlyPrecondition extends Precondition {
 
 We can then check if this property exists on the error in our listener, and ignore the failure if we find it.
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript {5}
-const { Listener } = require('@sapphire/framework');
-
-module.exports = class CommandDeniedListener extends Listener {
-  run(error, { message }) {
-    if (error.context.silent) return;
-    return message.channel.send(error.message);
-  }
-};
-```
-
-</TabItem>
-<TabItem value="ESM" label="ESM">
-
-```javascript {5}
-import { Listener } from '@sapphire/framework';
-
-export class CommandDeniedListener extends Listener {
-  run(error, { message }) {
-    if (error.context.silent) return;
-    return message.channel.send(error.message);
-  }
-}
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript {8}
+```typescript ts2esm2cjs|{5}|{5}
 import { UserError, CommandDeniedPayload, Listener } from '@sapphire/framework';
 
 export class CommandDeniedListener extends Listener {
   public run(error: UserError, { message }: CommandDeniedPayload) {
-    // A bit of a hack is required for TypeScript
-    // Since `error.context` is of type `unknown`
     if (Reflect.get(Object(error.context), 'silent')) return;
     return message.channel.send(error.message);
   }
 }
 ```
 
-</TabItem>
-</Tabs>
+:::note
+
+In the code block above, we use `if (Reflect.get(Object(error.context), 'silent'))` as opposed to
+`if (error.context.silent)` for TypeScript. When writing JavaScript code you can use the latter just fine.
+
+To clarify this, with TypeScript `error.context` has the type `unknown`, so trying to write `error.context.silent` will
+throw a TypeScript error for trying to read property `silent` of type `unknown`.
+
+:::
 
 [listeners]: ../listeners/creating-your-own-listeners
 [error]: ../../Documentation/api-framework/classes/UserError
