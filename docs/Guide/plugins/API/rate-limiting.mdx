@@ -1,6 +1,146 @@
 ---
-title: RateLimiting routes
+title: Applying rate limits to routes
 sidebar_position: 8
 ---
 
-## TODO
+When writing an API that is publicly available for consumption, it is often desirable to set a rate limit on your routes
+to ensure they cannot be abused. This is especially true when you are developing an API that is intended to be consumed
+by a large number of users. On this page we will guide you to write your own rate limiter that integrates with Sapphire.
+
+The first step to creating a rate limiter is create an instance of `RateLimitManager`. This manager has to be created on
+a per-route basis, so it is advisable to create it as a class property or constant in the file of the route.
+
+```typescript ts2esm2cjs|{6,8}|{6,8}
+import { methods, Route } from '@sapphire/plugin-api';
+import { Time } from '@sapphire/time-utilities';
+import { RateLimitManager } from '@sapphire/ratelimits';
+
+export class UserRoute extends Route {
+  private timeForRateLimit = Time.Second * 5;
+
+  private readonly rateLimitManager = new RateLimitManager(Time.Second * 5, 1);
+
+  public constructor(context: Route.Context, options: Route.Options) {
+    super(context, {
+      ...options,
+      route: 'hello-world'
+    });
+  }
+
+  public [methods.GET](request: ApiRequest, response: ApiResponse) {
+    response.json({ message: 'Hello World' });
+  }
+}
+```
+
+The next step is to create a function that will tell us whether the user is to be rate limited or not:
+
+```typescript ts2esm2cjs
+import type { ApiRequest, ApiResponse } from '@sapphire/plugin-api';
+import type { RateLimitManager } from '@sapphire/ratelimits';
+import { isNullish, isNullishOrZero } from '@sapphire/utilities';
+
+interface RateLimitParameters {
+  /** The time in milliseconds that the rate limit is set to */
+  time: number;
+  /** The API request that this rate limit is checking against */
+  request: ApiRequest;
+  /** The API response that will be sent to the user */
+  response: ApiResponse;
+  /** The {@link RateLimitManager} for this route */
+  manager: RateLimitManager;
+  /** Whether the user needs to be authenticated for this route or not */
+  auth?: boolean;
+}
+
+/**
+ * Checks whether a user should be rate limited.
+ * @param param0 The parameters for this function
+ * @returns `true` if the user should be rate limited, `false` otherwise
+ */
+export function isRateLimited({ time, request, response, manager, auth = false }: RateLimitParameters) {
+  if (isNullishOrZero(time) || isNullish(request) || isNullish(response) || isNullish(manager)) {
+    return false;
+  }
+
+  const id = (auth ? request.auth!.id : request.headers['x-api-key'] || request.socket.remoteAddress) as string;
+  const bucket = manager.acquire(id);
+
+  response.setHeader('Date', new Date().toUTCString());
+  if (bucket.limited) {
+    response.setHeader('Retry-After', bucket.remainingTime.toString());
+    return true;
+  }
+
+  try {
+    bucket.consume();
+  } catch {}
+
+  response.setHeader('X-RateLimit-Limit', time);
+  response.setHeader('X-RateLimit-Remaining', bucket.remaining.toString());
+  response.setHeader('X-RateLimit-Reset', bucket.remainingTime.toString());
+
+  return false;
+}
+```
+
+:::info
+
+Lets explain what this function does.
+
+First of all we get the `id`. If the user needs to be authenticated for this route it will be their authentication
+token, if they don't it will be the header `x-api-key`, or their IP address.
+
+Now that we have the `id` we can retrieve the rate limiting bucket for that `id`. The [`RateLimitManager`][rlm] uses the
+`id` to keep track of any requests from that `id`. Note that if you want to apply one rate limiting for **all** routes
+for the same user, then be sure to create the instance of `RateLimitManager` outside of the API route.
+
+Next we check if the bucket is limited. If it is, we set the `Retry-After` header to the remaining time in the bucket.
+If it is not then we consume the bucket, and set the `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and
+`X-RateLimit-Reset` headers to inform users about the eventual rate limit.
+
+If the user is being rate limited then this function returns `true`, and if not then it returns `false`. We can use this
+in an `if` check in the route to change the response behaviour, as seen below.
+
+:::
+
+Finally we can put this all together:
+
+```typescript ts2esm2cjs|{19-28}|{19-28}
+import { ApiRequest, ApiResponse, HttpCodes, methods, Route } from '@sapphire/plugin-api';
+import { Time } from '@sapphire/time-utilities';
+import { RateLimitManager } from '@sapphire/ratelimits';
+import { isRateLimited } from '../lib/api/utils'; // Example, you can put the function anywhere you want.
+
+export class UserRoute extends Route {
+  private timeForRateLimit = Time.Second * 5;
+
+  private readonly rateLimitManager = new RateLimitManager(Time.Second * 5, 1);
+
+  public constructor(context: Route.Context, options: Route.Options) {
+    super(context, {
+      ...options,
+      route: 'hello-world'
+    });
+  }
+
+  public [methods.GET](request: ApiRequest, response: ApiResponse) {
+    if (
+      isRateLimited({
+        time: this.timeForRateLimit,
+        request,
+        response,
+        manager: this.rateLimitManager
+      })
+    ) {
+      return response.error(HttpCodes.TooManyRequests);
+    }
+
+    response.json({ message: 'Hello World' });
+  }
+}
+```
+
+Now when a user gets rate limited they will receive a 429 error with a Retry-After header.
+
+[rlm]: ../../../Documentation/api-utilities/classes/sapphire_ratelimits.RateLimitManager
