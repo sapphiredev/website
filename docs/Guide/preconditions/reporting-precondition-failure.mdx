@@ -1,0 +1,103 @@
+---
+sidebar_position: 2
+title: Reporting precondition failure
+---
+
+When a precondition fails, it's usually important for the user to know why. For example, if they hit a cooldown or lack
+permissions, that should somehow be communicated. However, by default, nothing will happen if a precondition blocks a
+message.
+
+To change this, we'll need to create a `commandDenied` listener, which is triggered when a precondition fails. For more
+information on how to create listeners, see the [`Creating Listeners`][listeners] section.
+
+:::caution
+
+The `commandDenied` event shouldn't be confused with the `commandError` event, which is triggered when a command throws
+an error.
+
+:::
+
+`commandDenied` supplies the following information: the [`UserError`][error] that was created from the precondition, and
+the [`CommandDeniedPayload`][payload], which includes necessary context.
+
+```typescript ts2esm2cjs|{4}|{5}
+import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
+import { Listener } from '@sapphire/framework';
+
+export class CommandDeniedListener extends Listener {
+  public run(error: UserError, { message }: CommandDeniedPayload) {
+    // ...
+  }
+}
+```
+
+The `message` property of the `error` parameter will include the error message, as the name suggests. In [Creating
+Preconditions][creating-preconditions], you can find that we defined this property within the `this.error()` method!
+
+There are many possibilities for what you can do with the error, but the simplest is to just send it directly to the
+user. That is what we'll do in this example:
+
+```typescript ts2esm2cjs|{5}|{5}
+import { Listener, UserError, CommandDeniedPayload } from '@sapphire/framework';
+
+export class CommandDeniedListener extends Listener {
+  public run(error: UserError, { message }: CommandDeniedPayload) {
+    return message.channel.send(error.message);
+  }
+}
+```
+
+## Ignoring Precondition Failures
+
+If someone who isn't a bot owner tries to use a command intended only for the bot owner, sometimes you don't want to
+send a message notifying them that they don't have permission. Instead, you'd rather let the command be blocked
+silently. To do this, we can make use of the [`context`][context] property of `UserError`s. This property aims to
+contain information about the context in which the error was thrown, and the value can be absolutely anything.
+
+We can take advantage of this by adding `context: { silent: true }` to the [`this.error()`][preconditionerror] options.
+We'll use the `OwnerOnly` precondition we made in [Creating Preconditions][creating-preconditions] to demonstrate this.
+
+```typescript ts2esm2cjs|{9}|{9}
+import { Precondition, Message } from '@sapphire/framework';
+
+export class OwnerOnlyPrecondition extends Precondition {
+  public run(message: Message) {
+    return message.author.id === 'YOUR_ID'
+      ? this.ok()
+      : this.error({
+          message: 'Only the bot owner can use this command!'
+          context: { silent: true }
+        })
+  }
+}
+```
+
+We can then check if this property exists on the error in our listener, and ignore the failure if we find it.
+
+```typescript ts2esm2cjs|{5}|{5}
+import { UserError, CommandDeniedPayload, Listener } from '@sapphire/framework';
+
+export class CommandDeniedListener extends Listener {
+  public run(error: UserError, { message }: CommandDeniedPayload) {
+    if (Reflect.get(Object(error.context), 'silent')) return;
+    return message.channel.send(error.message);
+  }
+}
+```
+
+:::note
+
+In the code block above, we use `if (Reflect.get(Object(error.context), 'silent'))` as opposed to
+`if (error.context.silent)` for TypeScript. When writing JavaScript code you can use the latter just fine.
+
+To clarify this, with TypeScript `error.context` has the type `unknown`, so trying to write `error.context.silent` will
+throw a TypeScript error for trying to read property `silent` of type `unknown`.
+
+:::
+
+[listeners]: ../listeners/creating-your-own-listeners
+[error]: ../../Documentation/api-framework/classes/UserError
+[payload]: ../../Documentation/api-framework/interfaces/CommandDeniedPayload
+[context]: ../../Documentation/api-framework/classes/UserError#context
+[preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
+[creating-preconditions]: ./creating-your-own-preconditions

@@ -1,6 +1,61 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 title: Handling permissions
 ---
 
-## TODO
+One of the most basic needs of a Discord bot is to be able to deny command access to users based on their permissions or
+lack thereof. A common example would be moderation commands. Most people wouldn't want regular users to be able to ban
+people, so we can restrict usage using the [`requiredUserPermissions`][requireduserpermissions] option.
+
+<!-- TODO: info block redirecting to subcommands ts guide for using corresponding decorators -->
+
+```typescript ts2esm2cjs|{7}|{7}
+import { Command } from '@sapphire/framework';
+
+export class BanCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      requiredUserPermissions: ['BAN_MEMBERS']
+    });
+  }
+}
+```
+
+Users without the `BAN_MEMBERS` permission will now be unable to use the command!
+
+## Handling Client Permissions
+
+It's also a good idea to verify the inverse: does the _bot_ have the `BAN_MEMBERS` permission? We can use the
+[`requiredClientPermissions`][requiredclientpermissions] option the same way to prevent the command from being used if
+not.
+
+<!-- TODO: info block redirecting to subcommands ts guide for using corresponding decorators -->
+
+```typescript ts2esm2cjs|{8}|{8}
+import { Command } from '@sapphire/framework';
+
+export class BanCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      requiredUserPermissions: ['BAN_MEMBERS'],
+      requiredClientPermissions: ['BAN_MEMBERS']
+    });
+  }
+}
+```
+
+With these changes, `BanCommand` now requires the command executor _and_ the client to have the `BAN_MEMBERS` permission
+to execute!
+
+:::tip
+
+To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition
+Failure][reporting-precondition-failure].
+
+:::
+
+[requireduserpermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requireduserpermissions
+[requiredclientpermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requiredclientpermissions
+[reporting-precondition-failure]: ./reporting-precondition-failure

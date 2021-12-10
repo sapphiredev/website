@@ -1,6 +1,124 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 title: Creating your own preconditions
 ---
 
-## TODO
+Just as we did in both [Creating Commands][creating-commands] and [Creating Listeners][creating-listeners], we will
+start by creating a `preconditions` subdirectory in your project's entry point directory. For this guide, we'll be
+building out an `OwnerOnly` precondition, that prevents anyone but the application owner from running the command.
+
+Your directory should now look something like this:
+
+```bash {9-10}
+├── node_modules
+├── package.json
+└── src
+    ├── commands
+    │   └── ping.js
+    ├── index.js
+    ├── listeners
+    │   └── ready.js
+    └── preconditions
+        └── OwnerOnly.js
+```
+
+The purpose of our `OwnerOnly` precondition is just as the name suggests: to check if the user is the bot owner. It can
+be used for developer commands, such as commands that evaluate expressions or present internal debugging information.
+
+## Creating a Precondition class
+
+Preconditions are made by extending the Sapphire [`Precondition`][precondition] class and exporting it.
+
+```typescript ts2esm2cjs
+import { Precondition } from '@sapphire/framework';
+
+export class OwnerOnlyPrecondition extends Precondition {}
+```
+
+Next, we can create a [`run`][preconditionrun] function to execute our logic. This function should either return
+[`this.ok()`][preconditionok] to signify the condition has passed, or [`this.error(...)`][preconditionerror] to signify
+the command should be denied.
+
+```typescript ts2esm2cjs|{4-8}|{4-8}
+import { Precondition, Message } from '@sapphire/framework';
+
+export class OwnerOnlyPrecondition extends Precondition {
+  public run(message: Message) {
+    return message.author.id === 'YOUR_ID'
+      ? this.ok()
+      : this.error({ message: 'Only the bot owner can use this command!' });
+  }
+}
+```
+
+## Using Preconditions in Commands
+
+To attach a precondition to a command, you simply have to input its name in an array in the command's
+[`preconditions`][preconditions-option] option.
+
+```typescript ts2esm2cjs|{7}|{7}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      preconditions: ['OwnerOnly']
+    });
+  }
+}
+```
+
+Now, if someone who is not the bot owner executes the `ping` command, nothing will happen!
+
+:::caution
+
+For TypeScript users, there's an extra step to make this work. To increase the security of Sapphire's types, you'll need
+to augment Sapphire's [`Preconditions`][preconditions-interface] interface. Please see an official example
+[here][preconditions-augment].
+
+<!--
+  TODO: Once we have a dedicated TypeScript page this should link to that instead of a code example.
+  Including why augmenting with `never` works and the difference between that and augmenting with an object.
+-->
+
+:::
+
+By default, no error message will be sent or logged when a command is denied because of a precondition. To learn how to
+configure this, please read [Reporting Precondition Failures][reporting-precondition-failure].
+
+## Advanced Usage
+
+Sapphire also has a builtin system for advanced conditional precondition logic through nested arrays. By default, all
+preconditions in the given array must pass for the command to be run. However, you can use nested arrays to create `OR`
+functionality. This could be useful if you'd like a command to be run if the user is either a moderator _or_ an admin.
+
+Furthermore, if you create a nested array within a nested array, you'll receive `AND` functionality once more. Arrays
+can be nested infinitely with the same pattern for optimal control over your preconditions.
+
+Consider the following array of preconditions:
+
+:::warning
+
+None of the following preconditions are bundled with Sapphire; as such you'd have to create them yourself!
+
+:::
+
+```js
+[['AdminOnly', ['ModOnly', 'OwnerOnly']], 'InVoiceChannel'];
+```
+
+For a command with these preconditions to pass the denial checks, the `InVoiceChannel` precondition must pass, as well
+as `AdminOnly` _or_ both `OwnerOnly` and `ModOnly`.
+
+[creating-commands]: ../getting-started/creating-a-basic-command
+[creating-listeners]: ../listeners/creating-your-own-listeners
+[precondition]: ../../Documentation/api-framework/classes/Precondition
+[preconditionrun]: ../../Documentation/api-framework/classes/Precondition#run
+[preconditionok]: ../../Documentation/api-framework/classes/Precondition#ok
+[preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
+[preconditions-option]: ../../Documentation/api-framework/interfaces/CommandOptions#preconditions
+[preconditions-interface]: ../../Documentation/api-framework/interfaces/Preconditions
+[preconditions-augment]:
+  https://github.com/sapphiredev/examples/blob/main/examples/with-typescript-recommended/src/preconditions/OwnerOnly.ts#L13-L17
+[reporting-precondition-failure]: ./reporting-precondition-failure

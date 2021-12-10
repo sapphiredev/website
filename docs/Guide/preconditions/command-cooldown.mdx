@@ -1,6 +1,120 @@
 ---
-sidebar_position: 0
+sidebar_position: 3
 title: Configuring command cooldowns
 ---
 
-## TODO
+Cooldowns are of vital importance for many bots to avoid excessive command usage, API ratelimits, and so on. Luckily,
+Sapphire makes it easy to integrate them into your commands! At its simplest level, cooldowns can be used in specific
+commands via the [`cooldownDelay`][cooldowndelay] property in the command's options. This value is amount of
+milliseconds that a user will have to wait after using a command to use it again. Here's a basic example:
+
+```typescript ts2esm2cjs|{7}|{7}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      cooldownDelay: 10_000 // 10_000 milliseconds (10 seconds)
+    });
+  }
+}
+```
+
+If you now try to run this command, and then run it again within 10_000 milliseconds (10 seconds), the command won't
+execute, and an error will be thrown. You can learn how to process that error [here][reporting-precondition-failure].
+
+:::info
+
+`cooldownDelay` only accepts a value of milliseconds, which is not known to be the easiest to read or calculate. To
+help, you can use [@sapphire/time-utilities][timeutils], which includes utilities for time transformers.
+
+```typescript ts2esm2cjs|{8}|{8}
+import { Command } from '@sapphire/framework';
+import { Time } from '@sapphire/time-utilities';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      cooldownDelay: Time.Second * 10 // Much easier for humans to read
+    });
+  }
+}
+```
+
+You can view the docs [here][timeenum].
+
+:::
+
+## User Exceptions
+
+It's very common to not want cooldowns to apply to certain people, for example, the bot owner. This can be achieved by
+adding [`cooldownFilteredUsers`][cooldownfilteredusers] to the options. This option should be an array of users ID that
+the bot can ignore when calculating cooldowns.
+
+```typescript ts2esm2cjs|{8}|{8}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context) {
+    super(context, {
+      // ...
+      cooldownDelay: 10_000 // 10_000 milliseconds (10 seconds)
+      cooldownFilteredUsers: ['YOUR_ID'] // Ignore the bot owner
+    });
+  }
+}
+```
+
+## Advanced Usage
+
+Accompanying `cooldownDelay`, you also have access to the options [`cooldownLimit`][cooldownlimit] and
+[`cooldownScope`][cooldownscope].
+
+`cooldownLimit` will define how many times a command can be used before a cooldown is put into affect. This value is set
+to `1` by default. For example, a `cooldownDelay` of `10_000` milliseconds and a `cooldownLimit` of 2 will effectively
+mean that you'd be able to use the command twice every 10 seconds.
+
+Another useful option is `cooldownScope`, which will define the scope of the cooldown. This is useful if you want to
+have a cooldown that applies per guild, for example, instead of per user. Valid scopes can be found [here][scopes].
+
+## Client-wide Cooldowns
+
+Sometimes you'll find a use case where you want specific cooldown options to apply to all commands in your client. This
+can be achieved by adding [`defaultCooldown`][defaultcooldown] to your [`SapphireClient`][sapphire] options. You can use
+any of the properties shown above with this option.
+
+```typescript ts2esm2cjs|{5-10}|{5-10}
+import { SapphireClient, BucketScope } from '@sapphire/framework';
+
+const client = new SapphireClient({
+  intents: ['GUILDS', 'GUILD_MESSAGES'],
+  defaultCooldown: {
+    cooldownDelay: 10_000, // 10_000 milliseconds
+    cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
+    cooldownLimit: 2, // Allow 2 uses before ratelimiting
+    cooldownScope: BucketScope.Channel // Scope cooldown to channel
+  }
+});
+
+void client.login('your-token-goes-here');
+```
+
+:::tip
+
+To learn how to send a message to the command executor when a precondition fails, see [Reporting Precondition
+Failure][reporting-precondition-failure].
+
+:::
+
+[cooldowndelay]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldowndelay
+[cooldownfilteredusers]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldownfilteredusers
+[cooldownlimit]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldownlimit
+[cooldownscope]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldownscope
+[defaultcooldown]: ../../Documentation/api-framework/interfaces/SapphireClientOptions#defaultcooldown
+[sapphire]: ../../Documentation/api-framework/classes/SapphireClient
+[scopes]: ../../Documentation/api-framework/enums/BucketScope
+[reporting-precondition-failure]: ./reporting-precondition-failure
+[timeutils]: ../../Documentation/api-utilities/modules/sapphire_time_utilities
+[timeenum]: ../../Documentation/api-utilities/enums/sapphire_time_utilities.Time
