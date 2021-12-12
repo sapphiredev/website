@@ -3936,7 +3936,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/async-queue@npm:^1.1.8":
+"@sapphire/async-queue@npm:*, @sapphire/async-queue@npm:^1.1.8":
   version: 1.1.9
   resolution: "@sapphire/async-queue@npm:1.1.9"
   checksum: 8a4cb79e01948ee9f99f47e9fdfdfd509353d267f9e18bb8fe8e813b5d45f1fb6de08297b4557eb9a76b95bea59abaab67819175238068cc4cbc808d1d183e9d
@@ -3962,11 +3962,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/decorators@workspace:projects/utilities/packages/decorators"
   dependencies:
+    "@sapphire/discord-utilities": "*"
+    "@sapphire/discord.js-utilities": "*"
+    "@sapphire/ratelimits": "*"
+    "@sapphire/utilities": "*"
     tslib: ^2.3.1
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord-utilities@npm:^2.3.0, @sapphire/discord-utilities@npm:^2.4.0":
+"@sapphire/discord-utilities@npm:*, @sapphire/discord-utilities@npm:^2.3.0, @sapphire/discord-utilities@npm:^2.4.0":
   version: 2.4.0
   resolution: "@sapphire/discord-utilities@npm:2.4.0"
   dependencies:
@@ -3983,7 +3987,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:^4.1.4":
+"@sapphire/discord.js-utilities@npm:*, @sapphire/discord.js-utilities@npm:^4.1.4":
   version: 4.1.5
   resolution: "@sapphire/discord.js-utilities@npm:4.1.5"
   dependencies:
@@ -4037,6 +4041,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/embed-jsx@workspace:projects/utilities/packages/embed-jsx"
   dependencies:
+    "@sapphire/async-queue": "*"
     tslib: ^2.3.1
   languageName: unknown
   linkType: soft
@@ -4197,7 +4202,7 @@ __metadata:
   dependencies:
     "@types/node-fetch": 2.5.12
     "@types/psl": ^1.1.0
-    "@types/ws": ^8.2.1
+    "@types/ws": ^8.2.2
     node-fetch: 2.6.6
     psl: ^1.8.0
     tslib: ^2.3.1
@@ -4219,7 +4224,7 @@ __metadata:
   dependencies:
     "@sapphire/utilities": ^3.1.0
     "@types/i18next-fs-backend": ^1.1.2
-    i18next: ^21.5.4
+    i18next: ^21.6.0
     i18next-fs-backend: ^1.1.4
     tslib: ^2.3.1
   languageName: unknown
@@ -4260,7 +4265,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/ratelimits@npm:^2.1.10":
+"@sapphire/ratelimits@npm:*, @sapphire/ratelimits@npm:^2.1.10":
   version: 2.1.10
   resolution: "@sapphire/ratelimits@npm:2.1.10"
   dependencies:
@@ -4361,7 +4366,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/utilities@npm:^3.0.1, @sapphire/utilities@npm:^3.0.3, @sapphire/utilities@npm:^3.1.0":
+"@sapphire/utilities@npm:*, @sapphire/utilities@npm:^3.0.1, @sapphire/utilities@npm:^3.0.3, @sapphire/utilities@npm:^3.1.0":
   version: 3.1.0
   resolution: "@sapphire/utilities@npm:3.1.0"
   checksum: aa0628352faf8c52774740c53a26ca7154b133ffbe86efaf9684de67c9d8d913732f99108d15babf4e4f9c2bc6e71070466bc8585be9a7add1659533aa2b5716
@@ -8630,9 +8635,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.896":
-  version: 1.4.15
-  resolution: "electron-to-chromium@npm:1.4.15"
-  checksum: 06b91eeee42f1744b544483ebe3e0812957c736948f09d805fe1fbf78cba0c15577127cca1d7ed96db233f4bc46a31a66b2ce3e10343ef95b40570ac45f8d656
+  version: 1.4.16
+  resolution: "electron-to-chromium@npm:1.4.16"
+  checksum: 97ec768ba33e41af661a7cf42234ddbaa39d75284f960309c079614b85af758e047360e5c4488a407982cfd050c7221ec77bf686e4372b2629c70b8869ffbf3f
   languageName: node
   linkType: hard
 
@@ -9456,7 +9461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fbjs@npm:^3.0.0":
+"fbjs@npm:^3.0.0, fbjs@npm:^3.0.1":
   version: 3.0.1
   resolution: "fbjs@npm:3.0.1"
   dependencies:
@@ -9662,14 +9667,14 @@ __metadata:
   linkType: hard
 
 "flux@npm:^4.0.1":
-  version: 4.0.2
-  resolution: "flux@npm:4.0.2"
+  version: 4.0.3
+  resolution: "flux@npm:4.0.3"
   dependencies:
     fbemitter: ^3.0.0
-    fbjs: ^3.0.0
+    fbjs: ^3.0.1
   peerDependencies:
     react: ^15.0.2 || ^16.0.0 || ^17.0.0
-  checksum: 50a9b1e2fd46b4583c65924593643ae3466cfc695fed9d17b15a50e5f29fa84fc723276c6f36d22d38e83db46de7bc1b5f3209f11f0e26c33d25c3836addae49
+  checksum: 6b3f5150bcce481ce5bc09e54dbe4bf2a052f9fbc04c1de64f8d816adc4f90ad7955d9aed0022c7b6a2ed11b809ac40527bb50c2cd89c23d42f56694abe20748
   languageName: node
   linkType: hard
 
@@ -10834,7 +10839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.0.1, i18next@npm:^21.5.4":
+"i18next@npm:^21.0.1, i18next@npm:^21.6.0":
   version: 21.6.0
   resolution: "i18next@npm:21.6.0"
   dependencies:
@@ -11332,9 +11337,9 @@ __metadata:
   linkType: hard
 
 "is-negative-zero@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "is-negative-zero@npm:2.0.1"
-  checksum: a46f2e0cb5e16fdb8f2011ed488979386d7e68d381966682e3f4c98fc126efe47f26827912baca2d06a02a644aee458b9cba307fb389f6b161e759125db7a3b8
+  version: 2.0.2
+  resolution: "is-negative-zero@npm:2.0.2"
+  checksum: f3232194c47a549da60c3d509c9a09be442507616b69454716692e37ae9f37c4dea264fb208ad0c9f3efd15a796a46b79df07c7e53c6227c32170608b809149a
   languageName: node
   linkType: hard
 
@@ -12245,7 +12250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.4.3":
+"jest@npm:^27.4.3, jest@npm:^27.4.4":
   version: 27.4.4
   resolution: "jest@npm:27.4.4"
   dependencies:
@@ -16805,8 +16810,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^2.43.1, rollup@npm:^2.58.0, rollup@npm:^2.60.2":
-  version: 2.61.0
-  resolution: "rollup@npm:2.61.0"
+  version: 2.61.1
+  resolution: "rollup@npm:2.61.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -16814,7 +16819,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 9a30043759c990503f870fa2591b428d8dc979a2c407c3f23a177fa8bef5e423f9a6adf707e0a92bdd67a3a1af28ff1e5fdf6176e1d03c513867608208165d87
+  checksum: a41bd821c1d9f296e71e867828150080fb05d08cbdff9b6b5c0e3642da4d0723f7a847189f197c2a695a8a353d968ad89ebd54a4228dc3e92765c00e6bbadf87
   languageName: node
   linkType: hard
 
@@ -16832,32 +16837,33 @@ __metadata:
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/utilities": ^3.1.0
     "@types/jest": ^27.0.3
-    "@types/node": ^16.11.11
+    "@types/node": ^16.11.12
     "@types/node-fetch": ^2.5.12
-    "@types/ws": ^8.2.1
+    "@types/ws": ^8.2.2
     "@typescript-eslint/eslint-plugin": ^5.6.0
     "@typescript-eslint/parser": ^5.6.0
     cz-conventional-changelog: ^3.3.0
     discord-api-types: ^0.25.2
     discord.js: ^13.3.1
-    eslint: ^8.4.0
+    eslint: ^8.4.1
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.4.3
-    jest-circus: ^27.4.2
+    jest: ^27.4.4
+    jest-circus: ^27.4.4
     lerna: ^4.0.0
     lint-staged: ^12.1.2
     prettier: ^2.5.1
     pretty-quick: ^3.1.2
     rimraf: ^3.0.2
-    ts-jest: ^27.1.0
+    ts-jest: ^27.1.1
     ts-node: ^10.4.0
+    turbo: ^1.0.6
     typedoc: ^0.22.10
     typedoc-plugin-djs-links: ^1.0.3
     typedoc-plugin-mdn-links: ^1.0.4
-    typescript: ^4.5.2
+    typescript: ^4.5.3
   languageName: unknown
   linkType: soft
 
@@ -16903,6 +16909,7 @@ __metadata:
     ts-jest: ^27.1.1
     ts-node: ^10.4.0
     tslib: ^2.3.1
+    turbo: ^1.0.6
     typedoc: ^0.22.10
     typedoc-plugin-djs-links: ^1.0.3
     typedoc-plugin-mdn-links: ^1.0.4
@@ -18718,6 +18725,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"turbo@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "turbo@npm:1.0.6"
+  dependencies:
+    zlib: ^1.0.5
+  bin:
+    turbo: bin/turbo
+  checksum: 83c5c47ebe1956d638089edf4024bd67c8346b52b8961dfe741fc4da2f29de98ca09ed187fdb7fcd26e49c792f09984594cd969bde5bcff2af1377daba6b0d17
+  languageName: node
+  linkType: hard
+
 "tweetnacl@npm:^0.14.3, tweetnacl@npm:~0.14.0":
   version: 0.14.5
   resolution: "tweetnacl@npm:0.14.5"
@@ -18883,7 +18901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.4.3, typescript@npm:^4.5.2":
+"typescript@npm:^4.4.3, typescript@npm:^4.5.2, typescript@npm:^4.5.3":
   version: 4.5.3
   resolution: "typescript@npm:4.5.3"
   bin:
@@ -18893,7 +18911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.3#~builtin<compat/typescript>":
   version: 4.5.3
   resolution: "typescript@patch:typescript@npm%3A4.5.3#~builtin<compat/typescript>::version=4.5.3&hash=493e53"
   bin:
@@ -20270,6 +20288,13 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"zlib@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "zlib@npm:1.0.5"
+  checksum: 5ef5693a1deb70f65845424f5ecce1ee956e50320aa438126759fd28ec8a25ae876acb3b179b4f5050427e7e0dfcd9e45bdae23f055b2d732bc2fe1dbe4da169
   languageName: node
   linkType: hard
 
