@@ -158,7 +158,7 @@ const config = {
 				defaultMode: 'dark',
 				respectPrefersColorScheme: true
 			},
-			metadatas: [
+			metadata: [
 				{ name: 'apple-mobile-web-app-capable', content: 'yes' },
 				{ name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
 				{ name: 'apple-mobile-web-app-title', content: Title },
@@ -222,7 +222,7 @@ const config = {
 						activeBaseRegex: '^/docs/(General|Documentation)/.+$'
 					},
 					{
-						to: 'docs/Guide/getting-started/getting-started',
+						to: 'docs/Guide/getting-started/getting-started-with-sapphire',
 						position: 'left',
 						label: 'Guide',
 						activeBaseRegex: '^/docs/Guide/.+$'
