@@ -128,6 +128,22 @@ const config = {
 					fullNames: true
 				}
 			}
+		],
+		[
+			'docusaurus-plugin-typedoc',
+			{
+				id: 'Shapeshift',
+				entryPoints: ['./projects/shapeshift/src/index.ts'],
+				tsconfig: './projects/shapeshift/src/tsconfig.json',
+				readme: './projects/shapeshift/README.md',
+				out: 'Documentation/api-shapeshift',
+				plugin: ['typedoc-plugin-mdn-links'],
+				sidebar: {
+					categoryLabel: '@sapphire/shapeshift',
+					position: 5,
+					fullNames: true
+				}
+			}
 		]
 	],
 
