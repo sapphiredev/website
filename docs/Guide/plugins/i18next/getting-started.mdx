@@ -58,7 +58,7 @@ import { SapphireClient } from '@sapphire/framework';
 import { InternationalizationContext } from '@sapphire/plugin-i18next';
 import '@sapphire/plugin-i18next/register';
 
-const client = new SapphireClient({ 
+const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   i18n: {
     fetchLanguage: async (context: InternationalizationContext) => {
@@ -81,7 +81,7 @@ The name of the languages configured in the i18n plugin will depend on the names
 ```
 ├── commands
 ├── listeners
-└── languages 
+└── languages
     └── en-US
         └── ping.json
         └── misc.json
