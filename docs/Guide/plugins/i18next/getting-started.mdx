@@ -57,7 +57,7 @@ While this page will not cover those aspects, what we will cover here is how you
 language that should be used in the current context.
 
 In order to achieve this, you will need to provide the options to the plugin. This is done through the `i18next` option
-on the [`ClientOptions`][saphclientoptions], specifically the [`fetchLanguage`] property on that object. This method
+on the [`ClientOptions`][`saphclientoptions`], specifically the [`fetchLanguage`] property on that object. This method
 receives 1 parameter, which is an object that has `message`, `guild`, and `user`, we call it the
 [`InternationalizationContext`]. Using these properties you can make a call to your database, and return the proper
 language key. Alternatively if you want some kind of fallback to a default language you can also specify that here.
