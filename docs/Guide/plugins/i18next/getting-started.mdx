@@ -70,8 +70,11 @@ const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   i18n: {
     fetchLanguage: async (context: InternationalizationContext) => {
-      if (!context.guild) return 'en-US'; // Or whatever your default language is
-      const guildSettings = await db.find({ guild_id: context.guildId }); // example of querying your database. The exact syntax will depend on your ORM
+      // Of whatever your default language is
+      if (!context.guild) return 'en-US';
+
+      // example of querying your database. The exact syntax will depend on your ORM
+      const guildSettings = await db.find({ guild_id: context.guildId });
       return guildSettings.language;
     }
   }
