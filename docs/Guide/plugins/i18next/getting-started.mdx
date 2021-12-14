@@ -51,7 +51,8 @@ import '@sapphire/plugin-i18next/register';
 
 ## Get the language set per server
 
-To obtain the language that each server has configured, as well as the custom prefixes for each server, for that we will have now an option called `i18n` in the Sapphire client options, in which we will do the following.
+To obtain the language that each server has configured, as well as the custom prefixes for each server, for that we will
+have now an option called `i18n` in the Sapphire client options, in which we will do the following.
 
 ```typescript ts2esm2cjs|{3}|{3}
 import { SapphireClient } from '@sapphire/framework';
@@ -72,11 +73,16 @@ const client = new SapphireClient({
 client.login('your-token-goes-here');
 ```
 
-In the `fetchLanguage` option inside the `i18n` configuration object we can put our logic to get the language configured for that server, in this example we check if the command comes from a server, and if not, then return the default language, and then query for the server options and get the language configured for that server. The language obtained in that method will be used to display the messages of the `i18next` plugin methods.
+In the `fetchLanguage` option inside the `i18n` configuration object we can put our logic to get the language configured
+for that server, in this example we check if the command comes from a server, and if not, then return the default
+language, and then query for the server options and get the language configured for that server. The language obtained
+in that method will be used to display the messages of the `i18next` plugin methods.
 
-Something important to keep in mind is that you have to make sure that the language exists in your language directory, otherwise an error will be thrown saying that the language obtained from the server is not valid.
+Something important to keep in mind is that you have to make sure that the language exists in your language directory,
+otherwise an error will be thrown saying that the language obtained from the server is not valid.
 
-The name of the languages configured in the i18n plugin will depend on the names of the language folders in your language directory, for example:
+The name of the languages configured in the i18n plugin will depend on the names of the language folders in your
+language directory, for example:
 
 ```
 ├── commands
@@ -90,7 +96,9 @@ The name of the languages configured in the i18n plugin will depend on the names
         └── misc.json
 ```
 
-In this case we have the languages `en-US`, `es-ES`, remember that the languages must be in the directory called `languages` in the root folder of your project, as well as the other pieces like `commands,` `listeners`, etc. Inside the language folders we will put our files, namespaces to use in the translation of messages.
+In this case we have the languages `en-US`, `es-ES`, remember that the languages must be in the directory called
+`languages` in the root folder of your project, as well as the other pieces like `commands,` `listeners`, etc. Inside
+the language folders we will put our files, namespaces to use in the translation of messages.
 
 The basic structure of a translation file is as follows:
 
