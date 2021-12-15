@@ -66,7 +66,7 @@ export function isRateLimited({ time, request, response, manager, auth = false }
   const id = (auth ? request.auth!.id : request.headers['x-api-key'] || request.socket.remoteAddress) as string;
   const bucket = manager.acquire(id);
 
-  response.setHeader('date', new Date().toUTCString());
+  response.setHeader('Date', new Date().toUTCString());
   response.setHeader('X-RateLimit-Limit', time);
   response.setHeader('X-RateLimit-Remaining', bucket.remaining.toString());
   response.setHeader('X-RateLimit-Reset', bucket.remainingTime.toString());
