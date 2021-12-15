@@ -67,6 +67,10 @@ export function isRateLimited({ time, request, response, manager, auth = false }
   const bucket = manager.acquire(id);
 
   response.setHeader('Date', new Date().toUTCString());
+  response.setHeader('X-RateLimit-Limit', time);
+  response.setHeader('X-RateLimit-Remaining', bucket.remaining.toString());
+  response.setHeader('X-RateLimit-Reset', bucket.remainingTime.toString());
+
   if (bucket.limited) {
     response.setHeader('Retry-After', bucket.remainingTime.toString());
     return true;
@@ -75,10 +79,6 @@ export function isRateLimited({ time, request, response, manager, auth = false }
   try {
     bucket.consume();
   } catch {}
-
-  response.setHeader('X-RateLimit-Limit', time);
-  response.setHeader('X-RateLimit-Remaining', bucket.remaining.toString());
-  response.setHeader('X-RateLimit-Reset', bucket.remainingTime.toString());
 
   return false;
 }
