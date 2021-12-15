@@ -49,6 +49,70 @@ import '@sapphire/plugin-i18next/register';
 </TabItem>
 </Tabs>
 
+## Get the language set per server
+
+Once you start to use i18next to offer your bot in different languages you are likely to also want each server to be
+able to configure their own language through some kind of configuration command while you store this data in a database.
+While this page will not cover those aspects, what we will cover here is how you can inform the i18next plugin about the
+language that should be used in the current context.
+
+In order to achieve this, you will need to provide the options to the plugin. This is done through the `i18next` option
+on the [`ClientOptions`][`saphclientoptions`], specifically the [`fetchLanguage`] property on that object. This method
+receives 1 parameter, which is an object that has `message`, `guild`, and `user`, we call it the
+[`InternationalizationContext`]. Using these properties you can make a call to your database, and return the proper
+language key. Alternatively if you want some kind of fallback to a default language you can also specify that here.
+
+```typescript ts2esm2cjs|{3}|{3}
+import { SapphireClient } from '@sapphire/framework';
+import { InternationalizationContext } from '@sapphire/plugin-i18next';
+
+const client = new SapphireClient({
+  intents: ['GUILDS', 'GUILD_MESSAGES'],
+  i18n: {
+    fetchLanguage: async (context: InternationalizationContext) => {
+      // Or whatever your default language is
+      if (!context.guild) return 'en-US';
+
+      // example of querying your database. The exact syntax will depend on your ORM
+      const guildSettings = await db.find({ guild_id: context.guildId });
+      return guildSettings.language;
+    }
+  }
+});
+
+client.login('your-token-goes-here');
+```
+
+:::note
+
+In this example we check if the command comes from a guild, if not, we return the default language of `en-US`. If the
+command does come from within a server we query the database and get the language configured for that guild. The
+language from the database will be used to get the proper language content for the language key.
+
+:::
+
+Something important to keep in mind is that you have to make sure that the language exists in your language directory,
+otherwise an error will be thrown saying that the language obtained from the server is not valid.
+
+The name of the languages configured in the i18n plugin will depend on the names of the language folders in your
+language directory, for example:
+
+```
+├── commands
+├── listeners
+└── languages
+    └── en-US
+        └── ping.json
+        └── misc.json
+    └── es-ES
+        └── ping.json
+        └── misc.json
+```
+
+In this case, we have the languages `en-US` and `es-ES`. Remember that the languages must be in the directory called
+`languages` in the root folder of your project. Inside the language's folder, we will put our files and namespaces to
+use in the translation of messages.
+
 The basic structure of a translation file is as follows:
 
 <!--- languages/en-US/commands/ping.json --->
@@ -161,3 +225,9 @@ export class PingCommand extends Command {
   }
 }
 ```
+
+[`saphclientoptions`]: ../../../Documentation/api-framework/interfaces/SapphireClientOptions
+[`fetchlanguage`]:
+  ../../../Documentation/api-plugins/classes/sapphire_plugin_i18next.InternationalizationHandler#fetchlanguage
+[`internationalizationcontext`]:
+  ../../../Documentation/api-plugins/interfaces/sapphire_plugin_i18next.InternationalizationContext
