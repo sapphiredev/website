@@ -15,6 +15,7 @@ If you don't know what a Regex is check the
 :::
 
 ## Usage
+
 To use these useful regexes you need to install @sapphire/discord-utilties first
 
 ```bash npm2yarn2pnpm
@@ -38,13 +39,15 @@ hold Shift and hover over a message, and click the "ID" button
 
 This regex captures every known discord hostname link
 
-`Raw`: `/(?<subdomain>\w+)\.?(?<hostname>dis(?:cord)?(?:app|merch|status)?)\.(?<tld>com|g(?:d|g|ift)|(?:de(?:sign|v))|media|new|store|net)/i`
+`Raw`:
+`/(?<subdomain>\w+)\.?(?<hostname>dis(?:cord)?(?:app|merch|status)?)\.(?<tld>com|g(?:d|g|ift)|(?:de(?:sign|v))|media|new|store|net)/i`
 
 ### Discord Invite Link Regex
 
 This regex captures discord invite links
 
 `Raw`: `/^(?:https?:\/\/)?(?:www\.)?(?:discord\.gg\/|discord(?:app)?\.com\/invite\/)?(?<code>[\w\d-]{2,})$/i`
+
 ### Emoji Regex
 
 This regex captures every animated and non-animated emoji's id
@@ -53,15 +56,15 @@ This regex captures every animated and non-animated emoji's id
 
 ### Formatted Custom Emoji Regex
 
-This regex matches any animated or non-animated custom Discord emoji. Unlike EmojiRegex It can be a substring of a
-larger string.
+This regex matches any animated or non-animated custom Discord emoji. Unlike [EmojiRegex](#emoji-regex) It can be a
+substring of a larger string.
 
 `Raw`: `/<a?:\w{2,32}:\d{17,18}>/`
 
 ## Formatted Custom Emoji With Groups
 
-Regex that can capture any animated or non-animated custom Discord emoji. Similar to FormattedCustomEmoji and unlike
-EmojiRegex can also be a substring of a larger string.
+Regex that can capture any animated or non-animated custom Discord emoji. Similar to
+[FormattedCustomEmoji](#formatted-custom-emoji-regex) and unlike EmojiRegex can also be a substring of a larger string.
 
 `Raw`: `/(?<animated>a?):(?<name>[^:]+):(?<id>\d{17,19})/`
 
@@ -75,21 +78,22 @@ This regex matches any url starting with `http` or `https`
 
 This regex can capture the Guild, Channel, and Message ID based on a shareable Discord message link.
 
-`Raw`: `/^(?:https:\/\/)?(?:ptb\.|canary\.)?discord(?:app)?\.com\/channels\/(?<guildId>(?:\d{17,19}|@me))\/(?<channelId>\d{17,19})\/(?<messageId>\d{17,19})$/`
+`Raw`:
+`/^(?:https:\/\/)?(?:ptb\.|canary\.)?discord(?:app)?\.com\/channels\/(?<guildId>(?:\d{17,19}|@me))\/(?<channelId>\d{17,19})\/(?<messageId>\d{17,19})$/`
 
 ### Parsed CustomEmoji Regex
 
-This regex matches any animated or non-animated custom Discord emoji \*without the wrapping `<...>` symbols. This means
+This regex matches any animated or non-animated custom Discord emoji without the wrapping `<...>` symbols. This means
 that a string that matches this regex can directly be send inside a Discord message. Other than this difference it is
-similar to FormattedCustomEmoji.
+similar to [FormattedCustomEmoji](#formatted-custom-emoji-regex).
 
 `Raw`: `/a?:\w{2,32}:\d{17,18}/`
 
 ### Parsed CustomEmojiWithGroups Regex
 
-Regex that matches any animated or non-animated custom Discord emoji \*without the wrapping `<...>` symbols. This means
+Regex that matches any animated or non-animated custom Discord emoji without the wrapping `<...>` symbols. This means
 that a string that matches this regex can directly be send inside a Discord message. Other than this difference it is
-similar to FormattedCustomEmojiWithGroups.
+similar to [FormattedCustomEmojiWithGroups](#formatted-custom-emoji-with-groups).
 
 `Raw`: `/(?<animated>a?):(?<name>[^:]+):(?<id>\d{17,19})/`
 
