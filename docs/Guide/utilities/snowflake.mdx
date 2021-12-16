@@ -41,13 +41,7 @@ import { Snowflake } from '@sapphire/snowflake';
 // Import the Snowflake class
 import { DiscordSnowflake } from '@sapphire/snowflake';
 
-// Create an instance of Snowflake
-const discordSnowflake = new DiscordSnowflake();
-
 // Generate a snowflake with Discord's epoch
-const uniqueId = discordSnowflake.generate();
-
-// Alternatively, you can use the method directly
 const uniqueId = DiscordSnowflake.generate();
 ```
 
@@ -60,13 +54,7 @@ const uniqueId = DiscordSnowflake.generate();
 // Import the Snowflake class
 import { TwitterSnowflake } from '@sapphire/snowflake';
 
-// Create an instance of Snowflake
-const twitterSnowflake = new TwitterSnowflake();
-
-// Generate a snowflake with Discord's epoch
-const uniqueId = twitterSnowflake.generate();
-
-// Alternatively, you can use the method directly
+// Generate a snowflake with Twitter's epoch
 const uniqueId = TwitterSnowflake.generate();
 ```
 
