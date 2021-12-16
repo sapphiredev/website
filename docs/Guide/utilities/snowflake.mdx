@@ -25,11 +25,14 @@ npm install @sapphire/snowflake
 // Import the Snowflake class
 import { Snowflake } from '@sapphire/snowflake';
 
-// Define a custom epoch const epoch = new Date('2000-01-01T00:00:00.000Z');
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
 
-// Create an instance of Snowflake const snowflake = new Snowflake(epoch);
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
 
-// Generate a snowflake with the given epoch const uniqueId = snowflake.generate();
+// Generate a snowflake with the given epoch
+const uniqueId = snowflake.generate();
 ```
 
 </details>
