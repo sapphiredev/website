@@ -8,9 +8,6 @@ title: Using Fetch
 Sapphire's fetch package, @sapphire/fetch is a small wrapper around [cross-fetch](https://npmjs.com/package/cross-fetch)
 so it will work in both the web browser and the native node.js environment.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Installation
 
 ```bash npm2yarn2pnpm
@@ -21,40 +18,8 @@ npm install @sapphire/fetch
 
 <details id="getting-json-data">
 <summary>GETting JSON data</summary>
-<Tabs groupId="language-choice">
-<TabItem label="JavaScript" value="javascript" default>
 
-```javascript
-// Import the fetch function
-const { fetch, FetchResultTypes } = require('@sapphire/fetch');
-
-// Fetch the data. No need to call `.json()` after making the request!
-const data = await fetch('https://jsonplaceholder.typicode.com/todos/1', FetchResultTypes.JSON);
-
-// Do something with the data
-console.log(data.userId);
-```
-
-</TabItem>
-
-<TabItem label="ESM" value="esm">
-
-```javascript
-// Import the fetch function
-import { fetch, FetchResultTypes } from '@sapphire/fetch';
-
-// Fetch the data. No need to call `.json()` after making the request!
-const data = await fetch('https://jsonplaceholder.typicode.com/todos/1', FetchResultTypes.JSON);
-
-// Do something with the data
-console.log(data.userId);
-```
-
-</TabItem>
-
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
+```typescript ts2esm2cjs
 // Import the fetch function
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 
@@ -74,30 +39,11 @@ const data = await fetch<JsonPlaceholderResponse>(
 // Do something with the data
 console.log(data.userId);
 ```
-
-</TabItem>
-</Tabs>
 </details>
 <details id="getting-image-data">
 <summary>GETting Buffer data</summary>
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
 
-```javascript
-// Import the fetch function
-const { fetch, FetchResultTypes } = require('@sapphire/fetch');
-
-// Fetch the data. No need to call `.buffer()` after making the request!
-const sapphireLogo = await fetch('https://github.com/sapphiredev.png', FetchResultTypes.Buffer);
-
-// sapphireLogo is the `Buffer` of the image
-console.log(sapphireLogo);
-```
-
-</TabItem>
-<TabItem value="esm" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs
 // Import the fetch function
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 
@@ -107,79 +53,12 @@ const sapphireLogo = await fetch('https://github.com/sapphiredev.png', FetchResu
 // sapphireLogo is the `Buffer` of the image
 console.log(sapphireLogo);
 ```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-// Import the fetch function
-import { fetch, FetchResultTypes } from '@sapphire/fetch';
-
-// Fetch the data. No need to call `.buffer()` after making the request!
-const sapphireLogo = await fetch('https://github.com/sapphiredev.png', FetchResultTypes.Buffer);
-
-// sapphireLogo is the `Buffer` of the image
-console.log(sapphireLogo);
-```
-
-</TabItem>
-</Tabs>
 </details>
 
 <details id="posting-json-data">
 <summary>POSTing JSON data</summary>
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
 
-```javascript
-// Import the fetch function
-const { fetch, FetchResultTypes, FetchMethods } = require('@sapphire/fetch');
-
-// Fetch the data. No need to call `.json()` after making the request!
-const responseData = await fetch(
-  'https://jsonplaceholder.typicode.com/todos',
-  {
-    method: FetchMethods.Post,
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: 'John Doe'
-    })
-  },
-  FetchResultTypes.JSON
-);
-
-// Do something with the response data
-console.log(responseData);
-```
-
-</TabItem>
-<TabItem value="esm" label="ESM">
-
-```javascript
-// Import the fetch function
-import { fetch, FetchResultTypes, FetchMethods } from '@sapphire/fetch';
-
-// Fetch the data. No need to call `.json()` after making the request!
-const responseData = await fetch(
-  'https://jsonplaceholder.typicode.com/todos',
-  {
-    method: FetchMethods.Post,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name: 'John Doe' })
-  },
-  FetchResultTypes.JSON
-);
-
-// Do something with the response data
-console.log(responseData);
-```
-
-</TabItem>
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
+```typescript ts2esm2cjs
 // Import the fetch function
 import { fetch, FetchResultTypes, FetchMethods } from '@sapphire/fetch';
 
@@ -201,7 +80,4 @@ const responseData = await fetch(
 // Do something with the response data
 console.log(responseData);
 ```
-
-</TabItem>
-</Tabs>
 </details>

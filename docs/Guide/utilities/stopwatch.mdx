@@ -18,26 +18,7 @@ npm install @sapphire/stopwatch
 
 ## Usage
 
-<Tabs groupId="language-choice">
-<TabItem value="javascript" label="JavaScript" default>
-
-```javascript
-// Import the Stopwatch class
-const { Stopwatch } = require('@sapphire/stopwatch');
-
-// Create a new Stopwatch (which also starts it immediately)
-const stopwatch = new Stopwatch();
-
-// run other task here
-
-console.log(stopwatch.stop().toString());
-// 200ms
-```
-
-</TabItem>
-<TabItem value="esm" label="ESM">
-
-```javascript
+```typescript ts2esm2cjs
 // Import the Stopwatch class
 import { Stopwatch } from '@sapphire/stopwatch';
 
@@ -49,23 +30,3 @@ const stopwatch = new Stopwatch();
 console.log(stopwatch.stop().toString());
 // 200ms
 ```
-
-</TabItem>
-
-<TabItem value="typescript" label="TypeScript">
-
-```typescript
-// Import the Stopwatch class
-import { Stopwatch } from '@sapphire/stopwatch';
-
-// Create a new Stopwatch (which also starts it immediately)
-const stopwatch = new Stopwatch();
-
-// run other task here
-
-console.log(stopwatch.stop().toString());
-// 200ms
-```
-
-</TabItem>
-</Tabs>
