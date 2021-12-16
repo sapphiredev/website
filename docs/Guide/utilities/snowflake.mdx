@@ -64,7 +64,7 @@ const uniqueId = TwitterSnowflake.generate();
 </details>
 
 <details id="deconstructing">
-<summary>Deconstructing Snowflakes</summary>
+<summary>Deconstructing Snowflake</summary>
 
 ```typescript ts2esm2cjs
 // Import the Snowflake class
@@ -81,9 +81,24 @@ const uniqueId = snowflake.deconstruct('3971046231244935168');
 ```
 
 </details>
+<details>
+<summary>Deconstructing Discord Snowflake</summary>
 
-:::info
+```typescript ts2esm2cjs
+import { DiscordSnowflake } from '@sapphire/snowflake';
 
-Deconstructing snowflakes is the same for every snowflake
+// Generate a snowflake with Discord's epoch
+const uniqueId = DiscordSnowflake.deconstruct('3971046231244935168');
+```
+</details>
 
-:::
+<details>
+<summary>Deconstructing Twitter Snowflake</summary>
+
+```typescript ts2esm2cjs
+import { TwitterSnowflake } from '@sapphire/snowflake';
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = TwitterSnowflake.deconstruct('3971046231244935168');
+```
+</details>
