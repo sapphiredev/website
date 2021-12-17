@@ -65,6 +65,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Lioness100"><img src="https://avatars.githubusercontent.com/u/65814829?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lioness100</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=Lioness100" title="Documentation">📖</a></td>
     <td align="center"><a href="https://sly-little-fox.ru"><img src="https://avatars.githubusercontent.com/u/69681150?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sly-Little-Fox</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=Sly-Little-Fox" title="Documentation">📖</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://fc5570.me/"><img src="https://avatars.githubusercontent.com/u/68158483?v=4?s=100" width="100px;" alt=""/><br /><sub><b>FC</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=FC5570" title="Documentation">📖</a> <a href="https://github.com/sapphiredev/website/issues?q=author%3AFC5570" title="Bug reports">🐛</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
