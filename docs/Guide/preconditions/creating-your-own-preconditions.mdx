@@ -40,7 +40,8 @@ Next, we can create a [`run`][preconditionrun] function to execute our logic. Th
 the command should be denied.
 
 ```typescript ts2esm2cjs|{4-8}|{4-8}
-import { Precondition, Message } from '@sapphire/framework';
+import { Precondition } from '@sapphire/framework';
+import type { Message } from 'discord.js';
 
 export class OwnerOnlyPrecondition extends Precondition {
   public run(message: Message) {
