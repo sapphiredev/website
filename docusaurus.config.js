@@ -105,6 +105,7 @@ const config = {
 				tsconfig: './projects/plugins/tsconfig.base.json',
 				readme: 'none',
 				out: 'Documentation/api-plugins',
+				excludeExternals: true,
 				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
 				sidebar: {
 					categoryLabel: 'Sapphire Plugins',
