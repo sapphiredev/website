@@ -180,7 +180,7 @@ export class PingCommand extends Command {
   }
 
   public async messageRun(message: Message) {
-    await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping });
+    await editLocalized(message, { keys: 'commands/ping:success_with_args', formatOptions: { latency: ws.ping } });
   }
 }
 ```
@@ -200,7 +200,7 @@ export class PingCommand extends Command {
   }
 
   public async messageRun(message: Message) {
-    await replyLocalized(message, 'commands/ping:success_args', { latency: ws.ping });
+    await replyLocalized(message, { keys: 'commands/ping:success_with_args', formatOptions: { latency: ws.ping } });
   }
 }
 ```
