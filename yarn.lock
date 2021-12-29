@@ -1847,16 +1847,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/builders@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "@discordjs/builders@npm:0.10.0"
+"@discordjs/builders@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@discordjs/builders@npm:0.11.0"
   dependencies:
     "@sindresorhus/is": ^4.2.0
-    discord-api-types: ^0.25.2
+    discord-api-types: ^0.26.0
     ts-mixer: ^6.0.0
     tslib: ^2.3.1
     zod: ^3.11.6
-  checksum: 8195f519f28587dee05d9b975c19357c40623d17dc4ced01db11d24faab16969743c40d7cfb959ccb78ffb525c6d03f4f9c821dd712fef57bdd609b53add8727
+  checksum: 7a25b59bb52d2e3695bca27946a99cf2de95b7edd5be424ea9f4707a465524be21263e25e532e12438e99f9f55fb98b033885c760aeb96424b8c12f663f50760
   languageName: node
   linkType: hard
 
@@ -4280,6 +4280,14 @@ __metadata:
   dependencies:
     "@sapphire/time-utilities": ^1.5.0
     colorette: ^2.0.16
+    tslib: ^2.3.1
+  languageName: unknown
+  linkType: soft
+
+"@sapphire/plugin-pattern-commands@workspace:projects/plugins/packages/pattern-commands":
+  version: 0.0.0-use.local
+  resolution: "@sapphire/plugin-pattern-commands@workspace:projects/plugins/packages/pattern-commands"
+  dependencies:
     tslib: ^2.3.1
   languageName: unknown
   linkType: soft
@@ -8555,13 +8563,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.25.2":
-  version: 0.25.2
-  resolution: "discord-api-types@npm:0.25.2"
-  checksum: bb80a9db706d8ae391ab5eae4536827832ffe744b69659029597aaf90d9b9ece6e9642bd44eb3f38b32a3783ad1eebce378403fc785ca5405f8b71d8d32678a5
-  languageName: node
-  linkType: hard
-
 "discord-api-types@npm:^0.26.0":
   version: 0.26.0
   resolution: "discord-api-types@npm:0.26.0"
@@ -8570,19 +8571,19 @@ __metadata:
   linkType: hard
 
 "discord.js@npm:^13.4.0":
-  version: 13.4.0
-  resolution: "discord.js@npm:13.4.0"
+  version: 13.5.0
+  resolution: "discord.js@npm:13.5.0"
   dependencies:
-    "@discordjs/builders": ^0.10.0
+    "@discordjs/builders": ^0.11.0
     "@discordjs/collection": ^0.4.0
     "@sapphire/async-queue": ^1.1.9
     "@types/node-fetch": ^2.5.12
     "@types/ws": ^8.2.2
-    discord-api-types: ^0.25.2
+    discord-api-types: ^0.26.0
     form-data: ^4.0.0
     node-fetch: ^2.6.1
     ws: ^8.4.0
-  checksum: 7063fd11cf2da009bb7430c5978c04a4685a4a1adf3098a396597afaf55b8cf36a9c15c303063f95cbf3a8fc13ad2362520b2e2cfcf1f0bd482ebbf20219c8d5
+  checksum: 2c4e38b94ef2f19b8d63829cae753fac27e4aba06599871977499f04bb7384f03dbd158562967c624918a183396b592ef9d6c63c3c5e65e76eb4c62f398daaf0
   languageName: node
   linkType: hard
 
