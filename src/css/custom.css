@@ -33,6 +33,13 @@ html[data-theme='dark'] {
 	--ifm-footer-title-color: var(--ifm-font-color-base);
 }
 
+.markdown > h3 {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5em;
+}
+
 @media screen and (min-width: 966px) {
 	footer > .container {
 		display: grid;

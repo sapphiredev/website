@@ -9,13 +9,15 @@ const BaseUrl = 'https://sapphirejs.dev';
 const Email = 'contact@sapphirejs.dev';
 const Title = 'Sapphire Framework';
 
-/** @type {import('@docusaurus/types').Config} */
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
 	title: 'Sapphire',
 	url: BaseUrl,
 	baseUrl: '/',
-	onBrokenLinks: 'warn',
-	onBrokenMarkdownLinks: 'warn',
+	// TODO: Re-enable after adding all JSON files. See temporary-errors-log-of-broken-links.md
+	onBrokenLinks: 'ignore',
+	// TODO: Re-enable after adding all JSON files. See temporary-errors-log-of-broken-links.md
+	onBrokenMarkdownLinks: 'ignore',
 	onDuplicateRoutes: 'warn',
 	favicon: 'favicon.ico',
 	tagline: Description,
@@ -46,110 +48,6 @@ const config = {
 						content: '#23529B'
 					}
 				]
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'framework',
-				entryPoints: ['./projects/framework/src/index.ts'],
-				tsconfig: './projects/framework/src/tsconfig.json',
-				readme: 'none',
-				out: 'Documentation/api-framework',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/framework',
-					position: 0,
-					fullNames: true
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Pieces',
-				entryPoints: ['./projects/pieces/src/index.ts'],
-				tsconfig: './projects/pieces/src/tsconfig.json',
-				readme: 'none',
-				out: 'Documentation/api-pieces',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/pieces',
-					position: 1,
-					fullNames: true
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Utilities',
-				entryPointStrategy: 'packages',
-				entryPoints: ['./projects/utilities/packages/*'],
-				exclude: [
-					'./projects/utilities/packages/eslint-config',
-					'./projects/utilities/packages/eslint-plugin-result',
-					'./projects/utilities/packages/prettier-config',
-					'./projects/utilities/packages/ts-config'
-				],
-				tsconfig: './tsconfig.typedoc.json',
-				readme: 'none',
-				out: 'Documentation/api-utilities',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: 'Sapphire Utilities',
-					position: 2
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Plugins',
-				entryPointStrategy: 'packages',
-				entryPoints: ['./projects/plugins/packages/*'],
-				tsconfig: './tsconfig.typedoc.json',
-				readme: 'none',
-				out: 'Documentation/api-plugins',
-				excludeExternals: true,
-				externalPattern: ['node_modules/@types/**'],
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: 'Sapphire Plugins',
-					position: 3
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Type',
-				entryPoints: ['./projects/type/src/index.ts'],
-				tsconfig: './projects/type/src/tsconfig.json',
-				readme: './projects/type/README.md',
-				out: 'Documentation/api-type',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/type',
-					position: 4,
-					fullNames: true
-				}
-			}
-		],
-		[
-			'docusaurus-plugin-typedoc',
-			{
-				id: 'Shapeshift',
-				entryPoints: ['./projects/shapeshift/src/index.ts'],
-				tsconfig: './projects/shapeshift/src/tsconfig.json',
-				readme: './projects/shapeshift/README.md',
-				out: 'Documentation/api-shapeshift',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/shapeshift',
-					position: 5,
-					fullNames: true
-				}
 			}
 		]
 	],

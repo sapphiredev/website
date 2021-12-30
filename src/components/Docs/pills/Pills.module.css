@@ -1,0 +1,30 @@
+.wrapper {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.pill {
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	padding-top: 0.125rem;
+	padding-bottom: 0.125rem;
+	border-radius: 0.375rem;
+
+	background-color: var(--ifm-color-primary);
+	color: white;
+}
+
+html[data-theme='dark'] .pill {
+	color: black;
+}
+
+.deprecatedPill {
+	background-color: var(--ifm-color-danger);
+	color: white;
+}
+
+html[data-theme='dark'] .deprecatedPill {
+	color: white;
+}

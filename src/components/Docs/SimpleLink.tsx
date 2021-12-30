@@ -1,5 +1,5 @@
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import styles from '@site/src/components/Docs/Link.module.css';
+import styles from '@site/src/components/Docs/styles/Link.module.css';
 import clsx from 'clsx';
 import React, { type FC } from 'react';
 

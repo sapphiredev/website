@@ -1,0 +1,16 @@
+name: Automatic Vercel Deploys
+
+on:
+  # TODO: Enable pre-merge
+  # schedule:
+  #   - cron: '30 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  AutomaticVercelDeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy
+        run: curl -X POST ${VERCEL_DEPLOY_HOOK_URL}
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
