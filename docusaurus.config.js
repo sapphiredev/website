@@ -296,8 +296,8 @@ const config = {
 				additionalLanguages: ['powershell', 'batch']
 			},
 			algolia: {
-				appId: 'BH4D9OD16A',
-				apiKey: 'c7dfe8077524076b06d887dda8410506',
+				appId: 'WWVT30WAIZ',
+				apiKey: 'c1639f17b4ed5183d032d2e7f22ec62f',
 				indexName: 'sapphirejs',
 				contextualSearch: false
 			}
