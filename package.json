@@ -9,9 +9,9 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"docusaurus": "cross-env NODE_OPTIONS=\"--max-old-space-size=5120\" docusaurus",
-		"start": "cross-env NODE_OPTIONS=\"--max-old-space-size=5120\" docusaurus start",
-		"build": "cross-env NODE_OPTIONS=\"--max-old-space-size=5120\" docusaurus build",
+		"docusaurus": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" docusaurus",
+		"start": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" docusaurus start",
+		"build": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" docusaurus build",
 		"swizzle": "docusaurus swizzle",
 		"deploy": "docusaurus deploy",
 		"clear": "docusaurus clear",
