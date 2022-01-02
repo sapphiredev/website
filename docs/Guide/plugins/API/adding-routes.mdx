@@ -6,7 +6,7 @@ sidebar_position: 1
 First we create a new folder called `routes` in the `src` directory. And make a new file `hello-world`
 
 ```typescript ts2esm2cjs
-import { methods, Route } from '@sapphire/plugin-api';
+import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
 
 export class UserRoute extends Route {
   public constructor(context: Route.Context, options: Route.Options) {
