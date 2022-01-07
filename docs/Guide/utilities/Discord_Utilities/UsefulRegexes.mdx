@@ -132,3 +132,31 @@ This regex matches any url starting with wss/ws
 This regex captures a Discord Webhook ID and token from a webhook url
 
 `Raw`: `/(?<url>^https:\/\/(?:(?:canary|ptb).)?discordapp.com\/api\/webhooks\/(?<id>\d+)\/(?<token>[\w-]+)\/?$)/`
+
+## Explaination
+This section of this page explains the parts of the commonly used regexes
+^  Matches the beginning of the string, or the beginning of a line if the multiline flag (/m) is used
+$  Matches the end of the string, or the end of a line if the multiline flag (/m) is used
+\b  Matches the empty string, or a word boundary
+\B  Matches the empty string, or a non-word boundary
+\d  Matches any decimal digit
+\D  Matches any non-digit
+\f  Matches a form feed
+\n  Matches a newline
+\r  Matches a carriage return
+\s  Matches any whitespace character
+\S  Matches any non-whitespace character
+\t  Matches a tab
+\v  Matches a vertical tab
+.  Matches any character except newline
+\  Matches a backslash
+[]  Matches any character in the brackets
+[^]  Matches any character not in the brackets
+\w  Matches any word character
+\W  Matches any non-word character
+?  Matches zero or one occurrences of the preceding expression
+*  Matches zero or more occurrences of the preceding expression
++  Matches one or more occurrences of the preceding expression
+{n}  Matches exactly n occurrences of the preceding expression
+{n,}  Matches n or more occurrences of the preceding expression
+{n,m}  Matches at least n and at most m occurrences of the preceding expression
