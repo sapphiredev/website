@@ -17,9 +17,27 @@ import SimpleLink from '@site/src/components/Docs/SimpleLink';
 
 </div>
 
+:::danger
+
+The [`@sapphire/framework` API documentation][frameworksdocs] section of this website is currently based on the `main`
+branch of [`@sapphire/framework`][saphfw]. This means it will mention any breaking changes that are not yet released to
+NPM, including but not limited to support for Application Commands. In the grand scheme of things, this means that the
+API documentation may show properties, functions and classes that will not be available until the next major release of
+[`@sapphire/framework`][saphfw]. That said, if you wish to use the latest version of [`@sapphire/framework`][saphfw] in
+your project, you can install it by using the `@next` tag from NPM.
+
+```bash npm2yarn2pnpm
+npm install @sapphire/framework@next
+```
+
+We are working on fixing this by providing multiple versions of the documentation, similar to what you may be used to
+from the [Discord.js][djs] website, however this fix will take some time to be released.
+
+:::
+
 ## About
 
-Sapphire is a next-gen object-oriented [Discord.js](https://discord.js.org/) bot framework.
+Sapphire is a next-gen object-oriented [Discord.js][djs] bot framework.
 
 Sapphire is a community driven framework that aims to give you all the features you need to make your Discord bot.
 
@@ -242,3 +260,7 @@ PR.
 If you don't understand something in the documentation, you are experiencing problems, or you just need a gentle nudge
 in the right direction, please don't hesitate to join our official
 [Sapphire Community Server](https://sapphirejs.dev/discord).
+
+[frameworksdocs]: ../Documentation/api-framework/
+[djs]: https://discord.js.org/
+[saphfw]: https://github.com/sapphiredev/framework
