@@ -1,0 +1,75 @@
+---
+sidebar_position: 1
+title: Using Ratelimits
+---
+
+## Introduction
+
+There is often a need to apply ratelimits to protect a network from excessive traffic levels on connections routed
+through it, or limit bot command usages in your Discord bot, or similar things. This package offers two different
+techniques in the same implementation: the [Token Bucket](https://en.wikipedia.org/wiki/Token_bucket), and the
+[Leaky Bucket](https://en.wikipedia.org/wiki/Leaky_bucket).
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/ratelimits
+```
+
+## Usage
+
+<details id="token-bucket">
+<summary>
+	Token Bucket
+</summary>
+
+```typescript ts2esm2cjs
+// Import the Bucket class
+import { RateLimitManager } from '@sapphire/ratelimits';
+
+// Define a bucket with 1 usage every 5 seconds
+const rateLimitManager = new RateLimitManager(5000);
+
+// Acquire the rate limit. The ID can be something like `'global'`, a Discord channel/server/user ID, or anything else.
+const ratelimit = rateLimitManager.acquire('some-unique-id-here');
+
+// Check if there is a rate limit right now
+if (ratelimit.limited) {
+  // Do something when limited, such as throwing an error
+}
+
+// We're not rate limited so we drip the bucket. After consuming once, the second run through we'll be rate limited.
+ratelimit.consume();
+
+// And now we can finish the flow by returning some form of "success" state.
+```
+
+</details>
+
+<details id="leaky-bucket">
+<summary>
+	Leaky Bucket
+</summary>
+
+```typescript ts2esm2cjs
+// Import the Bucket class
+import { RateLimitManager } from '@sapphire/ratelimits';
+
+// Define a bucket with 2 usages every 5 seconds
+const rateLimitManager = new RateLimitManager(5000, 2);
+
+// Acquire the rate limit. The ID can be something like `'global'`, a Discord channel/server/user ID, or anything else.
+const ratelimit = rateLimitManager.acquire('some-unique-id-here');
+
+// Check if there is a rate limit right now
+if (ratelimit.limited) {
+  // Do something when limited, such as throwing an error
+}
+
+// We're not rate limited so we drip the bucket. After consuming twice, the third run through we'll be rate limited.
+ratelimit.consume();
+
+// And now we can finish the flow by returning some form of "success" state.
+```
+
+</details>

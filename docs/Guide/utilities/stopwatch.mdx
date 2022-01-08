@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+title: Using StopWatch
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Introduction
+
+Provides a set of methods and properties that you can use to accurately measure elapsed time inside your code.
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/stopwatch
+```
+
+## Usage
+
+```typescript ts2esm2cjs
+// Import the Stopwatch class
+import { Stopwatch } from '@sapphire/stopwatch';
+
+// Create a new Stopwatch (which also starts it immediately)
+const stopwatch = new Stopwatch();
+
+// run other task here
+
+console.log(stopwatch.stop().toString());
+// 200ms
+```

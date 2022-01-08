@@ -1,0 +1,106 @@
+---
+sidebar_position: 3
+title: Snowflake
+---
+
+## Introduction
+
+There is often a need to get a unique ID for entities, be that for Discord messages/channels/servers, keys in a database
+or many other similar examples. There are many ways to get such a unique ID, and one of those is using a so-called
+"snowflake". You can read more about snowflake IDs in
+[this Medium article](https://medium.com/better-programming/uuid-generation-snowflake-identifiers-unique-2aed8b1771bc).
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/snowflake
+```
+
+## Usage
+
+<details id="constructing">
+<summary>Constructing a Snowflake</summary>
+
+```typescript ts2esm2cjs
+// Import the Snowflake class
+import { Snowflake } from '@sapphire/snowflake';
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Generate a snowflake with the given epoch
+const uniqueId = snowflake.generate();
+```
+
+</details>
+
+<details id="constructing-discord">
+<summary>Constructing a Discord Snowflake</summary>
+
+```typescript ts2esm2cjs
+// Import the Snowflake class
+import { DiscordSnowflake } from '@sapphire/snowflake';
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = DiscordSnowflake.generate();
+```
+
+</details>
+
+<details id="constructing-twitter">
+<summary>Constructing a Twitter Snowflake</summary>
+
+```typescript ts2esm2cjs
+// Import the Snowflake class
+import { TwitterSnowflake } from '@sapphire/snowflake';
+
+// Generate a snowflake with Twitter's epoch
+const uniqueId = TwitterSnowflake.generate();
+```
+
+</details>
+
+<details id="deconstructing">
+<summary>Deconstructing Snowflake</summary>
+
+```typescript ts2esm2cjs
+// Import the Snowflake class
+import { Snowflake } from '@sapphire/snowflake';
+
+// Define a custom epoch
+const epoch = new Date('2000-01-01T00:00:00.000Z');
+
+// Create an instance of Snowflake
+const snowflake = new Snowflake(epoch);
+
+// Deconstruct a snowflake with the given epoch
+const uniqueId = snowflake.deconstruct('3971046231244935168');
+```
+
+</details>
+<details>
+<summary>Deconstructing Discord Snowflake</summary>
+
+```typescript ts2esm2cjs
+import { DiscordSnowflake } from '@sapphire/snowflake';
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = DiscordSnowflake.deconstruct('3971046231244935168');
+```
+
+</details>
+
+<details>
+<summary>Deconstructing Twitter Snowflake</summary>
+
+```typescript ts2esm2cjs
+import { TwitterSnowflake } from '@sapphire/snowflake';
+
+// Generate a snowflake with Discord's epoch
+const uniqueId = TwitterSnowflake.deconstruct('3971046231244935168');
+```
+
+</details>

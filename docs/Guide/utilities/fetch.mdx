@@ -1,0 +1,86 @@
+---
+sidebar_position: 0
+title: Using Fetch
+---
+
+## Introduction
+
+Sapphire's fetch package, @sapphire/fetch is a small wrapper around [cross-fetch](https://npmjs.com/package/cross-fetch)
+so it will work in both the web browser and the native node.js environment.
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/fetch
+```
+
+## Usage
+
+<details id="getting-json-data">
+<summary>GETting JSON data</summary>
+
+```typescript ts2esm2cjs
+// Import the fetch function
+import { fetch, FetchResultTypes } from '@sapphire/fetch';
+
+interface JsonPlaceholderResponse {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+// Fetch the data. No need to call `.json()` after making the request!
+const data = await fetch<JsonPlaceholderResponse>(
+  'https://jsonplaceholder.typicode.com/todos/1',
+  FetchResultTypes.JSON
+);
+
+// Do something with the data
+console.log(data.userId);
+```
+
+</details>
+<details id="getting-image-data">
+<summary>GETting Buffer data</summary>
+
+```typescript ts2esm2cjs
+// Import the fetch function
+import { fetch, FetchResultTypes } from '@sapphire/fetch';
+
+// Fetch the data. No need to call `.buffer()` after making the request!
+const sapphireLogo = await fetch('https://github.com/sapphiredev.png', FetchResultTypes.Buffer);
+
+// sapphireLogo is the `Buffer` of the image
+console.log(sapphireLogo);
+```
+
+</details>
+
+<details id="posting-json-data">
+<summary>POSTing JSON data</summary>
+
+```typescript ts2esm2cjs
+// Import the fetch function
+import { fetch, FetchResultTypes, FetchMethods } from '@sapphire/fetch';
+
+// Fetch the data. No need to call `.json()` after making the request!
+const responseData = await fetch(
+  'https://jsonplaceholder.typicode.com/todos',
+  {
+    method: FetchMethods.Post,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: 'John Doe'
+    })
+  },
+  FetchResultTypes.JSON
+);
+
+// Do something with the response data
+console.log(responseData);
+```
+
+</details>
