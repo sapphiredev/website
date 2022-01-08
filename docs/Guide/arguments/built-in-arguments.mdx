@@ -49,6 +49,8 @@ To facilitate creating commands and getting your bot running, Sapphire bundles a
 - `role`: Resolves to a [`Role`][role] instance, given a role name, mention or ID.
 - `string`: Resolves to a string containing the parameter.
 - `user`: Resolves to a [`User`][user] instance, given a user mention or ID.
+- `enum`: Resolves to a string if it occurs within the [`array`][array] of possible items that is passed as an option
+  (`enum`).
 
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [categorychannel]: https://discord.js.org/#/docs/main/stable/class/CategoryChannel
@@ -68,3 +70,4 @@ To facilitate creating commands and getting your bot running, Sapphire bundles a
 [voicechannel]: https://discord.js.org/#/docs/main/stable/class/VoiceChannel
 [mdn-date]:
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#several_ways_to_create_a_date_object
+[array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
