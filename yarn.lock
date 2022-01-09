@@ -2455,7 +2455,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/rollup-type-bundler@npm:^1.0.6":
+"@favware/rollup-type-bundler@npm:^1.0.6, @favware/rollup-type-bundler@npm:^1.0.7":
   version: 1.0.7
   resolution: "@favware/rollup-type-bundler@npm:1.0.7"
   dependencies:
@@ -3921,7 +3921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^13.1.2":
+"@rollup/plugin-node-resolve@npm:^13.1.3":
   version: 13.1.3
   resolution: "@rollup/plugin-node-resolve@npm:13.1.3"
   dependencies:
@@ -4101,8 +4101,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/eslint-config@workspace:projects/utilities/packages/eslint-config"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.8.1
-    "@typescript-eslint/parser": ^5.8.1
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
     eslint: ^8.6.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
@@ -4136,9 +4136,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/framework@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "@sapphire/framework@npm:2.2.2"
+"@sapphire/framework@npm:^2.2.2, @sapphire/framework@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "@sapphire/framework@npm:2.3.0"
   dependencies:
     "@sapphire/discord-utilities": ^2.4.0
     "@sapphire/discord.js-utilities": ^4.1.5
@@ -4147,7 +4147,7 @@ __metadata:
     "@sapphire/utilities": ^3.1.0
     lexure: ^0.17.0
     tslib: ^2.3.1
-  checksum: 12219d29c3f401b09ea77149e5837e6db004b8f2a0fc3b77573295ba5e1c4b54927c01479bd827fd1a7db2a3e3d9e9f7ea31a9f92d85729bf8e22c941e5d8a7c
+  checksum: 675c8322d4351b2e7349f2dc6df18df9fcf93d1279acad9ff2ad7b4244f01733022f6c8fc807744f8c9471bd3bd6dd36a090ce9f681a1589eace5c1d56f7d00f
   languageName: node
   linkType: hard
 
@@ -4158,7 +4158,7 @@ __metadata:
     "@commitlint/cli": ^16.0.1
     "@commitlint/config-conventional": ^16.0.0
     "@favware/npm-deprecate": ^1.0.4
-    "@favware/rollup-type-bundler": ^1.0.6
+    "@favware/rollup-type-bundler": ^1.0.7
     "@sapphire/discord-utilities": ^2.4.0
     "@sapphire/discord.js-utilities": ^4.1.5
     "@sapphire/eslint-config": ^4.0.8
@@ -4168,24 +4168,24 @@ __metadata:
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/utilities": ^3.1.0
     "@types/jest": ^27.4.0
-    "@types/node": ^17.0.4
+    "@types/node": ^17.0.8
     "@types/ws": ^8.2.2
-    "@typescript-eslint/eslint-plugin": ^5.8.1
-    "@typescript-eslint/parser": ^5.8.1
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
     cz-conventional-changelog: ^3.3.0
-    discord.js: ^13.5.0
+    discord.js: ^13.5.1
     eslint: ^8.6.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.4.5
-    jest-circus: ^27.4.5
+    jest: ^27.4.7
+    jest-circus: ^27.4.6
     lexure: ^0.17.0
-    lint-staged: ^12.1.4
+    lint-staged: ^12.1.7
     prettier: ^2.5.1
     pretty-quick: ^3.1.3
-    rollup: ^2.62.0
+    rollup: ^2.63.0
     rollup-plugin-version-injector: ^1.3.3
     standard-version: ^9.3.2
     ts-jest: ^27.1.2
@@ -4279,7 +4279,7 @@ __metadata:
   dependencies:
     "@sapphire/utilities": ^3.1.0
     "@types/i18next-fs-backend": ^1.1.2
-    i18next: ^21.6.4
+    i18next: ^21.6.5
     i18next-fs-backend: ^1.1.4
     tslib: ^2.3.1
   languageName: unknown
@@ -4421,17 +4421,17 @@ __metadata:
     "@sapphire/ts-config": ^3.1.6
     "@types/jest": ^27.4.0
     "@types/node": ^17.0.0
-    "@typescript-eslint/eslint-plugin": ^5.8.1
-    "@typescript-eslint/parser": ^5.8.1
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
     cz-conventional-changelog: ^3.3.0
     eslint: ^8.6.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.4.5
-    jest-circus: ^27.4.5
-    lint-staged: ^12.1.4
+    jest: ^27.4.7
+    jest-circus: ^27.4.6
+    lint-staged: ^12.1.7
     nan: ^2.15.0
     npm-run-all: ^4.1.5
     prettier: ^2.5.1
@@ -5083,7 +5083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.0, @types/node@npm:^17.0.4, @types/node@npm:^17.0.5":
+"@types/node@npm:*, @types/node@npm:^17.0.0, @types/node@npm:^17.0.4, @types/node@npm:^17.0.5, @types/node@npm:^17.0.8":
   version: 17.0.8
   resolution: "@types/node@npm:17.0.8"
   checksum: f4cadeb9e602027520abc88c77142697e33cf6ac98bb02f8b595a398603cbd33df1f94d01c055c9f13cde0c8eaafc5e396ca72645458d42b4318b845bc7f1d0f
@@ -5347,7 +5347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.6.0, @typescript-eslint/eslint-plugin@npm:^5.8.1":
+"@typescript-eslint/eslint-plugin@npm:^5.6.0, @typescript-eslint/eslint-plugin@npm:^5.8.1, @typescript-eslint/eslint-plugin@npm:^5.9.0":
   version: 5.9.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.9.0"
   dependencies:
@@ -5386,7 +5386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.6.0, @typescript-eslint/parser@npm:^5.8.1":
+"@typescript-eslint/parser@npm:^5.6.0, @typescript-eslint/parser@npm:^5.8.1, @typescript-eslint/parser@npm:^5.9.0":
   version: 5.9.0
   resolution: "@typescript-eslint/parser@npm:5.9.0"
   dependencies:
@@ -7922,13 +7922,13 @@ __metadata:
   linkType: hard
 
 "css-declaration-sorter@npm:^6.0.3":
-  version: 6.1.3
-  resolution: "css-declaration-sorter@npm:6.1.3"
+  version: 6.1.4
+  resolution: "css-declaration-sorter@npm:6.1.4"
   dependencies:
     timsort: ^0.3.0
   peerDependencies:
     postcss: ^8.0.9
-  checksum: 6fdacdce48e1351a8fd73472b7dfaae573ce7d4f5bba8385afc9c765d01055920b851d288228ecb0d535d163b22f8d7941e095b9da995956cd3309e41d1bffa2
+  checksum: 72800a234f0d4facf44a5b504170749b854cd3bd6bf16d0955b3e70a1b613cec0192f585a81e8db1f03c035b13ca9494698a7eaaf861150db51c2f8f643e8ffb
   languageName: node
   linkType: hard
 
@@ -8591,7 +8591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord.js@npm:^13.5.0":
+"discord.js@npm:^13.5.1":
   version: 13.5.1
   resolution: "discord.js@npm:13.5.1"
   dependencies:
@@ -11096,7 +11096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.0.1, i18next@npm:^21.6.4":
+"i18next@npm:^21.0.1, i18next@npm:^21.6.5":
   version: 21.6.5
   resolution: "i18next@npm:21.6.5"
   dependencies:
@@ -11995,7 +11995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-circus@npm:^27.4.5, jest-circus@npm:^27.4.6":
+"jest-circus@npm:^27.4.6":
   version: 27.4.6
   resolution: "jest-circus@npm:27.4.6"
   dependencies:
@@ -12532,7 +12532,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.4.5":
+"jest@npm:^27.4.7":
   version: 27.4.7
   resolution: "jest@npm:27.4.7"
   dependencies:
@@ -12976,7 +12976,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^12.1.4":
+"lint-staged@npm:^12.1.4, lint-staged@npm:^12.1.7":
   version: 12.1.7
   resolution: "lint-staged@npm:12.1.7"
   dependencies:
@@ -17192,7 +17192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.43.1, rollup@npm:^2.62.0, rollup@npm:^2.63.0":
+"rollup@npm:^2.43.1, rollup@npm:^2.63.0":
   version: 2.63.0
   resolution: "rollup@npm:2.63.0"
   dependencies:
@@ -17214,7 +17214,7 @@ __metadata:
     "@commitlint/config-conventional": ^16.0.0
     "@favware/npm-deprecate": ^1.0.4
     "@sapphire/eslint-config": ^4.0.8
-    "@sapphire/framework": ^2.2.2
+    "@sapphire/framework": ^2.3.0
     "@sapphire/pieces": ^3.2.0
     "@sapphire/prettier-config": ^1.2.7
     "@sapphire/ts-config": ^3.1.6
@@ -17223,20 +17223,20 @@ __metadata:
     "@types/node": ^17.0.5
     "@types/node-fetch": ^2.5.12
     "@types/ws": ^8.2.2
-    "@typescript-eslint/eslint-plugin": ^5.8.1
-    "@typescript-eslint/parser": ^5.8.1
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
     cz-conventional-changelog: ^3.3.0
     discord-api-types: ^0.26.1
-    discord.js: ^13.5.0
+    discord.js: ^13.5.1
     eslint: ^8.6.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.4.5
-    jest-circus: ^27.4.5
+    jest: ^27.4.7
+    jest-circus: ^27.4.6
     lerna: ^4.0.0
-    lint-staged: ^12.1.4
+    lint-staged: ^12.1.7
     prettier: ^2.5.1
     pretty-quick: ^3.1.3
     rimraf: ^3.0.2
@@ -17258,35 +17258,35 @@ __metadata:
     "@commitlint/config-conventional": ^16.0.0
     "@discordjs/collection": ^0.4.0
     "@favware/npm-deprecate": ^1.0.4
-    "@favware/rollup-type-bundler": ^1.0.6
+    "@favware/rollup-type-bundler": ^1.0.7
     "@rollup/plugin-commonjs": ^21.0.1
-    "@rollup/plugin-node-resolve": ^13.1.2
+    "@rollup/plugin-node-resolve": ^13.1.3
     "@sapphire/framework": ^2.2.2
     "@types/jest": ^27.4.0
     "@types/lodash": ^4.14.178
     "@types/node": ^17.0.0
     "@types/ws": ^8.2.2
-    "@typescript-eslint/eslint-plugin": ^5.8.1
-    "@typescript-eslint/parser": ^5.8.1
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
     cz-conventional-changelog: ^3.3.0
     discord-api-types: ^0.24.0
-    discord.js: ^13.5.0
+    discord.js: ^13.5.1
     eslint: ^8.6.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.4.5
-    jest-circus: ^27.4.5
+    jest: ^27.4.7
+    jest-circus: ^27.4.6
     jest-extended: ^1.2.0
     lerna: ^4.0.0
-    lint-staged: ^12.1.4
+    lint-staged: ^12.1.7
     lodash: ^4.17.21
     nock: ^13.2.1
     prettier: ^2.5.1
     pretty-quick: ^3.1.3
     rimraf: ^3.0.2
-    rollup: ^2.62.0
+    rollup: ^2.63.0
     rollup-plugin-cleaner: ^1.0.0
     rollup-plugin-typescript2: ^0.31.1
     ts-jest: ^27.1.2
