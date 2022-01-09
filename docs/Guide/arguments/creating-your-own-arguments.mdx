@@ -3,4 +3,79 @@ sidebar_position: 2
 title: Creating your own arguments
 ---
 
-## TODO
+Creating an argument can be done by extending the Argument class imported by the framework:
+
+```typescript ts2esm2cjs {4|12}
+import { Argument, Resolvers } from '@sapphire/framework';
+import { isTextBasedChannels } from '@sapphire/discord.js-utilities';
+
+export class TextBasedChannelsArgument extends Argument {
+  public run(parameter: string, context: Argument.Context) {
+    const { value } = Resolvers.resolveGuildChannel(parameter, context.message.guild!);
+    if (value && isTextBasedChannels(value)) return this.ok(value);
+
+    return this.error({
+      context,
+      parameter,
+      message: 'The provided argument could not be resolved to a text based channel.'
+    });
+  }
+}
+```
+
+The above code creates an argument which checks if the provided parameter is a valid text based channel. It first tries
+to resolve the parameter to a channel in the guild, if the the parameter is a valid channel, and the channel is a text
+based channel, it returns the value. If the channel is not a text based channel, or the parameter could not be resolved
+to a channel, it returns an error.
+
+## Passing custom options in one of the `args` methods:
+
+If you want to pass a custom option, like an array to the argument context, to create an argument which checks if the
+parameter includes one of the elements from the array. You can add a context option to the argument. In your argument
+file:
+
+```typescript ts2esm2cjs {3|15}
+import { Argument, ArgumentContext } from '@sapphire/framework';
+
+interface ArrayArgumentContext extends ArgumentContext {
+  array: string[];
+}
+
+export class ArrayArgument extends Argument {
+  public run(parameter: string, context: ArrayArgumentContext) {
+    const { array } = context;
+    if (array.includes(parameter)) return this.ok(parameter);
+
+    return this.error({
+      context,
+      parameter,
+      message: 'The provided parameter does not include an element from the array.'
+    });
+  }
+}
+```
+
+The above code checks if the array passed in the context includes the parameter, if it does it returns the value, if
+not, an error is thrown.
+
+After that, in your command file:
+
+```typescript ts2esm2cjs {1|10}
+import { Command, Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+export class ArrayCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    try {
+      const parameter = args.finished ? null : await args.pick('array', { array: ['yes', 'no'] });
+      if (!parameter) return message.reply('Please provide a parameter');
+      return message.reply('Your parameter is valid!');
+    } catch {
+      message.reply('Please make sure your parameter includes either "yes" or "no"');
+    }
+  }
+}
+```
+
+The above code calls the `pick` method of the args class, specifies the argument name, which is 'array', and passes the
+array, which is your array you want to check from, in the context.
