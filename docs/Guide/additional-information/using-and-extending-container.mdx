@@ -30,8 +30,15 @@ import { container } from '@sapphire/framework';
 
 container.property = 'value';
 
+declare module '@sapphire/pieces' {
+  interface container {
+    property: string;
+  }
+}
+
 console.log(container.property); // value
 ```
 
-The above code attaches `property` to the container with the value `value`, this is a simple example to demonstrate how
-you can attach properties to the container.
+The above code attaches `property` to the container with the value `value`, and then augments the `@sapphire/pieces`
+module to add `property` to the container interface, this is a simple example to demonstrate how you can attach
+properties to the container.
