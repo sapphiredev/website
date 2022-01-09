@@ -20,6 +20,12 @@ an error.
 `commandDenied` supplies the following information: the [`UserError`][error] that was created from the precondition, and
 the [`CommandDeniedPayload`][payload], which includes necessary context.
 
+:::danger
+
+Clicking on [`CommandDeniedPayload`][payload] above will take you to an interface instead called `MessageCommandDeniedPayload`. This is because this documentation reflects the latest commit to the `main` branch of `@sapphire/framework` which is has a breaking change included that changed the name of the interface. For the purposes of this guide however, you can use `CommandDeniedPayload` as long as you are using the latest NPM published version of `@sapphire/framework`.
+
+:::
+
 ```typescript ts2esm2cjs|{4}|{5}
 import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
 import { Listener } from '@sapphire/framework';
@@ -97,7 +103,7 @@ throw a TypeScript error for trying to read property `silent` of type `unknown`.
 
 [listeners]: ../listeners/creating-your-own-listeners
 [error]: ../../Documentation/api-framework/classes/UserError
-[payload]: ../../Documentation/api-framework/interfaces/CommandDeniedPayload
+[payload]: ../../Documentation/api-framework/interfaces/MessageCommandDeniedPayload
 [context]: ../../Documentation/api-framework/classes/UserError#context
 [preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
 [creating-preconditions]: ./creating-your-own-preconditions
