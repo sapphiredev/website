@@ -3,4 +3,30 @@ sidebar_position: 0
 title: Accessing the `client` in pieces
 ---
 
-## TODO
+There are multiple ways to access the client in pieces:
+
+1. By accessing `container` from `this`, if you're extending a Sapphire Piece (commands, listeners, etc):
+
+```typescript ts2esm2cjs
+import { Listener } from '@sapphire/framework';
+
+export class ExampleListener extends Listener {
+  public run() {
+    const { client } = this.container;
+    // rest of your code
+  }
+}
+```
+
+2. By accessing the client by manually importing `container` from the framework:
+
+```typescript ts2esm2cjs
+import { Listener, container } from '@sapphire/framework';
+
+export class ExampleListener extends Listener {
+  public run() {
+    const { client } = container;
+    // rest of your code
+  }
+}
+```

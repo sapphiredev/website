@@ -3,4 +3,35 @@ sidebar_position: 1
 title: Using and extending `container`
 ---
 
-## TODO
+## Using container:
+
+The container can be used to access your custom properties, or the ones attached by the framework (like the client).
+Suppose you want to access the client in a file where you don't extend a sapphire piece (like commands, listeners,
+etc.), meaning you can't access `container` from `this`, you can manually import the container from the framework and
+access your client:
+
+```typescript ts2esm2cjs
+import { container } from '@sapphire/framework';
+
+export class ExampleClass {
+  public run() {
+    const { client } = container;
+    // rest of your code
+  }
+}
+```
+
+## Extending container:
+
+You can attach your custom properties to the container, as mentioned above, to access them in your code:
+
+```typescript ts2esm2cjs
+import { container } from '@sapphire/framework';
+
+container.property = 'value';
+
+console.log(container.property); // value
+```
+
+The above code attaches `property` to the container with the value `value`, this is a simple example to demonstrate how
+you can attach properties to the container.
