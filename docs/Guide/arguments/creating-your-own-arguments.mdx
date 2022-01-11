@@ -21,12 +21,20 @@ export class TextBasedChannelsArgument extends Argument {
     });
   }
 }
+
+declare module '@sapphire/framework' {
+  interface ArgType {
+    textBasedChannels: string;
+  }
+}
 ```
 
 The above code creates an argument which checks if the provided parameter is a valid text based channel. It first tries
 to resolve the parameter to a channel in the guild, if the the parameter is a valid channel, and the channel is a text
 based channel, it returns the value. If the channel is not a text based channel, or the parameter could not be resolved
 to a channel, it returns an error.
+
+We then augment the @sapphire/framework module to include the new argument in the ArgType interface.
 
 ## Passing custom options in one of the `args` methods:
 
@@ -38,7 +46,7 @@ file:
 import { Argument, ArgumentContext } from '@sapphire/framework';
 
 interface ArrayArgumentContext extends ArgumentContext {
-  array: string[];
+  array?: string[];
 }
 
 export class ArrayArgument extends Argument {
@@ -53,10 +61,17 @@ export class ArrayArgument extends Argument {
     });
   }
 }
+
+declare module '@sapphire/framework' {
+  interface ArgType {
+    array: string;
+  }
+}
 ```
 
 The above code checks if the array passed in the context includes the parameter, if it does it returns the value, if
-not, an error is thrown.
+not, an error is thrown. After that, we augment the @sapphire/framework module to include the new argument in the
+ArgType interface (as above).
 
 After that, in your command file:
 
