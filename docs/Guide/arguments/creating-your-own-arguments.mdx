@@ -9,7 +9,7 @@ Creating an argument can be done by extending the Argument class which can be im
 import { Argument, Resolvers } from '@sapphire/framework';
 import { isTextBasedChannels } from '@sapphire/discord.js-utilities';
 
-export class TextBasedChannelsArgument extends Argument {
+export class TextBasedChannelsArgument extends Argument<TextBasedChannelTypes> {
   public run(parameter: string, context: Argument.Context) {
     const { value } = Resolvers.resolveGuildChannel(parameter, context.message.guild!);
     if (value && isTextBasedChannels(value)) return this.ok(value);
