@@ -73,7 +73,7 @@ The above code checks if the array passed in the context includes the parameter,
 not, an error is thrown. After that, we augment the @sapphire/framework module to include the new argument in the
 ArgType interface (as above).
 
-After that, in your command file:
+With all that setup done, you can use the new argument in your command file:
 
 ```typescript ts2esm2cjs {1|10}
 import { Command, Args } from '@sapphire/framework';
