@@ -3,4 +3,149 @@ sidebar_position: 2
 title: Creating your own arguments
 ---
 
-## TODO
+Creating an argument can be done by extending the Argument class which can be imported from the framework:
+
+```typescript ts2esm2cjs|{5,10,13-18,22-24}|{5,10,13-18,22-26}
+import { isTextBasedChannel, type TextBasedChannelTypes } from '@sapphire/discord.js-utilities';
+import { Argument, Resolvers } from '@sapphire/framework';
+import { isNullish } from '@sapphire/utilities';
+
+export class TextBasedChannelsArgument extends Argument<TextBasedChannelTypes> {
+  public run(parameter: string, context: Argument.Context) {
+    const { value } = Resolvers.resolveGuildChannel(parameter, context.message.guild!);
+
+    if (!isNullish(value) && isTextBasedChannel(value)) {
+      return this.ok(value);
+    }
+
+    return this.error({
+      context,
+      parameter,
+      message: 'The provided argument could not be resolved to a text based channel.',
+      identifier: 'ChannelNotATextBasedChannel'
+    });
+  }
+}
+
+declare module '@sapphire/framework' {
+  interface ArgType {
+    textBasedChannels: string;
+  }
+}
+```
+
+The above code creates an argument which checks if the provided parameter is a valid text based channel. It first tries
+to resolve the parameter to a channel in the guild, if the the parameter is a valid channel, and the channel is a text
+based channel, it returns the value. If the channel is not a text based channel, or the parameter could not be resolved
+to a channel, it returns an error.
+
+We then augment the `@sapphire/framework` module to include the new argument in the ArgType interface.
+
+## Passing custom options in one of the `args` methods:
+
+If you want to pass a custom option, like an array to the argument context, to create an argument which checks if the
+parameter includes one of the elements from the array. You can add a context option to the argument. In your argument
+file:
+
+```typescript ts2esm2cjs|{5-6,15}|{4-6,9-10,19}
+import { Argument } from '@sapphire/framework';
+import { isNullishOrEmpty } from '@sapphire/utilities';
+
+interface ArrayArgumentContext extends Argument.Context {
+  array?: string[];
+}
+
+export class ArrayArgument extends Argument<string> {
+  public run(parameter: string, context: ArrayArgumentContext) {
+    if (isNullishOrEmpty(context.array)) {
+      return this.error({
+        context,
+        parameter,
+        message: 'No array of options was provided. You should alert the bot developer.',
+        identifier: 'NoArrayContextProvided'
+      });
+    }
+
+    if (context.array.includes(parameter)) return this.ok(parameter);
+
+    return this.error({
+      context,
+      parameter,
+      message: 'The provided parameter does not include an element from the array.',
+      identifier: 'NotInArrayOfOptions'
+    });
+  }
+}
+
+declare module '@sapphire/framework' {
+  interface ArgType {
+    array: string;
+  }
+}
+```
+
+:::info
+
+This is essentially the `enum` argument, one of the [Built-in arguments][bia], which was added in version 2.3.0 of
+`@sapphire/framework`
+
+:::
+
+The above code checks if the array passed in the context includes the parameter, if it does it returns the value, if
+not, an error is thrown. After that, we augment the `@sapphire/framework` module to include the new argument in the
+ArgType interface (as above).
+
+With all that setup done, you can use the new argument in your command file:
+
+```typescript ts2esm2cjs|{5}|{6}
+import { Args, Command } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+export class ArrayCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    const parameter = await args.pick('array', { array: ['yes', 'no'] });
+
+    return message.reply(`Your parameter ${parameter} is valid!`);
+  }
+}
+```
+
+The above code calls the `pick` method of the args class, specifies the argument name, which is 'array', and passes the
+array, which is your array you want to check from, in the context.
+
+## Using Args.make
+
+Another way to create an argument is by using the `make` method of the Args class:
+
+```typescript ts2esm2cjs|{6,11-22}|{7,12-23}
+import { Args, Command } from '@sapphire/framework';
+import { isNullishOrEmpty } from '@sapphire/utilities';
+import type { Message } from 'discord.js';
+
+export class SampleCommand extends Command {
+  public async messageRun(message: Message, args: Args) {
+    const parameter = await args.pick(SampleCommand.numberOrString);
+
+    return message.reply(`Your parameter ${parameter} is a valid number or a string!`);
+  }
+
+  private static numberOrString = Args.make<number | string>((parameter, { argument }) => {
+    if (Number(parameter) || !isNullishOrEmpty(parameter)) {
+      return Args.ok(parameter);
+    }
+
+    return Args.error({
+      argument,
+      parameter,
+      identifier: 'NumberOrStringError',
+      message: 'The provided argument was neither a number nor a string.'
+    });
+  });
+}
+```
+
+The above code creates a command, which picks a numberOrString argument from the provided text, the numberOrString
+argument is created below using the Args.make method, which takes the parameter, checks if it is a number and is not
+nullish or empty and returns the value. If not, an error is returned.
+
+[bia]: ./built-in-arguments

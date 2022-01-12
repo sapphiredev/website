@@ -1,6 +1,111 @@
 ---
 sidebar_position: 1
-title: Using and extending `container`
+title: Using and extending container
 ---
 
-## TODO
+The `container` is a way in which Sapphire achieves [Dependency Injection][di]. This is a very useful feature, since it
+allows accessing the client, the stores and various other properties from anywhere in your code.
+
+## Using `container`
+
+The `container` can be used to access your custom properties, or the ones attached by the framework (like the client).
+Suppose you want to access the client in a file where you don't extend a sapphire piece (like commands, listeners,
+etc.), meaning you can't access `container` from `this`, you can manually import the `container` from the framework and
+access your client:
+
+```typescript ts2esm2cjs|{5}|{5}
+import { container } from '@sapphire/framework';
+
+export class ExampleClass {
+  public run() {
+    const { client } = container;
+    // rest of your code
+  }
+}
+```
+
+## Extending `container`
+
+You can attach your custom properties to the `container`, as mentioned above, to access them in your code:
+
+```typescript ts2esm2cjs|{3,5}|{3,5,7-11}
+import { container } from '@sapphire/framework';
+
+container.property = 'value';
+
+console.log(container.property); // value
+
+declare module '@sapphire/pieces' {
+  interface Container {
+    property: string;
+  }
+}
+```
+
+The above code attaches `property` to the `container` with the value `value`, and then augments the `@sapphire/pieces`
+module to add `property` to the `container` interface, this is a simple example to demonstrate how you can attach
+properties to the `container`.
+
+## Practical example
+
+:::info
+
+The examples above have shown very basic implementations of how to extend the `container`, but it is also often valuable
+to see a more practical example. In the following code block we attach a database connection to the `container` after
+logging in with the `SapphireClient`. This way the database connection can be accessed anything, through the
+`container`.
+
+:::
+
+```typescript ts2esm2cjs|{19,25,36}|{20,26,37,44-48}
+import { isGuildBasedChannel } from '@sapphire/discord.js-utilities';
+import { container, SapphireClient } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+// First we extend SapphireClient
+export class MyCustomClient extends SapphireClient {
+  public constructor() {
+    // We call super our options
+    super({
+      caseInsensitiveCommands: true,
+      caseInsensitivePrefixes: true,
+      defaultPrefix: '!',
+      intents: ['GUILDS', 'GUILD_MESSAGES'],
+      loadDefaultErrorListeners: false
+    });
+  }
+
+  // We override login to connect to our database and then login to Discord
+  public override async login(token?: string) {
+    container.database = await createMyDatabaseConnection();
+    return super.login(token);
+  }
+
+  // We override destroy to kill the connection to our database before logging out at Discord
+  public override async destroy() {
+    await container.database.destroy();
+    return super.destroy();
+  }
+
+  /**
+   * Retrieves the prefix for the guild, or if the command used in a guild then default prefix.
+   * @param message The message that gives context.
+   */
+  public override fetchPrefix = async (message: Message) => {
+    if (isGuildBasedChannel(message.channel)) {
+      // We can now use the "container.database" to retrieve the prefix for the guild
+      return container.database.read('guilds', message.guild!.id, 'prefix');
+    }
+
+    return [this.options.defaultPrefix, ''] as readonly string[];
+  };
+}
+
+declare module '@sapphire/pieces' {
+  interface Container {
+    database: MyDatabase; // Replace this with the connection type of your database library
+  }
+}
+```
+
+[di]: https://en.wikipedia.org/wiki/Dependency_injection
