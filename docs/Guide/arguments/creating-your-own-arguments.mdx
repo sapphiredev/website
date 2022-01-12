@@ -8,6 +8,7 @@ Creating an argument can be done by extending the Argument class which can be im
 ```typescript ts2esm2cjs {4|12}
 import { Argument, Resolvers } from '@sapphire/framework';
 import { isTextBasedChannels } from '@sapphire/discord.js-utilities';
+import type { TextBasedChannelTypes } from 'discord.js';
 
 export class TextBasedChannelsArgument extends Argument<TextBasedChannelTypes> {
   public run(parameter: string, context: Argument.Context) {
@@ -69,6 +70,13 @@ declare module '@sapphire/framework' {
 }
 ```
 
+:::info
+
+This is essentially the `enum` argument, one of the [Built-in arguments][bia], which was added in version 2.3.0 of
+`@sapphire/framework`
+
+:::
+
 The above code checks if the array passed in the context includes the parameter, if it does it returns the value, if
 not, an error is thrown. After that, we augment the `@sapphire/framework` module to include the new argument in the
 ArgType interface (as above).
@@ -94,3 +102,34 @@ export class ArrayCommand extends Command {
 
 The above code calls the `pick` method of the args class, specifies the argument name, which is 'array', and passes the
 array, which is your array you want to check from, in the context.
+
+## Using Args.make
+
+Another way to create an argument is by using the `make` method of the Args class:
+
+```typescript ts2esm2cjs
+import { Command, Argument } from '@sapphire/framework';
+import { isNullishOrEmpty } from '@sapphire/utilities';
+
+export class Command {
+  public async messageRun(message: Message, args: Args) {
+    const parameter = args.finished ? null : await args.pick(Command.numberOrString);
+    if (!parameter) return message.reply('Please provide a number or a string');
+    return message.reply('Your parameter is a valid number or a string!');
+  }
+
+  private static numberOrString = Args.make<number | string>((parameter, { argument }) => {
+    if (Number(parameter) || !isNullishOrEmpty(parameter)) {
+      return Args.ok(parameter);
+    }
+
+    return Args.error(argument, parameter);
+  });
+}
+```
+
+The above code creates a command, which picks a numberOrString argument from the provided text, the numberOrString
+argument is created below using the Args.make method, which takes the parameter, checks if it is a number and is not
+nullish or empty and returns the value. If not, an error is returned.
+
+[bia]: ./built-in-arguments
