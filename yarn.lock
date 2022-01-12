@@ -3986,11 +3986,11 @@ __metadata:
   linkType: soft
 
 "@sapphire/decorators@npm:^3.1.4":
-  version: 3.1.5
-  resolution: "@sapphire/decorators@npm:3.1.5"
+  version: 3.1.6
+  resolution: "@sapphire/decorators@npm:3.1.6"
   dependencies:
     tslib: ^2.3.1
-  checksum: 393590a2a4b4cf7106c402c1b4fb2e3c6dd917115f2e33c6ebaf5357d3321ab20f688504713b642887ec2ab9cd063065ba02707f6328191573732b17a41b1f7b
+  checksum: 6e314717e3b9ac4cfdff40b74f73ce2a7ec06d37ee866ebee7c4954a1207875b13896985dd27c56f428973a1240016e674cf3339ff4e6dae257ece511aa69fa8
   languageName: node
   linkType: hard
 
@@ -3999,7 +3999,7 @@ __metadata:
   resolution: "@sapphire/decorators@workspace:projects/utilities/packages/decorators"
   dependencies:
     "@sapphire/discord-utilities": ^2.5.0
-    "@sapphire/discord.js-utilities": ^4.1.6
+    "@sapphire/discord.js-utilities": ^4.2.0
     "@sapphire/ratelimits": ^2.1.11
     "@sapphire/utilities": ^3.2.0
     tslib: ^2.3.1
@@ -4023,15 +4023,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:^4.1.5, @sapphire/discord.js-utilities@npm:^4.1.6":
-  version: 4.1.6
-  resolution: "@sapphire/discord.js-utilities@npm:4.1.6"
+"@sapphire/discord.js-utilities@npm:^4.1.5, @sapphire/discord.js-utilities@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@sapphire/discord.js-utilities@npm:4.2.0"
   dependencies:
     "@sapphire/discord-utilities": ^2.5.0
     "@sapphire/time-utilities": ^1.5.1
     "@sapphire/utilities": ^3.2.0
     tslib: ^2.3.1
-  checksum: 9b400e74e30e5fa7fc1d2f81a3ca5fb65b37c52f6d1e7a93e6eed9d8a93a20a084fb4335fa249f7fd73bd0f49a16415c285daa6fe701f0a6651b93031c874767
+  checksum: 7f868effc5d49f95cbe2e484216d0375f5986ecd702a7ed8490d95018c918d39c6db62ad76bcbbf21f981c038fabbd50496b6703da1ae95c05ba95a17ff3de60
   languageName: node
   linkType: hard
 
@@ -4082,7 +4082,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/eslint-config@npm:^4.0.8":
+"@sapphire/eslint-config@npm:^4.0.8, @sapphire/eslint-config@npm:^4.0.9":
   version: 4.0.9
   resolution: "@sapphire/eslint-config@npm:4.0.9"
   dependencies:
@@ -4119,7 +4119,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/fetch@npm:^2.0.0":
+"@sapphire/fetch@npm:^2.0.0, @sapphire/fetch@npm:^2.0.3":
   version: 2.0.4
   resolution: "@sapphire/fetch@npm:2.0.4"
   dependencies:
@@ -4196,6 +4196,14 @@ __metadata:
     typedoc-plugin-djs-links: ^1.0.3
     typedoc-plugin-mdn-links: ^1.0.4
     typescript: ^4.5.4
+  languageName: unknown
+  linkType: soft
+
+"@sapphire/phisherman@workspace:projects/utilities/packages/phisherman":
+  version: 0.0.0-use.local
+  resolution: "@sapphire/phisherman@workspace:projects/utilities/packages/phisherman"
+  dependencies:
+    "@sapphire/fetch": ^2.0.3
   languageName: unknown
   linkType: soft
 
@@ -4278,9 +4286,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-i18next@workspace:projects/plugins/packages/i18next"
   dependencies:
-    "@sapphire/utilities": ^3.1.0
+    "@sapphire/utilities": ^3.2.0
     "@types/i18next-fs-backend": ^1.1.2
-    i18next: ^21.6.5
+    chokidar: ^3.5.2
+    i18next: ^21.6.6
     i18next-fs-backend: ^1.1.4
     tslib: ^2.3.1
   languageName: unknown
@@ -4290,7 +4299,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-logger@workspace:projects/plugins/packages/logger"
   dependencies:
-    "@sapphire/time-utilities": ^1.5.0
+    "@sapphire/time-utilities": ^1.5.1
     colorette: ^2.0.16
     tslib: ^2.3.1
   languageName: unknown
@@ -4308,7 +4317,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-scheduled-tasks@workspace:projects/plugins/packages/scheduled-tasks"
   dependencies:
-    "@sapphire/time-utilities": ^1.5.0
+    "@sapphire/time-utilities": ^1.5.1
     "@types/bull": ^3.15.7
     bull: ^4.2.0
     sqs-consumer: ^5.6.0
@@ -4325,7 +4334,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/prettier-config@npm:^1.2.6, @sapphire/prettier-config@npm:^1.2.7":
+"@sapphire/prettier-config@npm:^1.2.6, @sapphire/prettier-config@npm:^1.2.7, @sapphire/prettier-config@npm:^1.2.8":
   version: 1.2.8
   resolution: "@sapphire/prettier-config@npm:1.2.8"
   dependencies:
@@ -4365,7 +4374,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/stopwatch@npm:^1.2.0, @sapphire/stopwatch@npm:^1.2.4":
+"@sapphire/stopwatch@npm:^1.2.0, @sapphire/stopwatch@npm:^1.2.5":
   version: 1.2.5
   resolution: "@sapphire/stopwatch@npm:1.2.5"
   dependencies:
@@ -4382,7 +4391,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/time-utilities@npm:^1.5.0, @sapphire/time-utilities@npm:^1.5.1":
+"@sapphire/time-utilities@npm:^1.5.1":
   version: 1.5.1
   resolution: "@sapphire/time-utilities@npm:1.5.1"
   dependencies:
@@ -4399,7 +4408,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/ts-config@npm:^3.1.6":
+"@sapphire/ts-config@npm:^3.1.6, @sapphire/ts-config@npm:^3.1.7":
   version: 3.1.7
   resolution: "@sapphire/ts-config@npm:3.1.7"
   dependencies:
@@ -5357,7 +5366,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.9.0":
+"@typescript-eslint/eslint-plugin@npm:^5.9.0, @typescript-eslint/eslint-plugin@npm:^5.9.1":
   version: 5.9.1
   resolution: "@typescript-eslint/eslint-plugin@npm:5.9.1"
   dependencies:
@@ -5396,7 +5405,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.9.0":
+"@typescript-eslint/parser@npm:^5.9.0, @typescript-eslint/parser@npm:^5.9.1":
   version: 5.9.1
   resolution: "@typescript-eslint/parser@npm:5.9.1"
   dependencies:
@@ -6905,9 +6914,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001297":
-  version: 1.0.30001298
-  resolution: "caniuse-lite@npm:1.0.30001298"
-  checksum: 43566732d1b8746e3dfae57f558471c701b26b2c166fb9fc53ad750d83128b2eb680a5e08233717e64055779b408c72d3b2cfad6d4ae33a3e647a11dc1c0d515
+  version: 1.0.30001299
+  resolution: "caniuse-lite@npm:1.0.30001299"
+  checksum: c770f60ebf3e0cc8043ba4db0ebec12d7a595a6b50cb4437c3c5c55b04de9d2413f711f2828be761e8c37bb46b927a8abe6b199b8f0ffc1a34af0ebdee84be27
   languageName: node
   linkType: hard
 
@@ -8872,9 +8881,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.17":
-  version: 1.4.42
-  resolution: "electron-to-chromium@npm:1.4.42"
-  checksum: f96be47be78023729f10bbd39e2dc824fd89e0a16798b2f1aa2c3e0ddcd92912b9799d29ae6bfc6f90178ac6f5a17088b4a446ed2f3f663bc86329db7a10a335
+  version: 1.4.43
+  resolution: "electron-to-chromium@npm:1.4.43"
+  checksum: c096a42ec6af0c22736f7151d1386e6597b125ad9a6379a747e67d33d03b3b2923336dbe17edad0037299e7aa1daa0f3feb726d797375e652b6918c1a467b39a
   languageName: node
   linkType: hard
 
@@ -10556,7 +10565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.11, graceful-fs@npm:^4.1.15, graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.2, graceful-fs@npm:^4.2.3, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6":
+"graceful-fs@npm:^4.1.11, graceful-fs@npm:^4.1.15, graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.2, graceful-fs@npm:^4.2.3, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6, graceful-fs@npm:^4.2.9":
   version: 4.2.9
   resolution: "graceful-fs@npm:4.2.9"
   checksum: 68ea4e07ff2c041ada184f9278b830375f8e0b75154e3f080af6b70f66172fabb4108d19b3863a96b53fc068a310b9b6493d86d1291acc5f3861eb4b79d26ad6
@@ -11113,7 +11122,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.0.1, i18next@npm:^21.6.5":
+"i18next@npm:^21.0.1, i18next@npm:^21.6.6":
   version: 21.6.6
   resolution: "i18next@npm:21.6.6"
   dependencies:
@@ -14108,11 +14117,11 @@ __metadata:
   linkType: hard
 
 "nanoid@npm:^3.1.30":
-  version: 3.1.31
-  resolution: "nanoid@npm:3.1.31"
+  version: 3.1.32
+  resolution: "nanoid@npm:3.1.32"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 3e9fddc1619cc8f787f37fa3d26c072049b7105af4d5365dae32adce13250e29dfab2d2b061f3798b2dd3cc0dee663917a63032979df56ef64c15c287748ab99
+  checksum: 7389375c7d9819609366cc7b2bd446c854762617a626d345e5dcdc6629f6571e071c7ba412920148065dbd939dbc5589f9e2734b244c3cb49bbddc96082adcc1
   languageName: node
   linkType: hard
 
@@ -15352,14 +15361,14 @@ __metadata:
   linkType: hard
 
 "postcss-calc@npm:^8.2.0":
-  version: 8.2.1
-  resolution: "postcss-calc@npm:8.2.1"
+  version: 8.2.2
+  resolution: "postcss-calc@npm:8.2.2"
   dependencies:
     postcss-selector-parser: ^6.0.2
     postcss-value-parser: ^4.0.2
   peerDependencies:
     postcss: ^8.2.2
-  checksum: 0eb0d7d78d26d2b4a141e78b1dcb6633203b0bb65cd15e3b2bc5340a0353b73656e7ace796bd3dc078f7956186c0404b8cacddbc4e3f1cf458d22dab62a0b964
+  checksum: aa60cbb01ae48ae8b708bc8c056e8ad6ddcc9f56af88c8e898c0b5d5d7c24f3448ec61698628d6c2e70893a657e99917ad77f18214c3d3bcab32477e855bccb4
   languageName: node
   linkType: hard
 
@@ -17230,19 +17239,19 @@ __metadata:
     "@commitlint/cli": ^16.0.2
     "@commitlint/config-conventional": ^16.0.0
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.0.8
+    "@sapphire/eslint-config": ^4.0.9
     "@sapphire/framework": ^2.3.0
     "@sapphire/pieces": ^3.2.0
-    "@sapphire/prettier-config": ^1.2.7
-    "@sapphire/stopwatch": ^1.2.4
-    "@sapphire/ts-config": ^3.1.6
-    "@sapphire/utilities": ^3.1.0
+    "@sapphire/prettier-config": ^1.2.8
+    "@sapphire/stopwatch": ^1.2.5
+    "@sapphire/ts-config": ^3.1.7
+    "@sapphire/utilities": ^3.2.0
     "@types/jest": ^27.4.0
-    "@types/node": ^17.0.5
+    "@types/node": ^17.0.8
     "@types/node-fetch": ^2.5.12
     "@types/ws": ^8.2.2
-    "@typescript-eslint/eslint-plugin": ^5.9.0
-    "@typescript-eslint/parser": ^5.9.0
+    "@typescript-eslint/eslint-plugin": ^5.9.1
+    "@typescript-eslint/parser": ^5.9.1
     cz-conventional-changelog: ^3.3.0
     discord-api-types: ^0.26.1
     discord.js: ^13.5.1
@@ -17260,7 +17269,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^27.1.2
     ts-node: ^10.4.0
-    turbo: ^1.0.24
+    turbo: ^1.0.26
     typedoc: ^0.22.10
     typedoc-plugin-djs-links: ^1.0.3
     typedoc-plugin-mdn-links: ^1.0.4
@@ -19125,106 +19134,106 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-darwin-64@npm:1.0.25"
+"turbo-darwin-64@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-darwin-64@npm:1.0.26"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-darwin-arm64@npm:1.0.25"
+"turbo-darwin-arm64@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-darwin-arm64@npm:1.0.26"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-64@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-freebsd-64@npm:1.0.25"
+"turbo-freebsd-64@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-freebsd-64@npm:1.0.26"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-arm64@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-freebsd-arm64@npm:1.0.25"
+"turbo-freebsd-arm64@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-freebsd-arm64@npm:1.0.26"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-32@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-linux-32@npm:1.0.25"
+"turbo-linux-32@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-linux-32@npm:1.0.26"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-linux-64@npm:1.0.25"
+"turbo-linux-64@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-linux-64@npm:1.0.26"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-linux-arm64@npm:1.0.25"
+"turbo-linux-arm64@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-linux-arm64@npm:1.0.26"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-linux-arm@npm:1.0.25"
+"turbo-linux-arm@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-linux-arm@npm:1.0.26"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"turbo-linux-mips64le@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-linux-mips64le@npm:1.0.25"
+"turbo-linux-mips64le@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-linux-mips64le@npm:1.0.26"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"turbo-linux-ppc64le@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-linux-ppc64le@npm:1.0.25"
+"turbo-linux-ppc64le@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-linux-ppc64le@npm:1.0.26"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"turbo-windows-32@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-windows-32@npm:1.0.25"
+"turbo-windows-32@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-windows-32@npm:1.0.26"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.0.25":
-  version: 1.0.25
-  resolution: "turbo-windows-64@npm:1.0.25"
+"turbo-windows-64@npm:1.0.26":
+  version: 1.0.26
+  resolution: "turbo-windows-64@npm:1.0.26"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.0.24":
-  version: 1.0.25
-  resolution: "turbo@npm:1.0.25"
+"turbo@npm:^1.0.24, turbo@npm:^1.0.26":
+  version: 1.0.26
+  resolution: "turbo@npm:1.0.26"
   dependencies:
-    turbo-darwin-64: 1.0.25
-    turbo-darwin-arm64: 1.0.25
-    turbo-freebsd-64: 1.0.25
-    turbo-freebsd-arm64: 1.0.25
-    turbo-linux-32: 1.0.25
-    turbo-linux-64: 1.0.25
-    turbo-linux-arm: 1.0.25
-    turbo-linux-arm64: 1.0.25
-    turbo-linux-mips64le: 1.0.25
-    turbo-linux-ppc64le: 1.0.25
-    turbo-windows-32: 1.0.25
-    turbo-windows-64: 1.0.25
+    turbo-darwin-64: 1.0.26
+    turbo-darwin-arm64: 1.0.26
+    turbo-freebsd-64: 1.0.26
+    turbo-freebsd-arm64: 1.0.26
+    turbo-linux-32: 1.0.26
+    turbo-linux-64: 1.0.26
+    turbo-linux-arm: 1.0.26
+    turbo-linux-arm64: 1.0.26
+    turbo-linux-mips64le: 1.0.26
+    turbo-linux-ppc64le: 1.0.26
+    turbo-windows-32: 1.0.26
+    turbo-windows-64: 1.0.26
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -19252,7 +19261,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: eb2131fbcd26c3f5f9f378b79f2c990c3ded2a5202ce85441c5f258c9b92d7b95663bcc9db4d1e802653a5288c172de904641ea64d6f24472898179aa35aa16c
+  checksum: 74aa86c73f16b27d6fd73209a795708d867ba247b707f1b65ec61d266eec47b0c32317621d53546c8fed15f763e231ce0cbd91688ead2713783a5c8c1d71a013
   languageName: node
   linkType: hard
 
@@ -20228,8 +20237,8 @@ __metadata:
   linkType: hard
 
 "webpack@npm:^5.61.0":
-  version: 5.65.0
-  resolution: "webpack@npm:5.65.0"
+  version: 5.66.0
+  resolution: "webpack@npm:5.66.0"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.50
@@ -20245,7 +20254,7 @@ __metadata:
     eslint-scope: 5.1.1
     events: ^3.2.0
     glob-to-regexp: ^0.4.1
-    graceful-fs: ^4.2.4
+    graceful-fs: ^4.2.9
     json-parse-better-errors: ^1.0.2
     loader-runner: ^4.2.0
     mime-types: ^2.1.27
@@ -20260,7 +20269,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 221ab8ccd440cb678269e86689704bbef81cf41393eb266625873e30c6980ffaa055bb1a7d14bf9fc0f5a2e6f03d15d068cbb995bc876757c01a4ca27fd2870c
+  checksum: 5a44664a840fd64c5383aa78847b205ae0b42b607f85ee1d6a568617a210c1b9caab1822bce40a89a3b5eb0f626a83fb5fe2055c638aa230897bf224030d28e8
   languageName: node
   linkType: hard
 
