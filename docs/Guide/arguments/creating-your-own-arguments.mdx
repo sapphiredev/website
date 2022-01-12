@@ -49,7 +49,7 @@ interface ArrayArgumentContext extends ArgumentContext {
   array?: string[];
 }
 
-export class ArrayArgument extends Argument {
+export class ArrayArgument extends Argument<string> {
   public run(parameter: string, context: ArrayArgumentContext) {
     const { array } = context;
     if (array.includes(parameter)) return this.ok(parameter);
