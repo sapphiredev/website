@@ -4751,13 +4751,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-type/package-dts@npm:^1.0.56":
-  version: 1.0.56
-  resolution: "@ts-type/package-dts@npm:1.0.56"
+"@ts-type/package-dts@npm:^1.0.58":
+  version: 1.0.58
+  resolution: "@ts-type/package-dts@npm:1.0.58"
   dependencies:
     "@types/semver": ^7.3.9
-    ts-type: ^2.1.2
-  checksum: 674f7d895bba77a32791e7e2014fde9b55c8609878b57ec8d11960a5f75fa34195b94d510eecad66ea642c8eacb77214efb17175ec0cd22303b2c0d5dcb31881
+    ts-type: ^2.1.4
+  peerDependencies:
+    "@types/bluebird": "*"
+    "@types/node": "*"
+    ts-toolbelt: "*"
+  checksum: efd31bbf1c4699dd17d93f1d434a00e3ca44d82e5618e93e76c0bceeec3fb809e18fb0b4fb37e191e98120324282a9581417ecd5c08086a038a36119f5417bb8
   languageName: node
   linkType: hard
 
@@ -5646,14 +5650,16 @@ __metadata:
   linkType: hard
 
 "@yarn-tool/resolve-package@npm:^1.0.36":
-  version: 1.0.41
-  resolution: "@yarn-tool/resolve-package@npm:1.0.41"
+  version: 1.0.42
+  resolution: "@yarn-tool/resolve-package@npm:1.0.42"
   dependencies:
-    "@ts-type/package-dts": ^1.0.56
+    "@ts-type/package-dts": ^1.0.58
     pkg-dir: < 6 >= 5
     tslib: ^2.3.1
     upath2: ^3.1.12
-  checksum: 91afb6c90bdc58d32f6b9509607fe4afb47ccd5f0f08ce067df3958c33e405c551fe9f2045530a85f72b68c7169df61abd638c840ee3ca6811fbd1ae2db5155a
+  peerDependencies:
+    "@types/node": "*"
+  checksum: 438b4c327cb1d1e9508805d069c5ed306cf2dffaa8f63aab3626a5e3bf949b6b87842abf922b1121ac1ae73cb3dac9f71023498415ecf4c1236dca3ab82555a5
   languageName: node
   linkType: hard
 
@@ -6285,8 +6291,8 @@ __metadata:
   linkType: hard
 
 "aws-sdk@npm:^2.673.0":
-  version: 2.1055.0
-  resolution: "aws-sdk@npm:2.1055.0"
+  version: 2.1056.0
+  resolution: "aws-sdk@npm:2.1056.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -6297,7 +6303,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: a54b0435352aad9b704955262e10034948f46396048adcaffd740fa146ad71aedc8b34f6fd0b77c80f7903953e67ba4752ad6c90dfb755fbf85e138158eb818f
+  checksum: 5809a6eb4116e25621e15aa61094797d87fbe8bbcaf2ec7ac45659a1d6345556ff0cfc50aa3c1a8821cbb6506e57f3e82f2fc90425b2dc705aca9a2c22bfcb48
   languageName: node
   linkType: hard
 
@@ -8878,9 +8884,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.17":
-  version: 1.4.43
-  resolution: "electron-to-chromium@npm:1.4.43"
-  checksum: c096a42ec6af0c22736f7151d1386e6597b125ad9a6379a747e67d33d03b3b2923336dbe17edad0037299e7aa1daa0f3feb726d797375e652b6918c1a467b39a
+  version: 1.4.44
+  resolution: "electron-to-chromium@npm:1.4.44"
+  checksum: 76b0c723cf4fa3f542e4e34add8c559d5c3668192d1f359d24b45546b34791dff716e9fd905fbcddd6875cb849b72106c6f5edd682bba2f78c1c2eb6bccd647d
   languageName: node
   linkType: hard
 
@@ -19064,9 +19070,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-type@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "ts-type@npm:2.1.2"
+"ts-type@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "ts-type@npm:2.1.4"
   dependencies:
     tslib: ^2.3.1
     typedarray-dts: ^1.0.0
@@ -19074,7 +19080,7 @@ __metadata:
     "@types/bluebird": "*"
     "@types/node": "*"
     ts-toolbelt: ^9.6.0
-  checksum: e43d619801498fa9f1bd210ad77c1c5db08ccb7ecf16b8e5a5f09d4f72eb7c5a278d8b046058af9080761a61782bac2d121c038a82344b1c512705eda6c77109
+  checksum: d05f846a9cae61a2e9dc5fbe29f8d5b37db26d87656735075efddee95d2f4af4a51e78b4025cfb578d9f08679cf72e00fc6e65a183766b9333adbccb373244ab
   languageName: node
   linkType: hard
 
