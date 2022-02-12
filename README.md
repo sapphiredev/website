@@ -15,7 +15,7 @@
 After forking/cloning this repo to a folder locally:
 
 1. Install dependencies with `yarn`.
-2. Run `yarn dev` to start the NextJS dev server
+2. Run `yarn start` to start the Docusaurus dev server
 
 ## Special thanks
 
