@@ -88,6 +88,7 @@ By default, `Command` defines 3 pairs of valid quotes:
 - `"` and `"` (double quotes)
 - `“` and `”` (iOS smart quotes)
 - `「` and `」` (CJK corner brackets)
+- `«` and `»` (French Quotes)
 
 This is troublesome if you want to allow sending quotes within the content, as those would be excluded from `rest`, so
 `quotes` must be set to an empty array. This way, when `@bot echo Hello "there!"` is sent, your bot will reply with
