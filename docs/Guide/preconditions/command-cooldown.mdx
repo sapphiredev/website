@@ -91,10 +91,11 @@ import { SapphireClient, BucketScope } from '@sapphire/framework';
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   defaultCooldown: {
-    cooldownDelay: 10_000, // 10_000 milliseconds
-    cooldownFilteredUsers: ['YOUR_ID'], // Ignore the bot owner
-    cooldownLimit: 2, // Allow 2 uses before ratelimiting
-    cooldownScope: BucketScope.Channel // Scope cooldown to channel
+    delay: 10_000, // 10_000 milliseconds
+    filteredCommands: ['ping'], // Ignore the `ping` command
+    filteredUsers: ['YOUR_ID'], // Ignore the bot owner
+    limit: 2, // Allow 2 uses before ratelimiting
+    scope: BucketScope.Channel // Scope cooldown to channel
   }
 });
 
