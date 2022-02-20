@@ -3,4 +3,7 @@ sidebar_position: 0
 title: What are listeners and how do they work?
 ---
 
-## TODO
+Listeners are classes that will contain logic, waiting that a given event occurs to execute it.
+So far we mainly covered how to make your bot execute logic in response to messages (commands) send by a user. But some use-cases need to execute code even when no commands have been send. A typical example of the need of a listener is a welcoming message bot : you need to execute your welcome logic (ie. sending "hello @newMember" somewhere) when the event of a new member joining the guild occurs, you can't wait for a user to send a command for that. For this example, the event is `GUILD_MEMBER_ADD` but there is [many more][events-discordjs-doc] that you can "listen" to.
+
+[events-discordjs-doc] https://discord.js.org/#/docs/discord.js/stable/typedef/WSEventType
