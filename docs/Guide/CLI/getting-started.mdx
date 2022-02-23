@@ -44,16 +44,16 @@ the project. This will default to `my-sapphire-bot`.
 
 ```bash {2}
 sapphire new
-? What's the name of your project? › my-sapphire-bot
+? What's the name of your project? » my-sapphire-bot
 ```
 
 Next you will need to choose which programming language you want to use. Currently we support JavaScript and TypeScript.
 
 ```bash {3-5}
 sapphire new
-✔ What's the name of your project? … my-sapphire-bot
-? Choose a language for your project › - Use arrow-keys. Return to submit.
-❯   TypeScript (Recommended)
+√ What's the name of your project? ... my-sapphire-bot
+? Choose a language for your project » - Use arrow-keys. Return to submit.
+>   TypeScript (Recommended)
     JavaScript
 ```
 
@@ -62,11 +62,13 @@ After choosing the programming language we have several templates from which you
 
 ```bash {4-6}
 sapphire new
-✔ What's the name of your project? … my-sapphire-bot
-✔ Choose a language for your project › TypeScript (Recommended)
-? Choose a template for your project › - Use arrow-keys. Return to submit.
-❯   Default template (Recommended)
+√ What's the name of your project? ... my-sapphire-bot
+√ Choose a language for your project » TypeScript (Recommended)
+? Choose a template for your project » - Use arrow-keys. Return to submit.
+>   Default template (Recommended)
     with Docker
+    with tsup
+    with SWC
 ```
 
 The following step is to choose the markup language to use for your config file, we support JSON and YAML. For this
@@ -74,12 +76,12 @@ guide we will choose **YAML**.
 
 ```bash {5-7}
 sapphire new
-✔ What's the name of your project? … my-sapphire-bot
-✔ Choose a language for your project › TypeScript (Recommended)
-✔ Choose a template for your project › Default template (Recommended)
-? What format do you want your config file to be in? › - Use arrow-keys. Return to submit.
+√ What's the name of your project? ... my-sapphire-bot
+√ Choose a language for your project » TypeScript (Recommended)
+√ Choose a template for your project » Default template (Recommended)
+? What format do you want your config file to be in? » - Use arrow-keys. Return to submit.
     JSON
-❯   YAML
+>   YAML
 ```
 
 The next step is to choose the package manager to use. We support `npm` and `yarn`. For this guide we will choose
@@ -87,13 +89,25 @@ The next step is to choose the package manager to use. We support `npm` and `yar
 
 ```bash {6-8}
 sapphire new
-✔ What's the name of your project? … my-sapphire-bot
-✔ Choose a language for your project › TypeScript (Recommended)
-✔ Choose a template for your project › Default template (Recommended)
-✔ What format do you want your config file to be in? › YAML
-? What package manager do you want to use? › - Use arrow-keys. Return to submit.
-❯   Yarn (Recommended)
+√ What's the name of your project? ... my-sapphire-bot
+√ Choose a language for your project » TypeScript (Recommended)
+√ Choose a template for your project » Default template (Recommended)
+√ What format do you want your config file to be in? » YAML
+? What package manager do you want to use? » - Use arrow-keys. Return to submit.
+>   Yarn (Recommended)
     npm
+```
+
+When selecting Yarn you can choose to use Yarn v3 (the latest version), or stick to Yarn v1. For this guide we will choose Yarn v3.
+
+```bash {6-8}
+sapphire new
+√ What's the name of your project? ... my-sapphire-bot
+√ Choose a language for your project » TypeScript (Recommended)
+√ Choose a template for your project » Default template (Recommended)
+√ What format do you want your config file to be in? » YAML
+√ What package manager do you want to use? » Yarn (Recommended)
+? Do you want to use Yarn v3? » (y/N)
 ```
 
 Lastly, if you want to initialize a git repository in your project, type `y` when asked, then press enter to finish up.
@@ -101,12 +115,13 @@ If you don't want a git repository then you can just hit enter to finish.
 
 ```bash {7}
 sapphire new
-✔ What's the name of your project? … my-sapphire-bot
-✔ Choose a language for your project › TypeScript (Recommended)
-✔ Choose a template for your project › Default template (Recommended)
-✔ What format do you want your config file to be in? › YAML
-✔ What package manager do you want to use? › Yarn (Recommended)
-? Do you want to create a git repository for this project? › (y/N)
+√ What's the name of your project? ... my-sapphire-bot
+√ Choose a language for your project » TypeScript (Recommended)
+√ Choose a template for your project » Default template (Recommended)
+√ What format do you want your config file to be in? » YAML
+√ What package manager do you want to use? » Yarn (Recommended)
+√ Do you want to use Yarn v3? ... yes
+? Do you want to create a git repository for this project? » (y/N)
 ```
 
 Now wait for the CLI to create your project and install the dependencies. This should take ~2 minutes, but it may be
@@ -114,14 +129,18 @@ more depending on your hardware as well as on your internet speed.
 
 ```bash
 sapphire new
-✔ What's the name of your project? … my-sapphire-bot
-✔ Choose a language for your project › TypeScript (Recommended)
-✔ Choose a template for your project › Default template (Recommended)
-✔ What format do you want your config file to be in? › YAML
-✔ What package manager do you want to use? › Yarn (Recommended)
-✔ Do you want to create a git repository for this project? … no
+√ What's the name of your project? ... my-sapphire-bot
+√ Choose a language for your project » TypeScript (Recommended)
+√ Choose a template for your project » Default template (Recommended)
+√ What format do you want your config file to be in? » YAML
+√ What package manager do you want to use? » Yarn (Recommended)
+√ Do you want to use Yarn v3? ... yes
+√ Do you want to create a git repository for this project? ... yes
 ✔ Cloning the repository
 ✔ Setting up the project
+✔ Initializing git repo
+✔ Installing Yarn v3
+✔ Installing Yarn Typescript Plugin
 ✔ Installing dependencies using Yarn
 Done!
 ```
@@ -185,9 +204,9 @@ guide we will choose **YAML**.
 
 ```bash {2-4}
 sapphire init
-? What format do you want your config file to be in? › - Use arrow-keys. Return to submit.
+? What format do you want your config file to be in? » - Use arrow-keys. Return to submit.
     JSON
-❯   YAML
+>   YAML
 ```
 
 Next you will need to choose which programming language you are using in your project. Currently we support JavaScript
@@ -195,9 +214,9 @@ and TypeScript.
 
 ```bash {3-5}
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-? Choose the language used in your project › - Use arrow-keys. Return to submit.
-❯   TypeScript
+√ What format do you want your config file to be in? » YAML
+? Choose the language used in your project » - Use arrow-keys. Return to submit.
+>   TypeScript
     JavaScript
 ```
 
@@ -206,9 +225,9 @@ default to `src`.
 
 ```bash {4}
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-✔ Choose the language used in your project › TypeScript
-? Your base directory › src
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+? Your base directory » src
 ```
 
 Then we need to know in which folder you store your commands, without including the base as specified in the previous
@@ -216,10 +235,10 @@ step. This will default to `commands`.
 
 ```bash {5}
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-✔ Choose the language used in your project › TypeScript
-✔ Your base directory … src
-? Where do you store your commands? (do not include the base) › commands
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+? Where do you store your commands? (do not include the base) » commands
 ```
 
 We also need to know in which folder you store your listeners, without including the base as specified before. This will
@@ -227,11 +246,11 @@ default to `listeners`.
 
 ```bash {6}
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-✔ Choose the language used in your project › TypeScript
-✔ Your base directory … src
-✔ Where do you store your commands? (do not include the base) … commands
-? Where do you store your listeners? (do not include the base) › listeners
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+√ Where do you store your commands? (do not include the base) ... commands
+? Where do you store your listeners? (do not include the base) » listeners
 ```
 
 Then we need to know in which folder you store your arguments, without including the base as specified before. This will
@@ -239,12 +258,12 @@ default to `arguments`.
 
 ```bash {7}
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-✔ Choose the language used in your project › TypeScript
-✔ Your base directory … src
-✔ Where do you store your commands? (do not include the base) … commands
-✔ Where do you store your listeners? (do not include the base) … listeners
-? Where do you store your arguments? (do not include the base) › arguments
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+√ Where do you store your commands? (do not include the base) ... commands
+√ Where do you store your listeners? (do not include the base) ... listeners
+? Where do you store your arguments? (do not include the base) » arguments
 ```
 
 And lastly please specify in which folder you store your preconditions, without including the base as specified before.
@@ -252,13 +271,13 @@ This will default to `preconditions`.
 
 ```bash {8}
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-✔ Choose the language used in your project › TypeScript
-✔ Your base directory … src
-✔ Where do you store your commands? (do not include the base) … commands
-✔ Where do you store your listeners? (do not include the base) … listeners
-✔ Where do you store your arguments? (do not include the base) … arguments
-? Where do you store your preconditions? (do not include the base) › preconditions
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+√ Where do you store your commands? (do not include the base) ... commands
+√ Where do you store your listeners? (do not include the base) ... listeners
+√ Where do you store your arguments? (do not include the base) ... arguments
+? Where do you store your preconditions? (do not include the base) » preconditions
 ```
 
 The last step is to choose if you want to enable custom file (piece) templates, type `y` and enter if you want to enable
@@ -266,28 +285,28 @@ it. If you don't want to enable it, just enter.
 
 ```bash {9}
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-✔ Choose the language used in your project › TypeScript
-✔ Your base directory … src
-✔ Where do you store your commands? (do not include the base) … commands
-✔ Where do you store your listeners? (do not include the base) … listeners
-✔ Where do you store your arguments? (do not include the base) … arguments
-✔ Where do you store your preconditions? (do not include the base) … preconditions
-? Do you want to enable custom file templates? › (y/N)
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+√ Where do you store your commands? (do not include the base) ... commands
+√ Where do you store your listeners? (do not include the base) ... listeners
+√ Where do you store your arguments? (do not include the base) ... arguments
+√ Where do you store your preconditions? (do not include the base) ... preconditions
+? Do you want to enable custom file templates? » (y/N)
 ```
 
 Done! You can now start using the Sapphire CLI in your project. 🎉
 
 ```bash
 sapphire init
-✔ What format do you want your config file to be in? › YAML
-✔ Choose the language used in your project › TypeScript
-✔ Your base directory … src
-✔ Where do you store your commands? (do not include the base) … commands
-✔ Where do you store your listeners? (do not include the base) … listeners
-✔ Where do you store your arguments? (do not include the base) … arguments
-✔ Where do you store your preconditions? (do not include the base) … preconditions
-✔ Do you want to enable custom file templates? … no
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+√ Where do you store your commands? (do not include the base) ... commands
+√ Where do you store your listeners? (do not include the base) ... listeners
+√ Where do you store your arguments? (do not include the base) ... arguments
+√ Where do you store your preconditions? (do not include the base) ... preconditions
+√ Do you want to enable custom file templates? ... no
 ```
 
 </details>
