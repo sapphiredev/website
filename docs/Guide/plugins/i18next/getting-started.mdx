@@ -115,7 +115,9 @@ use in the translation of messages.
 
 The basic structure of a translation file is as follows:
 
-<!--- languages/en-US/commands/ping.json --->
+`languages/en-US/ping.json`
+
+The same with the other languages but with their corresponding translations.
 
 ```json
 {
@@ -140,7 +142,7 @@ export class PingCommand extends Command {
   }
 
   public async messageRun(message: Message) {
-    await message.channel.send(await resolveKey('commands/ping:success'));
+    await message.channel.send(await resolveKey('ping:success'));
   }
 }
 ```
@@ -160,7 +162,7 @@ export class PingCommand extends Command {
   }
 
   public async messageRun(message: Message) {
-    await sendLocalized(message, 'commands/ping:success');
+    await sendLocalized(message, 'ping:success');
   }
 }
 ```
@@ -180,7 +182,7 @@ export class PingCommand extends Command {
   }
 
   public async messageRun(message: Message) {
-    await editLocalized(message, { keys: 'commands/ping:success_with_args', formatOptions: { latency: ws.ping } });
+    await editLocalized(message, { keys: 'ping:success_with_args', formatOptions: { latency: ws.ping } });
   }
 }
 ```
@@ -200,7 +202,7 @@ export class PingCommand extends Command {
   }
 
   public async messageRun(message: Message) {
-    await replyLocalized(message, { keys: 'commands/ping:success_with_args', formatOptions: { latency: ws.ping } });
+    await replyLocalized(message, { keys: 'ping:success_with_args', formatOptions: { latency: ws.ping } });
   }
 }
 ```
