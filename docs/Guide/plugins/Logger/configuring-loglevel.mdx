@@ -29,8 +29,11 @@ configure the `logger level` dynamicaally.
 ```typescript ts2esm2cjs|{3}|{3}
 import { LogLevel, SapphireClient } from '@sapphire/framework';
 
-const client = new SapphireClient({ logger: { level: process.env.NODE_ENV === 'development' ? LogLevel.Debug :
-LogLevel.Info } });
+const client = new SapphireClient({
+	logger: {
+		level: process.env.NODE_ENV === 'development' ? LogLevel.Debug : LogLevel.Info
+	}
+});
 ```
 
 Above example will set the `logger level` to `Debug` during development and to `Info` during production.
