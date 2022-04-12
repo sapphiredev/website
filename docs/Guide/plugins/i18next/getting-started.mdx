@@ -142,7 +142,7 @@ export class PingCommand extends Command {
   }
 
   public async messageRun(message: Message) {
-    await message.channel.send(await resolveKey(message.guild!, 'ping:success'));
+    await message.channel.send(await resolveKey(message, 'ping:success'));
   }
 }
 ```
