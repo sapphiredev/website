@@ -1,0 +1,48 @@
+---
+sidebar_position: 5
+title: Using Time Utilities
+---
+
+## Introduction
+
+`@sapphire/time-utilities` is a small package that contains a few utility functions for working with time.
+Sometime working with `Time` and `Duration` can be hard to handle. This package contains a few functions that make it easier.
+
+## Installation
+
+```bash npm2yarn2pnpm
+npm install @sapphire/time-utilities
+```
+
+## Usage
+
+Since this package contains multiple utilitly classes, we will see one by one how they work.
+
+### Duration
+
+`Duration` class can be used to convert a human readable time string to milliseconds.
+
+```typescript ts2esm2cjs
+import { Duration } from '@sapphire/time-utilities';
+
+const duration = new Duration('1d');
+
+console.log(duration);
+// { offset: 86400000 }
+
+console.log(duration.fromNow);
+// Logs the date from now
+```
+
+### DurationFormatter
+
+`DurationFormatter` class can be used to convert milliseconds duration to a human readable string.
+
+```typescript ts2esm2cjs
+import { DurationFormatter } from '@sapphire/time-utilities';
+
+const ms = new DurationFormatter().format(3600000);
+
+console.log(ms);
+// 1 hour
+```
