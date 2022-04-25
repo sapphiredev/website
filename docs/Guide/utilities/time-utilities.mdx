@@ -16,7 +16,7 @@ npm install @sapphire/time-utilities
 
 ## Usage
 
-Since this package contains multiple utilitly classes, we will see one by one how they work.
+Since this package contains multiple utility classes, we will see one by one how they work.
 
 ### Duration
 
@@ -49,26 +49,26 @@ console.log(ms);
 
 ### Timestamp
 
-`Timestamp` class contains multiple methods that can be used to deal with timestamps easily.
-Let's see a quick example of how to use it.
+`Timestamp` class contains multiple methods that can be used to deal with timestamps easily. Let's see a quick example
+of how to use it.
 
 `Example`
 
 ```typescript ts2esm2cjs
 import { Timestamp } from '@sapphire/time-utilities';
 
-const timestamp = new Timestamp('HH:mm:ss')
+const timestamp = new Timestamp('HH:mm:ss');
 
-console.log(timestamp.display(3600000))
+console.log(timestamp.display(3600000));
 // 06:30:00
 
 // edit the initialized pattern to include date, month and year in timestamp
-timestamp.edit('DD-MM-YYYY HH:mm:ss')
+timestamp.edit('DD-MM-YYYY HH:mm:ss');
 
-console.log(timestamp.display(3600000))
+console.log(timestamp.display(3600000));
 // 01-01-1970 06:30:00
 
 // convert a date to UTC date
-console.log(Timestamp.utc('2022-04-25'))
+console.log(Timestamp.utc('2022-04-25'));
 // 2022-04-24T18:30:00.000Z
 ```
