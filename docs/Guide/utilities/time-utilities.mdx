@@ -18,6 +18,24 @@ npm install @sapphire/time-utilities
 
 Since this package contains multiple utility classes, we will see one by one how they work.
 
+### Cron
+
+`Cron` class can be used to work with the cron jobs time. It can be used to get the next time a cron job should be
+executed. By default it uses the current `UTC` time to compare. However, you can pass a `Time` object to compare with
+too in `next` method.
+
+```typescript ts2esm2cjs
+import { Cron } from '@sapphire/time-utilities';
+
+const cronTime = new Cron('0 * * * *');
+
+console.log(cronTime.next());
+// logs next hour time
+
+console.log(cronTime.next(new Date('2022-04-24T19:30:00Z')));
+// 2022-04-24T20:00:00.000Z
+```
+
 ### Duration
 
 `Duration` class can be used to convert a human readable time string to milliseconds.
