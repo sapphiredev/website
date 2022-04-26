@@ -65,6 +65,27 @@ console.log(ms);
 // 1 hour
 ```
 
+### TimerManager
+
+`TimerManager` class can be used to manage timers. It can be used to create a timer that will be executed every `X` ms
+and also to set timeout.
+
+```typescript ts2esm2cjs
+import { TimerManager } from '@sapphire/time-utilities'
+
+function guideTimerManager(message: string) {
+    console.log(message);
+}
+
+TimerManager.setTimeout(() => {
+  guideTimerManager('After 2 seconds');
+}, 2000);
+
+TimerManager.setInterval(() => {
+  guideTimerManager('I run per minute');
+}, 60000);
+```
+
 ### Timestamp
 
 `Timestamp` class contains multiple methods that can be used to deal with timestamps easily. Let's see a quick example
