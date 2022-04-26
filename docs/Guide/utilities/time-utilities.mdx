@@ -5,8 +5,8 @@ title: Using Time Utilities
 
 ## Introduction
 
-Sometime working with `Time` and `Duration` can be hard to handle. `@sapphire/time-utilities` is a small package that
-contains a few utility classes that eases working with `Time` and `Duration`
+Often working with `Date` related objects can be hard to handle. `@sapphire/time-utilities` is a small package that
+contains a few utility classes that eases working with these kind of objects.
 
 ## Installation
 
@@ -16,13 +16,13 @@ npm install @sapphire/time-utilities
 
 ## Usage
 
-Since this package contains multiple utility classes, we will see one by one how they work.
+Since this package contains multiple utility classes, we will cover each one by one.
 
 ### Cron
 
-`Cron` class can be used to work with the cron jobs time. It can be used to get the next time a cron job should be
-executed. By default it uses the current `UTC` time to compare. However, you can pass a `Time` object to compare with
-too in `next` method.
+`Cron` class can be used to process the [cron strings][cron-strings]. It can be used to get the next time a cron job
+should be executed. By default it uses the current `UTC` time to compare. However, you can pass a `Time` object to
+compare with too in `next` method.
 
 ```typescript ts2esm2cjs
 import { Cron } from '@sapphire/time-utilities';
@@ -67,8 +67,8 @@ console.log(ms);
 
 ### TimerManager
 
-`TimerManager` class can be used to manage timers. It can be used to create a timer that will be executed every `X` ms
-and also to set timeout.
+`TimerManager` class can be used to manage timers. It can be used to create a timer that will be executed every `X`
+milliseconds as well as to set a timeout.
 
 ```typescript ts2esm2cjs
 import { TimerManager } from '@sapphire/time-utilities';
@@ -111,3 +111,5 @@ console.log(timestamp.display(3600000));
 console.log(Timestamp.utc('2022-04-25'));
 // 2022-04-24T18:30:00.000Z
 ```
+
+[cron-strings]: https://en.wikipedia.org/wiki/Cron
