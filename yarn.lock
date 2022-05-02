@@ -1652,7 +1652,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^16.2.1, @commitlint/cli@npm:^16.2.3, @commitlint/cli@npm:^16.2.4":
+"@commitlint/cli@npm:^16.2.1, @commitlint/cli@npm:^16.2.4":
   version: 16.2.4
   resolution: "@commitlint/cli@npm:16.2.4"
   dependencies:
@@ -2502,9 +2502,9 @@ __metadata:
   linkType: hard
 
 "@hapi/hoek@npm:^9.0.0":
-  version: 9.2.1
-  resolution: "@hapi/hoek@npm:9.2.1"
-  checksum: 6a439f672df5f12f1d08d56967b4cb364ce05d81e95e3c3c1b88c5a98b917ca91c70e78cc0b2b4219a760cceec1f22d6658bfc93a83670cecc1ce9ca2247ebd8
+  version: 9.3.0
+  resolution: "@hapi/hoek@npm:9.3.0"
+  checksum: 4771c7a776242c3c022b168046af4e324d116a9d2e1d60631ee64f474c6e38d1bb07092d898bf95c7bc5d334c5582798a1456321b2e53ca817d4e7c88bc25b43
   languageName: node
   linkType: hard
 
@@ -3060,15 +3060,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:^4.8.1, @sapphire/discord.js-utilities@npm:^4.9.5":
-  version: 4.9.7
-  resolution: "@sapphire/discord.js-utilities@npm:4.9.7"
+"@sapphire/discord.js-utilities@npm:^4.8.1, @sapphire/discord.js-utilities@npm:^4.9.7":
+  version: 4.10.0
+  resolution: "@sapphire/discord.js-utilities@npm:4.10.0"
   dependencies:
     "@sapphire/discord-utilities": ^2.10.3
     "@sapphire/time-utilities": ^1.7.4
     "@sapphire/utilities": ^3.6.2
     tslib: ^2.4.0
-  checksum: c174b512c283216c3382fea518ba01ceda5ade39cd7ae8988bc4a9bb1fe37d0a7f7b7a578cd0053c3bcf6230ede2f7cee50810f08082186b311e220117b9ec50
+  checksum: 7794e35aa500aa7fbe7c2a1528124c5f70642b071cb3821d23909d40a3625adf51ebbca4cd3871806eb2b501d73c31758f21d8fef57a7af5fec8562e517611fb
   languageName: node
   linkType: hard
 
@@ -3184,12 +3184,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/framework@workspace:projects/framework"
   dependencies:
-    "@commitlint/cli": ^16.2.3
-    "@commitlint/config-conventional": ^16.2.1
+    "@commitlint/cli": ^16.2.4
+    "@commitlint/config-conventional": ^16.2.4
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.7
     "@sapphire/discord-utilities": ^2.10.3
-    "@sapphire/discord.js-utilities": ^4.9.5
+    "@sapphire/discord.js-utilities": ^4.9.7
     "@sapphire/eslint-config": ^4.3.4
     "@sapphire/pieces": ^3.3.1
     "@sapphire/prettier-config": ^1.4.3
@@ -3201,8 +3201,8 @@ __metadata:
     "@types/jest": ^27.4.1
     "@types/node": ^17.0.21
     "@types/ws": ^8.5.3
-    "@typescript-eslint/eslint-plugin": ^5.20.0
-    "@typescript-eslint/parser": ^5.20.0
+    "@typescript-eslint/eslint-plugin": ^5.21.0
+    "@typescript-eslint/parser": ^5.21.0
     cz-conventional-changelog: ^3.3.0
     discord.js: ^13.6.0
     eslint: ^8.14.0
@@ -3213,10 +3213,10 @@ __metadata:
     jest: ^27.5.1
     jest-circus: ^27.5.1
     lexure: ^0.17.0
-    lint-staged: ^12.4.0
+    lint-staged: ^12.4.1
     prettier: ^2.6.2
     pretty-quick: ^3.1.3
-    rollup: ^2.70.2
+    rollup: ^2.71.1
     rollup-plugin-version-injector: ^1.3.3
     standard-version: ^9.3.2
     ts-jest: ^27.1.4
@@ -3225,7 +3225,7 @@ __metadata:
     typedoc: ^0.22.15
     typedoc-plugin-djs-links: ^1.0.4
     typedoc-plugin-mdn-links: ^1.0.6
-    typescript: ^4.6.3
+    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
@@ -3254,8 +3254,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/pieces@workspace:projects/pieces"
   dependencies:
-    "@commitlint/cli": ^16.2.3
-    "@commitlint/config-conventional": ^16.2.1
+    "@commitlint/cli": ^16.2.4
+    "@commitlint/config-conventional": ^16.2.4
     "@discordjs/collection": ^0.6.0
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.7
@@ -3264,22 +3264,22 @@ __metadata:
     "@sapphire/ts-config": ^3.3.4
     "@sapphire/utilities": ^3.6.2
     "@types/node": ^17.0.23
-    "@typescript-eslint/eslint-plugin": ^5.20.0
-    "@typescript-eslint/parser": ^5.20.0
+    "@typescript-eslint/eslint-plugin": ^5.21.0
+    "@typescript-eslint/parser": ^5.21.0
     cz-conventional-changelog: ^3.3.0
     eslint: ^8.14.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    lint-staged: ^12.4.0
+    lint-staged: ^12.4.1
     prettier: ^2.6.2
     pretty-quick: ^3.1.3
     standard-version: ^9.3.2
     tslib: ^2.4.0
     typedoc: ^0.22.15
     typedoc-plugin-mdn-links: ^1.0.6
-    typescript: ^4.6.3
+    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
@@ -4209,9 +4209,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=12, @types/node@npm:^17.0.21, @types/node@npm:^17.0.23, @types/node@npm:^17.0.25, @types/node@npm:^17.0.27, @types/node@npm:^17.0.30, @types/node@npm:^17.0.5":
-  version: 17.0.30
-  resolution: "@types/node@npm:17.0.30"
-  checksum: b3cd2db6474aae3ddac5a312f340f6e4ca200429371e62cb74698fe7f23d7414d0200f643204ddfaa797846328539359e3797d7f2baaf3cdd643b159cf53baa6
+  version: 17.0.31
+  resolution: "@types/node@npm:17.0.31"
+  checksum: 704618350f8420d5c47db0f7778398e821b7724369946f5c441a7e6b9343295553936400eb8309f0b07d5e39c240988ab3456b983712ca86265dabc9aee4ad3d
   languageName: node
   linkType: hard
 
@@ -5265,11 +5265,11 @@ __metadata:
   linkType: hard
 
 "autoprefixer@npm:^10.3.7, autoprefixer@npm:^10.4.4":
-  version: 10.4.5
-  resolution: "autoprefixer@npm:10.4.5"
+  version: 10.4.6
+  resolution: "autoprefixer@npm:10.4.6"
   dependencies:
-    browserslist: ^4.20.2
-    caniuse-lite: ^1.0.30001332
+    browserslist: ^4.20.3
+    caniuse-lite: ^1.0.30001334
     fraction.js: ^4.2.0
     normalize-range: ^0.1.2
     picocolors: ^1.0.0
@@ -5278,7 +5278,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 6c638d8f515a9c37776f9d6b1263e497768d9e8d8ad3b45d901513ba0f26c74df73f4afb84efd3253ab3d1c57803b4e2d97ad9b8919ef1955e373fcf24661213
+  checksum: 4e8fbe94e8d66e77908958a041e3c1db267eb6d6d710f567db6ec4c349364082a75fef96ae808a6bdbc884bb2c63f1981067858317ef4e6af3d7561b551a634f
   languageName: node
   linkType: hard
 
@@ -5910,7 +5910,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001332":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001332, caniuse-lite@npm:^1.0.30001334":
   version: 1.0.30001334
   resolution: "caniuse-lite@npm:1.0.30001334"
   checksum: 1a1c783942d53ca37dc3dbdd7c4a6f7994996d0bfd178d4f4cdd714c6b09d9d9f48a3a2452e009e8203aba4b7a2da43f3d9d88060668a46fc237dbe0d39358a3
@@ -6867,11 +6867,11 @@ __metadata:
   linkType: hard
 
 "cron-parser@npm:^4.2.1":
-  version: 4.3.0
-  resolution: "cron-parser@npm:4.3.0"
+  version: 4.4.0
+  resolution: "cron-parser@npm:4.4.0"
   dependencies:
     luxon: ^1.28.0
-  checksum: 3559edba22f9f62b7eb72f406bb023dd325b882f50d0becbfd092e4fdcb3899ae49238ad56f440b8f17fb99c96e9ed7c2dc38027eba87ee34b05121a024421c7
+  checksum: 4fd4d1bd46ae49c277bf5f0bc522187211a47c08371d7245a10c331d3254c40bb7a95f52e231f40fcf2b5aa687043cde4f480f4e973975b3edc1053f76e521c1
   languageName: node
   linkType: hard
 
@@ -15402,7 +15402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.43.1, rollup@npm:^2.60.0, rollup@npm:^2.63.0, rollup@npm:^2.70.2":
+"rollup@npm:^2.43.1, rollup@npm:^2.60.0, rollup@npm:^2.63.0, rollup@npm:^2.71.1":
   version: 2.71.1
   resolution: "rollup@npm:2.71.1"
   dependencies:
@@ -18670,8 +18670,8 @@ __metadata:
   linkType: hard
 
 "ws@npm:^8.4.0, ws@npm:^8.4.2":
-  version: 8.5.0
-  resolution: "ws@npm:8.5.0"
+  version: 8.6.0
+  resolution: "ws@npm:8.6.0"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ^5.0.2
@@ -18680,7 +18680,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 76f2f90e40344bf18fd544194e7067812fb1372b2a37865678d8f12afe4b478ff2ebc0c7c0aff82cd5e6b66fc43d889eec0f1865c2365d8f7a66d92da7744a77
+  checksum: e2fca82059f1e087d0c78e2f37135e1b8332bc804fce46f83c2db1cb8571685abf9d2c99b964bab3752536ad90b99b46fb8d1428899aed3e560684ab4641bffd
   languageName: node
   linkType: hard
 
