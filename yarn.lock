@@ -2438,9 +2438,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/cliff-jumper@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@favware/cliff-jumper@npm:1.4.0"
+"@favware/cliff-jumper@npm:^1.4.0, @favware/cliff-jumper@npm:^1.5.1, @favware/cliff-jumper@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "@favware/cliff-jumper@npm:1.7.0"
   dependencies:
     "@sapphire/result": ^1.1.1
     "@sapphire/utilities": ^3.6.2
@@ -2449,11 +2449,11 @@ __metadata:
     conventional-changelog-angular: ^5.0.13
     conventional-recommended-bump: ^6.1.0
     js-yaml: ^4.1.0
-    typescript: ^4.6.3
+    typescript: ^4.6.4
   bin:
     cj: ./dist/cli.js
     cliff-jumper: ./dist/cli.js
-  checksum: 8955ab24e5165f547c96c234bc8102444b6cdd0facc154dbe4cad726c77e6c603d3899c9fdc46079f0e98612104f2946e7f2d4560ecd41d6fdbdf5faff178f06
+  checksum: eccbb60187f65f4bf32793b7c20fa3e6bca8936cd3c48c44a1e024791fb99364f98724314bcd6848ba8bf864c7e24e8de543c3c38ea28c899674bcc4b10078d5
   languageName: node
   linkType: hard
 
@@ -3243,7 +3243,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/async-queue@workspace:projects/utilities/packages/async-queue"
   dependencies:
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3266,7 +3266,7 @@ __metadata:
     "@sapphire/ratelimits": "workspace:^"
     "@sapphire/utilities": "workspace:^"
     tslib: ^2.4.0
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3284,7 +3284,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/discord-utilities@workspace:projects/utilities/packages/discord-utilities"
   dependencies:
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     twemoji-parser: ^14.0.0
     typescript: ^4.6.4
   languageName: unknown
@@ -3355,13 +3355,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/eslint-config@workspace:projects/utilities/packages/eslint-config"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.21.0
-    "@typescript-eslint/parser": ^5.21.0
-    eslint: ^8.14.0
+    "@typescript-eslint/eslint-plugin": ^5.22.0
+    "@typescript-eslint/parser": ^5.22.0
+    eslint: ^8.15.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
     prettier: ^2.6.2
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3371,7 +3371,7 @@ __metadata:
   resolution: "@sapphire/event-iterator@workspace:projects/utilities/packages/event-iterator"
   dependencies:
     tslib: ^2.4.0
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3390,7 +3390,7 @@ __metadata:
   resolution: "@sapphire/fetch@workspace:projects/utilities/packages/fetch"
   dependencies:
     cross-fetch: ^3.1.5
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3462,7 +3462,7 @@ __metadata:
   resolution: "@sapphire/phisherman@workspace:projects/utilities/packages/phisherman"
   dependencies:
     "@sapphire/fetch": "workspace:^"
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3553,11 +3553,10 @@ __metadata:
   resolution: "@sapphire/plugin-i18next@workspace:projects/plugins/packages/i18next"
   dependencies:
     "@sapphire/utilities": ^3.6.2
-    "@types/i18next-fs-backend": ^1.1.2
+    "@skyra/i18next-backend": ^1.0.0
     chokidar: ^3.5.3
     gen-esm-wrapper: ^1.1.3
-    i18next: ^21.6.16
-    i18next-fs-backend: ^1.1.4
+    i18next: ^21.7.1
     tslib: ^2.4.0
     typescript: ^4.6.4
   languageName: unknown
@@ -3624,7 +3623,7 @@ __metadata:
   resolution: "@sapphire/prettier-config@workspace:projects/utilities/packages/prettier-config"
   dependencies:
     prettier: ^2.6.2
-    tsup: ^5.12.6
+    tsup: ^5.12.7
   languageName: unknown
   linkType: soft
 
@@ -3642,7 +3641,7 @@ __metadata:
   resolution: "@sapphire/ratelimits@workspace:projects/utilities/packages/ratelimits"
   dependencies:
     "@sapphire/time-utilities": "workspace:^"
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3658,7 +3657,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/result@workspace:projects/utilities/packages/result"
   dependencies:
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3701,7 +3700,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/snowflake@workspace:projects/utilities/packages/snowflake"
   dependencies:
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3720,7 +3719,7 @@ __metadata:
   resolution: "@sapphire/stopwatch@workspace:projects/utilities/packages/stopwatch"
   dependencies:
     tslib: ^2.4.0
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3739,7 +3738,7 @@ __metadata:
   resolution: "@sapphire/time-utilities@workspace:projects/utilities/packages/time-utilities"
   dependencies:
     "@sapphire/utilities": "workspace:^"
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3770,29 +3769,27 @@ __metadata:
     "@commitlint/cli": ^16.2.4
     "@commitlint/config-conventional": ^16.2.4
     "@discordjs/node-pre-gyp": ^0.4.2
-    "@favware/cliff-jumper": ^1.4.0
+    "@favware/cliff-jumper": ^1.7.0
     "@favware/npm-deprecate": ^1.0.4
     "@sapphire/eslint-config": ^4.3.4
     "@sapphire/prettier-config": ^1.4.3
     "@sapphire/ts-config": ^3.3.4
-    "@types/jest": ^27.4.1
-    "@types/node": ^17.0.30
-    "@typescript-eslint/eslint-plugin": ^5.21.0
-    "@typescript-eslint/parser": ^5.21.0
+    "@types/jest": ^27.5.0
+    "@types/node": ^17.0.31
+    "@typescript-eslint/eslint-plugin": ^5.22.0
+    "@typescript-eslint/parser": ^5.22.0
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.14.0
+    eslint: ^8.15.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.5.1
-    jest-circus: ^27.5.1
+    jest: ^28.1.0
     lint-staged: ^12.4.1
     nan: ^2.15.0
     prettier: ^2.6.2
     pretty-quick: ^3.1.3
-    ts-jest: ^27.1.4
-    ts-node: ^10.7.0
+    ts-jest: ^28.0.1
     tslib: ^2.4.0
     typedoc: ^0.22.15
     typedoc-plugin-mdn-links: ^1.0.6
@@ -3811,7 +3808,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/utilities@workspace:projects/utilities/packages/utilities"
   dependencies:
-    tsup: ^5.12.6
+    tsup: ^5.12.7
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
@@ -3891,6 +3888,15 @@ __metadata:
   version: 2.1.2
   resolution: "@skyra/editable-commands@npm:2.1.2"
   checksum: a0a853abe476d2f622bedfbf37a67aff10ab57d0bd742a0a214a907c77648273bf544da6491a4dc6e8e0528f9533aeb20028be792134e39fb07c34219596ae2c
+  languageName: node
+  linkType: hard
+
+"@skyra/i18next-backend@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@skyra/i18next-backend@npm:1.0.0"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: ea60794b8ce67d0bba0f8fb1aa82fe3a06d1845a9a88de562beaf8869a733fbf4431ba163a84075a304830aa5610c21424dcf8a73f5234b438560b88a776295c
   languageName: node
   linkType: hard
 
@@ -4329,15 +4335,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/i18next-fs-backend@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@types/i18next-fs-backend@npm:1.1.2"
-  dependencies:
-    i18next: ^21.0.1
-  checksum: 567ab61f65231490b272d15311e7eb127cb069743284d3e0527e7cc75671038dcb70feb5da9964b218a3bb28435365179c18bab721c94ed765f28263662e6de0
-  languageName: node
-  linkType: hard
-
 "@types/ioredis@npm:*":
   version: 4.28.10
   resolution: "@types/ioredis@npm:4.28.10"
@@ -4372,7 +4369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^27.4.1":
+"@types/jest@npm:^27.4.1, @types/jest@npm:^27.5.0":
   version: 27.5.0
   resolution: "@types/jest@npm:27.5.0"
   dependencies:
@@ -4452,7 +4449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=12, @types/node@npm:^17.0.21, @types/node@npm:^17.0.23, @types/node@npm:^17.0.25, @types/node@npm:^17.0.27, @types/node@npm:^17.0.30, @types/node@npm:^17.0.5":
+"@types/node@npm:*, @types/node@npm:>=12, @types/node@npm:^17.0.21, @types/node@npm:^17.0.23, @types/node@npm:^17.0.25, @types/node@npm:^17.0.27, @types/node@npm:^17.0.30, @types/node@npm:^17.0.31, @types/node@npm:^17.0.5":
   version: 17.0.31
   resolution: "@types/node@npm:17.0.31"
   checksum: 704618350f8420d5c47db0f7778398e821b7724369946f5c441a7e6b9343295553936400eb8309f0b07d5e39c240988ab3456b983712ca86265dabc9aee4ad3d
@@ -4700,7 +4697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.20.0, @typescript-eslint/eslint-plugin@npm:^5.21.0":
+"@typescript-eslint/eslint-plugin@npm:^5.20.0, @typescript-eslint/eslint-plugin@npm:^5.21.0, @typescript-eslint/eslint-plugin@npm:^5.22.0":
   version: 5.22.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.22.0"
   dependencies:
@@ -4723,7 +4720,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.20.0, @typescript-eslint/parser@npm:^5.21.0":
+"@typescript-eslint/parser@npm:^5.20.0, @typescript-eslint/parser@npm:^5.21.0, @typescript-eslint/parser@npm:^5.22.0":
   version: 5.22.0
   resolution: "@typescript-eslint/parser@npm:5.22.0"
   dependencies:
@@ -7795,17 +7792,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.26.0, discord-api-types@npm:^0.26.1":
+"discord-api-types@npm:0.26.1, discord-api-types@npm:^0.26.0, discord-api-types@npm:^0.26.1":
   version: 0.26.1
   resolution: "discord-api-types@npm:0.26.1"
   checksum: e53bfa7589b24108e6b403dbe213da34c4592f72e2b8fde6800dcb6c703065887ecbd644e1cdf694e4c7796954bc51462ced868f26ec45dc1e0dc4fa8d3c723c
-  languageName: node
-  linkType: hard
-
-"discord-api-types@npm:^0.32.0":
-  version: 0.32.1
-  resolution: "discord-api-types@npm:0.32.1"
-  checksum: cce4fa81a4c8311b72cf9f23ff9a3d16e40ba7d862a7634717d9437e0e5918209a8eeb75ea9974f24e3761b06e4599757e7544343b702a23f04b07f31884c304
   languageName: node
   linkType: hard
 
@@ -8051,9 +8041,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.118":
-  version: 1.4.136
-  resolution: "electron-to-chromium@npm:1.4.136"
-  checksum: 98eaecc752fcff816a344615d1652fc417ff7e2cb63a4d2b8947784cf4d74da3e5271186b3cf6cb62ba829beb1af552d6b3b98072ecb6c2e59b281bf4a6a5909
+  version: 1.4.137
+  resolution: "electron-to-chromium@npm:1.4.137"
+  checksum: 639d7b94906efafcf363519c3698eecc44be46755a6a5cdc9088954329978866cc93fbd57e08b97290599b68d5226243d21de9fa50be416b8a5d3fa8fd42c3a0
   languageName: node
   linkType: hard
 
@@ -8684,7 +8674,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.13.0, eslint@npm:^8.14.0":
+"eslint@npm:^8.13.0, eslint@npm:^8.14.0, eslint@npm:^8.15.0":
   version: 8.15.0
   resolution: "eslint@npm:8.15.0"
   dependencies:
@@ -10443,14 +10433,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next-fs-backend@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "i18next-fs-backend@npm:1.1.4"
-  checksum: 7da252aa618f82555a99709b0f8afed997b7b20aeb5e66c92fe13f5b676c80b8a3cad24a1e38c599c6ab6e9169c4be87268c30e48cf1965cbcc8a69ff76bd0a4
-  languageName: node
-  linkType: hard
-
-"i18next@npm:^21.0.1, i18next@npm:^21.6.16":
+"i18next@npm:^21.7.1":
   version: 21.7.1
   resolution: "i18next@npm:21.7.1"
   dependencies:
@@ -12167,7 +12150,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^28.0.2, jest@npm:^28.0.3":
+"jest@npm:^28.0.2, jest@npm:^28.1.0":
   version: 28.1.0
   resolution: "jest@npm:28.1.0"
   dependencies:
@@ -16162,8 +16145,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^2.43.1, rollup@npm:^2.60.0, rollup@npm:^2.63.0, rollup@npm:^2.71.1":
-  version: 2.72.0
-  resolution: "rollup@npm:2.72.0"
+  version: 2.72.1
+  resolution: "rollup@npm:2.72.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -16171,7 +16154,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: d4c213d4250a0455e0ee40664db3339a9e3ca5affa09c348019b4895e7100cdbedeba881a239a7a80c407b4055dca4e97d10a740d99c09b17651efbfedd61a4b
+  checksum: 3dca122129f560acc3c54dd5bd5f9470dd562d74f61c652c57b6a4355a963c0828640382ebff544f1b0e71387733a51fb963d6f761ae1f05a84f5923bbde883c
   languageName: node
   linkType: hard
 
@@ -16181,7 +16164,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^16.2.4
     "@commitlint/config-conventional": ^16.2.4
-    "@favware/cliff-jumper": ^1.4.0
+    "@favware/cliff-jumper": ^1.5.1
     "@favware/npm-deprecate": ^1.0.4
     "@sapphire/eslint-config": ^4.3.4
     "@sapphire/framework": ^2.4.1
@@ -16190,29 +16173,27 @@ __metadata:
     "@sapphire/stopwatch": ^1.4.1
     "@sapphire/ts-config": ^3.3.4
     "@sapphire/utilities": ^3.6.2
-    "@types/jest": ^27.4.1
-    "@types/node": ^17.0.25
+    "@types/jest": ^27.5.0
+    "@types/node": ^17.0.31
     "@types/node-fetch": ^2.6.1
     "@types/ws": ^8.5.3
-    "@typescript-eslint/eslint-plugin": ^5.21.0
-    "@typescript-eslint/parser": ^5.21.0
+    "@typescript-eslint/eslint-plugin": ^5.22.0
+    "@typescript-eslint/parser": ^5.22.0
     cz-conventional-changelog: ^3.3.0
-    discord-api-types: ^0.32.0
+    discord-api-types: 0.26.1
     discord.js: ^13.6.0
-    eslint: ^8.14.0
+    eslint: ^8.15.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^7.0.4
-    jest: ^27.5.1
-    jest-circus: ^27.5.1
+    jest: ^28.1.0
     lint-staged: ^12.4.1
     prettier: ^2.6.2
     pretty-quick: ^3.1.3
     rimraf: ^3.0.2
-    ts-jest: ^27.1.4
-    ts-node: ^10.7.0
-    turbo: ^1.2.6
+    ts-jest: ^28.0.1
+    turbo: ^1.2.8
     typedoc: ^0.22.15
     typedoc-plugin-djs-links: ^1.0.4
     typedoc-plugin-mdn-links: ^1.0.6
@@ -16227,24 +16208,24 @@ __metadata:
     "@commitlint/cli": ^16.2.4
     "@commitlint/config-conventional": ^16.2.4
     "@discordjs/collection": ^0.6.0
-    "@favware/cliff-jumper": ^1.4.0
+    "@favware/cliff-jumper": ^1.7.0
     "@favware/npm-deprecate": ^1.0.4
     "@favware/rollup-type-bundler": ^1.0.7
     "@sapphire/framework": ^2.4.1
-    "@types/jest": ^27.4.1
+    "@types/jest": ^27.5.0
     "@types/lodash": ^4.14.182
     "@types/node": ^17.0.25
     "@types/ws": ^8.5.3
-    "@typescript-eslint/eslint-plugin": ^5.21.0
-    "@typescript-eslint/parser": ^5.21.0
+    "@typescript-eslint/eslint-plugin": ^5.22.0
+    "@typescript-eslint/parser": ^5.22.0
     cz-conventional-changelog: ^3.3.0
     discord-api-types: ^0.26.1
     discord.js: ^13.6.0
-    eslint: ^8.14.0
+    eslint: ^8.15.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
     husky: ^7.0.4
-    jest: ^28.0.3
+    jest: ^28.1.0
     jest-extended: ^2.0.0
     lint-staged: ^12.4.1
     lodash: ^4.17.21
@@ -16254,8 +16235,8 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^28.0.1
     tslib: ^2.4.0
-    tsup: ^5.12.6
-    turbo: ^1.2.6
+    tsup: ^5.12.7
+    turbo: ^1.2.8
     typedoc: ^0.22.15
     typedoc-plugin-djs-links: ^1.0.4
     typedoc-plugin-mdn-links: ^1.0.6
@@ -17969,7 +17950,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^5.12.6":
+"tsup@npm:^5.12.6, tsup@npm:^5.12.7":
   version: 5.12.7
   resolution: "tsup@npm:5.12.7"
   dependencies:
@@ -18101,7 +18082,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.2.6":
+"turbo@npm:^1.2.8":
   version: 1.2.8
   resolution: "turbo@npm:1.2.8"
   dependencies:
