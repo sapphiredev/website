@@ -35,31 +35,46 @@ import { Precondition } from '@sapphire/framework';
 export class OwnerOnlyPrecondition extends Precondition {}
 ```
 
-Next, we can create a [`run`][preconditionrun] function to execute our logic. This function should either return
+Next, we can create a [`messageRun`][preconditionmessagerun] or [`chatInputRun`][preconditionchatinputrun] or
+[`contextMenuRun`][preconditioncontextmenurun] function to execute our logic. These functions should either return
 [`this.ok()`][preconditionok] to signify the condition has passed, or [`this.error(...)`][preconditionerror] to signify
 the command should be denied.
 
-:::danger
-
-Clicking on [`run`][preconditionrun] above will take you to a method instead called `messageRun`. This is because this
-documentation reflects the latest commit to the `main` branch of `@sapphire/framework` which is has a breaking change
-included that changed the name of the method. For the purposes of this guide however, you can use `run` as long as you
-are using the latest NPM published version of `@sapphire/framework`.
-
-:::
-
-```typescript ts2esm2cjs|{4-8}|{4-8}
+```typescript ts2esm2cjs|{4-17}|{5-17}
 import { Precondition } from '@sapphire/framework';
-import type { Message } from 'discord.js';
+import type { CommandInteraction, ContextMenuInteraction, Message } from 'discord.js';
 
 export class OwnerOnlyPrecondition extends Precondition {
-  public run(message: Message) {
-    return message.author.id === 'YOUR_ID'
+  public override async messageRun(message: Message) {
+    // for message command
+    return this.checkOwner(message.author.id);
+  }
+
+  public override async chatInputRun(interaction: CommandInteraction) {
+    // for slash command
+    return this.checkOwner(interaction.user.id);
+  }
+
+  public override async contextMenuRun(interaction: ContextMenuInteraction) {
+    // for context menu command
+    return this.checkOwner(interaction.user.id);
+  }
+
+  private async checkOwner(userId: string) {
+    return Config.bot.owners!.includes(userId)
       ? this.ok()
       : this.error({ message: 'Only the bot owner can use this command!' });
   }
 }
 ```
+
+:::info
+
+Adding a check method i.e. `messageRun` or `chatInputRun` or `contextMenuRun` is optional, you can add add any of them
+that's needed for your bot. Like if your bot has no `Slash` or `Context menu` command then `chatInputRun` and
+`contextMenuRun` can be removed from the above example.
+
+:::
 
 ## Using Preconditions in Commands
 
@@ -123,7 +138,9 @@ as `AdminOnly` _or_ both `OwnerOnly` and `ModOnly`.
 
 [creating-commands]: ../getting-started/creating-a-basic-command
 [precondition]: ../../Documentation/api-framework/classes/Precondition
-[preconditionrun]: ../../Documentation/api-framework/classes/Precondition#messagerun
+[preconditionmessagerun]: ../../Documentation/api-framework/classes/Precondition#messagerun
+[preconditionchatinputrun]: ../../Documentation/api-framework/classes/Precondition#chatinputrun
+[preconditioncontextmenurun]: ../../Documentation/api-framework/classes/Precondition#contextmenurun
 [preconditionok]: ../../Documentation/api-framework/classes/Precondition#ok
 [preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
 [preconditions-option]: ../../Documentation/api-framework/interfaces/CommandOptions#preconditions

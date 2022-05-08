@@ -1,0 +1,164 @@
+---
+sidebar_position: 2
+title: Creating a basic slash command
+---
+
+Creating a basic slash command is very similar to creating a basic command. The only difference is that you'll need to
+handle the command run under `chatInputRun` instead of `messageRun`.
+
+For example, let's create a `ping` command:
+
+```typescript ts2esm2cjs|{4-13}|{4-13}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      name: 'ping',
+      description: 'Ping bot to see if it is alive',
+      chatInputCommand: {
+        register: true
+      }
+    });
+  }
+}
+```
+
+The above example will create a slash command (chat input command) called `ping` with the description
+`Ping bot to see if it is alive`.
+
+:::info
+
+By default sapphire registers all commands as a `Global` command which takes up to an hour to reflect in the guild
+because of discord cache limitations. It's advised to create a `Local` guild command instead during development for
+faster results. This can be done by passing `guildIds` in the command class `constructor`.
+
+```typescript ts2esm2cjs|{10}|{10}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      // ...
+      chatInputCommand: {
+        register: true,
+        guildIds: ['YOUR_GUILD_ID']
+      }
+    });
+  }
+}
+```
+
+:::
+
+## Creating the `chatInputRun` method
+
+To handle the command callback when the context menu command is ran we need to override the `chatInputRun` method of
+command class.
+
+```typescript ts2esm2cjs|{8-17}|{9-17}
+import { Command } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    // ...
+  }
+
+  public async chatInputRun(interaction: Command.ChatInputInteraction) {
+    await interaction.reply('Ping?');
+
+    const content = `Pong ! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
+      msg.createdTimestamp - message.createdTimestamp
+    }ms.`;
+
+    return interaction.editReply(content);
+  }
+}
+```
+
+## Creating a slash command with subcommand
+
+To create the slash command with subcommand we need to override the `registerApplicationCommands` method of `Command`
+class. This method is called when the `Client` collects all the slash commands defined in the command directory on
+application startup to register them on the discord API. Let's see a quick example of how to make a slash command with
+subcommands.
+
+`Example`
+
+```typescript ts2esm2cjs|{12-28}|{12-28}
+import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
+
+export class SubCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    // ...
+  }
+
+  public async chatInputRun(interaction: Command.ChatInputInteraction) {
+    // ...
+  }
+
+  public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
+    registry.registerChatInputCommand((builder) =>
+      builder
+        .setName('command')
+        .setDescription('Command with sub commands')
+        .addSubcommand((command) =>
+          command //
+            .setName('first')
+            .setDescription('First sub command')
+        )
+        .addSubcommand((command) =>
+          command //
+            .setName('second')
+            .setDescription('Second sub command')
+        )
+    );
+  }
+}
+```
+
+The above will create a slash command called `command` with the description `Command with sub commands`. The command
+will have two sub commands, `first` and `second` with description `First sub command` and `Second sub command`
+respectively.
+
+To handle the command callback for the sub command we will have to perform checks in the `chatInputRun` method. Let's
+see a quick example of how to handle the sub command callback.
+
+```typescript ts2esm2cjs|{8-18}|{8-18}
+import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
+
+export class SubCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    // ...
+  }
+
+  public async chatInputRun(interaction: Command.ChatInputInteraction) {
+    const subcommand = interaction.options.getSubcommand(true);
+
+    if (subcommand === 'first') {
+      return await this.first(interaction);
+    } else if (subcommand === 'second') {
+      return await this.second(interaction);
+    }
+
+    return interaction.reply('Invalid sub command');
+  }
+
+  private async first(interaction: Command.ChatInputInteraction) {
+    // private class method to handle the first sub command
+    return interaction.reply('First sub command executed');
+  }
+
+  private async second(interaction: Command.ChatInputInteraction) {
+    // private class method to handle the second sub command
+    return interaction.reply('Second sub command executed');
+  }
+
+  public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
+    // ...
+  }
+}
+```
