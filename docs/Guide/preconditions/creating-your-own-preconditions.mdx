@@ -35,10 +35,18 @@ import { Precondition } from '@sapphire/framework';
 export class OwnerOnlyPrecondition extends Precondition {}
 ```
 
-Next, we can create a [`messageRun`][preconditionmessagerun] or [`chatInputRun`][preconditionchatinputrun] or
+Next, we can create a [`messageRun`][preconditionmessagerun], [`chatInputRun`][preconditionchatinputrun], and/or
 [`contextMenuRun`][preconditioncontextmenurun] function to execute our logic. These functions should either return
 [`this.ok()`][preconditionok] to signify the condition has passed, or [`this.error(...)`][preconditionerror] to signify
 the command should be denied.
+
+:::tip
+
+If your precondition is set to implement all three of [`messageRun`][preconditionmessagerun],
+[`chatInputRun`][preconditionchatinputrun], and [`contextMenuRun`][preconditioncontextmenurun] then we recommend
+extending [AllFlowsPrecondition] which will add TypeScript checks to ensure that you have implemented all 3 methods.
+
+:::
 
 ```typescript ts2esm2cjs|{4-17}|{5-17}
 import { Precondition } from '@sapphire/framework';
@@ -71,8 +79,8 @@ export class OwnerOnlyPrecondition extends Precondition {
 :::info
 
 Adding a check method i.e. `messageRun` or `chatInputRun` or `contextMenuRun` is optional, you can add add any of them
-that's needed for your bot. Like if your bot has no `Slash` or `Context menu` command then `chatInputRun` and
-`contextMenuRun` can be removed from the above example.
+that's needed for your bot. For example, if your bot has no `Slash` or `Context menu` command then `chatInputRun` and
+`contextMenuRun` can be omitted from the example above.
 
 :::
 

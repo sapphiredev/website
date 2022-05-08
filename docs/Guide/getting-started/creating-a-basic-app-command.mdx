@@ -28,39 +28,14 @@ export class PingCommand extends Command {
 The above example will create a slash command (chat input command) called `ping` with the description
 `Ping bot to see if it is alive`.
 
-:::info
-
-By default sapphire registers all commands as a `Global` command which takes up to an hour to reflect in the guild
-because of discord cache limitations. It's advised to create a `Local` guild command instead during development for
-faster results. This can be done by passing `guildIds` in the command class `constructor`.
-
-```typescript ts2esm2cjs|{10}|{10}
-import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    super(context, {
-      ...options,
-      // ...
-      chatInputCommand: {
-        register: true,
-        guildIds: ['YOUR_GUILD_ID']
-      }
-    });
-  }
-}
-```
-
-:::
-
 ## Creating the `chatInputRun` method
 
 To handle the command callback when the context menu command is ran we need to override the `chatInputRun` method of
 command class.
 
 ```typescript ts2esm2cjs|{8-17}|{9-17}
+import { isMessageInstance } from '@sapphire/discord.js-utilities';
 import { Command } from '@sapphire/framework';
-import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
@@ -68,18 +43,28 @@ export class PingCommand extends Command {
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    await interaction.reply('Ping?');
+    const msg = await interaction.reply({ content: `Ping?`, ephemeral: true, fetchReply: true });
 
-    const content = `Pong ! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
-      msg.createdTimestamp - message.createdTimestamp
-    }ms.`;
+    if (isMessageInstance(msg)) {
+      const diff = msg.createdTimestamp - interaction.createdTimestamp;
+      const ping = Math.round(this.container.client.ws.ping);
+      return interaction.editReply(`Pong 🏓! (Round trip took: ${diff}ms. Heartbeat: ${ping}ms.)`);
+    }
 
-    return interaction.editReply(content);
+    return interaction.editReply('Failed to retrieve ping :(');
   }
 }
 ```
 
-## Creating a slash command with subcommand
+## Creating a slash command with subcommands
+
+:::caution
+
+Currently, progress is still being made on updating the official [Sapphire Plugin Subcommands][saph-plug-subcom]. This
+section will fully work now, and will continue to work after the plugin is updated. However, once the plugin has been
+updated creating subcommands will be possible with less code.
+
+:::
 
 To create the slash command with subcommand we need to override the `registerApplicationCommands` method of `Command`
 class. This method is called when the `Client` collects all the slash commands defined in the command directory on
@@ -89,7 +74,7 @@ subcommands.
 `Example`
 
 ```typescript ts2esm2cjs|{12-28}|{12-28}
-import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 
 export class SubCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
@@ -100,21 +85,13 @@ export class SubCommand extends Command {
     // ...
   }
 
-  public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
+  public override registerApplicationCommands(registry: Command.Registry) {
     registry.registerChatInputCommand((builder) =>
       builder
         .setName('command')
         .setDescription('Command with sub commands')
-        .addSubcommand((command) =>
-          command //
-            .setName('first')
-            .setDescription('First sub command')
-        )
-        .addSubcommand((command) =>
-          command //
-            .setName('second')
-            .setDescription('Second sub command')
-        )
+        .addSubcommand((command) => command.setName('first').setDescription('First sub command'))
+        .addSubcommand((command) => command.setName('second').setDescription('Second sub command'))
     );
   }
 }
@@ -128,7 +105,7 @@ To handle the command callback for the sub command we will have to perform check
 see a quick example of how to handle the sub command callback.
 
 ```typescript ts2esm2cjs|{8-18}|{8-18}
-import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 
 export class SubCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
@@ -157,8 +134,10 @@ export class SubCommand extends Command {
     return interaction.reply('Second sub command executed');
   }
 
-  public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
+  public override registerApplicationCommands(registry: Command.Registry) {
     // ...
   }
 }
 ```
+
+[saph-plug-subcom]: ../plugins/Subcommands/getting-started
