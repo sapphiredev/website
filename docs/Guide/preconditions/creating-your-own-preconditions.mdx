@@ -44,7 +44,7 @@ the command should be denied.
 
 If your precondition is set to implement all three of [`messageRun`][preconditionmessagerun],
 [`chatInputRun`][preconditionchatinputrun], and [`contextMenuRun`][preconditioncontextmenurun] then we recommend
-extending [AllFlowsPrecondition](allFlowsPrecondition) which will add TypeScript checks to ensure that you have
+extending [AllFlowsPrecondition](allflowsprecondition) which will add TypeScript checks to ensure that you have
 implemented all 3 methods.
 
 :::
@@ -145,7 +145,7 @@ None of the following preconditions are bundled with Sapphire; as such you'd hav
 For a command with these preconditions to pass the denial checks, the `InVoiceChannel` precondition must pass, as well
 as `AdminOnly` _or_ both `OwnerOnly` and `ModOnly`.
 
-[allFlowsPrecondition]: ../../Documentation/api-framework/classes/AllFlowsPrecondition
+[allflowsprecondition]: ../../Documentation/api-framework/classes/AllFlowsPrecondition
 [creating-commands]: ../getting-started/creating-a-basic-command
 [precondition]: ../../Documentation/api-framework/classes/Precondition
 [preconditionmessagerun]: ../../Documentation/api-framework/classes/Precondition#messagerun
