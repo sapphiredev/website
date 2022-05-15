@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@heroicons/react/outline';
+import styles from '@site/src/components/Docs/Link.module.css';
 import React, { FC, ReactNode } from 'react';
-import styles from './Link.module.css';
 
 interface Props {
 	linkName: string;
@@ -8,16 +8,14 @@ interface Props {
 	description: ReactNode;
 }
 
-const OptionalPackageLink: FC<Props> = ({ description, href, linkName }) => {
-	return (
-		<span className={styles.block}>
-			<a href={href} className={styles.link}>
-				<strong>{linkName}</strong>
-				<ExternalLinkIcon className={styles.linkIcon} />
-			</a>
-			{description}
-		</span>
-	);
-};
+const OptionalPackageLink: FC<Props> = ({ description, href, linkName }) => (
+	<span className={styles.block}>
+		<a href={href} className={styles.link}>
+			<strong>{linkName}</strong>
+			<ExternalLinkIcon className={styles.linkIcon} />
+		</a>
+		{description}
+	</span>
+);
 
 export default OptionalPackageLink;
