@@ -26,7 +26,7 @@
 		"format": "prettier --write \"{src,static,scripts,docs}/**/*.{js,jsx,ts,tsx,css,json,md,mdx,yml}\"",
 		"format:check": "prettier --check \"{src,static,scripts,docs}/**/*.{js,jsx,ts,tsx,css,json,md,mdx,yml}\"",
 		"update": "yarn upgrade-interactive",
-		"prepare": "husky install .github/husky",
+		"postinstall": "husky install .github/husky",
 		"clean-projects": "rimraf \"./projects/**/node_modules\" \"./projects/**/dist\" \"./projects/**/build\" \"./projects/**/prebuild\"",
 		"vercel-build": "yarn make-djs-node-14-compatible && yarn build",
 		"update-submodules": "git pull --recurse-submodules && git submodule update --remote --recursive",
