@@ -1,0 +1,53 @@
+---
+sidebar_position: 2
+title: Adding existing application commands to the registry
+---
+
+Alternatively, if you don't want to let Sapphire handle registering for you (😢), you already have commands registered
+through other means, or are not planning on changing the commands ever, you can just give the registry the ids or names
+(but read [about registering outside the command class](registering-outside-command-class) first) that the command class
+should handle, and we'll properly direct everything where it should be directed.
+
+## Adding inside of the command class
+
+In the `Command` class, there's a method that you can define called `registerApplicationCommands`. It receives an
+`ApplicationCommandRegistry` which you can use to add a name or id.
+
+```typescript ts2esm2cjs
+import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
+
+export class UwUCommand extends Command {
+  public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
+    // Adding a name
+    // NOT RECOMMENDED. Use the id methods with ids instead.
+    registry.addChatInputCommandNames('uwu');
+
+    // Adding an id
+    // For this example, the id is fake. In your code, you should provide valid ids.
+    registry.addChatInputCommandIds('123456789123456789');
+  }
+}
+```
+
+## Adding outside of the command class
+
+If you're outside of a command class, you'll have to manually acquire the registry first, and then add the ids or names
+to it. It'll look really similar to what we did in order
+[to register outside the class](registering-outside-command-class). If you're confused on what the registry is, you can
+[read up on how it works][acquiring-application-command-registry].
+
+```typescript ts2esm2cjs
+import { ApplicationCommandRegistries } from '@sapphire/framework';
+
+const registry = ApplicationCommandRegistries.acquire('uwu');
+
+// Adding a name
+// NOT RECOMMENDED. Use the id methods with ids instead.
+registry.addChatInputCommandNames('uwu');
+
+// Adding an id
+// For this example, this id is fake. In your code, you should provide valid ids.
+registry.addChatInputCommandIds('123456789123456789');
+```
+
+[acquiring-application-command-registry]: ../acquiring-application-command-registry

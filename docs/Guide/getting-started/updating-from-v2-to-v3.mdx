@@ -1,0 +1,375 @@
+---
+sidebar_position: 4
+title: Updating from v2 to v3
+toc_max_heading_level: 5
+---
+
+## A general tip concerning code duplication
+
+You will notice that with these new features, you may encounter a lot of code duplication, especially if you plan on
+supporting all 3 types of commands. While we cannot control _how_ you code your bot, we have a recommendation for you:
+abstract the argument parsing from the final function.
+
+What does this mean? As an example let's take a look at a `ban` command: it needs to process the member to ban as well
+an optional reason, action the member, and reply to the invoker of the command. In your `*Run` methods, you should parse
+the member and reason, then pass those down to a method you build that handles the actual banning and replying to the
+invoker.
+
+However you end up handling situations like this will be up to you, but this our my tip for you. 😄
+
+## Commands
+
+### ⚠️ Warnings
+
+Per the deprecation in v2, the `run` method from commands is officially removed entirely and **will not be aliased nor
+emit a warning when it's present instead of [`messageRun`][command-message-run].**
+
+:::caution
+
+Again, we reiterate. If you want to keep using message based commands and have NOT moved your `run` method to
+[`messageRun`][command-message-run], you **MUST** do it. You **will not** get any more runtime warnings, nor TypeScript
+errors. You have been warned.
+
+:::
+
+---
+
+Secondly, the [`messageRun`][command-message-run] method is **no longer `abstract`**. This mostly affects TypeScript
+users, but to clarify, due to the nature of our implementation, you are no longer forced to implement any of the `*Run`
+methods in your code
+
+:::caution
+
+With that said, you ought to override at least one of the methods if you expect the command to work. That could be
+either the [`messageRun`][command-message-run] method, the [`chatInputRun`][command-chat-input-run] method or the
+[`contextMenuRun`][command-context-menu-run] method.
+
+:::
+
+### New stuff
+
+#### Type guards
+
+For TypeScript users (as well as JavaScript users that have TS checking enabled), the Command class now has 4 type
+guards:
+
+- [`supportsMessageCommands`][supportsmessagecommands]
+- [`supportsChatInputCommands`][supportschatinputcommands]
+- [`supportsContextMenuCommands`][supportscontextmenucommands]
+- [`supportsAutocompleteInteractions`][supportsautocompleteinteractions]
+
+These return `true` if the Command class you're invoking them on supports the respective `*Run` methods
+
+```typescript ts2esm2cjs
+const command = stores.get('commands').get('example')!;
+
+if (command.supportsMessageCommands()) {
+  console.log(`We can run message commands in the example command!`);
+  // We know that this method is defined and present
+  await command.messageRun(message);
+}
+```
+
+#### Application Command Registry and what the is it?
+
+There is a new property on the Command class ([`applicationCommandRegistry`][command-acr]]) and a new method
+([`registerApplicationCommands`][command-rac]). While [Application Command Registry][acr] goes more in-depth about what
+the registry is and how it works, here's a basic run down of what they represent:
+
+##### [`Command#applicationCommandRegistry`][command-acr]
+
+This is a shortcut for the command's application command registry. There can only ever be 1 registry for 1 command name.
+Realistically, it's kind of useless for most use-cases, but it's there for those that want it.
+
+##### [`Command#registerApplicationCommands`][command-rac]
+
+This method is called when a command gets loaded into the store, and is responsible for adding the builders or command
+data for application commands. In the event the data you provided for registering the application command is invalid, a
+CommandApplicationCommandRegistryError (`commandApplicationCommandRegistryError`) event is emitted with the error and
+the command that had the error.
+
+:::caution
+
+If you've already registered the chat input command manually, or Sapphire registered it for you, copy the id from your
+console and paste it in the [`idHints`][idhints] property of the `chatInputCommand` object. That will make Sapphire
+recognize the command in the future, and update metadata (like the name, description, default permission or future
+fields) instead of creating a new command. You can read more about what the [`idHints`][idhints] property actually on
+the page about registering chat input commands [Registering Chat Input Commands -> idHints][rcic-idhints]
+
+:::
+
+Here's a simple example of how you can easily register a chat input command and handle its interactions right away!
+
+```typescript ts2esm2cjs
+import { Command } from '@sapphire/framework';
+import { Formatters } from 'discord.js';
+
+export class SlashCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'Says hello.'
+    });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerChatInputCommand((builder) =>
+      builder //
+        .setName(this.name)
+        .setDescription(this.description)
+    );
+  }
+
+  public override chatInputRun(interaction: Command.ChatInputInteraction) {
+    return interaction.reply({
+      content: `Hello World!`
+    });
+  }
+}
+```
+
+## Preconditions
+
+### ⚠️ Breaking Changes
+
+The `run` method has been removed from Preconditions. In it's place, just like for [Commands][commands], there are 3 new
+optional methods you can create: [`messageRun`][precondition-message-run], [`chatInputRun`][precondition-chat-input-run]
+and [`contextMenuRun`][precondition-context-menu-run].
+
+:::warning
+
+Just like in [Commands][commands], you ought to specify at least one of the methods if you expect the preconditions to
+work. That could be either the `messageRun` method, the `chatInputRun` method or the `contextMenuRun` method.
+
+:::
+
+:::caution
+
+For TypeScript users, the Precondition class is **no longer** `abstract`. This is due to the fact we cannot mark the
+methods as conditionally abstract sadly, so it's up to you to implement the handlers required.
+
+:::
+
+### !!! DO NOT FORGET ABOUT THE OPTIONAL PRECONDITION METHODS !!!
+
+You don't have to worry if you forget to implement a method for your preconditions that is expected to be there for your
+commands. We air on the side of caution, so **if we expect a method to be present, but it is missing, we will
+immediately prevent the command from being ran and you will see the error in the following events:**
+
+- For chat input commands, you will receive a `chatInputCommandDenied` event
+- For context menu commands, you will receive a `contextMenuCommandDenied` event
+- For message commands, you will receive a `messageCommandDenied` event
+
+This decision was taken to prevent accidental escalations from happening in your commands (think of a `ban` command that
+can suddenly be ran by anyone and everyone. We love chaos but this is too much even for us! 😄)
+
+:::info
+
+All Sapphire pre-included preconditions, which you can see
+[here](https://github.com/sapphiredev/framework/tree/main/src/preconditions), will come with handlers for all 3 possible
+types of preconditions by default.
+
+:::
+
+### Internal changes to [`IPreconditionCondition`][ipreconditioncondition]
+
+For that one person that's not us, the developers, that is working with PreconditionConditions, be aware that the
+`sequential` and `parallel` methods have been removed, and you now have to implement a
+[`messageSequential`][message-sequential] / [`messageParallel`][message-parallel] pair, a
+[`chatInputSequential`][chat-input-sequential] / [`chatInputParallel`][chat-input-parallel] pair and a
+[`contextMenuSequential`][context-menu-sequential] / [`contextMenuParallel`][context-menu-parallel] pair.
+
+:::caution
+
+**All 3 pairs are mandatory.**
+
+:::
+
+---
+
+### Internal changes to [`IPreconditionContainer`], [`PreconditionContainerArray`] and [`PreconditionContainerSingle`]
+
+The `run` method was removed from here too, and replaced with the methods of [`messageRun`][precondition-message-run],
+[`chatInputRun`][precondition-chat-input-run] and [`contextMenuRun`][precondition-context-menu-run] (seeing a pattern
+already?). These methods should also throw an error if a precondition is lacking the appropriate `*Run` method (in
+Sapphire's implementation of these, it does throw an Error)
+
+### New things
+
+#### All flows Preconditions
+
+If your bot has a lot of preconditions, and you support all methods of running a command, or you just want to have them
+all implemented no matter what, we export an alias to the Precondition class called
+[`AllFlowsPrecondition`][allflowsprecondition]. While this doesn't do much for JavaScript users, for TypeScript users
+this will force you to implement the aforementioned run methods. Think of it as a simple alias for something simple.
+
+#### Fetching a channel from an interaction
+
+Sometimes, you need the channel in which an interaction was sent, and either you don't have it cached, or you are
+running this in a stateless way. To aid with that, we have a utility shortcut function called
+[`fetchChannelFromInteraction`][fetchchannelfrominteraction]. As the name suggests, it fetches the channel from the
+interaction, and returns it for your usage / consumption.
+
+## Events
+
+Due to Discord's push to adopt Application Commands, combined with the move of making message contents gated behind a
+privileged intent (which some love and some hate 🤷), the listeners required for parsing and running message commands
+are now optionally loaded by setting [`loadMessageCommandListeners`][loadmessagecommandlisteners] to `true` in your
+client options. See an example on the example repository or down below:
+
+```typescript ts2esm2cjs|{8}|{8}
+import { LogLevel, SapphireClient } from '@sapphire/framework';
+
+const client = new SapphireClient({
+  intents: ['GUILDS', 'GUILD_MESSAGES'],
+  logger: {
+    level: LogLevel.Debug
+  },
+  loadMessageCommandListeners: true
+});
+
+await client.login();
+```
+
+By default, this is set to `false`, so if you want Sapphire to handle message commands, you'll have to manually enable
+it.
+
+:::note
+
+For those interested in the internals, the location of the `errorListeners` and the `message-command-listeners` have
+been moved to an internal folder called `optionalListeners`. You don't have to worry about this unless you contribute to
+the project and are moving things around
+
+:::
+
+### Event renames
+
+A lot of events have been renamed in order to make them clear about what they represent. If you are using our
+[`Events`][events] object and TypeScript, you will get errors in your code. If all you want is a quick find-and-replace
+for the event names, here is a table of what has changed to what:
+
+#### Events object changes
+
+| Event object name    | New event object name       |
+| -------------------- | --------------------------- |
+| `UnknownCommand`     | `UnknownMessageCommand`     |
+| `UnknownCommandName` | `UnknownMessageCommandName` |
+| `CommandAccepted`    | `MessageCommandAccepted`    |
+| `CommandDenied`      | `MessageCommandDenied`      |
+| `CommandError`       | `MessageCommandError`       |
+| `CommandFinish`      | `MessageCommandFinish`      |
+| `CommandRun`         | `MessageCommandRun`         |
+| `CommandSuccess`     | `MessageCommandSuccess`     |
+| `CommandTypingError` | `MessageCommandTypingError` |
+| `PreCommandRun`      | `PreMessageCommandRun`      |
+
+#### Event string names
+
+| Event string name    | New event string name       |
+| -------------------- | --------------------------- |
+| `unknownCommand`     | `unknownMessageCommandName` |
+| `unknownCommandName` | `unknownMessageCommandName` |
+| `commandAccepted`    | `messageCommandAccepted`    |
+| `commandDenied`      | `messageCommandDenied`      |
+| `commandError`       | `messageCommandError`       |
+| `commandFinish`      | `messageCommandFinish`      |
+| `commandRun`         | `messageCommandRun`         |
+| `commandSuccess`     | `messageCommandSuccess`     |
+| `commandTypingError` | `messageCommandTypingError` |
+| `preCommandRun`      | `preMessageCommandRun`      |
+
+### New Events
+
+:::note
+
+Values in `[]` mean they are one of the options you can add at the end of the previous content.
+
+For instance, for `GuildSticker[Create/Delete/Update]`, you have the `GuildStickerCreate`, `GuildStickerDelete` and
+`GuildStickerUpdate` events.
+
+:::
+
+#### Discord.js events added:
+
+- GuildSticker[Create/Delete/Update] (`guildSticker[Create/Delete/Update]`)
+- InteractionCreate (`interactionCreate`) - This event is handled by Sapphire for application commands and interaction
+  handlers.
+- InvalidRequestWarning (`invalidRequestWarning`)
+- MessageReactionRemove[All/Emoji] (`messageReactionRemove[All/Emoji]`)
+- StageInstance[Create/Delete/Update] (`stageInstance[Create/Delete/Update]`)
+- Thread[Create/Delete] (`thread[Create/Delete]`)
+- ThreadListSync (`threadListSync`)
+- ThreadMembersUpdate & ThreadMemberUpdate (`threadMembersUpdate` & `threadMemberUpdate`)
+- VoiceServerUpdate (`voiceServerUpdate`)
+
+#### Sapphire events added:
+
+- CommandDoesNotHaveMessageCommandHandler (`commandDoesNotHaveMessageCommandHandler`) - emitted when a command exists
+  but is not set up to handle message commands.
+- CommandApplicationCommandRegistryError (`commandApplicationCommandRegistryError`) - emitted when a command cannot
+  register its commands in the [`ApplicationCommandRegistry`][applicationcommandregistry].
+- InteractionHandlerParseError (`interactionHandlerParseError`) - emitted when an interaction handler's `parse` method
+  throws an error.
+- InteractionHandlerError (`interactionHandlerError`) - emitted when an interaction handler's `run` method throws an
+  error.
+- PossibleAutocompleteInteraction (`possibleAutocompleteInteraction`) - emitted when an autocomplete interaction is
+  received. This event is handled by Sapphire to redirect it to the proper place. Read more [on the page about
+  AutoComplete interactions][autocomplete].
+- AutocompleteInteractionSuccess (`autocompleteInteractionSuccess`) - emitted when an autocomplete interaction
+  successfully runs.
+- AutocompleteInteractionError (`autocompleteInteractionError`) - emitted when an autocomplete interaction throws an
+  error during handling.
+
+For chat input and context menu commands, the following events are available. Substitute `[P]` with `ChatInput` or
+`ContextMenu`, and `[p]` with `chatInput` or `contextMenu` (lowercase `p` represents the string for the event, while
+uppercase `P` represents the [`Events`][events] object name)
+
+- Possible`[P]`Command (`possible[P]Command`) - emitted when a chat input or context menu interaction is received. This
+  event is handled by Sapphire to redirect its data to the proper place.
+- Unknown`[P]`Command (`unknown[P]Command`) - emitted when we receive an interaction that points to a command we don't
+  know about (either it doesn't exist, or we don't have it registered via the registry).
+- CommandDoesNotHave`[P]`CommandHandler (`commandDoesNotHave[P]CommandHandler`) - emitted when a command exists but is
+  not set up to handle the type of command received.
+- Pre`[P]`CommandRun (`pre[P]CommandRun`) - emitted when a command should have its preconditions ran before fully
+  running.
+- `[P]`CommandDenied (`[p]CommandDenied`) - emitted when a precondition errors and the command is denied from running.
+- `[P]`CommandAccepted (`[p]CommandAccepted`) - emitted when all preconditions have succeeded and the command is ready
+  to run.
+- `[P]`CommandRun (`[p]CommandRun`) - emitted when a command starts to run.
+- `[P]`CommandSuccess (`[p]CommandSuccess`) - emitted when the command runs successfully.
+- `[P]`CommandError (`[p]CommandError`) - emitted when the command run method throws an error.
+- `[P]`CommandFinish (`[p]CommandFinish`) - emitted when the command run is finished.
+
+[`ipreconditioncontainer`]: ../../Documentation/api-framework/interfaces/IPreconditionContainer
+[`preconditioncontainerarray`]: ../../Documentation/api-framework/classes/PreconditionContainerArray
+[`preconditioncontainersingle`]: ../../Documentation/api-framework/classes/PreconditionContainerSingle
+[acr]: ../application-commands/application-command-registry/what-is-it.mdx
+[allflowsprecondition]: ../../Documentation/api-framework/classes/AllFlowsPrecondition
+[applicationcommandregistry]: ../application-commands/application-command-registry/what-is-it.mdx
+[autocomplete]: ../application-commands/interaction-handlers/autocomplete.mdx
+[chat-input-parallel]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#chatinputparallel
+[chat-input-sequential]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#chatinputsequential
+[command-acr]: ../../Documentation/api-framework/classes/Command#applicationcommandregistry
+[command-chat-input-run]: ../../Documentation/api-framework/classes/Command#chatinputrun
+[command-context-menu-run]: ../../Documentation/api-framework/classes/Command#contextmenurun
+[command-message-run]: ../../Documentation/api-framework/classes/Command#messagerun
+[command-rac]: ../../Documentation/api-framework/classes/Command#registerapplicationcommands
+[commands]: #commands
+[context-menu-parallel]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#contextmenuparallel
+[context-menu-sequential]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#contextmenusequential
+[events]: ../../Documentation/api-framework/#events
+[fetchchannelfrominteraction]: ../../Documentation/api-framework/classes/Precondition#fetchchannelfrominteraction
+[idhints]: ../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#idhints
+[ipreconditioncondition]: ../../Documentation/api-framework/interfaces/IPreconditionCondition
+[loadmessagecommandlisteners]:
+  ../../Documentation/api-framework/interfaces/SapphireClientOptions#loadmessagecommandlisteners
+[message-parallel]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#messageparallel
+[message-sequential]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#messagesequential
+[precondition-chat-input-run]: ../../Documentation/api-framework/classes/Precondition#chatinputrun
+[precondition-context-menu-run]: ../../Documentation/api-framework/classes/Precondition#contextmenurun
+[precondition-message-run]: ../../Documentation/api-framework/classes/Precondition#messagerun
+[rcic-idhints]: ../application-commands/application-command-registry/registering-chat-input-commands#idhints
+[supportsautocompleteinteractions]: ../../Documentation/api-framework/classes/Command#supportsautocompleteinteractions
+[supportschatinputcommands]: ../../Documentation/api-framework/classes/Command#supportschatinputcommands
+[supportscontextmenucommands]: ../../Documentation/api-framework/classes/Command#supportscontextmenucommands
+[supportsmessagecommands]: ../../Documentation/api-framework/classes/Command#supportsmessagecommands

@@ -1,0 +1,36 @@
+---
+sidebar_position: 1
+title: Registering Commands outside Command Class
+---
+
+You are able to register you application commands inside of their command class, but also outside of the class! Whether
+it's a dynamic command or premium command, Sapphire can help you manage your application commands with ease. If you're
+confused by the syntax, read up on [what the registry means][registry].
+
+:::warning
+
+You shouldn't use all three methods at the same time, just one is enough! This is just an example of all three variants.
+
+:::
+
+```typescript ts2esm2cjs
+import { SlashCommandBuilder } from '@discordjs/builders';
+import { ApplicationCommandRegistries } from '@sapphire/framework';
+
+const registry = ApplicationCommandRegistries.acquire('uwu');
+
+// Registering with the discord.js options object
+registry.registerChatInputCommand({
+  name: 'uwu',
+  description: 'Sends a uwu in chat'
+});
+
+// Registering with the builder
+const builder = new SlashCommandBuilder().setName('uwu').setDescription('Sends a uwu in chat');
+registry.registerChatInputCommand(builder);
+
+// Registering with the builder provided by the method
+registry.registerChatInputCommand((builder) => builder.setName('uwu').setDescription('Sends a uwu in chat'));
+```
+
+[registry]: ../acquiring-application-command-registry
