@@ -3,4 +3,36 @@ sidebar_position: 5
 title: Modals
 ---
 
-<!-- TODO: https://vladfrangu.notion.site/Handling-Interactions-not-Application-Commands-in-Sapphire-92e307005b9f4e3b849663ea43c57701 -->
+Modals are like your annoying pop-ups, but cooler! These interactions will display a pop-up window on the user's client,
+which when submitted, will fire this event. The great thing about modals is that they're going to be handled just like
+any other interaction!
+
+:::warning
+
+There is no way to determine if or how the user closed the modal.
+
+:::
+
+```typescript ts2esm2cjs
+import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import type { ModalSubmitInteraction } from 'discord.js';
+
+export class ModalHandler extends InteractionHandler {
+  public constructor(ctx: PieceContext) {
+    super(ctx, { interactionHandlerType: InteractionHandlerTypes.ModalSubmit });
+  }
+
+  public async parse(interaction: ModalSubmitInteraction) {
+    if (interaction.customId !== 'hello-popup') return this.none();
+
+    return this.some();
+  }
+
+  public async run(interaction: ButtonInteraction) {
+    await interaction.reply({
+      content: 'Thank you for submitting the form!',
+      ephemeral: true
+    });
+  }
+}
+```

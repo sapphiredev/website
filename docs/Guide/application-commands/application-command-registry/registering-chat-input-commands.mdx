@@ -3,79 +3,198 @@ sidebar_position: 3
 title: Registering Chat Input Commands
 ---
 
-A chat input command can be registered to `Discord API` by letting the command registry know about its existence. To do
-so we need to `acquire` or use the `registerApplicationCommands` to have to `ApplicationCommandRegistry` to perform
-operations on it. Let's discuss about `ApplicationCommandRegistry` in more detail.
+A chat input command can be registered to the Discord API by letting the command registry know about its existence. To
+do so we need to acquire or use the [`registerApplicationCommands`][rac] to have access to the
+[`ApplicationCommandRegistry`][acr] to perform operations on it. You can learn how to do this on the page [Acquiring an
+Application Command Registry][aaacr].
+
+## How to register a chat input command
+
+The easiest way to register a Chat Input Command is to implement the [`registerApplicationCommands`][rac] method on a
+[`Command`][command] class. In that method the first parameter is the [`ApplicationCommandRegistry`][acr] (commonly
+called `registry` in code) on which you can call [`registerChatInputCommand`][rcic]. This looks like:
+
+```ts ts2esm2cjs|{7,11-17}|{7,11-17}
+import { Command } from '@sapphire/framework';
+
+export class SlashCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'Send a Slash Command.'
+    });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerChatInputCommand((builder) =>
+      builder //
+        .setName(this.name)
+        .setDescription(this.description)
+    );
+  }
+
+  public override chatInputRun(interaction: Command.ChatInputInteraction) {
+    // ...
+  }
+}
+```
+
+:::info
+
+We use `//` next to `builder //` here to short-circuit Prettier putting everything on the same line. If you do not use
+prettier you can remove this, or if you do not care for it being on the same line then you can remove it also.
+
+:::
+
+In this code snippet we have registered the Chat Input Command in the most simple way referencing the already defined
+`name` and `description`. We also use the [`builder`][djs-slash-builder-docs] pattern which means you get verification
+of your input before a command gets registered in a faulty way. It will also make sure that you are not providing
+unnecessary or incorrect JSON keys because you're not building the JSON yourself. All that said, it is the method we
+recommend everyone to use. If you are experienced with Chat Input Commands you can also opt to write your own raw JSON
+object, however this guide will not cover that.
+
+In the code snippet above we passed 1 parameter to the [`registerChatInputCommand`][rcic] method, to build the object
+that gets send to Discord for registering the command. The [`registerChatInputCommand`][rcic] however also takes a
+second parameter which we will cover next.
+
+### Registering Chat Input Commands with options
+
+Shown above is how to register a Chat Input Command without options, but in many cases you will actually want to receive
+some data from the user, which is where options come in. Options are similar to the [Arguments][arguments] that Sapphire
+offers for Message Commands, however they are built right into Discord.
+
+In this example we will add an option that will prompt the user of the command to select another user that they want to
+greet. This option is required and the command will not send at all if the option is not provided. This is really useful
+as compared to Sapphire [Arguments][arguments] you no longer have to validate whether a required argument was provided
+or not.
+
+```ts ts2esm2cjs|{16-21}|{16-21}
+import { Command } from '@sapphire/framework';
+
+export class SlashCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'Say hello to a user.'
+    });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerChatInputCommand((builder) =>
+      builder //
+        .setName(this.name)
+        .setDescription(this.description)
+        .addUserOption((option) =>
+          option //
+            .setName('user')
+            .setDescription('User to say hello to')
+            .setRequired(true)
+        )
+    );
+  }
+
+  public override chatInputRun(interaction: Command.ChatInputInteraction) {
+    // ...
+  }
+}
+```
+
+There are many other types of options that you can add to your Chat Input Command, and you can read all about them on
+the [`discord.js guide`][djs-slash-builder-docs].
 
 ## Chat Input Command Registry Options
 
 These are the meta options that is passed into the command registry for a chat input command to control its behavior.
 Let's take a look on them one by one.
 
-### guildIds
+### `idHints`
+
+These are the unique command ids from the Discord API that the registry uses to identify the command in case you decide
+to change the name of the command. Normally if you would change the name without providing [`idHints`][idhints] then a
+new command would get registered, instead of overwriting the existing command. We therefore strongly recommend you to
+specify the [`idHints`][idhints].
+
+On top of the advantages in registering the command, having the ID of a command noted somewhere will also help you
+identify the command elsewhere in your code, such as in [interaction handlers][interaction-handlers].
+
+When Sapphire registers a application command it will log the command id for the command in console with the help of
+default logger provided by `Sapphire`. The command ID is logged on the `info` level, which is the default, however, if
+you have configured the Sapphire Logger to only log errors or fatal messages then please check
+[`Configuring Log Level Guide`][configure-logging] to learn how to change it.
+
+### `guildIds`
 
 This is an array of guild ids for which the command should be registered. By default it is `undefined`, which means that
 the command will be registered for all guilds (i.e. globally). If you want to register the command for a specific guild,
 you can pass in the guild id in the command registry.
 
-### registerCommandIfMissing
+:::note
 
-This is an optional that defaults to `true`. If set to `false`, the command will not be registered if it is not already
-registered i.e. if not already present in the `Discord API`.
+When the [`guildIds`][guildids] is an empty array the command will also be registered globally. This is useful for when
+you're getting the [`guildIds`][guildids] from an external source, i.e. through a `getGuildIds` function. You can make
+that external source default to an empty array which is often easier than `undefined`, especially when it comes from an
+external source that using a difference programming language from JavaScript/TypeScript (i.e. an external API or
+database).
 
-### behaviorWhenNotIdentical
+:::
+
+### `behaviorWhenNotIdentical`
 
 This options tells the registry that how to behave when the command is not identical to the one which is already
-registered on `Discord API`. By default it's set to [`LOG_TO_CONSOLE`][behavior-log] which means that it will warn you
-about the data differences found as compared to the data received from the `Discord API`.
+registered on Discord API. By default it's set to [`LOG_TO_CONSOLE`][behavior-log] which means that it will only warn
+you about the data differences found as compared to the data received from the Discord API.
 
-If you want the registry to `Overwrite` the command data, you can set this option to [`OVERWRITE`][behavior-overwrite].
+If you want the registry to be overwritten with your own local data, you can set this option to
+[`OVERWRITE`][behavior-overwrite]. Note that configuring [`OVERWRITE`][behavior-overwrite] will also still log the
+change to the console. That is to say, [`OVERWRITE`][behavior-overwrite] includes [`LOG_TO_CONSOLE`][behavior-log]
+rather than both being separate code branches.
 
-### idHints
+### `registerCommandIfMissing`
 
-These are the unique command ids from the `Discord API` that the registry uses to identify the command in case of a name
-change which prevents the recreation of commands accidentally. This is also helpful in delivering the command
-interaction to the correct command class.
+This is an option that defaults to `true`. If set to `false`, the command will not be registered if it is not already
+registered i.e. if not already present in the Discord API.
 
-When `Sapphire` registers a application command it will log the command id for the command in console with the help of
-default logger provided by `Sapphire`. The logging also depends above the `LogLevel` configuration and the
-`behaviorWhenNotIdentical` value which is explained above.
+:::info
 
-To setup logging please checkout [`Configuring Log Level Guide`][configure-logging].
+You will likely never have to touch this option, but it can be useful if you are not using Sapphire to register your
+commands and instead you're using something external to do so.
+
+:::
 
 ## Chat Input Command Registry Methods
 
 :::warning
 
-To register a chat input command, you need to acquire the `ApplicationCommandRegistry`. Please see the
-[`ApplicationCommandRegistry`](./acquiring-application-command-registry) section for more details.
+To register a chat input command, you need to acquire the [`ApplicationCommandRegistry`][acr]. Please see the
+[`ApplicationCommandRegistry`][aaacr] section for more details.
 
 :::
 
-### registerChatInputCommand
+### `registerChatInputCommand`
 
 The method which is responsible for telling the registry that this command should be registered. It takes two
 parameters:
 
 - `command`: The chat input command data to be registered. This can be a `discord.js`
-  [`ApplicationCommand`][djs-command-data-docs] object a `@discordjs/builders`
+  [`ApplicationCommandData`][djs-command-data-docs] object a `@discordjs/builders`
   [`SlashCommandBuilder`][djs-slash-builder-docs] or a method which returns the
-  `@discordjs/builders SlashCommandBuilder`.
+  `@discordjs/builders `[`SlashCommandBuilder`][djs-slash-builder-docs].
 
-  For more details on how to use `@discordjs/builders SlashCommandBuilder`, please see
-  [`discord.js guide`][djs-slash-builder-docs]. Below we will see how to create command using a method.
+  For more details on how to use `@discordjs/builders `[`SlashCommandBuilder`][djs-slash-builder-docs], please see
+  [`discord.js guide`][djs-slash-builder-docs].
 
-- `options` These are optional registry [`options`](#chat-input-command-registry-options) you can provide when
-  registering the command you provided. By default, this is set to
-  `{ registerCommandIfMissing: true, behaviorWhenNotIdentical: RegisterBehavior.LogToConsole }`.
+- `options` These are optional registry [`options`][inner-ref-options] you can provide when registering the command you
+  provided. By default, this is set to `{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }`.
 
-### addChatInputCommandNames
+An example of this method was shown above at [How to register a chat input command][inner-ref-how-to].
+
+### `addChatInputCommandNames`
 
 The command names which let the registry know that these names should trigger the registry. These names doesn't register
 the command but only let the registry know that these names should trigger the command, i.e. the names are only stored
 in command store to be used by the registry. Names can be passed as strings.
 
-### addChatInputCommandIds
+### `addChatInputCommandIds`
 
 The command ids that informs the registry to trigger it for the specified ids only. Ids can be passed as strings.
 
@@ -84,50 +203,74 @@ The command ids that informs the registry to trigger it for the specified ids on
 `addChatInputCommandNames` or `addChatInputCommandIds` should only be used when you don't want `Sapphire` to manage the
 application commands automatically for you else consider using `idHints` instead.
 
-Whenever `addChatInputCommandNames` or `addChatInputCommandIds` method is used and wrong value/id is provided, then it
-will `ALWAYS` warn in the console. No, this can't be turned off.
+Whenever the `addChatInputCommandIds` method is called with an invalid id (we expect a string that can be turned into a
+BigInt), then it will **ALWAYS** warn in the console. No, this cannot be turned off.
 
 :::
 
-### Registering Chat Input Commands inside the Command class
+## Full Example
 
-To register the chat input command inside the command class, you can use the `registerChatInputCommand` method.
+Now that we have covered everything there is to registering a chat input command lets look at how a full example could
+look like. This builds on the examples provided above while also implementing the `chatInputRun` method to read the
+option and send a response.
 
-```typescript ts2esm2cjs|{8-23}|{8-23}
+```typescript ts2esm2cjs
 import { Command } from '@sapphire/framework';
+import { Formatters } from 'discord.js';
 
-export class ChatInputCommand extends Command {
+export class SlashCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
-    // ...
+    super(context, {
+      ...options,
+      description: 'Say hello to a user.'
+    });
   }
 
   public override registerApplicationCommands(registry: Command.Registry) {
-    // call the method to register the command
-    registry.registerChatInputCommand(
-      (command) =>
-        command
-          .setName('hello')
-          .setDescription('Says hello to the user')
-          .addUserOption((option) =>
-            option //
-              .setName('user')
-              .setDescription('User to say hello to')
-              .setRequired(false)
-          ),
-      { idHints: ['COMMAND_ID_HINT'] }
+    registry.registerChatInputCommand((builder) =>
+      builder //
+        .setName(this.name)
+        .setDescription(this.description)
+        .addUserOption((option) =>
+          option //
+            .setName('user')
+            .setDescription('User to say hello to')
+            .setRequired(true)
+        )
     );
+  }
+
+  public override chatInputRun(interaction: Command.ChatInputInteraction) {
+    const userToGreet = interaction.options.getUser('user', true);
+
+    const userToGreetMention = Formatters.userMention(userToGreet.id);
+    const interactionUserMention = Formatters.userMention(interaction.user.id);
+
+    return interaction.reply({
+      content: `Hey ${userToGreetMention}, ${interactionUserMention} says hello!`,
+      allowedMentions: {
+        users: [userToGreet.id, interaction.user.id]
+      }
+    });
   }
 }
 ```
 
-The above will create a chat input command with name of `hello` and description of `Says hello to the user`. It will
-have one parameter name `user` which is optional and not required. To know more about how modify your command please
-read [`discord.js guide`][djs-slash-builder-docs] over using `@discordjs/builders SlashCommandBuilder`.
-
-[configure-global-behaviour]: ./advanced/setting-global-behavior-when-not-identical
+[aaacr]: ./acquiring-application-command-registry.mdx
+[acr]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry
 [behavior-log]: ../../../Documentation/api-framework/enums/RegisterBehavior#logtoconsole
 [behavior-overwrite]: ../../../Documentation/api-framework/enums/RegisterBehavior#overwrite
-[djs-command-data-docs]: https://discord.js.org/#/docs/discord.js/stable/typedef/ApplicationCommandData
-[djs-slash-builder-docs]: https://discord.js.org/#/docs/builders/stable/class/SlashCommandBuilder
-[djs-guide-create-commands]: https://discordjs.guide/creating-your-bot/creating-commands.html#registering-commands
+[command]: ../../../Documentation/api-framework/classes/Command
+[configure-global-behaviour]: ./advanced/setting-global-behavior-when-not-identical
 [configure-logging]: ../../plugins/Logger/configuring-loglevel
+[djs-command-data-docs]: https://discord.js.org/#/docs/discord.js/v13/typedef/ApplicationCommandData
+[djs-guide-create-commands]: https://discordjs.guide/creating-your-bot/creating-commands.html#registering-commands
+[djs-slash-builder-docs]: https://discord.js.org/#/docs/builders/0.16.0/class/SlashCommandBuilder
+[guildids]: ../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#guildids
+[idhints]: ../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#idhints
+[inner-ref-how-to]: #how-to-register-a-chat-input-command
+[inner-ref-options]: #chat-input-command-registry-options
+[interaction-handlers]: ../interaction-handlers/what-are-they.mdx
+[rac]: ../../../Documentation/api-framework/classes/Command#registerapplicationcommands
+[rcic]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
+[arguments]: ../../arguments/creating-your-own-arguments.mdx

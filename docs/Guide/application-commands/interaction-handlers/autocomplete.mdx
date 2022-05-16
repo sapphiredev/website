@@ -3,6 +3,32 @@ sidebar_position: 2
 title: Autocomplete
 ---
 
-<!-- INFO ON AUTOCOMPLETE INTERACTION HANDLERS AS WELL AS HOW TO USE AUTOCOMPLETERUN -->
+Certain chat input command options can be autocompleted based on what the user has written. There are two ways you can
+create an autocomplete interaction handler - the way we've done it before with `interaction-handler` methods and through
+the `autoCompleteRun` method!
 
-<!-- TODO: https://vladfrangu.notion.site/Application-Commands-3d1683f23f0a4fa6b3e682bc8c1cc1b9#ceb1a6f5ec154f85987a95181d512660 -->
+:::warning
+
+You cannot defer auto-completes (that would be silly)! You must respond to the interaction within **3 seconds**.
+
+:::
+
+## Interaction Handler
+
+This is no different than the rest - extend the `InteractionHandler` method and give it a `parse` and `run` method. Note
+here that you have access to `<AutocompleteInteraction>.commandName` or `<AutocompleteInteraction>.commandId` to
+differentiate the command the user is using.
+
+## Autocomplete run method
+
+Sapphire will first attempt to find the command class for which the autocomplete is for, and if it exists _and_ it has
+the `autoCompleteRun` method set, call it, otherwise we pass it down to interaction handlers. It's the best of both
+worlds, and lets you decide which is better for your projects.
+
+If an autocomplete interaction runs in a command, you will get a CommandAutocompleteInteractionSuccess
+(`commandAutocompleteInteractionSuccess`) event if it successfully runs, or a CommandAutocompleteInteractionError
+(`commandAutocompleteInteractionError`) event if it errors. If the autocomplete interaction runs via [interaction
+handlers][interaction-handlers] instead, you will receive errors in the InteractionHandlerError
+(`interactionHandlerError`) event.
+
+[interaction-handlers]: ./what-are-they.mdx
