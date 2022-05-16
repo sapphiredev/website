@@ -35,31 +35,55 @@ import { Precondition } from '@sapphire/framework';
 export class OwnerOnlyPrecondition extends Precondition {}
 ```
 
-Next, we can create a [`run`][preconditionrun] function to execute our logic. This function should either return
+Next, we can create a [`messageRun`][preconditionmessagerun], [`chatInputRun`][preconditionchatinputrun], and/or
+[`contextMenuRun`][preconditioncontextmenurun] function to execute our logic. These functions should either return
 [`this.ok()`][preconditionok] to signify the condition has passed, or [`this.error(...)`][preconditionerror] to signify
 the command should be denied.
 
-:::danger
+:::tip
 
-Clicking on [`run`][preconditionrun] above will take you to a method instead called `messageRun`. This is because this
-documentation reflects the latest commit to the `main` branch of `@sapphire/framework` which is has a breaking change
-included that changed the name of the method. For the purposes of this guide however, you can use `run` as long as you
-are using the latest NPM published version of `@sapphire/framework`.
+If your precondition is set to implement all three of [`messageRun`][preconditionmessagerun],
+[`chatInputRun`][preconditionchatinputrun], and [`contextMenuRun`][preconditioncontextmenurun] then we recommend
+extending [`AllFlowsPrecondition`][all-flows-precondition] which will add TypeScript checks to ensure that you have
+implemented all 3 methods.
 
 :::
 
-```typescript ts2esm2cjs|{4-8}|{4-8}
+```typescript ts2esm2cjs|{4-17}|{5-17}
 import { Precondition } from '@sapphire/framework';
-import type { Message } from 'discord.js';
+import type { CommandInteraction, ContextMenuInteraction, Message } from 'discord.js';
 
 export class OwnerOnlyPrecondition extends Precondition {
-  public run(message: Message) {
-    return message.author.id === 'YOUR_ID'
+  public override async messageRun(message: Message) {
+    // for message command
+    return this.checkOwner(message.author.id);
+  }
+
+  public override async chatInputRun(interaction: CommandInteraction) {
+    // for slash command
+    return this.checkOwner(interaction.user.id);
+  }
+
+  public override async contextMenuRun(interaction: ContextMenuInteraction) {
+    // for context menu command
+    return this.checkOwner(interaction.user.id);
+  }
+
+  private async checkOwner(userId: string) {
+    return Config.bot.owners!.includes(userId)
       ? this.ok()
       : this.error({ message: 'Only the bot owner can use this command!' });
   }
 }
 ```
+
+:::info
+
+Adding a check method i.e. `messageRun` or `chatInputRun` or `contextMenuRun` is optional, you can add add any of them
+that's needed for your bot. For example, if your bot has no `Slash` or `Context menu` command then `chatInputRun` and
+`contextMenuRun` can be omitted from the example above.
+
+:::
 
 ## Using Preconditions in Commands
 
@@ -121,9 +145,12 @@ None of the following preconditions are bundled with Sapphire; as such you'd hav
 For a command with these preconditions to pass the denial checks, the `InVoiceChannel` precondition must pass, as well
 as `AdminOnly` _or_ both `OwnerOnly` and `ModOnly`.
 
+[all-flows-precondition]: ../../Documentation/api-framework/classes/AllFlowsPrecondition
 [creating-commands]: ../getting-started/creating-a-basic-command
 [precondition]: ../../Documentation/api-framework/classes/Precondition
-[preconditionrun]: ../../Documentation/api-framework/classes/Precondition#messagerun
+[preconditionmessagerun]: ../../Documentation/api-framework/classes/Precondition#messagerun
+[preconditionchatinputrun]: ../../Documentation/api-framework/classes/Precondition#chatinputrun
+[preconditioncontextmenurun]: ../../Documentation/api-framework/classes/Precondition#contextmenurun
 [preconditionok]: ../../Documentation/api-framework/classes/Precondition#ok
 [preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
 [preconditions-option]: ../../Documentation/api-framework/interfaces/CommandOptions#preconditions

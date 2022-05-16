@@ -1,0 +1,54 @@
+---
+sidebar_position: 3
+title: Creating a basic context menu command
+---
+
+In order to register Context Menu Commands, we first need to override the `registerApplicationCommands` method. For
+example:
+
+`Example`
+
+```typescript ts2esm2cjs|{5-14}|{5-14}
+import { Command } from '@sapphire/framework';
+import { ApplicationCommandType } from 'discord-api-types/v9';
+
+export class UserCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, { ...options });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerContextMenuCommand((builder) =>
+      builder //
+        .setName('ping')
+        .setType(ApplicationCommandType.Message)
+    );
+  }
+}
+```
+
+The above will create a `Context Menu` command called `ping` of `ApplicationCommandType.Message` type.
+
+## Creating the `contextMenuRun` method
+
+To handle the command callback when the context menu command is ran we need to override the `contextMenuRun` method of
+command class.
+
+```typescript ts2esm2cjs|{8-10}|{9-11}
+import { Command } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    // ...
+  }
+
+  public async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    return interaction.reply('Pong');
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    // ...
+  }
+}
+```
