@@ -17,6 +17,14 @@ Note that this doesn't create subcommands. We'll cover those in
 
 :::
 
+:::info
+
+Note that by default Sapphire does not load message commands. You will need to construct your `SapphireClient` with
+the `loadMessageCommandListeners` property set to true. See the `SapphireClientOptions` docs.
+[Client Options](https://www.sapphirejs.dev/docs/Documentation/api-framework/interfaces/SapphireClientOptions#loadmessagecommandlisteners)
+
+:::
+
 Create a `ping.js` file in your `commands` folder, which will send a message and then edit it with the elapsed time.
 Arguments and other features are covered in other pages.
 
