@@ -3,4 +3,51 @@ sidebar_position: 2
 title: Acquiring an Application Command Registry
 ---
 
-<!-- TODO: https://vladfrangu.notion.site/Application-Command-Registry-e1be0c1022bc429f8aab6fb92cd3915d -->
+To do anything with the `Application Command Registry` we need to acquire the one for the use. It can be done in two
+ways:
+
+- By calling the `ApplicationCommandRegistries.acquire` method or,
+- By using the [`registerApplicationCommands`][register-application-commands] method of the `Command` class
+
+### `ApplicationCommandRegistries.acquire`
+
+This method is used to acquire the application command registry by it's name. It will return the application command
+registry for command name provided.
+
+If command name is already registered in the registry then it will return the existing registry else it will create a
+new and then returns the same. Let's see an example of how to use it:
+
+`Example`
+
+```typescript ts2esm2cjs|{4}|{4}
+import { ApplicationCommandRegistries } from '@sapphire/framework';
+
+// Gets the registry for a command with the name of "ping"
+const pingRegistry = ApplicationCommandRegistries.acquire('ping');
+```
+
+It returns the [`ApplicationCommandRegistry`][application-command-registry] for the command name provided and then later
+on it can be used to perform the operations on the registry for the command.
+
+### `Command.registerApplicationCommands`
+
+This method is present inside the [`Command`][command] class and can be used to acquire the command registry for the
+respective class. It returns the application command registry which is associated with the command class. Let's see a
+quick example of how to use it:
+
+```typescript ts2esm2cjs|{4-6}|{4-6}
+import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
+    // registry is specifically for the "ping" command
+  }
+}
+```
+
+The method returns the [`ApplicationCommandRegistry`][application-command-registry] for the command class and is
+specifically for the class in which it's called.
+
+[register-application-commands]: ../../../Documentation/api-framework/classes/Command#registerapplicationcommands
+[application-command-registry]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry
+[command]: ../../../Documentation/api-framework/classes/Command
