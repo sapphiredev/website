@@ -1,0 +1,83 @@
+---
+title: Using Subcommand groups
+sidebar_position: 2
+---
+
+Before we start, we assume you already know what subcommand groups are, if not please refer to the
+[Official Discord Docs](https://discord.com/developers/docs/interactions/application-commands#subcommands-and-subcommand-groups)
+for more information.
+
+## Message Subcommand Groups
+
+```typescript ts2esm2cjs|{8-18}|{10-20}
+import { Subcommand } from '@sapphire/plugin-subcommands';
+import type { Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+// Extend `Subcommand` instead of `Command`
+export class UserCommand extends Subcommand {
+  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
+    super(context, {
+      ...options,
+      subcommands: [
+        {
+          name: 'adminroles',
+          type: 'group',
+          entries: [
+            { name: 'add', to: 'messageAdd' },
+            { name: 'remove', to: 'messageRemove' },
+            { name: 'list', to: 'messageList' }
+          ]
+        }
+      ]
+    });
+  }
+
+  public async messageAdd(message: Message, args: Args) {}
+
+  public async messageRemove(message: Message, args: Args) {}
+
+  public async messageList(message: Message, args: Args) {}
+}
+```
+
+## Chat Input Subcommand Groups
+
+```typescript ts2esm2cjs|{8-18}|{9-19}
+import { Subcommand } from '@sapphire/plugin-subcommands';
+import type { Args } from '@sapphire/framework';
+
+// Extend `Subcommand` instead of `Command`
+export class UserCommand extends Subcommand {
+  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
+    super(context, {
+      ...options,
+      subcommands: [
+        {
+          name: 'adminroles',
+          type: 'group',
+          entries: [
+            { name: 'add', to: 'chatInputAdd' },
+            { name: 'remove', to: 'chatInputRemove' },
+            { name: 'list', to: 'chatInputList' }
+          ]
+        }
+      ]
+    });
+  }
+
+  public async chatInputAdd(interaction: Subcommand.ChatInputInteraction) {}
+
+  public async chatInputRemove(interaction: Subcommand.ChatInputInteraction) {}
+
+  public async chatInputList(interaction: Subcommand.ChatInputInteraction) {}
+}
+```
+
+:::note
+
+To use subcommands on slash commands, you need to
+[register](../../getting-started/creating-a-basic-app-command#creating-a-slash-command-with-subcommands) the command
+first.
+
+:::
