@@ -19,8 +19,9 @@ Note that this doesn't create subcommands. We'll cover those in
 
 :::info
 
-Note that by default Sapphire does not load the listeners required for processing message commands. You will need to construct your `SapphireClient` with
-the `loadMessageCommandListeners` option set to `true`. For more information see the [`SapphireClientOptions#loadMessageCommandListeners`][load-message-ecommands-option] interface.
+Note that by default Sapphire does not load the listeners required for processing message commands. You will need to
+construct your `SapphireClient` with the `loadMessageCommandListeners` option set to `true`. For more information see
+the [`SapphireClientOptions#loadMessageCommandListeners`][load-message-commands-option] interface.
 
 :::
 
@@ -138,3 +139,6 @@ export class PingCommand extends Command {
 [command]: ../../Documentation/api-framework/classes/Command
 [commandoptions]: ../../Documentation/api-framework/interfaces/CommandOptions
 [getting-started]: ./getting-started-with-sapphire
+
+[load-message-commands-option]
+../../Documentation/api-framework/interfaces/SapphireClientOptions#loadmessagecommandlisteners
