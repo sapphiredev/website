@@ -2480,7 +2480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/rollup-type-bundler@npm:^1.0.7":
+"@favware/rollup-type-bundler@npm:^1.0.7, @favware/rollup-type-bundler@npm:^1.0.8":
   version: 1.0.8
   resolution: "@favware/rollup-type-bundler@npm:1.0.8"
   dependencies:
@@ -3289,7 +3289,7 @@ __metadata:
     "@discordjs/builders": ^0.15.0
     "@favware/cliff-jumper": ^1.8.3
     "@favware/npm-deprecate": ^1.0.4
-    "@favware/rollup-type-bundler": ^1.0.7
+    "@favware/rollup-type-bundler": ^1.0.8
     "@sapphire/discord-utilities": ^2.11.2
     "@sapphire/discord.js-utilities": ^4.11.3
     "@sapphire/eslint-config": ^4.3.7
@@ -3300,13 +3300,13 @@ __metadata:
     "@sapphire/stopwatch": ^1.4.1
     "@sapphire/ts-config": ^3.3.4
     "@sapphire/utilities": ^3.6.2
-    "@types/jest": ^28.1.2
-    "@types/node": ^17.0.42
+    "@types/jest": ^28.1.3
+    "@types/node": ^18.0.0
     "@types/ws": ^8.5.3
-    "@typescript-eslint/eslint-plugin": ^5.28.0
-    "@typescript-eslint/parser": ^5.28.0
+    "@typescript-eslint/eslint-plugin": ^5.29.0
+    "@typescript-eslint/parser": ^5.29.0
     cz-conventional-changelog: ^3.3.0
-    discord.js: ^13.8.0
+    discord.js: ^13.8.1
     eslint: ^8.18.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
@@ -3318,7 +3318,7 @@ __metadata:
     pinst: ^3.0.0
     prettier: ^2.7.1
     pretty-quick: ^3.1.3
-    rollup: ^2.75.6
+    rollup: ^2.75.7
     rollup-plugin-version-injector: ^1.3.3
     ts-jest: ^28.0.5
     tslib: ^2.4.0
@@ -4254,7 +4254,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^28.1.2":
+"@types/jest@npm:^28.1.2, @types/jest@npm:^28.1.3":
   version: 28.1.3
   resolution: "@types/jest@npm:28.1.3"
   dependencies:
@@ -4580,7 +4580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.28.0":
+"@typescript-eslint/eslint-plugin@npm:^5.28.0, @typescript-eslint/eslint-plugin@npm:^5.29.0":
   version: 5.29.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.29.0"
   dependencies:
@@ -4603,7 +4603,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.28.0":
+"@typescript-eslint/parser@npm:^5.28.0, @typescript-eslint/parser@npm:^5.29.0":
   version: 5.29.0
   resolution: "@typescript-eslint/parser@npm:5.29.0"
   dependencies:
@@ -5383,8 +5383,8 @@ __metadata:
   linkType: hard
 
 "aws-sdk@npm:^2.673.0":
-  version: 2.1160.0
-  resolution: "aws-sdk@npm:2.1160.0"
+  version: 2.1161.0
+  resolution: "aws-sdk@npm:2.1161.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -5395,7 +5395,7 @@ __metadata:
     url: 0.10.3
     uuid: 8.0.0
     xml2js: 0.4.19
-  checksum: b95647d4de6d07fc7b62ef409d1dd4a915f3711163a4da4057a3451d62b56818f4ea3d7970c2735af376c44a97d603190f2d85c2a11911eb6f97334ad0ace4a7
+  checksum: 1e4f31278dce13b8291c03b250300035a11b5479096f726a1bb9bbc5862296d4635d697eacb45f0f38b7e9631e41d1df87d7d5772fb4ec0ab8c5a727d8c8970b
   languageName: node
   linkType: hard
 
@@ -6008,9 +6008,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001335, caniuse-lite@npm:^1.0.30001358":
-  version: 1.0.30001358
-  resolution: "caniuse-lite@npm:1.0.30001358"
-  checksum: dd8d8e6b1f5e24b97d38bb110c35b96f701f8a303e7066e9d0dc4d0ae99d741e89d56688d4e811e260c5fe573835f2bedd49a6f35f3f43e9fa7e5d154b1fad0e
+  version: 1.0.30001359
+  resolution: "caniuse-lite@npm:1.0.30001359"
+  checksum: e15dbf4ea445367e998ad525c54620275ae382446d0bc289d14bf014a159074a2207881b46406b011a72676686f8a734457ea8e8d4856dc3f700c3391e89b43e
   languageName: node
   linkType: hard
 
@@ -7404,9 +7404,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord.js@npm:^13.8.0":
-  version: 13.8.0
-  resolution: "discord.js@npm:13.8.0"
+"discord.js@npm:^13.8.0, discord.js@npm:^13.8.1":
+  version: 13.8.1
+  resolution: "discord.js@npm:13.8.1"
   dependencies:
     "@discordjs/builders": ^0.14.0
     "@discordjs/collection": ^0.7.0
@@ -7417,7 +7417,7 @@ __metadata:
     form-data: ^4.0.0
     node-fetch: ^2.6.1
     ws: ^8.7.0
-  checksum: 9fb026f5d2bcc5339044b3f2df7efca815656064d593582ea5fb60beabdc0ae0381010949b94940496d91dd8c2aa2dc55bc8db48300da5b8d00eadcc04665dc2
+  checksum: 1311aa3be7e61e9173f4d41c0184c5614860145385a00a67840d7a1849c3cbbf248a2f6339200653e23c90f11acfab554b440a6018bb52d532cd688849618a5a
   languageName: node
   linkType: hard
 
@@ -7602,9 +7602,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.164":
-  version: 1.4.167
-  resolution: "electron-to-chromium@npm:1.4.167"
-  checksum: bee148bccefe025fae5c53af8cf121e2e91e94ad4f554539eaed4d0d8a5869c824eef347283b01d55b87bc27b523d26930182f9d25040410541b0398c0b1f8f4
+  version: 1.4.168
+  resolution: "electron-to-chromium@npm:1.4.168"
+  checksum: c834e717c0472ed7061685a5302c76524e34b3aa2fde057bf1b20627408c78a6539f070b2600c9ed902f81f0ef57049314163c0cb87e7da4df7edf4fcef4d580
   languageName: node
   linkType: hard
 
@@ -8141,8 +8141,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-react@npm:^7.30.0":
-  version: 7.30.0
-  resolution: "eslint-plugin-react@npm:7.30.0"
+  version: 7.30.1
+  resolution: "eslint-plugin-react@npm:7.30.1"
   dependencies:
     array-includes: ^3.1.5
     array.prototype.flatmap: ^1.3.0
@@ -8160,7 +8160,7 @@ __metadata:
     string.prototype.matchall: ^4.0.7
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: 729b7682a0fe6eab068171c159503ac57120ecc7b20067e76300b08879745c16a687e2033378ab45d9a3182da8844d06197a89081be83e1eb21fcceb76e79214
+  checksum: 553fb9ece6beb7c14cf6f84670c786c8ac978c2918421994dcc4edd2385302022e5d5ac4a39fafdb35954e29cecddefed61758040c3c530cafcf651f674a9d51
   languageName: node
   linkType: hard
 
@@ -9827,9 +9827,9 @@ __metadata:
   linkType: hard
 
 "http-parser-js@npm:>=0.5.1":
-  version: 0.5.6
-  resolution: "http-parser-js@npm:0.5.6"
-  checksum: 8a92f6782542211c77936104ea1eca3c86a95420eb286b100f6421630f29d8f94fd4cc7a245df8e078791d86cd9a237091094440ffb0cd1b44a3f85bfbf539fa
+  version: 0.5.7
+  resolution: "http-parser-js@npm:0.5.7"
+  checksum: d166f575dd7580f61324e4797d74960b30fdc09cd171782bb6c038636e7cf930f75f461035e15b24de299ef5527d8184dd238ad8488ae359c72e9db0c68d80ab
   languageName: node
   linkType: hard
 
@@ -11777,9 +11777,9 @@ __metadata:
   linkType: hard
 
 "lru-cache@npm:^7.7.1":
-  version: 7.10.1
-  resolution: "lru-cache@npm:7.10.1"
-  checksum: e8b190d71ed0fcd7b29c71a3e9b01f851c92d1ef8865ff06b5581ca991db1e5e006920ed4da8b56da1910664ed51abfd76c46fb55e82ac252ff6c970ff910d72
+  version: 7.10.2
+  resolution: "lru-cache@npm:7.10.2"
+  checksum: b8f98064c981ce98e2a3b82903726dd28d842f54b7f53e1d6029c6836546243d4157b8495a405c062209715c612050150bdf30b5fa8200d5a3559fb0fd4072c1
   languageName: node
   linkType: hard
 
@@ -14950,7 +14950,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.43.1, rollup@npm:^2.59.0, rollup@npm:^2.74.1, rollup@npm:^2.75.6, rollup@npm:^2.75.7":
+"rollup@npm:^2.43.1, rollup@npm:^2.59.0, rollup@npm:^2.74.1, rollup@npm:^2.75.7":
   version: 2.75.7
   resolution: "rollup@npm:2.75.7"
   dependencies:
@@ -16689,115 +16689,125 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-darwin-64@npm:1.2.16"
+"turbo-android-arm64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-android-arm64@npm:1.3.1"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-darwin-64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-darwin-64@npm:1.3.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-darwin-arm64@npm:1.2.16"
+"turbo-darwin-arm64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-darwin-arm64@npm:1.3.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-freebsd-64@npm:1.2.16"
+"turbo-freebsd-64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-freebsd-64@npm:1.3.1"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-arm64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-freebsd-arm64@npm:1.2.16"
+"turbo-freebsd-arm64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-freebsd-arm64@npm:1.3.1"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-32@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-linux-32@npm:1.2.16"
+"turbo-linux-32@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-linux-32@npm:1.3.1"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-linux-64@npm:1.2.16"
+"turbo-linux-64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-linux-64@npm:1.3.1"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-linux-arm64@npm:1.2.16"
+"turbo-linux-arm64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-linux-arm64@npm:1.3.1"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-linux-arm@npm:1.2.16"
+"turbo-linux-arm@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-linux-arm@npm:1.3.1"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"turbo-linux-mips64le@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-linux-mips64le@npm:1.2.16"
+"turbo-linux-mips64le@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-linux-mips64le@npm:1.3.1"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"turbo-linux-ppc64le@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-linux-ppc64le@npm:1.2.16"
+"turbo-linux-ppc64le@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-linux-ppc64le@npm:1.3.1"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"turbo-windows-32@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-windows-32@npm:1.2.16"
+"turbo-windows-32@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-windows-32@npm:1.3.1"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-windows-64@npm:1.2.16"
+"turbo-windows-64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-windows-64@npm:1.3.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.2.16":
-  version: 1.2.16
-  resolution: "turbo-windows-arm64@npm:1.2.16"
+"turbo-windows-arm64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "turbo-windows-arm64@npm:1.3.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
 "turbo@npm:^1.2.16":
-  version: 1.2.16
-  resolution: "turbo@npm:1.2.16"
+  version: 1.3.1
+  resolution: "turbo@npm:1.3.1"
   dependencies:
-    turbo-darwin-64: 1.2.16
-    turbo-darwin-arm64: 1.2.16
-    turbo-freebsd-64: 1.2.16
-    turbo-freebsd-arm64: 1.2.16
-    turbo-linux-32: 1.2.16
-    turbo-linux-64: 1.2.16
-    turbo-linux-arm: 1.2.16
-    turbo-linux-arm64: 1.2.16
-    turbo-linux-mips64le: 1.2.16
-    turbo-linux-ppc64le: 1.2.16
-    turbo-windows-32: 1.2.16
-    turbo-windows-64: 1.2.16
-    turbo-windows-arm64: 1.2.16
+    turbo-android-arm64: 1.3.1
+    turbo-darwin-64: 1.3.1
+    turbo-darwin-arm64: 1.3.1
+    turbo-freebsd-64: 1.3.1
+    turbo-freebsd-arm64: 1.3.1
+    turbo-linux-32: 1.3.1
+    turbo-linux-64: 1.3.1
+    turbo-linux-arm: 1.3.1
+    turbo-linux-arm64: 1.3.1
+    turbo-linux-mips64le: 1.3.1
+    turbo-linux-ppc64le: 1.3.1
+    turbo-windows-32: 1.3.1
+    turbo-windows-64: 1.3.1
+    turbo-windows-arm64: 1.3.1
   dependenciesMeta:
+    turbo-android-arm64:
+      optional: true
     turbo-darwin-64:
       optional: true
     turbo-darwin-arm64:
@@ -16826,7 +16836,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 245b1b28af153edd14ab35a4812a8651b1e7cbae44ce3f15b53e0a73a3cc9c4ea39734f18c966403496c37876dd57053070b5b7eb736a14f1bc7e1bfd36566f3
+  checksum: fced49081f2c64aaf93a2499edb057bb05d30bd2074b9652610f939c9037869501fcc50e7ad05a48cec4a8b9d344cc1c4ea505edd45fe2f9639fb138fa55182b
   languageName: node
   linkType: hard
 
@@ -17220,8 +17230,8 @@ __metadata:
   linkType: hard
 
 "update-browserslist-db@npm:^1.0.0":
-  version: 1.0.3
-  resolution: "update-browserslist-db@npm:1.0.3"
+  version: 1.0.4
+  resolution: "update-browserslist-db@npm:1.0.4"
   dependencies:
     escalade: ^3.1.1
     picocolors: ^1.0.0
@@ -17229,7 +17239,7 @@ __metadata:
     browserslist: ">= 4.21.0"
   bin:
     browserslist-lint: cli.js
-  checksum: 7ffbb87405efddd34d69f7d5929b44a3c4c7d72751542eb9e494536cafb0d57290d261af25986584dabc5b76ddd719061b5efb4ddf26af092bf35b095f20ce90
+  checksum: 7c7da28d0fc733b17e01c8fa9385ab909eadce64b8ea644e9603867dc368c2e2a6611af8247e72612b23f9e7cb87ac7c7585a05ff94e1759e9d646cbe9bf49a7
   languageName: node
   linkType: hard
 
