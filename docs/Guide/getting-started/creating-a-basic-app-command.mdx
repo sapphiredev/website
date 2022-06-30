@@ -25,7 +25,24 @@ export class PingCommand extends Command {
 ```
 
 The above example will create a slash command (chat input command) called `ping` with the description
-`Ping bot to see if it is alive`.
+`Ping bot to see if it is alive`. Alternatively, we can also use `this.name` and `this.description` to pass the name and
+description to the builder which will take the data from the passed values in command class.
+
+Example:
+
+```typescript ts2esm2cjs|{4-13}|{4-13}
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, { ...options, name: 'ping', description: 'Ping bot to see if it is alive' });
+  }
+
+  public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
+    registry.registerChatInputCommand((builder) => builder.setName(this.name).setDescription(this.description));
+  }
+}
+```
 
 ## Creating the `chatInputRun` method
 
