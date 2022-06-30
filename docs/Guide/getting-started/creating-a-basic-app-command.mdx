@@ -3,8 +3,8 @@ sidebar_position: 2
 title: Creating a basic slash command
 ---
 
-Creating a basic slash command is very similar to creating a basic command. The only difference is that you'll need to
-handle the command run under `chatInputRun` instead of `messageRun`.
+Creating a basic slash command is very similar to creating a basic command. To create a slash command you will have to
+call the `registerApplicationCommands` method of the command class.
 
 For example, let's create a `ping` command:
 
@@ -13,14 +13,13 @@ import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
-    super(context, {
-      ...options,
-      name: 'ping',
-      description: 'Ping bot to see if it is alive',
-      chatInputCommand: {
-        register: true
-      }
-    });
+    super(context, { ...options });
+  }
+
+  public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
+    registry.registerChatInputCommand((builder) =>
+      builder.setName('ping').setDescription('Ping bot to see if it is alive')
+    );
   }
 }
 ```
