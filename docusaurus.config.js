@@ -93,6 +93,7 @@ const config = {
 					'./projects/utilities/packages/eslint-config/src/index.ts',
 					'./projects/utilities/packages/event-iterator/src/index.ts',
 					'./projects/utilities/packages/fetch/src/index.ts',
+					'./projects/utilities/packages/lexure/src/index.ts',
 					'./projects/utilities/packages/phisherman/src/index.ts',
 					'./projects/utilities/packages/prettier-config/src/index.ts',
 					'./projects/utilities/packages/ratelimits/src/index.ts',
