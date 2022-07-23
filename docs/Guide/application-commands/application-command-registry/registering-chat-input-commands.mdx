@@ -5,12 +5,12 @@ title: Registering Chat Input Commands
 
 A chat input command can be registered to the Discord API by letting the command registry know about its existence. To
 do so we need to use the [`registerApplicationCommands`][rac] to have access to the
-[`ApplicationCommandRegistry`][acr] to perform operations on it. You can learn how to do this on the page [Acquiring an
-Application Command Registry][aaacr].
+[`ApplicationCommandRegistry`][acr] to perform operations on it. You can learn how to do this on the page [`Acquiring an
+Application Command Registry`][aaacr].
 
 ## How to register a chat input command
 
-The easiest way to register a Chat Input Command is to implement the [`registerApplicationCommands`][rac] method on a
+The easiest way to register a chat input command is to implement the [`registerApplicationCommands`][rac] method on a
 [`Command`][command] class. In that method the first parameter is the [`ApplicationCommandRegistry`][acr] (commonly
 called `registry` in code) on which you can call [`registerChatInputCommand`][rcic]. This looks like:
 
