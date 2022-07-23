@@ -9,11 +9,11 @@ assign options to those commands. However there is another another type of comma
 Context Menu Commands show up as the name implies, in the context menu. The specific menus are those when right clicking
 a user, and those when right clicking a message.
 
-Message Context Menu commands look like this:
+Message Context Menu Commands look like this:
 
 ![Message Context Menu Command Example](./message-context-menu-command.png)
 
-And User Context Menu commands look like this:
+And User Context Menu Commands look like this:
 
 ![User Context Menu Command Example](./user-context-menu-command.png)
 
@@ -118,7 +118,7 @@ To register a context menu input command, you need to acquire the [`ApplicationC
 The method which is responsible for telling the registry that this command should be registered. It takes two
 parameters:
 
-- `command`: The context menu command data to be registered. This can be a `discord.js`
+- `command`: The Context Menu Command data to be registered. This can be a `discord.js`
   [`ApplicationCommandData`][djs-command-data-docs] object a `@discordjs/builders`
   [`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs] or a method which returns the
   `@discordjs/builders `[`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs].

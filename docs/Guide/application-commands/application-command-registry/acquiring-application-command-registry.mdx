@@ -4,11 +4,13 @@ title: Acquiring an Application Command Registry
 ---
 
 To do anything with the [`Application Command Registry`][acr] we need to "acquire" one. To "acquire" an
-[`Application Command Registry`][acr] means to retrieve an already existing one for the command name you specify or generating a brand new one. This may sound more complicated than
-it actually is, so bare with us here. Acquiring an [`Application Command Registry`][acr] can be done in two ways:
+[`Application Command Registry`][acr] means to retrieve an already existing one for the command name you specify or
+generating a brand new one. This may sound more complicated than it actually is, so bare with us here. Acquiring an
+[`Application Command Registry`][acr] can be done in two ways:
 
 - By calling the `ApplicationCommandRegistries.acquire` method
-- By using the [`registerApplicationCommands`][register-application-commands] method of the [`Command`][command] class (which receives a pre-defined registry for the command it's present in)
+- By using the [`registerApplicationCommands`][register-application-commands] method of the [`Command`][command] class
+  (which receives a pre-defined registry for the command it's present in)
 
 ## `Command.registerApplicationCommands`
 
@@ -25,8 +27,8 @@ export class PingCommand extends Command {
 }
 ```
 
-This means that this registry will only concern itself about the current `ping` command - it's not going to impact any other commands.
-else.
+This means that this registry will only concern itself about the current `ping` command - it's not going to impact any
+other commands. else.
 
 ## `ApplicationCommandRegistries.acquire`
 
@@ -58,7 +60,7 @@ on the registry for this command.
 
 Now that we have learned how the acquire the [`ApplicationCommandRegistry`][acr] we can start registering commands. To
 learn how to register Slash Commands see [Registering Chat Input Commands][rcic], or for learning how to register
-Context Menu commands see [Registering Context Commands][rcc]
+Context Menu Commands see [Registering Context Commands][rcc]
 
 [register-application-commands]: ../../../Documentation/api-framework/classes/Command#registerapplicationcommands
 [acr]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry
