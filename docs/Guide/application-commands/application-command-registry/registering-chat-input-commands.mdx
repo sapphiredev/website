@@ -42,7 +42,7 @@ export class SlashCommand extends Command {
 :::info
 
 We use `//` next to `builder //` here to short-circuit Prettier putting everything on the same line. If you do not use
-prettier you can remove this, or if you do not care for it being on the same line then you can remove it also.
+prettier you can remove this, or if you do not care for it being on the same line then you can remove it.
 
 :::
 
@@ -50,7 +50,7 @@ In this code snippet we have registered the Chat Input Command in the most simpl
 `name` and `description`. We also use the [`builder`][djs-slash-builder-docs] pattern which means you get verification
 of your input before a command gets registered in a faulty way. It will also make sure that you are not providing
 unnecessary or incorrect JSON keys because you're not building the JSON yourself. All that said, it is the method we
-recommend everyone to use. If you are experienced with Chat Input Commands you can also opt to write your own raw JSON
+recommend everyone to use. If you are experienced with chat input commands you can also opt to write your own raw JSON
 object, however this guide will not cover that.
 
 In the code snippet above we passed 1 parameter to the [`registerChatInputCommand`][rcic] method, to build the object
