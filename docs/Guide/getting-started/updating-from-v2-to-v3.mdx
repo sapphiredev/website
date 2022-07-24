@@ -22,7 +22,7 @@ However you end up handling situations like this will be up to you, but this our
 ### ⚠️ Warnings
 
 Per the deprecation in v2, the `run` method from commands is officially removed entirely and **will not be aliased nor
-emit a warning when it's present instead of `messageRun`.**
+emit a warning when it's present instead of [`messageRun`][command-message-run].**
 
 :::caution
 
@@ -91,10 +91,10 @@ the command that had the error.
 :::caution
 
 👀 If you've already registered the chat input command manually, or Sapphire registered it for you, copy the id from
-your console and paste it in the `idHints` property of the `chatInputCommand` object. That will make Sapphire recognize
-the command in the future, and update metadata (like the name, description, default permission or future fields) instead
-of creating a new command. You can read more about what the `idHints` property actually on the page about registering
-chat input commands [Registering Chat Input Commands -> idHints][rcic-idhints]
+your console and paste it in the [`idHints`][idhints] property of the `chatInputCommand` object. That will make Sapphire
+recognize the command in the future, and update metadata (like the name, description, default permission or future
+fields) instead of creating a new command. You can read more about what the [`idHints`][idhints] property actually on
+the page about registering chat input commands [Registering Chat Input Commands -> idHints][rcic-idhints]
 
 :::
 
@@ -199,23 +199,23 @@ Sapphire's implementation of these, it does throw an Error)
 #### All flows Preconditions
 
 If your bot has a lot of preconditions, and you support all methods of running a command, or you just want to have them
-all implemented no matter what, we export an alias to the Precondition class called `AllFlowsPrecondition`. While this
-doesn't do much for JavaScript users, for TypeScript users this will force you to implement the aforementioned run
-methods. Think of it as a simple alias for something simple.
+all implemented no matter what, we export an alias to the Precondition class called
+[`AllFlowsPrecondition`][allflowsprecondition]. While this doesn't do much for JavaScript users, for TypeScript users
+this will force you to implement the aforementioned run methods. Think of it as a simple alias for something simple.
 
 #### Fetching a channel from an interaction
 
 Sometimes, you need the channel in which an interaction was sent, and either you don't have it cached, or you are
 running this in a stateless way. To aid with that, we have a utility shortcut function called
-`fetchChannelFromInteraction`. As the name suggests, it fetches the channel from the interaction, and returns it for
-your usage / consumption.
+[`fetchChannelFromInteraction`][fetchchannelfrominteraction]. As the name suggests, it fetches the channel from the
+interaction, and returns it for your usage / consumption.
 
 ## Events
 
 Due to Discord's push to adopt Application Commands, combined with the move of making message contents gated behind a
 privileged intent (which some love and some hate 🤷), the listeners required for parsing and running message commands
-are now optionally loaded by setting `loadMessageCommandListeners` to `true` in your client options. See an example on
-the example repository or down below:
+are now optionally loaded by setting [`loadMessageCommandListeners`][loadmessagecommandlisteners] to `true` in your
+client options. See an example on the example repository or down below:
 
 ```typescript ts2esm2cjs|{8}|{8}
 import { LogLevel, SapphireClient } from '@sapphire/framework';
@@ -340,31 +340,36 @@ uppercase `P` represents the [`Events`][events] object name)
 - `[P]`CommandError (`[p]CommandError`) - emitted when the command run method throws an error.
 - `[P]`CommandFinish (`[p]CommandFinish`) - emitted when the command run is finished.
 
+[`ipreconditioncontainer`]: ../../Documentation/api-framework/interfaces/IPreconditionContainer
+[`preconditioncontainerarray`]: ../../Documentation/api-framework/classes/PreconditionContainerArray
+[`preconditioncontainersingle`]: ../../Documentation/api-framework/classes/PreconditionContainerSingle
+[acr]: ../application-commands/application-command-registry/what-is-it.mdx
+[allflowsprecondition]: ../../Documentation/api-framework/classes/AllFlowsPrecondition
 [applicationcommandregistry]: ../application-commands/application-command-registry/what-is-it.mdx
 [autocomplete]: ../application-commands/interaction-handlers/autocomplete.mdx
 [chat-input-parallel]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#chatinputparallel
 [chat-input-sequential]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#chatinputsequential
+[command-acr]: ../../Documentation/api-framework/classes/Command#applicationcommandregistry
 [command-chat-input-run]: ../../Documentation/api-framework/classes/Command#chatinputrun
 [command-context-menu-run]: ../../Documentation/api-framework/classes/Command#contextmenurun
 [command-message-run]: ../../Documentation/api-framework/classes/Command#messagerun
+[command-rac]: ../../Documentation/api-framework/classes/Command#registerapplicationcommands
 [commands]: #commands
 [context-menu-parallel]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#contextmenuparallel
 [context-menu-sequential]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#contextmenusequential
 [events]: ../../Documentation/api-framework/#events
+[fetchchannelfrominteraction]: ../../Documentation/api-framework/classes/Precondition#fetchchannelfrominteraction
+[idhints]: ../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#idhints
 [ipreconditioncondition]: ../../Documentation/api-framework/interfaces/IPreconditionCondition
-[`ipreconditioncontainer`]: ../../Documentation/api-framework/interfaces/IPreconditionContainer
+[loadmessagecommandlisteners]:
+  ../../Documentation/api-framework/interfaces/SapphireClientOptions#loadmessagecommandlisteners
 [message-parallel]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#messageparallel
 [message-sequential]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#messagesequential
 [precondition-chat-input-run]: ../../Documentation/api-framework/classes/Precondition#chatinputrun
 [precondition-context-menu-run]: ../../Documentation/api-framework/classes/Precondition#contextmenurun
 [precondition-message-run]: ../../Documentation/api-framework/classes/Precondition#messagerun
-[`preconditioncontainerarray`]: ../../Documentation/api-framework/classes/PreconditionContainerArray
-[`preconditioncontainersingle`]: ../../Documentation/api-framework/classes/PreconditionContainerSingle
-[supportsmessagecommands]: ../../Documentation/api-framework/classes/Command#supportsmessagecommands
+[rcic-idhints]: ../application-commands/application-command-registry/registering-chat-input-commands#idhints
+[supportsautocompleteinteractions]: ../../Documentation/api-framework/classes/Command#supportsautocompleteinteractions
 [supportschatinputcommands]: ../../Documentation/api-framework/classes/Command#supportschatinputcommands
 [supportscontextmenucommands]: ../../Documentation/api-framework/classes/Command#supportscontextmenucommands
-[supportsautocompleteinteractions]: ../../Documentation/api-framework/classes/Command#supportsautocompleteinteractions
-[acr]: ../application-commands/application-command-registry/what-is-it.mdx
-[command-acr]: ../../Documentation/api-framework/classes/Command#applicationcommandregistry
-[command-rac]: ../../Documentation/api-framework/classes/Command#registerapplicationcommands
-[rcic-idhints]: ../application-commands/application-command-registry/registering-chat-input-commands#idhints
+[supportsmessagecommands]: ../../Documentation/api-framework/classes/Command#supportsmessagecommands
