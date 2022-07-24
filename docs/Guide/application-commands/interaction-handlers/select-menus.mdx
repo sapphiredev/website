@@ -13,11 +13,14 @@ import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapp
 import type { SelectMenuInteraction } from 'discord.js';
 
 export class MenuHandler extends InteractionHandler {
-  public constructor(ctx: PieceContext) {
-    super(ctx, { interactionHandlerType: InteractionHandlerTypes.SelectMenu });
+  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+    super(ctx, {
+      ...options,
+      interactionHandlerType: InteractionHandlerTypes.SelectMenu
+    });
   }
 
-  public async parse(interaction: SelectMenuInteraction) {
+  public override parse(interaction: SelectMenuInteraction) {
     if (interaction.customId !== 'my-echo-select') return this.none();
 
     return this.some();

@@ -13,13 +13,13 @@ folder or a `listeners` folder). Same rules apply when it comes to loading and e
 
 When creating your interaction handler, you have to specify the type it is. Here are the current types available:
 
-| Enum Name        | What it will run for                                                                 |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| Autocomplete     | Autocomplete for interaction commands                                                |
-| Button           | Button presses                                                                       |
-| ModalSubmit      | Pop up modals                                                                        |
-| MessageComponent | Any message **component** interactions received (Buttons and Select Menus currently) |
-| SelectMenu       | Drop-down menus in messages                                                          |
+| Enum Name          | What it will run for                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| [Autocomplete]     | Autocomplete for interaction commands                                                |
+| [Button]           | Button presses                                                                       |
+| [ModalSubmit]      | Pop up modals                                                                        |
+| [MessageComponent] | Any message **component** interactions received (Buttons and Select Menus currently) |
+| [SelectMenu]       | Drop-down menus in messages                                                          |
 
 These types define what the handler should get. For instance, specifying a `Button` interaction handler type will make
 that handler receive **just** button interactions.
@@ -191,8 +191,11 @@ import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapp
 import type { ButtonInteraction } from 'discord.js';
 
 export class ParseResultExample extends InteractionHandler {
-  public constructor(ctx: PieceContext) {
-    super(ctx, { interactionHandlerType: InteractionHandlerTypes.Button });
+  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+    super(ctx, {
+      ...options,
+      interactionHandlerType: InteractionHandlerTypes.Button
+    });
   }
 
   // Peep the `InteractionHandler.ParseResult`. It's the utility type you can use to ensure
@@ -208,3 +211,9 @@ export class ParseResultExample extends InteractionHandler {
   }
 }
 ```
+
+[autocomplete]: ./autocomplete.mdx
+[button]: ./buttons.mdx
+[modalsubmit]: ./modals.mdx
+[messagecomponent]: ./message-components.mdx
+[selectmenu]: ./select-menus.mdx

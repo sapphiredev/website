@@ -11,11 +11,14 @@ import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapp
 import type { ButtonInteraction } from 'discord.js';
 
 export class ButtonHandler extends InteractionHandler {
-  public constructor(ctx: PieceContext) {
-    super(ctx, { interactionHandlerType: InteractionHandlerTypes.Button });
+  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+    super(ctx, {
+      ...options,
+      interactionHandlerType: InteractionHandlerTypes.Button
+    });
   }
 
-  public async parse(interaction: ButtonInteraction) {
+  public override parse(interaction: ButtonInteraction) {
     if (interaction.customId !== 'my-awesome-button') return this.none();
 
     return this.some();

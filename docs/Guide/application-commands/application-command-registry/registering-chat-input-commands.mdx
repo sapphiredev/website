@@ -14,7 +14,7 @@ The easiest way to register a Chat Input Command is to implement the [`registerA
 [`Command`][command] class. In that method the first parameter is the [`ApplicationCommandRegistry`][acr] (commonly
 called `registry` in code) on which you can call [`registerChatInputCommand`][rcic]. This looks like:
 
-```ts ts2esm2cjs|{7,11-17}|{7,11-17}
+```typescript ts2esm2cjs|{7,11-17}|{7,11-17}
 import { Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
@@ -68,7 +68,7 @@ greet. This option is required and the command will not send at all if the optio
 as compared to Sapphire [Arguments][arguments] you no longer have to validate whether a required argument was provided
 or not.
 
-```ts ts2esm2cjs|{16-21}|{16-21}
+```typescript ts2esm2cjs|{16-21}|{16-21}
 import { Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {

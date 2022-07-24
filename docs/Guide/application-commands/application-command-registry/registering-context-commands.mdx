@@ -23,7 +23,7 @@ The easiest way to register a Message Context Menu Command is to implement the [
 method on a [`Command`][command] class. In that method the first parameter is the [`ApplicationCommandRegistry`][acr]
 (commonly called `registry` in code) on which you can call [`registerContextMenuCommand`][rcmc]. This looks like:
 
-```ts ts2esm2cjs|{8,11-17}|{8,11-17}
+```typescript ts2esm2cjs|{8,11-17}|{8,11-17}
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 
@@ -76,7 +76,7 @@ information on that please look at [Chat Input Command Registry Options][cicro].
 Registering User Context Menu Commands is very similar to Message Context Menu Commands. The only difference is that you
 have to specify the different type in the registry. Some example code for this is:
 
-```ts ts2esm2cjs|{8,11-17}|{8,11-17}
+```typescript ts2esm2cjs|{8,11-17}|{8,11-17}
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 
