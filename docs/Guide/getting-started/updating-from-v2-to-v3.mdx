@@ -4,6 +4,19 @@ title: Updating from v2 to v3
 toc_max_heading_level: 5
 ---
 
+## A general tip concerning code duplication
+
+You will notice that with these new features, you may encounter a lot of code duplication, especially if you plan on
+supporting all 3 types of commands. While we cannot control _how_ you code your bot, we have a recommendation for you:
+abstract the argument parsing from the final function.
+
+What does this mean? As an example let's take a look at a `ban` command: it needs to process the member to ban as well
+an optional reason, action the member, and reply to the invoker of the command. In your `*Run` methods, you should parse
+the member and reason, then pass those down to a method you build that handles the actual banning and replying to the
+invoker.
+
+However you end up handling situations like this will be up to you, but this our my tip for you. 😄
+
 ## Commands
 
 ### ⚠️ Warnings
