@@ -2589,14 +2589,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.9.2":
-  version: 0.9.5
-  resolution: "@humanwhocodes/config-array@npm:0.9.5"
+"@humanwhocodes/config-array@npm:^0.10.4":
+  version: 0.10.4
+  resolution: "@humanwhocodes/config-array@npm:0.10.4"
   dependencies:
     "@humanwhocodes/object-schema": ^1.2.1
     debug: ^4.1.1
     minimatch: ^3.0.4
-  checksum: 8ba6281bc0590f6c6eadeefc14244b5a3e3f5903445aadd1a32099ed80e753037674026ce1b3c945ab93561bea5eb29e3c5bff67060e230c295595ba517a3492
+  checksum: d480e5d57e6d787565b6cff78e27c3d1b380692d4ffb0ada7d7f5957a56c9032f034da05a3e443065dbd0671ebf4d859036ced34e96b325bbc1badbae3c05300
+  languageName: node
+  linkType: hard
+
+"@humanwhocodes/gitignore-to-minimatch@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@humanwhocodes/gitignore-to-minimatch@npm:1.0.2"
+  checksum: aba5c40c9e3770ed73a558b0bfb53323842abfc2ce58c91d7e8b1073995598e6374456d38767be24ab6176915f0a8d8b23eaae5c85e2b488c0dccca6d795e2ad
   languageName: node
   linkType: hard
 
@@ -2987,44 +2994,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:2.1.0"
+"@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:2.1.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@msgpackr-extract/msgpackr-extract-darwin-x64@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@msgpackr-extract/msgpackr-extract-darwin-x64@npm:2.1.0"
+"@msgpackr-extract/msgpackr-extract-darwin-x64@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-x64@npm:2.1.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@msgpackr-extract/msgpackr-extract-linux-arm64@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm64@npm:2.1.0"
+"@msgpackr-extract/msgpackr-extract-linux-arm64@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm64@npm:2.1.1"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@msgpackr-extract/msgpackr-extract-linux-arm@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm@npm:2.1.0"
+"@msgpackr-extract/msgpackr-extract-linux-arm@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm@npm:2.1.1"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@msgpackr-extract/msgpackr-extract-linux-x64@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@msgpackr-extract/msgpackr-extract-linux-x64@npm:2.1.0"
+"@msgpackr-extract/msgpackr-extract-linux-x64@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-x64@npm:2.1.1"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@msgpackr-extract/msgpackr-extract-win32-x64@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@msgpackr-extract/msgpackr-extract-win32-x64@npm:2.1.0"
+"@msgpackr-extract/msgpackr-extract-win32-x64@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@msgpackr-extract/msgpackr-extract-win32-x64@npm:2.1.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -3679,7 +3686,7 @@ __metadata:
     typedoc: ^0.23.9
     typedoc-plugin-mdn-links: ^2.0.0
     typescript: ^4.7.4
-    vitest: ^0.19.1
+    vitest: ^0.20.2
   languageName: unknown
   linkType: soft
 
@@ -5078,7 +5085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.0.4, acorn@npm:^8.4.1, acorn@npm:^8.5.0, acorn@npm:^8.7.1":
+"acorn@npm:^8.0.4, acorn@npm:^8.4.1, acorn@npm:^8.5.0, acorn@npm:^8.7.1, acorn@npm:^8.8.0":
   version: 8.8.0
   resolution: "acorn@npm:8.8.0"
   bin:
@@ -8442,11 +8449,12 @@ __metadata:
   linkType: hard
 
 "eslint@npm:^8.17.0, eslint@npm:^8.20.0":
-  version: 8.20.0
-  resolution: "eslint@npm:8.20.0"
+  version: 8.21.0
+  resolution: "eslint@npm:8.21.0"
   dependencies:
     "@eslint/eslintrc": ^1.3.0
-    "@humanwhocodes/config-array": ^0.9.2
+    "@humanwhocodes/config-array": ^0.10.4
+    "@humanwhocodes/gitignore-to-minimatch": ^1.0.2
     ajv: ^6.10.0
     chalk: ^4.0.0
     cross-spawn: ^7.0.2
@@ -8456,14 +8464,17 @@ __metadata:
     eslint-scope: ^7.1.1
     eslint-utils: ^3.0.0
     eslint-visitor-keys: ^3.3.0
-    espree: ^9.3.2
+    espree: ^9.3.3
     esquery: ^1.4.0
     esutils: ^2.0.2
     fast-deep-equal: ^3.1.3
     file-entry-cache: ^6.0.1
+    find-up: ^5.0.0
     functional-red-black-tree: ^1.0.1
     glob-parent: ^6.0.1
     globals: ^13.15.0
+    globby: ^11.1.0
+    grapheme-splitter: ^1.0.4
     ignore: ^5.2.0
     import-fresh: ^3.0.0
     imurmurhash: ^0.1.4
@@ -8482,7 +8493,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: a31adf390d71d916925586bc8467b48f620e93dd0416bc1e897d99265af88b48d4eba3985b5ff4653ae5cc46311a360d373574002277e159bb38a4363abf9228
+  checksum: 1d39ddb08772ea230cb7d74f7f81f85b9d46965d3600725c7eb39a27bcdaf28cb2a780dacf6cfa1cfbf2da606b57a5e7e3ab373ab474cbcf0ba042076821f501
   languageName: node
   linkType: hard
 
@@ -8493,14 +8504,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.3.2":
-  version: 9.3.2
-  resolution: "espree@npm:9.3.2"
+"espree@npm:^9.3.2, espree@npm:^9.3.3":
+  version: 9.3.3
+  resolution: "espree@npm:9.3.3"
   dependencies:
-    acorn: ^8.7.1
+    acorn: ^8.8.0
     acorn-jsx: ^5.3.2
     eslint-visitor-keys: ^3.3.0
-  checksum: 9a790d6779847051e87f70d720a0f6981899a722419e80c92ab6dee01e1ab83b8ce52d11b4dc96c2c490182efb5a4c138b8b0d569205bfe1cd4629e658e58c30
+  checksum: 33e8a36fc15d082e68672e322e22a53856b564d60aad8f291a667bfc21b2c900c42412d37dd3c7a0f18b9d0d8f8858dabe8776dbd4b4c2f72c5cf4d6afeabf65
   languageName: node
   linkType: hard
 
@@ -9627,6 +9638,13 @@ __metadata:
   version: 4.2.10
   resolution: "graceful-fs@npm:4.2.10"
   checksum: 3f109d70ae123951905d85032ebeae3c2a5a7a997430df00ea30df0e3a6c60cf6689b109654d6fdacd28810a053348c4d14642da1d075049e6be1ba5216218da
+  languageName: node
+  linkType: hard
+
+"grapheme-splitter@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "grapheme-splitter@npm:1.0.4"
+  checksum: 0c22ec54dee1b05cd480f78cf14f732cb5b108edc073572c4ec205df4cd63f30f8db8025afc5debc8835a8ddeacf648a1c7992fe3dcd6ad38f9a476d84906620
   languageName: node
   linkType: hard
 
@@ -12737,15 +12755,15 @@ __metadata:
   linkType: hard
 
 "msgpackr-extract@npm:^2.0.2":
-  version: 2.1.0
-  resolution: "msgpackr-extract@npm:2.1.0"
+  version: 2.1.1
+  resolution: "msgpackr-extract@npm:2.1.1"
   dependencies:
-    "@msgpackr-extract/msgpackr-extract-darwin-arm64": 2.1.0
-    "@msgpackr-extract/msgpackr-extract-darwin-x64": 2.1.0
-    "@msgpackr-extract/msgpackr-extract-linux-arm": 2.1.0
-    "@msgpackr-extract/msgpackr-extract-linux-arm64": 2.1.0
-    "@msgpackr-extract/msgpackr-extract-linux-x64": 2.1.0
-    "@msgpackr-extract/msgpackr-extract-win32-x64": 2.1.0
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64": 2.1.1
+    "@msgpackr-extract/msgpackr-extract-darwin-x64": 2.1.1
+    "@msgpackr-extract/msgpackr-extract-linux-arm": 2.1.1
+    "@msgpackr-extract/msgpackr-extract-linux-arm64": 2.1.1
+    "@msgpackr-extract/msgpackr-extract-linux-x64": 2.1.1
+    "@msgpackr-extract/msgpackr-extract-win32-x64": 2.1.1
     node-gyp: latest
     node-gyp-build-optional-packages: 5.0.3
   dependenciesMeta:
@@ -12763,19 +12781,19 @@ __metadata:
       optional: true
   bin:
     download-msgpackr-prebuilds: bin/download-prebuilds.js
-  checksum: ec73d9a059085242bb3811b2e5b8fc2c0df6a44aedaf42c87d50a3e497bd93b1b2009fd91c8807be2f595e81e6a47a3f810d6ee5e0750babe73c8b958b9ab58d
+  checksum: 3423dd27b329e39f0b2065e86c0d9b7b22efa97121e6e7a284524852e12c5055cd04246c7fbeef4617cccf5dc401344ad408d28ce0aa38908565872155dd353a
   languageName: node
   linkType: hard
 
 "msgpackr@npm:^1.4.6":
-  version: 1.6.1
-  resolution: "msgpackr@npm:1.6.1"
+  version: 1.6.2
+  resolution: "msgpackr@npm:1.6.2"
   dependencies:
     msgpackr-extract: ^2.0.2
   dependenciesMeta:
     msgpackr-extract:
       optional: true
-  checksum: 1c34b1c314e8db2bcb6debb10034bd965f6333812d7a29248745af8e0204cc571484e48bbc09b6cef4e244523acb32db5e9e2637aafbebf03d97bb3898657800
+  checksum: 1bb1ac0d1b5de491c835e330769f090608a19d349689f73204979258d22836419f81456a6e911adc301f68b5e06cb28ed289e135efb605e2a0f03a8784b42f62
   languageName: node
   linkType: hard
 
@@ -15352,7 +15370,7 @@ __metadata:
     typedoc-plugin-djs-links: ^1.2.0
     typedoc-plugin-mdn-links: ^2.0.0
     typescript: ^4.7.4
-    vitest: ^0.20.1
+    vitest: ^0.20.2
   languageName: unknown
   linkType: soft
 
@@ -17820,9 +17838,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^0.19.1":
-  version: 0.19.1
-  resolution: "vitest@npm:0.19.1"
+"vitest@npm:^0.20.2":
+  version: 0.20.2
+  resolution: "vitest@npm:0.20.2"
   dependencies:
     "@types/chai": ^4.3.1
     "@types/chai-subset": ^1.3.3
@@ -17855,46 +17873,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: f5f6bd69f2c196c072d9729805323d31dce06240cd18218e1b4387502d8c0f9cc4d2fad1e1f99a0fcbfe187d5c5e04d4ea2dd352cb99d3f06227b343e5cb4c6d
-  languageName: node
-  linkType: hard
-
-"vitest@npm:^0.20.1":
-  version: 0.20.1
-  resolution: "vitest@npm:0.20.1"
-  dependencies:
-    "@types/chai": ^4.3.1
-    "@types/chai-subset": ^1.3.3
-    "@types/node": "*"
-    chai: ^4.3.6
-    debug: ^4.3.4
-    local-pkg: ^0.4.2
-    tinypool: ^0.2.4
-    tinyspy: ^1.0.0
-    vite: ^2.9.12 || ^3.0.0-0
-  peerDependencies:
-    "@edge-runtime/vm": "*"
-    "@vitest/browser": "*"
-    "@vitest/ui": "*"
-    c8: "*"
-    happy-dom: "*"
-    jsdom: "*"
-  peerDependenciesMeta:
-    "@edge-runtime/vm":
-      optional: true
-    "@vitest/browser":
-      optional: true
-    "@vitest/ui":
-      optional: true
-    c8:
-      optional: true
-    happy-dom:
-      optional: true
-    jsdom:
-      optional: true
-  bin:
-    vitest: vitest.mjs
-  checksum: b070d91a96c5ff59145637b50229214bce2b72010fd49ff6163d724f691f1f023e359cb6c546182fdae51f0c1deb5b75bece36273ca06a78645082fceb5b317d
+  checksum: eea156689f119bd45cf3cfaa2d0af42f3c86e3952fd4cec0e8b6ee67da9b4ad4266180573f6750293285324f40535b698795eff520da535419fff076d1e3bc3a
   languageName: node
   linkType: hard
 
