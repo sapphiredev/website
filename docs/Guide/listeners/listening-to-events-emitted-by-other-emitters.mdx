@@ -25,7 +25,7 @@ export class RawGuildMemberAddListener extends Listener {
 The other way is to specify an emitter directly instead of a property name:
 
 ```typescript ts2esm2cjs|{7-8}|{7-8}
-import { Listener } from '@sapphire/framework';
+import { Listener, container } from '@sapphire/framework';
 
 export class RawGuildMemberAddListener extends Listener {
   public constructor(context: Listener.Context, options: Listener.Options) {
