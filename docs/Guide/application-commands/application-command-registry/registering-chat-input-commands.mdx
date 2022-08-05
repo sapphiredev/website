@@ -141,13 +141,11 @@ database).
 ### `behaviorWhenNotIdentical`
 
 This options tells the registry that how to behave when the command is not identical to the one which is already
-registered on Discord API. By default it's set to [`LOG_TO_CONSOLE`][behavior-log] which means that it will only warn
-you about the data differences found as compared to the data received from the Discord API.
+registered on Discord API. By default it's set to [`OVERWRITE`][behavior-overwrite] which means that when there is a
+difference between your local code and the Discord API then the data on the Discord API will get overwritten.
 
-If you want the registry to be overwritten with your own local data, you can set this option to
-[`OVERWRITE`][behavior-overwrite]. Note that configuring [`OVERWRITE`][behavior-overwrite] will also still log the
-change to the console. That is to say, [`OVERWRITE`][behavior-overwrite] includes [`LOG_TO_CONSOLE`][behavior-log]
-rather than both being separate code branches.
+If you want the registry to only inform you about differences with logging, you can set this option to
+[`LOG_TO_CONSOLE`][behavior-log].
 
 ### `registerCommandIfMissing`
 
@@ -177,8 +175,8 @@ parameters:
 
 - `command`: The Chat Input Command data to be registered. This can be a `discord.js`
   [`ApplicationCommandData`][djs-command-data-docs] object a `@discordjs/builders`
-  [`SlashCommandBuilder`][djs-slash-builder-docs] or a method which returns the
-  `@discordjs/builders `[`SlashCommandBuilder`][djs-slash-builder-docs].
+  [`SlashCommandBuilder`][djs-slash-builder-docs] or a method which returns the `@discordjs/builders`
+  [`SlashCommandBuilder`][djs-slash-builder-docs].
 
   For more details on how to use `@discordjs/builders `[`SlashCommandBuilder`][djs-slash-builder-docs], please see
   [`discord.js guide`][djs-slash-builder-docs].

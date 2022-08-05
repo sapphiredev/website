@@ -90,8 +90,8 @@ the command that had the error.
 
 :::caution
 
-👀 If you've already registered the chat input command manually, or Sapphire registered it for you, copy the id from
-your console and paste it in the [`idHints`][idhints] property of the `chatInputCommand` object. That will make Sapphire
+If you've already registered the chat input command manually, or Sapphire registered it for you, copy the id from your
+console and paste it in the [`idHints`][idhints] property of the `chatInputCommand` object. That will make Sapphire
 recognize the command in the future, and update metadata (like the name, description, default permission or future
 fields) instead of creating a new command. You can read more about what the [`idHints`][idhints] property actually on
 the page about registering chat input commands [Registering Chat Input Commands -> idHints][rcic-idhints]
@@ -138,8 +138,8 @@ and [`contextMenuRun`][precondition-context-menu-run].
 
 :::warning
 
-⚠️ Just like in [Commands][commands], you ought to specify at least one of the methods if you expect the preconditions
-to work. That could be either the `messageRun` method, the `chatInputRun` method or the `contextMenuRun` method.
+Just like in [Commands][commands], you ought to specify at least one of the methods if you expect the preconditions to
+work. That could be either the `messageRun` method, the `chatInputRun` method or the `contextMenuRun` method.
 
 :::
 
@@ -161,11 +161,11 @@ immediately prevent the command from being ran and you will see the error in the
 - For message commands, you will receive a `messageCommandDenied` event
 
 This decision was taken to prevent accidental escalations from happening in your commands (think of a `ban` command that
-can suddenly be ran by anyone and everyone. I love chaos but this is too much even for me 😄)
+can suddenly be ran by anyone and everyone. We love chaos but this is too much even for us! 😄)
 
 :::info
 
-ℹ️ All Sapphire pre-included preconditions, which you can see
+All Sapphire pre-included preconditions, which you can see
 [here](https://github.com/sapphiredev/framework/tree/main/src/preconditions), will come with handlers for all 3 possible
 types of preconditions by default.
 

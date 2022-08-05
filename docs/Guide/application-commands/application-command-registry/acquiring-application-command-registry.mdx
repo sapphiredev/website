@@ -12,7 +12,7 @@ generating a brand new one. This may sound more complicated than it actually is,
 - By using the [`registerApplicationCommands`][register-application-commands] method of the [`Command`][command] class
   (which receives a pre-defined registry for the command it's present in)
 
-## `Command.registerApplicationCommands`
+## `Command#registerApplicationCommands`
 
 This method is present inside of the [`Command`][command] class and can be used to acquire the command's
 [`ApplicationCommandRegistry`][acr] and use it directly. Let's see a quick example of how to use it:
@@ -28,7 +28,7 @@ export class PingCommand extends Command {
 ```
 
 This means that this registry will only concern itself about the current `ping` command - it's not going to impact any
-other commands. else.
+other commands.
 
 ## `ApplicationCommandRegistries.acquire`
 

@@ -16,8 +16,8 @@ You cannot defer auto-completes (that would be silly)! You **must** respond to t
 
 ## Interaction Handler
 
-This is no different than the rest - extend the [`InteractionHandler`][interaction-handlers] method and give it a
-`parse` and `run` method. Note here that you have access to `<AutocompleteInteraction>.commandName` or
+This is no different than the rest - extend the [`InteractionHandler`][interaction-handlers] class and give it a `parse`
+and `run` method. Note here that you have access to `<AutocompleteInteraction>.commandName` or
 `<AutocompleteInteraction>.commandId` to differentiate the command the user is using.
 
 Example:
