@@ -1,0 +1,219 @@
+---
+sidebar_position: 1
+title: What are they?
+---
+
+These are interaction handlers! A simple class you can extend to handle almost all the interactions you may receive in
+your bot, in a simple, clean and abstract way.
+
+They are located in the `interaction-handlers` folder in your bot (just like how you most likely have a `commands`
+folder or a `listeners` folder). Same rules apply when it comes to loading and everything!
+
+## How does it work?
+
+When creating your interaction handler, you have to specify the type it is. Here are the current types available:
+
+| Enum Name          | What it will run for                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| [Autocomplete]     | Autocomplete for interaction commands                                                |
+| [Button]           | Button presses                                                                       |
+| [ModalSubmit]      | Pop up modals                                                                        |
+| [MessageComponent] | Any message **component** interactions received (Buttons and Select Menus currently) |
+| [SelectMenu]       | Drop-down menus in messages                                                          |
+
+These types define what the handler should get. For instance, specifying a `Button` interaction handler type will make
+that handler receive **just** button interactions.
+
+But that's not all! There's also a `parse` method which can be used for even more granular control (read below).
+
+:::warning
+
+By default, there is no filter for the `parse` method! This means you'll get all interactions of that type, and if you
+want to override that (for example to only run that handler for certain ids), you'll want to override the `parse` method
+in your code!
+
+:::
+
+## The `parse` method
+
+When you're creating handlers, you may want to run certain handlers only when the custom id matches something you want.
+In order to allow filtering, as well as optional additional pre-parsing of the custom id, we provide the `parse` method
+on handlers, which you should override with your own code. The return of the `parse` method **must** be a `Some` /
+`None`, which you can do with the provided shortcuts in the class: `this.some()` and `this.none()`.
+
+:::info
+
+Returning a `some` means that the handler's `run` method should be called. Returning a `none` means this handler should
+be skipped for that interaction. If you've used our Args system, this might seem familiar with the `ok`/`err` that is
+present there.
+
+:::
+
+What you return in the `some` is up to you! You can return nothing (be it null or undefined), a boolean, an object, a
+class, a box of hugs, you name it! But, if the handler should run, you must return a `some` of some kind (you can use
+the `this.some()` shortcut for it).
+
+:::caution
+
+If this function throws an error, the handler will be skipped and an `interactionHandlerParseError` event will be
+emitted!
+
+:::
+
+### Couldn't you shove everything in the `parse` method?
+
+The (sad) answer is... sort of.
+
+You should not shove everything in the `parse` method. It is meant strictly for filtering the custom id or the data
+received before actually working on it (for instance prefetching data from a database). It's done in this way to make
+you abstract the validation from the processing of the interaction.
+
+## Example `parse` methods
+
+What you do in the parse method is up to you, however, we encourage keeping the parse method super simple and fast -
+remember, you must reply to interactions in **at max 3 seconds!**
+
+With that said, if you know your interaction handler in total will take more than 3 seconds to complete, you should call
+the `deferReply` method in the `parse` method. That way, users will know your bot is processing instead of getting a
+`The application did not respond in time` message.
+
+```typescript ts2esm2cjs
+import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
+
+export class ParseExampleInteractionHandler extends InteractionHandler {
+  public constructor(ctx) {
+    super(ctx, { interactionHandlerType: InteractionHandlerTypes.Button });
+  }
+
+  // We'll look a little later in this guide on how to type this method, but for now, we'll type it as any.
+  public async run(interaction: ButtonInteraction, awesomenessLevel: any) {
+    // The `awesomenessLevel` variable has what we returned in the `parse` method's
+    // `this.some`! In this example, we just show it to the user
+    await interaction.reply({
+      content: `Your awesomeness level is: **${awesomenessLevel}**`
+    });
+  }
+
+  public parse(interaction: ButtonInteraction) {
+    // If the custom id does not start with `is-user-awesome`, we do not want this
+    // handler to run.
+    if (!interaction.customId.startsWith('is-user-awesome')) return this.none();
+
+    // Here we return a `Some` as said above, in this case passing 9001 to it
+    // which we get back in the `run` method as the awesomneness level
+    return this.some(9001);
+  }
+}
+```
+
+This is only an example of what you can use the parse method for - custom id filtering. You can do much more - as seen
+below - like prefetching data from your database, or running long tasks, or whatever you want!
+
+## Example `parse` method with deferring a long task
+
+```typescript ts2esm2cjs
+import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
+
+export class ExampleParseMethod extends InteractionHandler {
+  public constructor(ctx) {
+    super(ctx, { interactionHandlerType: InteractionHandlerTypes.Button });
+  }
+
+  public async run(interaction: ButtonInteraction, result: { success: boolean }) {
+    await interaction.editReply({
+      content: `The long running task ${result.success ? 'succeeded' : 'failed'}!`
+    });
+  }
+
+  public async parse(interaction: ButtonInteraction) {
+    if (!interaction.customId.startsWith('long-running-task')) return this.none();
+
+    // Defer the interaction here as what we will do might take some time
+    await interaction.deferReply();
+
+    const result = await fetchDataThatMightTakeALongWhile(interaction.customId);
+
+    return this.some(result);
+  }
+}
+```
+
+As you can see above, you can also use async / await to do anything that may need a promise. Do keep in mind the 3
+second initial response limit! If you don't know how long your `parse` method will take to complete, please make sure to
+defer your reply (an example can be seen above) before proceeding!
+
+## How do we actually use all of this?
+
+I'm glad you asked! Here's an example that handles all button presses and returns the "ping" (the delay from the moment
+the button was pressed until the moment you received it)
+
+```typescript ts2esm2cjs
+import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import type { ButtonInteraction } from 'discord.js';
+import type { Project } from '@prisma/client';
+
+export class HowDoWeUseThemExample extends InteractionHandler {
+  public constructor(ctx: PieceContext) {
+    super(ctx, { interactionHandlerType: InteractionHandlerTypes.Button });
+  }
+
+  public async run(interaction: ButtonInteraction, project: Project) {
+    await interaction.reply({
+      content: `The first project in TypeScript is called: ${project.name}`
+    });
+  }
+
+  public async parse(interaction: ButtonInteraction) {
+    if (interaction.customId !== 'awesome-typescript') return this.none();
+
+    const dataFromDatabase = await this.container.prisma.project.findFirst({
+      where: { projectLanguage: 'typescript' }
+    });
+
+    return this.some(dataFromDatabase);
+  }
+}
+```
+
+## The `ParseResult` utility type
+
+:::info
+
+This is for TypeScript users only. You may safely ignore this if you're not using TypeScript.
+
+:::
+
+There is a utility type on the InteractionHandler class called `ParseResult` that ensures whatever you return in your
+parse method is what you'll get in the run method, with automatic updates! Here's how to do that:
+
+```typescript ts2esm2cjs
+import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import type { ButtonInteraction } from 'discord.js';
+
+export class ParseResultExample extends InteractionHandler {
+  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+    super(ctx, {
+      ...options,
+      interactionHandlerType: InteractionHandlerTypes.Button
+    });
+  }
+
+  // Peep the `InteractionHandler.ParseResult`. It's the utility type you can use to ensure
+  // that whatever you return in `parse` is what you get here, automagically! (works with Promises too!)
+  public async run(interaction: ButtonInteraction, parsedData: InteractionHandler.ParseResult<this>): void {
+    await interaction.reply({
+      content: `Utility types are ${parsedData.awesome ? 'AWESOME!' : 'still awesome'}`
+    });
+  }
+
+  public parse() {
+    return this.some({ awesome: true });
+  }
+}
+```
+
+[autocomplete]: ./autocomplete.mdx
+[button]: ./buttons.mdx
+[modalsubmit]: ./modals.mdx
+[messagecomponent]: ./message-components.mdx
+[selectmenu]: ./select-menus.mdx

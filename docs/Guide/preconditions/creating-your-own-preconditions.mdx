@@ -65,7 +65,7 @@ export class OwnerOnlyPrecondition extends Precondition {
   }
 
   public override async contextMenuRun(interaction: ContextMenuInteraction) {
-    // for context menu command
+    // for Context Menu Command
     return this.checkOwner(interaction.user.id);
   }
 

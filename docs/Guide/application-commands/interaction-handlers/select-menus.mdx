@@ -1,0 +1,36 @@
+---
+sidebar_position: 4
+title: Select Menus
+---
+
+Select menus are components that let you...select values (name speaks for itself doesn't it 😄). You can configure them
+to either allow only one value or multiple values, as well as what kind of select menu it should be.
+
+Here's a simple example that will echo the value the user selected back to them:
+
+```typescript ts2esm2cjs
+import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import type { SelectMenuInteraction } from 'discord.js';
+
+export class MenuHandler extends InteractionHandler {
+  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+    super(ctx, {
+      ...options,
+      interactionHandlerType: InteractionHandlerTypes.SelectMenu
+    });
+  }
+
+  public override parse(interaction: SelectMenuInteraction) {
+    if (interaction.customId !== 'my-echo-select') return this.none();
+
+    return this.some();
+  }
+
+  public async run(interaction: SelectMenuInteraction) {
+    await interaction.reply({
+      // Remember how we can have multiple values? Let's get the first one!
+      content: `You selected: ${interaction.values[0]}`
+    });
+  }
+}
+```

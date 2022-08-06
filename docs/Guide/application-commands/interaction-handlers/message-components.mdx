@@ -1,0 +1,49 @@
+---
+sidebar_position: 6
+title: Message Components
+---
+
+Setting the [`InteractionHandlerTypes`][interactionhandlertypes] option [`MessageComponent`][messagecomponent] will have
+this [`InteractionHandler`][interaction-handler] trigger for both [`SelectMenus`][select-menus] and
+[`Buttons`][buttons].
+
+Here's a simple example:
+
+```typescript ts2esm2cjs
+import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import type { SelectMenuInteraction, ButtonInteraction } from 'discord.js';
+
+export class MessageComponentHandler extends InteractionHandler {
+  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+    super(ctx, {
+      ...options,
+      interactionHandlerType: InteractionHandlerTypes.MessageComponent
+    });
+  }
+
+  public override parse(interaction: ButtonInteraction | SelectMenuInteraction) {
+    if (interaction.customId !== 'my-echo-button-or-select') return this.none();
+
+    return this.some();
+  }
+
+  public async run(interaction: ButtonInteraction | SelectMenuInteraction) {
+    if (interaction.isButton()) {
+      await interaction.reply({
+        content: `You clicked a button`
+      });
+    } else {
+      await interaction.reply({
+        // Remember how we can have multiple values? Let's get the first one!
+        content: `You selected: ${interaction.values[0]}`
+      });
+    }
+  }
+}
+```
+
+[interactionhandlertypes]: ../../../Documentation/api-framework/enums/InteractionHandlerTypes
+[messagecomponent]: ../../../Documentation/api-framework/enums/InteractionHandlerTypes#messagecomponent
+[interaction-handler]: ../../../Documentation/api-framework/classes/InteractionHandler
+[buttons]: ./buttons.mdx
+[select-menus]: ./select-menus.mdx

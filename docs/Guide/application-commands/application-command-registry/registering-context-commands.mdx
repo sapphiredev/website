@@ -1,0 +1,210 @@
+---
+sidebar_position: 4
+title: Registering Context Commands
+---
+
+On the page [Registering Chat Input Commands][rcic] we have learned how to register a Chat Input Command and how to
+assign options to those commands. However there is another another type of command, Context Menu Commands.
+
+Context Menu Commands show up as the name implies, in the context menu. The specific menus are those when right clicking
+a user, and those when right clicking a message.
+
+Message Context Menu Commands look like this:
+
+![Message Context Menu Command Example](./message-context-menu-command.png)
+
+And User Context Menu Commands look like this:
+
+![User Context Menu Command Example](./user-context-menu-command.png)
+
+## How to register a Message Context Menu Command
+
+The easiest way to register a Message Context Menu Command is to implement the [`registerApplicationCommands`][rac]
+method on a [`Command`][command] class. In that method the first parameter is the [`ApplicationCommandRegistry`][acr]
+(commonly called `registry` in code) on which you can call [`registerContextMenuCommand`][rcmc]. This looks like:
+
+```typescript ts2esm2cjs|{8,11-17}|{8,11-17}
+import { Command } from '@sapphire/framework';
+import { ApplicationCommandType } from 'discord-api-types/v9';
+
+export class SlashCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'Delete message and ban author.'
+    });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerContextMenuCommand((builder) =>
+      builder //
+        .setName(this.name)
+        .setType(ApplicationCommandType.Message)
+    );
+  }
+
+  public override contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    // Use `isMessageContextMenu` to ensure this command was executed as a Message Context Menu Command.
+    if (interaction.isMessageContextMenu()) {
+    }
+  }
+}
+```
+
+:::info
+
+We use `//` next to `builder //` here to short-circuit Prettier putting everything on the same line. If you do not use
+prettier you can remove this, or if you do not care for it being on the same line then you can remove it also.
+
+:::
+
+In this code snippet we have registered the Message Context Menu Command in the most simple way referencing the already
+defined `name`. It should be noted that as opposed to [Chat Input Commands][rcic] it is not possible for Context Menu
+Commands to hold a description. We also use the [`builder`][djs-slash-builder-docs] pattern which means you get
+verification of your input before a command gets registered in a faulty way. It will also make sure that you are not
+providing unnecessary or incorrect JSON keys because you're not building the JSON yourself. All that said, it is the
+method we recommend everyone to use. If you are experienced with Context Menu Command you can also opt to write your own
+raw JSON object, however this guide will not cover that.
+
+In the code snippet above we passed 1 parameter to the [`registerContextMenuCommand`][rcmc] method, to build the object
+that gets send to Discord for registering the command. The [`registerContextMenuCommand`][rcmc] however also takes a
+second parameter. This is identical to the second parameter of the [`registerChatInputCommand`][rcic] method, so for
+information on that please look at [Chat Input Command Registry Options][cicro].
+
+## How to register a User Context Menu Command
+
+Registering User Context Menu Commands is very similar to Message Context Menu Commands. The only difference is that you
+have to specify the different type in the registry. Some example code for this is:
+
+```typescript ts2esm2cjs|{8,11-17}|{8,11-17}
+import { Command } from '@sapphire/framework';
+import { ApplicationCommandType } from 'discord-api-types/v9';
+
+export class SlashCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'Ban user.'
+    });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerContextMenuCommand((builder) =>
+      builder //
+        .setName(this.name)
+        .setType(ApplicationCommandType.User)
+    );
+  }
+
+  public override contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    // Use `isUserContextMenu` to ensure this command was executed as a User Context Menu Command.
+    if (interaction.isUserContextMenu()) {
+    }
+  }
+}
+```
+
+## Context Menu Command Registry Methods
+
+:::warning
+
+To register a context menu input command, you need to acquire the [`ApplicationCommandRegistry`][acr]. Please see the
+[`ApplicationCommandRegistry`][aaacr] section for more details.
+
+:::
+
+### `registerContextMenuCommand`
+
+The method which is responsible for telling the registry that this command should be registered. It takes two
+parameters:
+
+- `command`: The Context Menu Command data to be registered. This can be a `discord.js`
+  [`ApplicationCommandData`][djs-command-data-docs] object a `@discordjs/builders`
+  [`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs] or a method which returns the
+  `@discordjs/builders `[`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs].
+
+  For more details on how to use
+  `@discordjs/builders `[`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs], please see
+  [`discord.js guide`][djs-context-menu-command-builder-docs].
+
+- `options` These are optional registry [`options`][cicro] you can provide when registering the command you provided. By
+  default, this is set to `{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }`.
+
+An example of this method was shown above at [How to register a Message Context Menu Command][inner-ref-how-to].
+
+### `addContextMenuCommandNames`
+
+The command names which let the registry know that these names should trigger the registry. These names doesn't register
+the command but only let the registry know that these names should trigger the command, i.e. the names are only stored
+in command store to be used by the registry. Names can be passed as strings.
+
+### `addContextMenuCommandIds`
+
+The command ids that informs the registry to trigger it for the specified ids only. Ids can be passed as strings.
+
+:::warning
+
+`addContextMenuCommandNames` or `addContextMenuCommandIds` should only be used when you don't want `Sapphire` to manage
+the application commands automatically for you else consider using `idHints` instead.
+
+Whenever the `addContextMenuCommandIds` method is called with an invalid id (we expect a string that can be turned into
+a BigInt), then it will **ALWAYS** warn in the console. No, this cannot be turned off.
+
+:::
+
+## Full Example
+
+Now that we have covered everything there is to registering a Context Menu Command lets look at how a full example could
+look like. This builds on the examples provided above while also implementing the `contextMenuRun` method to ban the
+user.
+
+```typescript ts2esm2cjs
+import { Command } from '@sapphire/framework';
+import { ApplicationCommandType } from 'discord-api-types/v9';
+import { Formatters, GuildMember } from 'discord.js';
+
+export class SlashCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'Ban user.'
+    });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerContextMenuCommand((builder) =>
+      builder //
+        .setName(this.name)
+        .setType(ApplicationCommandType.User)
+    );
+  }
+
+  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    // Use `isUserContextMenu` to ensure this command was executed as a User Context Menu Command.
+    if (interaction.isUserContextMenu() && interaction.targetMember instanceof GuildMember) {
+      await interaction.targetMember.ban({
+        days: 8,
+        reason: 'Banned for for breaking the rules.'
+      });
+
+      const userToGreetMention = Formatters.userMention(interaction.targetMember.id);
+
+      return interaction.reply({
+        content: `${userToGreetMention} has been successfully banned`,
+        allowedMentions: {
+          users: [interaction.targetMember.id]
+        }
+      });
+    }
+  }
+}
+```
+
+[aaacr]: ./acquiring-application-command-registry.mdx
+[acr]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry
+[cicro]: ./registering-chat-input-commands.mdx#chat-input-command-registry-options
+[djs-command-data-docs]: https://discord.js.org/#/docs/discord.js/v13/typedef/ApplicationCommandData
+[djs-context-menu-command-builder-docs]: https://discord.js.org/#/docs/builders/0.16.0/class/ContextMenuCommandBuilder
+[inner-ref-how-to]: #how-to-register-a-message-context-menu-command
+[rcic]: ./registering-chat-input-commands.mdx
+[rcmc]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registercontextmenucommand
