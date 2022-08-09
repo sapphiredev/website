@@ -7,7 +7,7 @@ import InstallTabButton from './InstallTabButton';
 import styles from './InstallTabs.module.css';
 
 const InstallTabs: FC = () => {
-	const npmInstallCommand = 'npm install @sapphire/framework';
+	const npmInstallCommand = 'npm install @sapphire/framework@next';
 	const yarnInstallCommand = convertToYarn(npmInstallCommand);
 	const pnpmInstallCommand = npmToPnpm(npmInstallCommand);
 
