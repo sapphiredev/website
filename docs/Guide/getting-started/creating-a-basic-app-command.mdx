@@ -117,43 +117,10 @@ The above will create a slash command called `command` with the description `Com
 will have two sub commands, `first` and `second` with description `First sub command` and `Second sub command`
 respectively.
 
-To handle the command callback for the sub command we will have to perform checks in the `chatInputRun` method. Let's
-see a quick example of how to handle the sub command callback.
+:::note
 
-```typescript ts2esm2cjs|{8-18,20-23,25-28}|{8-18,20-23,25-28}
-import { Command } from '@sapphire/framework';
+For handling subcommands please refer to the [Sapphire Plugin Subcommands][saph-plug-subcom] documentation.
 
-export class SubCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    // ...
-  }
-
-  public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    const subcommand = interaction.options.getSubcommand(true);
-
-    if (subcommand === 'first') {
-      return await this.first(interaction);
-    } else if (subcommand === 'second') {
-      return await this.second(interaction);
-    }
-
-    return interaction.reply('Invalid sub command');
-  }
-
-  private async first(interaction: Command.ChatInputInteraction) {
-    // private class method to handle the first sub command
-    return interaction.reply('First sub command executed');
-  }
-
-  private async second(interaction: Command.ChatInputInteraction) {
-    // private class method to handle the second sub command
-    return interaction.reply('Second sub command executed');
-  }
-
-  public override registerApplicationCommands(registry: Command.Registry) {
-    // ...
-  }
-}
-```
+:::
 
 [saph-plug-subcom]: ../plugins/Subcommands/getting-started
