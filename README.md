@@ -69,6 +69,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://fc5570.me/"><img src="https://avatars.githubusercontent.com/u/68158483?v=4?s=100" width="100px;" alt=""/><br /><sub><b>FC</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=FC5570" title="Documentation">📖</a> <a href="https://github.com/sapphiredev/website/issues?q=author%3AFC5570" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/IgnacioNMiranda"><img src="https://avatars.githubusercontent.com/u/38511917?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ignacio Miranda Figueroa</b></sub></a><br /><a href="https://github.com/sapphiredev/website/issues?q=author%3AIgnacioNMiranda" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/r-priyam"><img src="https://avatars.githubusercontent.com/u/50884372?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Priyam</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=r-priyam" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/HugoFerrant"><img src="https://avatars.githubusercontent.com/u/17296678?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hugo (aka Xelodrin)</b></sub></a><br /><a href="#content-HugoFerrant" title="Content">🖋</a></td>
   </tr>
 </table>
 
