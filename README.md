@@ -74,6 +74,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://bryn.host/"><img src="https://avatars.githubusercontent.com/u/2558495?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bryn</b></sub></a><br /><a href="#content-AnotherBrynAlt" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/hugil"><img src="https://avatars.githubusercontent.com/u/35702510?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hugo Gillberg</b></sub></a><br /><a href="#content-hugil" title="Content">🖋</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/RealShadowNova"><img src="https://avatars.githubusercontent.com/u/46537907?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hezekiah Hendry</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=RealShadowNova" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
