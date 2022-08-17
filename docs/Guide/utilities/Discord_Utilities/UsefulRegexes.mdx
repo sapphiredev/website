@@ -57,14 +57,14 @@ npm install @sapphire/discord-utilities
 
 This regex will match any mention of a channel and return the id of the channel
 
-`Raw`: `/^<#(?<id>\d{17,19})>$/`
+`Raw`: `/^<#(?<id>\d{17,20})>$/`
 
 ### Channel Message Regex
 
 This regex can capture the channel and message IDs in a channelId-messageId pattern This pattern can be found when you
 hold Shift and hover over a message, and click the "ID" button
 
-`Raw`: `/^(?<channelId>\d{17,19})-(?<messageId>\d{17,19})$/`
+`Raw`: `/^(?<channelId>\d{17,19})-(?<messageId>\d{17,20})$/`
 
 ### Discord Hostname Regex
 
@@ -77,7 +77,7 @@ This regex captures every known discord hostname link
 
 This regex captures discord invite links
 
-`Raw`: `/^(?:https?:\/\/)?(?:www\.)?(?:discord\.gg\/|discord(?:app)?\.com\/invite\/)?(?<code>[\w\d-]{2,})$/i`
+`Raw`: `/(?:^|\b)discord(?:(?:app)?\.com\/invite|\.gg(?:\/invite)?)\/(?<code>[\w-]{2,255})(?:$|\b)/gi`
 
 ### Emoji Regex
 
@@ -90,14 +90,14 @@ This regex captures every animated and non-animated emoji's id
 This regex matches any animated or non-animated custom Discord emoji. Unlike [EmojiRegex](#emoji-regex) It can be a
 substring of a larger string.
 
-`Raw`: `/<a?:\w{2,32}:\d{17,18}>/`
+`Raw`: `/<a?:\w{2,32}:\d{17,20}>/`
 
 ### Formatted Custom Emoji With Groups
 
 Regex that can capture any animated or non-animated custom Discord emoji. Similar to
 [FormattedCustomEmoji](#formatted-custom-emoji-regex) and unlike EmojiRegex can also be a substring of a larger string.
 
-`Raw`: `/(?<animated>a?):(?<name>[^:]+):(?<id>\d{17,19})/`
+`Raw`: `/(?<animated>a?):(?<name>[^:]+):(?<id>\d{17,20})/`
 
 ### HTTP Regex
 
@@ -110,7 +110,7 @@ This regex matches any url starting with `http` or `https`
 This regex can capture the Guild, Channel, and Message ID based on a shareable Discord message link.
 
 `Raw`:
-`/^(?:https:\/\/)?(?:ptb\.|canary\.)?discord(?:app)?\.com\/channels\/(?<guildId>(?:\d{17,19}|@me))\/(?<channelId>\d{17,19})\/(?<messageId>\d{17,19})$/`
+`/^(?:https:\/\/)?(?:ptb\.|canary\.)?discord(?:app)?\.com\/channels\/(?<guildId>(?:\d{17,20}|@me))\/(?<channelId>\d{17,20})\/(?<messageId>\d{17,20})$/`
 
 ### Parsed CustomEmoji Regex
 
@@ -118,7 +118,7 @@ This regex matches any animated or non-animated custom Discord emoji without the
 that a string that matches this regex can directly be send inside a Discord message. Other than this difference it is
 similar to [FormattedCustomEmoji](#formatted-custom-emoji-regex).
 
-`Raw`: `/a?:\w{2,32}:\d{17,18}/`
+`Raw`: `/a?:\w{2,32}:\d{17,20}/`
 
 ### Parsed CustomEmojiWithGroups Regex
 
@@ -126,19 +126,19 @@ Regex that matches any animated or non-animated custom Discord emoji without the
 that a string that matches this regex can directly be send inside a Discord message. Other than this difference it is
 similar to [FormattedCustomEmojiWithGroups](#formatted-custom-emoji-with-groups).
 
-`Raw`: `/(?<animated>a?):(?<name>[^:]+):(?<id>\d{17,19})/`
+`Raw`: `/(?<animated>a?):(?<name>[^:]+):(?<id>\d{17,20})/`
 
 ### RoleMention Regex
 
 This regex can capture the role ID of a role mention
 
-`Raw`: `/^<@&(?<id>\d{17,19})>$/`
+`Raw`: `/^<@&(?<id>\d{17,20})>$/`
 
 ### Snowflake Regex
 
 This regex matches any Discord Snowflake
 
-`Raw`: `/^(?<id>\d{17,19})$/`
+`Raw`: `/^(?<id>\d{17,20})$/`
 
 ### Twemoji Regex
 
@@ -150,7 +150,7 @@ This regex matches any Twitter Emoji
 
 This regex captures the ID of a user or member mentioned
 
-`Raw`: `/^<@!?(?<id>\d{17,19})>$/`
+`Raw`: `/^<@!?(?<id>\d{17,20})>$/`
 
 ### WebSocketURL Regex
 
