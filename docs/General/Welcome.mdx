@@ -19,15 +19,12 @@ import SimpleLink from '@site/src/components/Docs/SimpleLink';
 
 :::danger
 
-The [`@sapphire/framework` API documentation][frameworksdocs] section of this website is currently based on the `main`
-branch of [`@sapphire/framework`][saphfw]. This means it will mention any breaking changes that are not yet released to
-NPM, including but not limited to support for Application Commands. In the grand scheme of things, this means that the
-API documentation may show properties, functions and classes that will not be available until the next major release of
-[`@sapphire/framework`][saphfw]. That said, if you wish to use this next version of [`@sapphire/framework`][saphfw] in
-your project, you can install it by using the `@next` tag from NPM.
+The [`@sapphire/framework` API documentation][frameworksdocs] section of this website is written for the `3.x` version
+of [`@sapphire/framework`][saphfw]. For the longer users of the framework who may have started with an earlier major
+version we encourage you to read our [updating guide][updating-guide].
 
 ```bash npm2yarn2pnpm
-npm install @sapphire/framework@next
+npm install @sapphire/framework
 ```
 
 We are working on fixing this by providing multiple versions of the documentation, similar to what you may be used to
@@ -77,6 +74,12 @@ npm install @sapphire/framework discord.js@v13-lts
   />
 
 - <OptionalPackageLink
+    href="https://www.npmjs.com/package/@sapphire/plugin-hmr"
+    linkName="@sapphire/plugin-hmr"
+    description="Add hot module reloading for pieces."
+  />
+
+- <OptionalPackageLink
     href="https://www.npmjs.com/package/@sapphire/plugin-i18next"
     linkName="@sapphire/plugin-i18next"
     description={
@@ -90,6 +93,18 @@ npm install @sapphire/framework discord.js@v13-lts
     href="https://www.npmjs.com/package/@sapphire/plugin-logger"
     linkName="@sapphire/plugin-logger"
     description="Add beautiful stylized logging to your bot."
+  />
+
+- <OptionalPackageLink
+    href="https://www.npmjs.com/package/@sapphire/plugin-pattern-commands"
+    linkName="@sapphire/plugin-pattern-commands"
+    description="Add support for pattern commands."
+  />
+
+- <OptionalPackageLink
+    href="https://www.npmjs.com/package/@sapphire/plugin-scheduled-tasks"
+    linkName="@sapphire/plugin-scheduled-tasks"
+    description="Add support for Redis or Amazon SQS powered scheduled tasks."
   />
 
 - <OptionalPackageLink
@@ -107,9 +122,21 @@ npm install @sapphire/framework discord.js@v13-lts
   />
 
 - <OptionalPackageLink
+    href="https://www.npmjs.com/package/@sapphire/shapeshift"
+    linkName="@sapphire/shapeshift"
+    description="Blazing fast input validation and transformation ⚡"
+  />
+
+- <OptionalPackageLink
     href="https://www.npmjs.com/package/@sapphire/utilities"
     linkName="@sapphire/utilities"
     description="A plethora of awesome utility functions that are more useful than you can probably imagine."
+  />
+
+- <OptionalPackageLink
+    href="https://www.npmjs.com/package/@sapphire/result"
+    linkName="@sapphire/result"
+    description="A TypeScript port of Nightly Rust's Result and Option structs."
   />
 
 - <OptionalPackageLink
@@ -133,6 +160,12 @@ npm install @sapphire/framework discord.js@v13-lts
     href="https://www.npmjs.com/package/@sapphire/discord.js-utilities"
     linkName="@sapphire/discord.js-utilities"
     description="Useful utilities for a bot using Discord.JS such as paginated responses, type checks and prompts."
+  />
+
+- <OptionalPackageLink
+    href="https://www.npmjs.com/package/@sapphire/lexure"
+    linkName="@sapphire/lexure"
+    description="Parser and utilities for non-technical user input."
   />
 
 - <OptionalPackageLink
@@ -162,12 +195,6 @@ npm install @sapphire/framework discord.js@v13-lts
         time.
       </div>
     }
-  />
-
-- <OptionalPackageLink
-    href="https://www.npmjs.com/package/@sapphire/embed-jsx"
-    linkName="@sapphire/embed-jsx"
-    description="Ever wanted to write your Discord embeds using JSX? Use this library."
   />
 
 - <OptionalPackageLink
@@ -224,6 +251,12 @@ npm install @sapphire/framework discord.js@v13-lts
     description="Sequential asynchronous lock-based queue for promises."
   />
 
+- <OptionalPackageLink
+    href="https://www.npmjs.com/package/@sapphire/phisherman"
+    linkName="@sapphire/phisherman"
+    description="Wrapper around phisherman to easily check and report domains."
+  />
+
 ## Example usage
 
 ```typescript ts2esm2cjs|{3}|{3}
@@ -264,3 +297,4 @@ in the right direction, please don't hesitate to join our official
 [frameworksdocs]: ../Documentation/api-framework/
 [djs]: https://discord.js.org/
 [saphfw]: https://github.com/sapphiredev/framework
+[updating-guide]: ../Guide/getting-started/updating-from-v2-to-v3
