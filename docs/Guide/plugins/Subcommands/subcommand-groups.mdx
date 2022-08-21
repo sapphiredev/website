@@ -24,9 +24,9 @@ export class UserCommand extends Subcommand {
           name: 'adminroles',
           type: 'group',
           entries: [
-            { name: 'add', to: 'messageAdd' },
-            { name: 'remove', to: 'messageRemove' },
-            { name: 'list', to: 'messageList' }
+            { name: 'add', messageRun: 'messageAdd' },
+            { name: 'remove', messageRun: 'messageRemove' },
+            { name: 'list', messageRun: 'messageList' }
           ]
         }
       ]
@@ -57,9 +57,9 @@ export class UserCommand extends Subcommand {
           name: 'adminroles',
           type: 'group',
           entries: [
-            { name: 'add', to: 'chatInputAdd' },
-            { name: 'remove', to: 'chatInputRemove' },
-            { name: 'list', to: 'chatInputList' }
+            { name: 'add', chatInputRun: 'chatInputAdd' },
+            { name: 'remove', chatInputRun: 'chatInputRemove' },
+            { name: 'list', chatInputRun: 'chatInputList' }
           ]
         }
       ]
