@@ -15,12 +15,14 @@ sapphire generate <component> <name>
 Example:
 
 ```bash
-sapphire generate command HelloWorld
+sapphire generate messagecommand HelloWorld
 ```
 
 ## Default components
 
-- `command`
+- `messagecommand`
+- `slashcommand`
+- `contextmenucommand`
 - `listener`
 - `argument`
 - `precondition`
