@@ -85,6 +85,34 @@ that's needed for your bot. For example, if your bot has no `Slash` or `Context 
 
 :::
 
+:::caution
+
+<!--
+  TODO: Once we have a dedicated TypeScript page this should link to that instead of a code example.
+  Including why augmenting with `never` works and the difference between that and augmenting with an object.
+-->
+
+Typescript users must augment Sapphire's [`Preconditions`][preconditions-interface] interface, which is needed to
+increase the security of Sapphire's types. Otherwise, you will run into type errors in the next section.
+
+```typescript {7-11}
+import { Precondition } from '@sapphire/framework';
+
+export class OwnerOnlyPrecondition extends Precondition {
+  // ...
+}
+
+declare module '@sapphire/framework' {
+  interface Preconditions {
+    OwnerOnly: never;
+  }
+}
+```
+
+Please see an official example [here][preconditions-augment].
+
+:::
+
 ## Using Preconditions in Commands
 
 To attach a precondition to a command, you simply have to input its name in an array in the command's
@@ -104,19 +132,6 @@ export class PingCommand extends Command {
 ```
 
 Now, if someone who is not the bot owner executes the `ping` command, nothing will happen!
-
-:::caution
-
-For TypeScript users, there's an extra step to make this work. To increase the security of Sapphire's types, you'll need
-to augment Sapphire's [`Preconditions`][preconditions-interface] interface. Please see an official example
-[here][preconditions-augment].
-
-<!--
-  TODO: Once we have a dedicated TypeScript page this should link to that instead of a code example.
-  Including why augmenting with `never` works and the difference between that and augmenting with an object.
--->
-
-:::
 
 By default, no error message will be sent or logged when a command is denied because of a precondition. To learn how to
 configure this, please read [Reporting Precondition Failures][reporting-precondition-failure].
@@ -156,5 +171,5 @@ as `AdminOnly` _or_ both `OwnerOnly` and `ModOnly`.
 [preconditions-option]: ../../Documentation/api-framework/interfaces/CommandOptions#preconditions
 [preconditions-interface]: ../../Documentation/api-framework/interfaces/Preconditions
 [preconditions-augment]:
-  https://github.com/sapphiredev/examples/blob/main/examples/with-typescript-recommended/src/preconditions/OwnerOnly.ts#L13-L17
+  https://github.com/sapphiredev/examples/blob/main/examples/with-typescript-recommended/src/preconditions/OwnerOnly.ts#L27-L31
 [reporting-precondition-failure]: ./reporting-precondition-failure
