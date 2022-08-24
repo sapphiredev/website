@@ -122,6 +122,8 @@ default logger provided by `Sapphire`. The command ID is logged on the `info` le
 you have configured the Sapphire Logger to only log errors or fatal messages then please check
 [`Configuring Log Level Guide`][configure-logging] to learn how to change it.
 
+**Note:** The command ID should be logged on every load of the framework (e.g. at every `npm start`). However, it might be logged only **once** on the `info` level (right after a successful registration). If that's the case and you need to find the ID, we recommend switching to the `debug` level and check if it is logged there.
+
 ### `guildIds`
 
 This is an array of guild ids for which the command should be registered. By default it is `undefined`, which means that
