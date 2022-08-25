@@ -118,9 +118,12 @@ On top of the advantages in registering the command, having the ID of a command 
 identify the command elsewhere in your code, such as in [interaction handlers][interaction-handlers].
 
 When Sapphire registers a application command it will log the command id for the command in console with the help of
-default logger provided by `Sapphire`. The command ID is logged on the `info` level, which is the default, however, if
-you have configured the Sapphire Logger to only log errors or fatal messages then please check
-[`Configuring Log Level Guide`][configure-logging] to learn how to change it.
+default logger provided by `Sapphire`. If this is the first time registering the command, the command ID is logged on
+the [`info`][loglevel-info] level, which is the default. If you want to view the ID after the initial register please
+make sure to [`Configure Log Level Guide`][configure-logging] to the [`debug`][loglevel-debug] level. If you have
+configured the Sapphire Logger to only log errors or fatal messages then please check
+[`Configuring Log Level Guide`][configure-logging] to learn how to change it to either [`info`][loglevel-info] or
+[`debug`][loglevel-debug].
 
 ### `guildIds`
 
@@ -272,3 +275,5 @@ export class SlashCommand extends Command {
 [rac]: ../../../Documentation/api-framework/classes/Command#registerapplicationcommands
 [rcic]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
 [arguments]: ../../arguments/creating-your-own-arguments.mdx
+[loglevel-info]: ../../../Documentation/api-framework/enums/LogLevel#info
+[loglevel-debug]: ../../../Documentation/api-framework/enums/LogLevel#debug
