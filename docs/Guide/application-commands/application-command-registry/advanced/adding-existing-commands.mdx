@@ -1,17 +1,16 @@
 ---
 sidebar_position: 2
-title: Adding existing application commands to the registry
+title: Routing existing Application Commands to a Command
 ---
 
-Alternatively, if you don't want to let Sapphire handle registering for you (😢), you already have commands registered
-through other means, or are not planning on changing the commands ever, you can just give the registry the ids or names
-(but read [about registering outside the command class](registering-outside-command-class) first) that the command class
-should handle, and we'll properly direct everything where it should be directed.
+If you want to route existing or multiple other application commands to one of your commands, or just don't want
+Sapphire handling application command registering for you (😢), you can provide the ids or names (not recommended) of
+application commands to a command's application command registry and we'll properly route invocations to the command.
 
-## Adding inside of the command class
+Most users will probably be fine using the `idHints` option of [`registerChatInputCommand`][rcic] or
+[`registerContextmenuCommand`][rcmc], see the section in [Registering Chat Input Commands][idhints] for more details.
 
-In the `Command` class, there's a method that you can define called `registerApplicationCommands`. It receives an
-`ApplicationCommandRegistry` which you can use to add a name or id.
+## Adding from inside a command
 
 ```typescript ts2esm2cjs
 import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
@@ -29,12 +28,11 @@ export class UwUCommand extends Command {
 }
 ```
 
-## Adding outside of the command class
+## Adding from outside a command
 
 If you're outside of a command class, you'll have to manually acquire the registry first, and then add the ids or names
-to it. It'll look really similar to what we did in order
-[to register outside the class](registering-outside-command-class). If you're confused on what the registry is, you can
-[read up on how it works][acquiring-application-command-registry].
+to it. It'll look really similar to what we did in
+[Registering Application Commands outside a Command](registering-outside-command-class).
 
 ```typescript ts2esm2cjs
 import { ApplicationCommandRegistries } from '@sapphire/framework';
@@ -50,4 +48,14 @@ registry.addChatInputCommandNames('uwu');
 registry.addChatInputCommandIds('123456789123456789');
 ```
 
+:::warning
+
+Whenever the `addContextMenuCommandIds` method is called with an invalid id (we expect a string that can be turned into
+a BigInt), then it will **ALWAYS** warn in the console. No, this cannot be turned off.
+
+:::
+
 [acquiring-application-command-registry]: ../acquiring-application-command-registry
+[idhints]: ../registering-chat-input-commands#idhints
+[rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
+[rcmc]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registercontextmenucommand
