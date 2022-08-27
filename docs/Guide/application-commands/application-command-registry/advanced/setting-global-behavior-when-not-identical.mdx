@@ -4,7 +4,7 @@ title: Configuring the global behavior when commands are not identical
 ---
 
 Configuring the global behavior is easy! You just need to import the
-[`ApplicationCommandRegistries`][application-command-registries] object from `@sapphire/framework` and call the
+[`ApplicationCommandRegistries`][application-command-registry] object from `@sapphire/framework` and call the
 `setDefaultBehaviorWhenNotIdentical` method with the new desired default behavior. For example, to override the behavior
 to only log differences by default, you may write:
 
@@ -14,4 +14,4 @@ import { RegisterBehavior } from '@sapphire/framework';
 ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.LogToConsole);
 ```
 
-[application-command-registry]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry
+[application-command-registry]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry
