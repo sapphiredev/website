@@ -31,8 +31,8 @@ export class UwUCommand extends Command {
 ## Adding from outside a command
 
 If you're outside of a command class, you'll have to manually acquire the registry first, and then add the ids or names
-to it. It'll look really similar to what we did in
-[Registering Application Commands outside a Command](registering-outside-command-class).
+to it. It'll look really similar to what we did in [Registering Application Commands outside a
+Command][registering-outside-command-class].
 
 ```typescript ts2esm2cjs
 import { ApplicationCommandRegistries } from '@sapphire/framework';
@@ -58,3 +58,4 @@ a BigInt), then it will **ALWAYS** warn in the console. No, this cannot be turne
 [idhints]: ../registering-chat-input-commands#idhints
 [rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
 [rcmc]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registercontextmenucommand
+[registering-outside-command-class]: ./registering-application-commands-outside-a-command.mdx
