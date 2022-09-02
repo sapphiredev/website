@@ -76,6 +76,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/RealShadowNova"><img src="https://avatars.githubusercontent.com/u/46537907?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hezekiah Hendry</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=RealShadowNova" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/feefs"><img src="https://avatars.githubusercontent.com/u/25848712?v=4?s=100" width="100px;" alt=""/><br /><sub><b>feefs</b></sub></a><br /><a href="#content-feefs" title="Content">🖋</a></td>
   </tr>
 </table>
 
