@@ -13,7 +13,23 @@ application command registry. If you missed how to do it, please see the
 
 To register a Chat Input Command, implement the [`registerApplicationCommands`][rac] method for the [`Command`][command]
 class. The method's parameter will be the command's pre-defined [`ApplicationCommandRegistry`][acr], on which you can
-call [`registerChatInputCommand`][rcic] to register your application command. An example looks like the following:
+call [`registerChatInputCommand`][rcic] to register your application command.
+
+:::info A brief breakdown of [`registerChatInputCommand`][rcic]
+
+This method is responsible for describing how a Chat Input Command will be registered. It takes two parameters:
+
+- `command`: This is the Chat Input Command data that the registry will register with Discord. This can be a
+  `@discordjs/builders` [`SlashCommandBuilder`][djs-slash-builder-docs], a method that returns a
+  [`SlashCommandBuilder`][djs-slash-builder-docs], or a `discord.js` [`ApplicationCommandData`][djs-command-data-docs]
+  object.
+
+- `options`: These are optional options that change how the Chat Input Command will be registered. These are discussed
+  in the [Chat Input Command Registry Options][inner-ref-options] section below.
+
+:::
+
+An example looks like the following:
 
 ```typescript ts2esm2cjs|{7,11-17}|{7,11-17}
 import { Command } from '@sapphire/framework';
@@ -54,26 +70,6 @@ We recommend most people use the [`SlashCommandBuilder`][djs-slash-builder-docs]
 [`registerChatInputCommand`][rcic] method, since it will ensure the data sent to Discord is properly structured. If you
 need more control over the application command, you can write the `discord.js`
 [`ApplicationCommandData`][djs-command-data-docs] JSON object yourself as the argument instead.
-
-:::info A brief breakdown of `registerChatInputCommand`
-
-This is the method which is responsible for telling the registry that this command should be registered. It takes two
-parameters:
-
-- `command`: The Chat Input Command data to be registered. This can be a `discord.js`
-  [`ApplicationCommandData`][djs-command-data-docs] object a `@discordjs/builders`
-  [`SlashCommandBuilder`][djs-slash-builder-docs] or a method which returns the `@discordjs/builders`
-  [`SlashCommandBuilder`][djs-slash-builder-docs].
-
-  For more details on how to use `@discordjs/builders `[`SlashCommandBuilder`][djs-slash-builder-docs], please see
-  [`discord.js guide`][djs-slash-builder-docs].
-
-- `options` These are optional registry [`options`][inner-ref-options] you can provide when registering the command you
-  provided. By default, this is set to `{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }`.
-
-An example of this method was shown above at [How to register a Chat Input Command][inner-ref-how-to].
-
-:::
 
 ### Registering Chat Input Commands with options
 
@@ -259,4 +255,3 @@ The `chatInputRun` example above uses [interaction handlers][interaction-handler
 [registercommandifmissing]:
   ../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#registercommandifmissing
 [inner-ref-options]: #chat-input-command-registry-options
-[inner-ref-how-to]: #how-to-register-a-chat-input-command
