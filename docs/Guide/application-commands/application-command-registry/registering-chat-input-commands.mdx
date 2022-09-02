@@ -3,19 +3,19 @@ sidebar_position: 3
 title: Registering Chat Input Commands
 ---
 
-:::warning
-
-To register a Chat Input Command (also known as a Slash Command) with Discord, you need to acquire an application
-command registry. If you missed how to do it, please see the [`Acquiring an Application Command Registry`][aaacr]
-section for more details.
+:::caution To register a Chat Input Command (also known as a Slash Command) with Discord, you need to acquire an
+application command registry. If you missed how to do it, please see the
+[`Acquiring an Application Command Registry`][aaacr] section for more details.
 
 :::
 
 ## How to register a Chat Input Command
 
-Register a Chat Input Command by calling the [`registerChatInputCommand`][rcic] method on the registry, this looks like:
+To register a Chat Input Command, implement the [`registerApplicationCommands`][rac] method for the [`Command`][command]
+class. The method's parameter will be the command's pre-defined [`ApplicationCommandRegistry`][acr], on which you can
+call [`registerChatInputCommand`][rcic] to register your application command. An example looks like the following:
 
-```typescript ts2esm2cjs|{7,12-16}|{7,12-16}
+```typescript ts2esm2cjs|{7,11-17}|{7,11-17}
 import { Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
@@ -43,13 +43,17 @@ export class SlashCommand extends Command {
 :::info
 
 We're using `//` next to `builder //` to prevent Prettier from formatting everything on the same line. If you do not use
-Prettier or don't care, you can remove this.
+Prettier, or don't care, you can remove this.
 
 :::
 
-We recommend using the [`SlashCommandBuilder`][djs-slash-builder-docs] here for input verification, but you are also
-free to write the `discord.js` [`ApplicationCommandData`][djs-command-data-docs] JSON object yourself as the argument to
-the method.
+In the example above, we reused the class' `name` and `description` fields for brevity. However, you may set those to
+something else and the application command registry will still route the application command to the command.
+
+We recommend most people use the [`SlashCommandBuilder`][djs-slash-builder-docs] as the argument for the
+[`registerChatInputCommand`][rcic] method, since it will ensure the data sent to Discord is properly structured. If you
+need more control over the application command, you can write the `discord.js`
+[`ApplicationCommandData`][djs-command-data-docs] JSON object yourself as the argument instead.
 
 ### Registering Chat Input Commands with options
 
@@ -103,13 +107,13 @@ confused with a Chat Input Command's options in the previous section. Let's take
 ### [`idHints`][idhints]
 
 At a high level, an application command registry maps application command IDs and/or names to your command. By providing
-ID(s) to the `idHints` option, we can prevent new commands from accidentally being created.
+ID(s) to the [`idHints`][idhints] option, we can prevent new commands from accidentally being created.
 
 :::caution
 
 As mentioned in [`What is it?`][what-is-it], Discord manages "Application Command Objects" on their end for each of your
 application commands. Whenever your bot registers a new application command with Discord, they create and store a new
-object like this on their end:
+object like this:
 
 ```json
 {
@@ -144,12 +148,10 @@ way which may be useful if you're fetching guild ids from another source (i.e. a
 
 ### [`behaviorWhenNotIdentical`][behaviorwhennotidentical]
 
-This options tells the registry that how to behave when the command is not identical to the one which is already
-registered on Discord API. By default it's set to [`OVERWRITE`][behavior-overwrite] which means that when there is a
-difference between your local code and the Discord API then the data on the Discord API will get overwritten.
-
-If you want the registry to only inform you about differences with logging, you can set this option to
-[`LOG_TO_CONSOLE`][behavior-log].
+This option defines the registry's behavior when the application command's options in your code are not synced with
+Discord, such as a new description. It's set to [`OVERWRITE`][behavior-overwrite] by default, which will always
+overwrite Discord's corresponding Application Command Object with the data in your code. If you only want the registry
+to log differences instead, you should set this option to [`LOG_TO_CONSOLE`][behavior-log].
 
 ### [`registerCommandIfMissing`][registercommandifmissing]
 
@@ -212,6 +214,7 @@ export class SlashCommand extends Command {
 
 The `chatInputRun` example above uses [interaction handlers][interaction-handlers], which are detailed in that section.
 
+[acr]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry
 [aaacr]: ./acquiring-an-application-command-registry.mdx
 [arguments]: ../../arguments/creating-your-own-arguments.mdx
 [behavior-log]: ../../../Documentation/api-framework/enums/RegisterBehavior#logtoconsole
@@ -226,6 +229,7 @@ The `chatInputRun` example above uses [interaction handlers][interaction-handler
 [interaction-handlers]: ../interaction-handlers/what-are-they.mdx
 [loglevel-info]: ../../../Documentation/api-framework/enums/LogLevel#info
 [loglevel-debug]: ../../../Documentation/api-framework/enums/LogLevel#debug
+[rac]: ../../../Documentation/api-framework/classes/Command#registerapplicationcommands
 [rcic]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
 [what-is-it]: ./what-is-it
 [idhints]: ../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#idhints

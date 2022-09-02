@@ -10,8 +10,6 @@ of either messages or users when you right click them.
 | --------------------------------------- | ------------------------------------ |
 | ![](./message-context-menu-command.png) | ![](./user-context-menu-command.png) |
 
-## How to register a Message Context Menu Command
-
 :::warning
 
 There's a lot of overlap with the previous [Registering Chat Input Commands][registering-chat-input-commands] section,
@@ -19,10 +17,12 @@ including important information that isn't repeated here, so please skim that fi
 
 :::
 
+## How to register a Message Context Menu Command
+
 Register a Message Context Menu Command by calling the [`registerContextMenuCommand`][rcmc] method on the registry with
 the type specified in `.setType()`, this looks like:
 
-```typescript ts2esm2cjs|{8,13-17}|{8,13-17}
+```typescript ts2esm2cjs|{8,12-18}|{8,12-18}
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 
@@ -30,7 +30,7 @@ export class SlashCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
     super(context, {
       ...options,
-      description: 'Delete message and ban author.' // In this case, this is not used
+      description: 'Delete message and ban author.'
     });
   }
 
@@ -66,7 +66,7 @@ there are important details not repeated here.
 Registering a User Context Menu is done in the same way, with the only difference being a different type specified in
 `.setType()`:
 
-```typescript ts2esm2cjs|{16}|{16}
+```typescript ts2esm2cjs|{12-18}|{12-18}
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 
@@ -74,7 +74,7 @@ export class SlashCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
     super(context, {
       ...options,
-      description: 'Ban user.' // In this case
+      description: 'Ban user.'
     });
   }
 
@@ -101,11 +101,11 @@ parameter. Please see [Chat Input Command Registry Options][cicro], since there 
 
 ## Implementing a Context Menu Command
 
-Now that we've covered registering a Chat Input Command with Discord, the last step is to implement the `contextMenuRun`
-method for the [`Command`][command] class so your bot can respond! The example here is the second User Context Menu
-Command started above:
+Now that we've covered registering a Message or User Context Menu Command, the last step is to implement the
+`contextMenuRun` method for the [`Command`][command] class so your bot can respond! The example here is the second User
+Context Menu Command started above:
 
-```typescript ts2esm2cjs|{21-37}|{21-37}
+```typescript ts2esm2cjs|{21-38}|{21-38}
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 import { Formatters, GuildMember } from 'discord.js';
@@ -127,6 +127,7 @@ export class SlashCommand extends Command {
   }
 
   public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    // Use isUserContextMenu() to ensure this command was executed as a User Context Menu Command
     if (interaction.isUserContextMenu() && interaction.targetMember instanceof GuildMember) {
       await interaction.targetMember.ban({
         days: 8,
