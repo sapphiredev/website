@@ -55,6 +55,26 @@ We recommend most people use the [`SlashCommandBuilder`][djs-slash-builder-docs]
 need more control over the application command, you can write the `discord.js`
 [`ApplicationCommandData`][djs-command-data-docs] JSON object yourself as the argument instead.
 
+:::info A brief breakdown of `registerChatInputCommand`
+
+This is the method which is responsible for telling the registry that this command should be registered. It takes two
+parameters:
+
+- `command`: The Chat Input Command data to be registered. This can be a `discord.js`
+  [`ApplicationCommandData`][djs-command-data-docs] object a `@discordjs/builders`
+  [`SlashCommandBuilder`][djs-slash-builder-docs] or a method which returns the `@discordjs/builders`
+  [`SlashCommandBuilder`][djs-slash-builder-docs].
+
+  For more details on how to use `@discordjs/builders `[`SlashCommandBuilder`][djs-slash-builder-docs], please see
+  [`discord.js guide`][djs-slash-builder-docs].
+
+- `options` These are optional registry [`options`][inner-ref-options] you can provide when registering the command you
+  provided. By default, this is set to `{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }`.
+
+An example of this method was shown above at [How to register a Chat Input Command][inner-ref-how-to].
+
+:::
+
 ### Registering Chat Input Commands with options
 
 Chat Input Commands can take in options, which are similar to arguments for a function. These are similar to the
@@ -238,3 +258,5 @@ The `chatInputRun` example above uses [interaction handlers][interaction-handler
   ../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#behaviorwhennotidentical
 [registercommandifmissing]:
   ../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#registercommandifmissing
+[inner-ref-options]: #chat-input-command-registry-options
+[inner-ref-how-to]: #how-to-register-a-chat-input-command

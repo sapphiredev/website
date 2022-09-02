@@ -103,6 +103,27 @@ parameter. Please see [Chat Input Command Registry Options][cicro], since there 
 
 :::
 
+:::info A brief breakdown of `registerContextMenuCommand`
+
+This is the method which is responsible for telling the registry that this command should be registered. It takes two
+parameters:
+
+- `command`: The Context Menu Command data to be registered. This can be a `discord.js`
+  [`ApplicationCommandData`][djs-command-data-docs] object a `@discordjs/builders`
+  [`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs] or a method which returns the
+  `@discordjs/builders `[`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs].
+
+  For more details on how to use
+  `@discordjs/builders `[`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs], please see
+  [`discord.js guide`][djs-context-menu-command-builder-docs].
+
+- `options` These are optional registry [`options`][cicro] you can provide when registering the command you provided. By
+  default, this is set to `{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }`.
+
+An example of this method was shown above at [How to register a Message Context Menu Command][inner-ref-how-to].
+
+:::
+
 ## Implementing a Context Menu Command
 
 Now that we've covered registering a Message or User Context Menu Command, the last step is to implement the
@@ -166,3 +187,4 @@ Since `contextMenuRun` runs both kind of context commands, we recommend using ei
 [registering-chat-input-commands]: ./registering-chat-input-commands.mdx
 [rcic]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
 [rcmc]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registercontextmenucommand
+[inner-ref-how-to]: #how-to-register-a-message-context-menu-command
