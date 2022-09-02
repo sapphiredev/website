@@ -1,0 +1,107 @@
+---
+sidebar_position: 2
+title: Routing existing Application Commands to a Command
+---
+
+If you want to route existing or multiple other application commands to one of your commands, or just don't want
+Sapphire handling application command registering for you (😢), you can provide the ids or names (not recommended) of
+application commands to a command's application command registry and we'll properly route invocations to the command.
+
+Most users will probably be fine using the `idHints` option of [`registerChatInputCommand`][rcic] or
+[`registerContextmenuCommand`][rcmc], see the section in [Registering Chat Input Commands][idhints] for more details.
+
+:::info
+
+As a friendly reminder, Discord manages "Application Command Objects" on their end for each of your application
+commands. Whenever your bot registers a new application command with Discord, they create and store a new object like
+this:
+
+```json
+{
+  "id": "1223334444555554444",
+  "application_id": "...",
+  // ...
+  "name": "foo",
+  "description": "bar!"
+}
+```
+
+When we say "...Provide X from Application Command Objects..." below, what we mean is to copy the field X from the
+Application Command Object(s) corresponding to the application command(s) you want Sapphire to route to your command.
+:::
+
+## Application Command Registry Methods
+
+### [`addChatInputCommandIds(...)`][addchatinputcommandids]
+
+Provide id(s) from Application Command Objects that identify the application commands you want to route to this command.
+
+:::warning
+
+Whenever the `addContextMenuCommandIds` method is called with an invalid id (we expect a string that can be turned into
+a BigInt), then it will **ALWAYS** log a warning in the console. No, this cannot be turned off.
+
+:::
+
+### [`addChatInputCommandNames(...)`][addchatinputcommandnames]
+
+Provide names from Application Command Objects that identify the application commands you want to route to this command.
+
+### [`addContextMenuCommandIds(...)`][addcontextmenucommandids]
+
+Same as [`addChatInputCommandIds`][addchatinputcommandids] but for context menu commands
+
+### [`addContextMenuCommandNames(...)`][addcontextmenucommandnames]
+
+Same as [`addChatInputCommandNames`][addchatinputcommandnames] but for context menu commands
+
+## Adding from inside a command
+
+```typescript ts2esm2cjs
+import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
+
+export class UwUCommand extends Command {
+  public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
+    // Adding a name
+    // NOT RECOMMENDED. Use the id methods with ids instead.
+    registry.addChatInputCommandNames('uwu');
+
+    // Adding an id
+    // For this example, the id is fake. In your code, you should provide valid ids.
+    registry.addChatInputCommandIds('123456789123456789');
+  }
+}
+```
+
+## Adding from outside a command
+
+If you're outside of a command class, you'll have to manually acquire the registry first, and then add the ids or names
+to it. It'll look really similar to what we did in [Registering Application Commands outside a
+Command][registering-outside-command-class].
+
+```typescript ts2esm2cjs
+import { ApplicationCommandRegistries } from '@sapphire/framework';
+
+const registry = ApplicationCommandRegistries.acquire('uwu');
+
+// Adding a name
+// NOT RECOMMENDED. Use the id methods with ids instead.
+registry.addChatInputCommandNames('uwu');
+
+// Adding an id
+// For this example, this id is fake. In your code, you should provide valid ids.
+registry.addChatInputCommandIds('123456789123456789');
+```
+
+[addchatinputcommandids]:
+  ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#addchatinputcommandids
+[addchatinputcommandnames]:
+  ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#addchatinputcommandnames
+[addcontextmenucommandnames]:
+  ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#addcontextmenucommandnames
+[addcontextmenucommandids]:
+  ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#addcontextmenucommandids
+[idhints]: ../registering-chat-input-commands#idhints
+[rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
+[rcmc]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registercontextmenucommand
+[registering-outside-command-class]: ./registering-application-commands-outside-a-command.mdx

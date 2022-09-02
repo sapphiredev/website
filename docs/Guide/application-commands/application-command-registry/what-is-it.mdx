@@ -3,12 +3,13 @@ sidebar_position: 1
 title: What is it?
 ---
 
-Application command registry is the core hub for managing all operations related to application commands. It handles the
-new command registration, to keep commands in sync with the Discord API, and to point the right
-[`commandIds`][commandids] and names to the right [`Command`][command] class.
+When working with [application commands][discord-application-command-docs], Discord manages "Application Command
+Objects" on their end for each of your application commands. Keeping things synced through their API directly, or even
+through `discord.js` can be time-consuming and error-prone.
 
-It has some important methods regarding the commands registration and it's behavior. We will see how to use them in the
-next sections.
+An [ApplicationCommandRegistry][application-command-registry] manages application command operations for **one** of your
+bot's commands. It handles things such as syncing application command data with Discord, routing multiple application
+commands to your command, and much more!
 
-[commandids]: ../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#idhints
-[command]: ../../../Documentation/api-framework/classes/Command
+[application-command-registry]: ../../../Documentation/api-framework/classes/ApplicationCommandRegistry
+[discord-application-command-docs]: https://discord.com/developers/docs/interactions/application-commands
