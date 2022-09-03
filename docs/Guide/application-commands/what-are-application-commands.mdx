@@ -1,0 +1,29 @@
+---
+sidebar_position: 0
+title: What are application commands?
+---
+
+If you've been around for a while, you know that the conventional way of interacting with Discord bots is through
+messaging, either by pinging one or starting a message with a prefix like `$` or `!`.
+
+These days, setting up [Application Commands][discord-application-command-docs] are now recommended for Discord bots.
+Instead of worrying about issues like prefix conflicts or argument parsing, Discord now provides native interfaces to
+interact with your bot in the form of slash commands, message context commands, and user context commands.
+
+:::info
+
+If your bot isn't verified (a requirement to be in 100+ servers), then you aren't required to set up application
+commands and can still use classical message commands. This has been a long change in the making that Discord discusses
+in their [Message Content Priviledged Intent FAQ][message-content-faq]. However, application commands generally provide
+a better user experience for most situations, and we recommend you take advantage of them.
+
+:::
+
+Setting up application commands is more involved than message commands, but Sapphire will help register and manage
+application commands for your bot! Even though we handle most of the work, there are still things you should know
+starting with the [Application Command Registry][what-is-it], the next section!
+
+[discord-application-command-docs]: https://discord.com/developers/docs/interactions/application-commands
+[message-content-faq]:
+  https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Privileged-Intent-FAQ
+[what-is-it]: ./application-command-registry/what-is-it.mdx
