@@ -69,46 +69,6 @@ export class PingCommand extends Command {
 
 ## Creating a slash command with subcommands
 
-:::caution
-
-Currently, progress is still being made on the official [Sapphire Subcommands Plugin][saph-plug-subcom]. The following
-example works as of now, and will continue to work after the plugin is updated. However, creating subcommands will be
-possible with less code once the plugin has been updated.
-
-:::
-
-To create a slash command with subcommands, we need to add additional configuration while implementing the
-`registerApplicationCommands` method for the `Command` class.
-
-`Example`
-
-```typescript ts2esm2cjs|{12-20}|{12-20}
-import { Command } from '@sapphire/framework';
-
-export class SubCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    // ...
-  }
-
-  public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    // ...
-  }
-
-  public override registerApplicationCommands(registry: Command.Registry) {
-    registry.registerChatInputCommand((builder) =>
-      builder
-        .setName('command')
-        .setDescription('Command with subcommands')
-        .addSubcommand((command) => command.setName('first').setDescription('First subcommand'))
-        .addSubcommand((command) => command.setName('second').setDescription('Second subcommand'))
-    );
-  }
-}
-```
-
-The above will create a slash command called `command` with the description `Command with subcommands`. The command will
-have two sub commands, `first` and `second` with description `First subcommand` and `Second subcommand` respectively.
-
 :::note
 
 For handling subcommands, please refer to the [Sapphire Plugin Subcommands][saph-plug-subcom] documentation.
