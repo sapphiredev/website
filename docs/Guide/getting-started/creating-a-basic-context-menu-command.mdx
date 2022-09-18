@@ -1,14 +1,21 @@
 ---
 sidebar_position: 3
-title: Creating a basic Context Menu Command
+title: Creating a basic context menu command
 ---
 
-In order to register Context Menu Commands, we first need to override the `registerApplicationCommands` method. For
-example:
+:::caution
 
-`Example`
+This section covers the **absolute minimum** for setting up a message context menu command. We have an entire
+"Application Commands" section on how to effectively set up context menu commands, and if you are doing anything serious
+we highly recommend you start there with [`What are application commands?`][what-are-application-commands]
 
-```typescript ts2esm2cjs|{5-14}|{5-14}
+:::
+
+To create a Message Context Menu Command (User Context Menu Commands are covered in "Application Commands"), you will
+need to implement the `registerApplicationCommands` method in the `Command` class. Let's create a `ping` command and
+register a corresponding Message Context Menu Command with Discord:
+
+```typescript ts2esm2cjs|{4-16}|{4-16}
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord-api-types/v9';
 
@@ -27,28 +34,33 @@ export class UserCommand extends Command {
 }
 ```
 
-The above will create a `Context Menu` command called `ping` of `ApplicationCommandType.Message` type.
+The above will create a Message Context Menu Command called `ping`, note that we specified the
+`ApplicationCommandType.Message` type.
 
-## Creating the `contextMenuRun` method
+In order for your bot to respond to the Message Context Menu Command when it is invoked by the user, you must implement
+the `contextMenuRun` method for the `Command` class.
 
-To handle the command callback when the Context Menu Command is ran we need to override the `contextMenuRun` method of
-command class.
-
-```typescript ts2esm2cjs|{8-10}|{9-11}
+```typescript ts2esm2cjs|{17-19}|{17-19}
 import { Command } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
-    // ...
+    super(context, { ...options });
+  }
+
+  public override registerApplicationCommands(registry: Command.Registry) {
+    registry.registerContextMenuCommand((builder) =>
+      builder //
+        .setName('ping')
+        .setType(ApplicationCommandType.Message)
+    );
   }
 
   public async contextMenuRun(interaction: Command.ContextMenuInteraction) {
     return interaction.reply('Pong');
   }
-
-  public override registerApplicationCommands(registry: Command.Registry) {
-    // ...
-  }
 }
 ```
+
+[what-are-application-commands]: ../application-commands/what-are-application-commands.mdx

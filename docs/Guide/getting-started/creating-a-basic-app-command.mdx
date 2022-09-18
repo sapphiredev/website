@@ -3,12 +3,19 @@ sidebar_position: 2
 title: Creating a basic slash command
 ---
 
-Creating a basic slash command is very similar to creating a basic command. To create a slash command you will have to
-define the `registerApplicationCommands` method in the command class.
+:::caution
 
-For example, let's create a `ping` command:
+This section covers the **absolute minimum** for setting up a slash command. We have an entire "Application Commands"
+section on how to effectively set up slash commands, and if you are doing anything serious we highly recommend you start
+there with [`What are application commands?`][what-are-application-commands]
 
-```typescript ts2esm2cjs|{4-13}|{4-13}
+:::
+
+To create a slash command (known as a Chat Input Command in Sapphire), you will need to implement the
+`registerApplicationCommands` method in the `Command` class. Let's create a `ping` command and register a corresponding
+slash command with Discord:
+
+```typescript ts2esm2cjs|{3-13}|{3-13}
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
@@ -24,38 +31,26 @@ export class PingCommand extends Command {
 }
 ```
 
-The above example will create a slash command (Chat Input Command) called `ping` with the description
-`Ping bot to see if it is alive`. Alternatively, we can also use `this.name` and `this.description` to pass the name and
-description to the builder which will take the data from the passed values in command class.
+The example above will register a slash command with Discord called `ping` with the description
+`'Ping bot to see if it is alive'`. This is the information users will see in Discord when interacting with your bot
+through the slash command.
 
-Example:
+In order for your bot to respond to the slash command when it is invoked by a user, you must implement the
+`chatInputRun` method for the `Command` class.
 
-```typescript ts2esm2cjs|{4-13}|{4-13}
-import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    super(context, { ...options, name: 'ping', description: 'Ping bot to see if it is alive' });
-  }
-
-  public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
-    registry.registerChatInputCommand((builder) => builder.setName(this.name).setDescription(this.description));
-  }
-}
-```
-
-## Creating the `chatInputRun` method
-
-To handle the command callback when the Context Menu Command is ran we need to override the `chatInputRun` method of
-command class.
-
-```typescript ts2esm2cjs|{9-19}|{9-19}
+```typescript ts2esm2cjs|{15-25}|{15-25}
 import { isMessageInstance } from '@sapphire/discord.js-utilities';
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
-    // ...
+    super(context, { ...options });
+  }
+
+  public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
+    registry.registerChatInputCommand((builder) =>
+      builder.setName('ping').setDescription('Ping bot to see if it is alive')
+    );
   }
 
   public async chatInputRun(interaction: Command.ChatInputInteraction) {
@@ -74,53 +69,11 @@ export class PingCommand extends Command {
 
 ## Creating a slash command with subcommands
 
-:::caution
-
-Currently, progress is still being made on updating the official [Sapphire Plugin Subcommands][saph-plug-subcom]. This
-section will fully work now, and will continue to work after the plugin is updated. However, once the plugin has been
-updated creating subcommands will be possible with less code.
-
-:::
-
-To create the slash command with subcommand we need to override the `registerApplicationCommands` method of `Command`
-class. This method is called when the `Client` collects all the slash commands defined in the command directory on
-application startup to register them on the discord API. Let's see a quick example of how to make a slash command with
-subcommands.
-
-`Example`
-
-```typescript ts2esm2cjs|{12-21}|{12-28}
-import { Command } from '@sapphire/framework';
-
-export class SubCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    // ...
-  }
-
-  public async chatInputRun(interaction: Command.ChatInputInteraction) {
-    // ...
-  }
-
-  public override registerApplicationCommands(registry: Command.Registry) {
-    registry.registerChatInputCommand((builder) =>
-      builder
-        .setName('command')
-        .setDescription('Command with sub commands')
-        .addSubcommand((command) => command.setName('first').setDescription('First sub command'))
-        .addSubcommand((command) => command.setName('second').setDescription('Second sub command'))
-    );
-  }
-}
-```
-
-The above will create a slash command called `command` with the description `Command with sub commands`. The command
-will have two sub commands, `first` and `second` with description `First sub command` and `Second sub command`
-respectively.
-
 :::note
 
-For handling subcommands please refer to the [Sapphire Plugin Subcommands][saph-plug-subcom] documentation.
+For handling subcommands, please refer to the [Sapphire Plugin Subcommands][saph-plug-subcom] documentation.
 
 :::
 
 [saph-plug-subcom]: ../plugins/Subcommands/getting-started
+[what-are-application-commands]: ../application-commands/what-are-application-commands.mdx
