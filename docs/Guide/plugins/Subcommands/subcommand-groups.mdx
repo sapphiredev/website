@@ -1,69 +1,78 @@
 ---
-title: Using Subcommand groups
+title: Using Subcommand Groups for Chat Input Commands
 sidebar_position: 2
 ---
 
-Before we start, we assume you already know what subcommand groups are, if not please refer to the
-[Official Discord Docs](https://discord.com/developers/docs/interactions/application-commands#subcommands-and-subcommand-groups)
-for more information.
+The following example will build off the command in the previous section. As a disclaimer, the result on the user side
+will seem redundant when compared to the previous command. Regardless, the purpose is to show how to use Subcommand
+Groups, rather than a useful example.
 
-## Message Subcommand Groups
+Since Subcommand Groups are a little nuanced, please refer to Discord's
+[Subcommands and Subcommand Groups](https://discord.com/developers/docs/interactions/application-commands#subcommands-and-subcommand-groups)
+documentation to see better examples of applying them.
 
-```typescript ts2esm2cjs|{8-18}|{10-20}
+## Chat Input Command Subcommand Groups Usage
+
+:::caution
+
+To use subcommands with Chat Input Commands (Slash Commands), we recommend you learn how to register and use regular
+Chat Input Commands first in order to understand `registerApplicationCommands()`. Please read [Registering Chat Input
+Commands][register] for details.
+
+:::
+
+```typescript ts2esm2cjs|{8-19,23-51,53-57}|{9-20,24-52,54-58}
 import { Subcommand } from '@sapphire/plugin-subcommands';
 import type { Args } from '@sapphire/framework';
-import type { Message } from 'discord.js';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
   public constructor(context: Subcommand.Context, options: Subcommand.Options) {
     super(context, {
       ...options,
+      name: 'vip',
       subcommands: [
+        { name: 'list', chatInputRun: 'chatInputList' },
         {
-          name: 'adminroles',
+          name: 'action',
           type: 'group',
           entries: [
-            { name: 'add', messageRun: 'messageAdd' },
-            { name: 'remove', messageRun: 'messageRemove' },
-            { name: 'list', messageRun: 'messageList' }
+            { name: 'add', chatInputRun: 'chatInputAdd' },
+            { name: 'remove', chatInputRun: 'chatInputRemove' }
           ]
         }
       ]
     });
   }
 
-  public async messageAdd(message: Message, args: Args) {}
-
-  public async messageRemove(message: Message, args: Args) {}
-
-  public async messageList(message: Message, args: Args) {}
-}
-```
-
-## Chat Input Subcommand Groups
-
-```typescript ts2esm2cjs|{8-18}|{9-19}
-import { Subcommand } from '@sapphire/plugin-subcommands';
-import type { Args } from '@sapphire/framework';
-
-// Extend `Subcommand` instead of `Command`
-export class UserCommand extends Subcommand {
-  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
-    super(context, {
-      ...options,
-      subcommands: [
-        {
-          name: 'adminroles',
-          type: 'group',
-          entries: [
-            { name: 'add', chatInputRun: 'chatInputAdd' },
-            { name: 'remove', chatInputRun: 'chatInputRemove' },
-            { name: 'list', chatInputRun: 'chatInputList' }
-          ]
-        }
-      ]
-    });
+  registerApplicationCommands(registry: ChatInputCommand.Registry) {
+    registry.registerChatInputCommand((builder) =>
+      builder
+        .setName('vip')
+        .setDescription('Vip command') // Needed even though base command isn't displayed to end user
+        .addSubcommand((command) => command.setName('list').setDescription('List vips'))
+        .addSubcommandGroup((group) =>
+          group
+            .setName('action')
+            .setDescription('action subcommand group') // Also needed even though the group isn't displayed to end user
+            .addSubcommand((command) =>
+              command
+                .setName('add')
+                .setDescription('Add a vip')
+                .addUserOption((option) =>
+                  option.setName('user').setDescription('user to add to vip list').setRequired(true)
+                )
+            )
+            .addSubcommand((command) =>
+              command
+                .setName('remove')
+                .setDescription('Remove a vip')
+                .addUserOption((option) =>
+                  option.setName('user').setDescription('user to remove from vip list').setRequired(true)
+                )
+            )
+        )
+    );
   }
 
   public async chatInputAdd(interaction: Subcommand.ChatInputInteraction) {}
@@ -74,10 +83,7 @@ export class UserCommand extends Subcommand {
 }
 ```
 
-:::note
+The code above registers three slash commands: `/vip list`, `/vip action add`, and `/vip action remove`. These run the
+respective class methods mapped in the `subcommands` array.
 
-To use subcommands on slash commands, you need to
-[register](../../getting-started/creating-a-basic-app-command#creating-a-slash-command-with-subcommands) the command
-first.
-
-:::
+[register]: ../../application-commands/application-command-registry/registering-chat-input-commands.mdx
