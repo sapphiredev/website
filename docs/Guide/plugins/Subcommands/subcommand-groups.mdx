@@ -3,21 +3,22 @@ title: Using Subcommand Groups for Chat Input Commands
 sidebar_position: 2
 ---
 
-The following example will build off the command in the previous section. As a disclaimer, the result on the user side
-will seem redundant when compared to the previous command. Regardless, the purpose is to show how to use Subcommand
-Groups, rather than a useful example.
+The following examples will show off how to map subcommands within a group to methods in your command class. They will
+build off the example in the previous [Getting Started][getting-started] section. If you haven't checked it out, we
+suggest you go back, take a peek, and come back fresh and ready to code!
 
-Since Subcommand Groups are a little nuanced, please refer to Discord's
+Subcommand Groups are a way to group application commands, so please refer to Discord's
 [Subcommands and Subcommand Groups](https://discord.com/developers/docs/interactions/application-commands#subcommands-and-subcommand-groups)
-documentation to see better examples of applying them.
+documentation to see examples on how to use them for your users' benefits! In this guide, we are simply showing you how
+to create mappings to them using the Subcommands plugin.
 
 ## Chat Input Command Subcommand Groups Usage
 
 :::caution
 
-To use subcommands with Chat Input Commands (Slash Commands), we recommend you learn how to register and use regular
-Chat Input Commands first in order to understand `registerApplicationCommands()`. Please read [Registering Chat Input
-Commands][register] for details.
+Before you can use with Chat Input Commands (Slash Commands), we recommend you learn how to register and use regular
+Chat Input Commands first in order to understand what the `registerApplicationCommands()` method does. Please read
+[Registering Chat Input Commands][register] for details, and come back when you're done!
 
 :::
 
@@ -86,4 +87,5 @@ export class UserCommand extends Subcommand {
 The code above registers three slash commands: `/vip list`, `/vip action add`, and `/vip action remove`. These run the
 respective class methods mapped in the `subcommands` array.
 
+[getting-started]: ./getting-started.mdx
 [register]: ../../application-commands/application-command-registry/registering-chat-input-commands.mdx

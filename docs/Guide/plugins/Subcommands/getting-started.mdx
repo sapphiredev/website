@@ -56,8 +56,10 @@ export class UserCommand extends Subcommand {
 ```
 
 In this example command, "vip list" will run `messageList`, "vip add" will run `messageAdd`, and "vip remove" will run
-`messageRemove`. You can map the value of `messageRun` to the name of any method in the class you want, but we recommend
-the naming convention above to keep things organized.
+`messageRemove`. You can map the value of `messageRun` to the name of any method in the class, but we recommend you use
+a naming convention to keep things organized. Our preferred convention is prefixing the method name with the type of
+command (`messageAdd`, `chatInputAdd`, and `contextMenuAdd` for Message Commands, Chat Input Commands, and Context Menu
+Commands respectively).
 
 Including `default: true` will run that subcommand when no subcommand is provided. In this case, invoking the command
 with "vip" will run `messageList` just like "vip list".
