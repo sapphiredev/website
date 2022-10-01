@@ -9,9 +9,10 @@ suggest you go back, take a peek, and come back fresh and ready to code!
 
 ## Message Command Subcommand Groups Usage
 
-```typescript ts2esm2cjs|{8-19,23-27}|{9-20,24-28}
+```typescript ts2esm2cjs|{8-19,23-27}|{10-21,25-29}
 import { Subcommand } from '@sapphire/plugin-subcommands';
 import type { Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
@@ -33,11 +34,11 @@ export class UserCommand extends Subcommand {
     });
   }
 
+  public async messageList(message: Message, args: Args) {}
+
   public async messageAdd(message: Message, args: Args) {}
 
   public async messageRemove(message: Message, args: Args) {}
-
-  public async messageList(message: Message, args: Args) {}
 }
 ```
 
@@ -115,11 +116,11 @@ export class UserCommand extends Subcommand {
     );
   }
 
+  public async chatInputList(interaction: Subcommand.ChatInputInteraction) {}
+
   public async chatInputAdd(interaction: Subcommand.ChatInputInteraction) {}
 
   public async chatInputRemove(interaction: Subcommand.ChatInputInteraction) {}
-
-  public async chatInputList(interaction: Subcommand.ChatInputInteraction) {}
 }
 ```
 
@@ -133,9 +134,8 @@ respective class methods mapped in the `subcommands` array.
 
 The answer to if you can use both at the same time is yes.
 
-```typescript ts2esm2cjs|{8-19}|{9-20}
+```typescript ts2esm2cjs|{8-19}|{8-19}
 import { Subcommand } from '@sapphire/plugin-subcommands';
-import type { Args } from '@sapphire/framework';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
@@ -144,7 +144,7 @@ export class UserCommand extends Subcommand {
       ...options,
       name: 'vip',
       subcommands: [
-        { name: 'list', messageRun: 'messageList', chatInputRun: 'chatInputList', default: true },
+        { name: 'list', messageRun: 'messageList', default: true, chatInputRun: 'chatInputList' },
         {
           name: 'action',
           type: 'group',
@@ -155,9 +155,7 @@ export class UserCommand extends Subcommand {
         }
       ]
     });
-  }
-
-  // Register Application Commands below...
+  } // Register Application Commands and implement methods below...
 }
 ```
 

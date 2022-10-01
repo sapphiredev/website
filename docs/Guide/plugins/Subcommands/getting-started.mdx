@@ -19,9 +19,10 @@ npm install @sapphire/plugin-subcommands @sapphire/framework @sapphire/utilities
 
 ## Message Command Usage
 
-```typescript ts2esm2cjs|{8-23,27-31}|{9-24,28-32}
+```typescript ts2esm2cjs|{8-23,27-31}|{10-25,29-33}
 import { Subcommand } from '@sapphire/plugin-subcommands';
 import type { Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
@@ -47,11 +48,11 @@ export class UserCommand extends Subcommand {
     });
   }
 
+  public async messageList(message: Message, args: Args) {}
+
   public async messageAdd(message: Message, args: Args) {}
 
   public async messageRemove(message: Message, args: Args) {}
-
-  public async messageList(message: Message, args: Args) {}
 }
 ```
 
@@ -136,18 +137,21 @@ export class UserCommand extends Subcommand {
 The code above registers three slash commands: `/vip list`, `/vip add`, and `/vip remove`. These run the respective
 class methods mapped in the `subcommands` array.
 
+:::info
+
 When using subcommand or subcommand groups for application commands, Discord will [make your base command
 unusable][discord-subcommand-application-command-docs]. In the example above, this is why Sapphire does not register a
 `/vip` command for you, and also why providing a `default` option will not do anything for Chat Input Subcommands.
+
+:::
 
 ## Mixing Message Command and Chat Input Command Subcommands
 
 You can use both kinds of subcommands at the same time if needed. This may be useful in situations such as migrating
 Message Command subcommands to Chat Input Command subcommands over time.
 
-```typescript ts2esm2cjs|{9-26}|{10-27}
+```typescript ts2esm2cjs|{9-26}|{9-26}
 import { Subcommand } from '@sapphire/plugin-subcommands';
-import type { Args } from '@sapphire/framework';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
@@ -159,8 +163,8 @@ export class UserCommand extends Subcommand {
         {
           name: 'list',
           messageRun: 'messageList',
-          chatInputRun: 'chatInputList',
-          default: true
+          default: true,
+          chatInputRun: 'chatInputList'
         },
         {
           name: 'add',
@@ -174,9 +178,7 @@ export class UserCommand extends Subcommand {
         }
       ]
     });
-  }
-
-  // Register Application Commands below...
+  } // Register Application Commands and implement methods below...
 }
 ```
 
