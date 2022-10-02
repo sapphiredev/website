@@ -80,6 +80,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/BenSegal855"><img src="https://avatars.githubusercontent.com/u/34194692?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=BenSegal855" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/EvolutionX-10"><img src="https://avatars.githubusercontent.com/u/85353424?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Evo</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=EvolutionX-10" title="Documentation">📖</a></td>
     <td align="center"><a href="https://discord.gg/world-of-tanks"><img src="https://avatars.githubusercontent.com/u/16418183?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Forcellrus</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=Forcellrus" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/BashGuy10"><img src="https://avatars.githubusercontent.com/u/63826227?v=4?s=100" width="100px;" alt=""/><br /><sub><b>bash</b></sub></a><br /><a href="https://github.com/sapphiredev/website/commits?author=BashGuy10" title="Documentation">📖</a></td>
   </tr>
 </table>
 
