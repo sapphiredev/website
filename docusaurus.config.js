@@ -95,6 +95,7 @@ const config = {
 					'./projects/utilities/packages/event-iterator/src/index.ts',
 					'./projects/utilities/packages/fetch/src/index.ts',
 					'./projects/utilities/packages/lexure/src/index.ts',
+					'./projects/utilities/packages/node-utilities/src/index.ts',
 					'./projects/utilities/packages/phisherman/src/index.ts',
 					'./projects/utilities/packages/ratelimits/src/index.ts',
 					'./projects/utilities/packages/result/src/index.ts',
