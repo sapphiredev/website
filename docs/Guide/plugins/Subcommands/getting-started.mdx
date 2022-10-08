@@ -8,24 +8,164 @@ sidebar_position: 0
 Subcommands are a way to split 1 command into multiple. This can in particular be very useful for configuration commands
 with subcommands such as `set`, `reset` and `remove`.
 
+Originally for message commands, the plugin now supports Discord's native [Subcommands and Subcommand
+Groups][discord-subcommand-application-command-docs] interface for Chat Input Commands (Slash Commands).
+
 ## Installation
 
 ```bash npm2yarn2pnpm
 npm install @sapphire/plugin-subcommands @sapphire/framework @sapphire/utilities discord.js@13.x
 ```
 
-### Usage
+## Message Command Usage
 
-```typescript ts2esm2cjs|{8-24}|{9-25}
+```typescript ts2esm2cjs|{8-23,27-31}|{10-25,29-33}
 import { Subcommand } from '@sapphire/plugin-subcommands';
 import type { Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
   public constructor(context: Subcommand.Context, options: Subcommand.Options) {
     super(context, {
       ...options,
+      name: 'vip',
       subcommands: [
+        {
+          name: 'list',
+          messageRun: 'messageList',
+          default: true
+        },
+        {
+          name: 'add',
+          messageRun: 'messageAdd'
+        },
+        {
+          name: 'remove',
+          messageRun: 'messageRemove'
+        }
+      ]
+    });
+  }
+
+  public async messageList(message: Message, args: Args) {}
+
+  public async messageAdd(message: Message, args: Args) {}
+
+  public async messageRemove(message: Message, args: Args) {}
+}
+```
+
+In this example command, "vip list" will run `messageList`, "vip add" will run `messageAdd`, and "vip remove" will run
+`messageRemove`. You can map the value of `messageRun` to the name of any method in the class, but we recommend you use
+a naming convention to keep things organized. Our preferred convention is prefixing the method name with the type of
+command (`messageAdd`, `chatInputAdd`, and `contextMenuAdd` for Message Commands, Chat Input Commands, and Context Menu
+Commands respectively).
+
+Including `default: true` will run that subcommand when no subcommand is provided. In this case, invoking the command
+with "vip" will run `messageList` just like "vip list".
+
+## Chat Input Command (Slash Command) Usage
+
+:::caution
+
+To use subcommands with Chat Input Commands (Slash Commands), we recommend you learn how to register and use regular
+Chat Input Commands first in order to understand `registerApplicationCommands()`. Please read [Registering Chat Input
+Commands][register] for details.
+
+:::
+
+```typescript ts2esm2cjs|{8-22,26-49,51-55}|{8-22,26-49,51-55}
+import { Subcommand } from '@sapphire/plugin-subcommands';
+
+// Extend `Subcommand` instead of `Command`
+export class UserCommand extends Subcommand {
+  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
+    super(context, {
+      ...options,
+      name: 'vip',
+      subcommands: [
+        {
+          name: 'list',
+          chatInputRun: 'chatInputList'
+        },
+        {
+          name: 'add',
+          chatInputRun: 'chatInputAdd'
+        },
+        {
+          name: 'remove',
+          chatInputRun: 'chatInputRemove'
+        }
+      ]
+    });
+  }
+
+  registerApplicationCommands(registry: ChatInputCommand.Registry) {
+    registry.registerChatInputCommand((builder) =>
+      builder
+        .setName('vip')
+        .setDescription('Vip command') // Needed even though base command isn't displayed to end user
+        .addSubcommand((command) => command.setName('list').setDescription('List vips'))
+        .addSubcommand((command) =>
+          command
+            .setName('add')
+            .setDescription('Add a vip')
+            .addUserOption((option) =>
+              option.setName('user').setDescription('user to add to vip list').setRequired(true)
+            )
+        )
+        .addSubcommand((command) =>
+          command
+            .setName('remove')
+            .setDescription('Remove a vip')
+            .addUserOption((option) =>
+              option.setName('user').setDescription('user to remove from vip list').setRequired(true)
+            )
+        )
+    );
+  }
+
+  public async chatInputList(interaction: Subcommand.ChatInputInteraction) {}
+
+  public async chatInputAdd(interaction: Subcommand.ChatInputInteraction) {}
+
+  public async chatInputRemove(interaction: Subcommand.ChatInputInteraction) {}
+}
+```
+
+The code above registers three slash commands: `/vip list`, `/vip add`, and `/vip remove`. These run the respective
+class methods mapped in the `subcommands` array.
+
+:::info
+
+When using subcommand or subcommand groups for application commands, Discord will [make your base command
+unusable][discord-subcommand-application-command-docs]. In the example above, this is why Sapphire does not register a
+`/vip` command for you, and also why providing a `default` option will not do anything for Chat Input Subcommands.
+
+:::
+
+## Mixing Message Command and Chat Input Command Subcommands
+
+You can use both kinds of subcommands at the same time if needed. This may be useful in situations such as migrating
+Message Command subcommands to Chat Input Command subcommands over time.
+
+```typescript ts2esm2cjs|{9-26}|{9-26}
+import { Subcommand } from '@sapphire/plugin-subcommands';
+
+// Extend `Subcommand` instead of `Command`
+export class UserCommand extends Subcommand {
+  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
+    super(context, {
+      ...options,
+      name: 'vip',
+      subcommands: [
+        {
+          name: 'list',
+          messageRun: 'messageList',
+          default: true,
+          chatInputRun: 'chatInputList'
+        },
         {
           name: 'add',
           messageRun: 'messageAdd',
@@ -35,34 +175,16 @@ export class UserCommand extends Subcommand {
           name: 'remove',
           messageRun: 'messageRemove',
           chatInputRun: 'chatInputRemove'
-        },
-        {
-          name: 'list',
-          messageRun: 'messageList',
-          chatInputRun: 'chatInputList'
         }
       ]
     });
-  }
-
-  public async messageAdd(message: Message, args: Args) {}
-
-  public async messageRemove(message: Message, args: Args) {}
-
-  public async messageList(message: Message, args: Args) {}
-
-  public async chatInputAdd(interaction: Subcommand.ChatInputInteraction) {}
-
-  public async chatInputRemove(interaction: Subcommand.ChatInputInteraction) {}
-
-  public async chatInputList(interaction: Subcommand.ChatInputInteraction) {}
+  } // Register Application Commands and implement methods below...
 }
 ```
 
-:::note
+Keep in mind that that `default` is only functional for Message Command Subcommands as mentioned in the previous
+section.
 
-To use subcommands on Chat Input Commands, you need to
-[register](../../application-commands/application-command-registry/registering-chat-input-commands.mdx) the command
-first.
-
-:::
+[discord-subcommand-application-command-docs]:
+  https://discord.com/developers/docs/interactions/application-commands#subcommands-and-subcommand-groups
+[register]: ../../application-commands/application-command-registry/registering-chat-input-commands.mdx
