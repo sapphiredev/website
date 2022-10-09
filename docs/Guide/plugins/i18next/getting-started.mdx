@@ -89,13 +89,10 @@ const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   i18n: {
     fetchLanguage: async (context: InternationalizationContext) => {
-      // If this fetchLanguage is for an interaction we can return the language that the user has configured through Discord's UI
-      // or the language that the server is configured to use.
       if (context.interactionGuildLocale || context.interactionLocale) {
         return context.interactionGuildLocale || context.interactionLocale;
       }
 
-      // If the command is ran outside of a guild then return the default language
       if (!context.guild) {
         return 'en-US';
       }
