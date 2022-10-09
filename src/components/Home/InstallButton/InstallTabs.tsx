@@ -1,5 +1,4 @@
-import { convertToYarn } from '@armano/npm-to-yarn';
-import { npmToPnpm } from '@sapphire/docusaurus-plugin-npm2yarn2pnpm';
+import { npmToPnpm, npmToYarn } from '@sapphire/docusaurus-plugin-npm2yarn2pnpm';
 import TabItem from '@theme/TabItem';
 import Tabs from '@theme/Tabs';
 import React, { FC } from 'react';
@@ -8,7 +7,7 @@ import styles from './InstallTabs.module.css';
 
 const InstallTabs: FC = () => {
 	const npmInstallCommand = 'npm install @sapphire/framework';
-	const yarnInstallCommand = convertToYarn(npmInstallCommand);
+	const yarnInstallCommand = npmToYarn(npmInstallCommand);
 	const pnpmInstallCommand = npmToPnpm(npmInstallCommand);
 
 	const handleClickInstallButton = async (command: string) => {
