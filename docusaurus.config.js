@@ -87,6 +87,7 @@ const config = {
 				entryPointStrategy: 'resolve',
 				entryPoints: [
 					'./projects/utilities/packages/async-queue/src/index.ts',
+					'./projects/utilities/packages/bitfield/src/index.ts',
 					'./projects/utilities/packages/cron/src/index.ts',
 					'./projects/utilities/packages/decorators/src/index.ts',
 					'./projects/utilities/packages/discord-utilities/src/index.ts',
