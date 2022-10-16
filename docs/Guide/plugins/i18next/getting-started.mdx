@@ -3,11 +3,22 @@ title: Getting Started
 sidebar_position: 0
 ---
 
-An implementation of i18next's [filesystem backend] for Sapphire. It allows you to use a JSON-based `languages`
-directory to add internationalization for your bot using `SapphireClient`'s `fetchLanguage` hook and a custom message
-extension, adding features such as `sendTranslated` and `resolveKey`.
+This plugin implements [i18next], a powerful internationalization library. It provides a simple way to internationalize
+your bot's responses. It leverages a [filesystem backend][fs-backend] to load JSON files from a directory, and provides
+a simple way to get translated keys and have your languages also match your Discord data. By simply implementing
+[`fetchLanguage`][fetchlanguage] on the [`SapphireClient`][sapphireclient] you can return a language key for a user,
+guild, interaction, or message and then the plugin will automatically get the proper internationalization data for you.
 
-[filesystem backend]: https://github.com/i18next/i18next-fs-backend
+:::tip
+
+All [i18next] methods and capabilities are available when using this plugin. This plugin is simply a tiny wrapper around
+the [i18next] API. Need to access the `t` function without using this plugin? You can just access it through
+`i18next.t`. Wondering how we you can handle formatting, interpolation, plurals and other [i18next] features? Yes, to
+everything.
+
+In short: **Everything that is possible with [i18next] is also possible with [`@sapphire/plugin-i18next`][plugin]**
+
+:::
 
 ## Installation
 
@@ -17,7 +28,11 @@ npm install @sapphire/plugin-i18next @sapphire/framework discord.js@13.x
 
 ## Usage
 
-This registers the methods and options necessary for message translations in the Sapphire client.
+First of all you will need to register the plugin. This will:
+
+- Register the TypeScript types for configuring the plugin
+- Load your language files when starting your bot
+- Add the `i18n` property to the [`container`][using-container]
 
 <Tabs groupId="language-choice">
 <TabItem value="javascript" label="JavaScript" default>
@@ -51,29 +66,38 @@ import '@sapphire/plugin-i18next/register';
 
 ## Get the language set per server
 
-Once you start to use i18next to offer your bot in different languages you are likely to also want each server to be
+Once you start to use [i18next] to offer your bot in different languages you are likely to also want each server to be
 able to configure their own language through some kind of configuration command while you store this data in a database.
-While this page will not cover those aspects, what we will cover here is how you can inform the i18next plugin about the
-language that should be used in the current context.
+While this page will not cover those aspects, what we will cover here is how you can inform the [i18next] plugin about
+the language that should be used in the current context.
 
-In order to achieve this, you will need to provide the options to the plugin. This is done through the `i18next` option
-on the [`ClientOptions`][`saphclientoptions`], specifically the [`fetchLanguage`] property on that object. This method
-receives 1 parameter, which is an object that has `message`, `guild`, and `user`, we call it the
-[`InternationalizationContext`]. Using these properties you can make a call to your database, and return the proper
-language key. Alternatively if you want some kind of fallback to a default language you can also specify that here.
+In order to achieve this, you will need to provide the options to the plugin. This is done through the
+[`i18n`][i18n-options] option on the [`ClientOptions`][`saphclientoptions`], specifically the
+[`fetchLanguage`][fetchlanguage] property on that object. This method receives 1 parameter, which is an object that has
+[`guild`][internationalizationcontext.guild], [`channel`][internationalizationcontext.channel],
+[`user`][internationalizationcontext.user],
+[`interactionGuildLocale`][internationalizationcontext.interactionguildlocale], and
+[`interactionLocale`][internationalizationcontext.interactionlocale]. Using these properties you can make a call to your
+database, and return the proper language key. Alternatively if you want some kind of fallback to a default language you
+can also specify that here.
 
 ```typescript ts2esm2cjs|{3}|{3}
 import { SapphireClient } from '@sapphire/framework';
-import { InternationalizationContext } from '@sapphire/plugin-i18next';
+import type { InternationalizationContext } from '@sapphire/plugin-i18next';
 
 const client = new SapphireClient({
   intents: ['GUILDS', 'GUILD_MESSAGES'],
   i18n: {
     fetchLanguage: async (context: InternationalizationContext) => {
-      // Or whatever your default language is
-      if (!context.guild) return 'en-US';
+      if (context.interactionGuildLocale || context.interactionLocale) {
+        return context.interactionGuildLocale || context.interactionLocale;
+      }
 
-      // example of querying your database. The exact syntax will depend on your ORM
+      if (!context.guild) {
+        return 'en-US';
+      }
+
+      // Example of querying your database. The exact syntax will depend on your ORM
       const guildSettings = await db.find({ guild_id: context.guildId });
       return guildSettings.language;
     }
@@ -85,17 +109,24 @@ client.login('your-token-goes-here');
 
 :::note
 
-In this example we check if the command comes from a guild, if not, we return the default language of `en-US`. If the
-command does come from within a server we query the database and get the language configured for that guild. The
-language from the database will be used to get the proper language content for the language key.
+In this example we first check if [`fetchLanguage`][fetchlanguage] was called with an interaction. If so we return the
+language key that Discord gives us on the API about that interaction. This is either the server's configured primary
+language or a users own client language. If this is not an interaction we then check if the command was ran in a guild.
+If not we return the default language. If it was ran in a guild we then query our database for the guild's language and
+return that.
 
 :::
+
+:::caution
 
 Something important to keep in mind is that you have to make sure that the language exists in your language directory,
 otherwise an error will be thrown saying that the language obtained from the server is not valid.
 
-The name of the languages configured in the i18n plugin will depend on the names of the language folders in your
-language directory, for example:
+:::
+
+## Configuring languages
+
+Every language has a name which is linked to the name of the folder that holds the language files. For example:
 
 ```
 ├── commands
@@ -110,14 +141,23 @@ language directory, for example:
 ```
 
 In this case, we have the languages `en-US` and `es-ES`. Remember that the languages must be in the directory called
-`languages` in the root folder of your project. Inside the language's folder, we will put our files and namespaces to
-use in the translation of messages.
+`languages` (this can be customized but we do not advise doing so). Each of these folders should hold JSON files with
+key-value maps of language keys and their translated string values. Each folder can also have ONE (1) nested folder
+which is called a `namespace` in [i18next]. This namespace is used to separate the language keys into different
+categories.
 
-The basic structure of a translation file is as follows:
+:::danger
 
-`languages/en-US/ping.json`
+_**[i18next] does not support nesting namespaces in namespaces. You can have only 1 nested folder, not multiple.**_
 
-The same with the other languages but with their corresponding translations.
+:::
+
+### Adding key-value pairs to a translation file
+
+Now that we have created the folder structure and some basic language files lets populate one with key-value pairs. For
+example lets consider the file: `languages/en-US/ping.json`
+
+We can fill this file with the key-value pairs:
 
 ```json
 {
@@ -126,10 +166,34 @@ The same with the other languages but with their corresponding translations.
 }
 ```
 
-The `resolveKey` function can be used anywhere to get translated text by its key. In this example, it is used in a
-method to send a message.
+And lets say we also have the language `nl-NL`. This means we should also have the file `languages/nl-NL/ping.json`,
+which will have the key-value pairs:
 
-```typescript ts2esm2cjs|{13}|{13}
+```json
+{
+  "success": "Pong!",
+  "success_with_args": "Pong! Het heeft {{latency}}ms geduurd om te reageren"
+}
+```
+
+## Using languages
+
+### [`resolveKey`][resolve-key]
+
+The [`resolveKey`][resolve-key] function can be used anywhere to get translated text by its key. `resolveKey` takes 2-3
+parameters.
+
+- The first parameter should always be a `message` or an `interaction` which provides the context to
+  [`fetchLanguage`][fetchlanguage] to get the appropriate language key for [i18next].
+- The second parameter is the key for the translated string you want to get, including the namespace if applicable.
+- The third parameter is any additional context to pass to [i18next] such as when leveraging interpolation,
+  pluralization, etc.
+
+Following is an example of a command that implements [`messageRun`][messagerun] (for message based commands),
+[`chatInputRun`][chatinputrun] (for chat input commands) and [`contextMenuRun`][contextmenurun] (for context menu
+commands) to send the same translated message.
+
+```typescript ts2esm2cjs|{13,17,21}|{13,17,21}
 import { resolveKey } from '@sapphire/plugin-i18next';
 import { Command } from '@sapphire/framework';
 
@@ -141,75 +205,36 @@ export class PingCommand extends Command {
     });
   }
 
-  public async messageRun(message: Message) {
+  public override async messageRun(message: Message) {
     await message.channel.send(await resolveKey(message, 'ping:success'));
   }
-}
-```
 
-`sendLocalized` will send translated text resolved from a key to a specified channel.
-
-```typescript ts2esm2cjs|{13}|{13}
-import { sendLocalized } from '@sapphire/plugin-i18next';
-import { Command } from '@sapphire/framework';
-
-export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    super(context, {
-      ...options,
-      description: 'ping pong'
-    });
+  public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+    await interaction.reply(await resolveKey(interaction, 'ping:success'));
   }
 
-  public async messageRun(message: Message) {
-    await sendLocalized(message, 'ping:success');
+  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    await interaction.reply(await resolveKey(interaction, 'ping:success'));
   }
 }
 ```
 
-`editLocalized` edits a message, replacing its content with translated text resolved from its key.
+:::note
 
-```typescript ts2esm2cjs|{13}|{13}
-import { editLocalized } from '@sapphire/plugin-i18next';
-import { Command } from '@sapphire/framework';
+In this example we used `ping:success` as the key for the translation. This means that [i18next] will look for a file
+called `ping.json` in the languages folder, and if it finds that file look for a key called `success`. If you have
+followed this guide up to this point you should have this configured.
 
-export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    super(context, {
-      ...options,
-      description: 'ping pong'
-    });
-  }
+If you have instead opted for categorizing your JSON files in namespaces and you have for example followed a structure
+of `languages/en-US/commands/ping.json` then the key will be `commands/ping:success`.
 
-  public async messageRun(message: Message) {
-    await editLocalized(message, { keys: 'ping:success_with_args', formatOptions: { latency: ws.ping } });
-  }
-}
-```
+:::
 
-`replyLocalized` replies to a message, sending the text resolved from its key.
+### [`fetchLanguage`][fetchlanguage]
 
-```typescript ts2esm2cjs|{13}|{13}
-import { replyLocalized } from '@sapphire/plugin-i18next';
-import { Command } from '@sapphire/framework';
+[`fetchLanguage`][fetchlanguage] returns the language specific for the provided context.
 
-export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
-    super(context, {
-      ...options,
-      description: 'ping pong'
-    });
-  }
-
-  public async messageRun(message: Message) {
-    await replyLocalized(message, { keys: 'ping:success_with_args', formatOptions: { latency: ws.ping } });
-  }
-}
-```
-
-`fetchLanguage` returns the guild-specific language that the client is using.
-
-```typescript ts2esm2cjs|{13}|{13}
+```typescript ts2esm2cjs|{13,18,23}|{13,18,23}
 import { fetchLanguage } from '@sapphire/plugin-i18next';
 import { Command } from '@sapphire/framework';
 
@@ -221,13 +246,79 @@ export class PingCommand extends Command {
     });
   }
 
-  public async messageRun(message: Message) {
-    return message.channel.send(await fetchLanguage(message));
+  public override async messageRun(message: Message) {
+    const languageCodeForCurrentGuild = await fetchLanguage(message);
+    // ===> en-US
+  }
+
+  public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+    const languageCodeForCurrentGuild = await fetchLanguage(interaction);
+    // ===> en-US
+  }
+
+  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    const languageCodeForCurrentGuild = await fetchLanguage(interaction);
     // ===> en-US
   }
 }
 ```
 
+### [`fetchT`][fetcht]
+
+[`fetchT`][fetcht] returns an [i18next][i18next] [`TFunction`][tfunction] with the language specific for the provided
+context.
+
+```typescript ts2esm2cjs|{13,18,23}|{13,18,23}
+import { fetchLanguage } from '@sapphire/plugin-i18next';
+import { Command } from '@sapphire/framework';
+
+export class PingCommand extends Command {
+  public constructor(context: Command.Context, options: Command.Options) {
+    super(context, {
+      ...options,
+      description: 'ping pong'
+    });
+  }
+
+  public override async messageRun(message: Message) {
+    const tFunction = await fetchT(message);
+    const translatedPingSuccess = tFunction('ping:success');
+  }
+
+  public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+    const tFunction = await fetchT(interaction);
+    const translatedPingSuccess = tFunction('ping:success');
+  }
+
+  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+    const tFunction = await fetchT(interaction);
+    const translatedPingSuccess = tFunction('ping:success');
+  }
+}
+```
+
 [`saphclientoptions`]: ../../../Documentation/api-framework/interfaces/SapphireClientOptions
-[`fetchlanguage`]: ../../../Documentation/api-plugins/classes/i18next_src.InternationalizationHandler#fetchlanguage
 [`internationalizationcontext`]: ../../../Documentation/api-plugins/interfaces/i18next_src.InternationalizationContext
+[resolve-key]: ../../../Documentation/api-plugins/modules/i18next_src.md#resolvekey
+[fs-backend]: https://github.com/skyra-project/archid-components/tree/main/packages/i18next-backend
+[fetchlanguage]: ../../../Documentation/api-plugins/modules/i18next_src.md#fetchlanguage
+[i18n-options]: ../../../Documentation/api-plugins/interfaces/i18next_src.InternationalizationOptions
+[sapphireclient]: ../../../Documentation/api-framework/classes/SapphireClient.md
+[i18next]: https://i18next.com
+[plugin]: https://github.com/sapphiredev/plugins/tree/main/packages/i18next
+[using-container]: ../../additional-information/using-and-extending-container.mdx
+[internationalizationcontext.guild]:
+  ../../../Documentation/api-plugins/interfaces/i18next_src.InternationalizationContext#guild
+[internationalizationcontext.channel]:
+  ../../../Documentation/api-plugins/interfaces/i18next_src.InternationalizationContext#channel
+[internationalizationcontext.user]:
+  ../../../Documentation/api-plugins/interfaces/i18next_src.InternationalizationContext#user
+[internationalizationcontext.interactionguildlocale]:
+  ../../../Documentation/api-plugins/interfaces/i18next_src.InternationalizationContext#interactionguildlocale
+[internationalizationcontext.interactionlocale]:
+  ../../../Documentation/api-plugins/interfaces/i18next_src.InternationalizationContext#interactionlocale
+[messagerun]: ../../../Documentation/api-framework/classes/Command.md#messagerun
+[chatinputrun]: ../../../Documentation/api-framework/classes/Command.md#chatinputrun
+[contextmenurun]: ../../../Documentation/api-framework/classes/Command.md#contextmenurun
+[fetcht]: ../../../Documentation/api-plugins/modules/i18next_src.md#fetcht
+[tfunction]: ../../../Documentation/api-plugins/interfaces/i18next_src.TFunction
