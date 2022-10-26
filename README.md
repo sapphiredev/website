@@ -19,10 +19,13 @@ After forking/cloning this repo to a folder locally:
 
 ## Special thanks
 
-This project is being hosted by the amazing team at [Vercel]. We use their service to ensure you always get the latest
-version of the documentation, as well as being able to preview builds internally. Thank you [Vercel]!
+This project is made possible thanks to the amazing teams at [Vercel] and [Polypane]. We use their services to ensure
+you always get the latest and greatest version of the documentation. Thank you [Vercel] and [Polypane]!
 
-[![Vercel](./static/img/powered-by-vercel.svg)][vercel]
+<div align="center">
+<a href="https://vercel.com?utm_source=sapphiredev&utm_campaign=oss"><img height="40" src="./static/img/powered-by-vercel.svg" /></a>
+<a href="https://polypane.app"><img height="40" src="./static/img/powered-by-polypane.svg" /></a>
+</div>
 
 ## Buy us some doughnuts
 
@@ -94,3 +97,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 Contributions of any kind welcome!
 
 [vercel]: https://vercel.com?utm_source=sapphiredev&utm_campaign=oss
+[polypane]: https://polypane.app
