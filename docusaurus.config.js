@@ -291,8 +291,7 @@ const config = {
 				style: 'dark',
 				logo: {
 					alt: 'Powered By Vercel',
-					src: 'img/powered-by-vercel.svg',
-					href: 'https://vercel.com/?utm_source=sapphiredev&utm_campaign=oss'
+					src: 'img/powered-by-vercel-and-polypane.svg'
 				},
 				links: [
 					{
@@ -330,6 +329,19 @@ const config = {
 							{
 								label: 'GitHub Organization',
 								href: 'https://github.com/sapphiredev'
+							}
+						]
+					},
+					{
+						title: 'Our Sponsors',
+						items: [
+							{
+								label: 'Vercel',
+								href: 'https://vercel.com/?utm_source=sapphiredev&utm_campaign=oss'
+							},
+							{
+								label: 'Polypane',
+								href: 'https://polypane.app'
 							}
 						]
 					}
