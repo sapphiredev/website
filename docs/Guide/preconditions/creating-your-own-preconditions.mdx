@@ -85,33 +85,36 @@ that's needed for your bot. For example, if your bot has no `Slash` or `Context 
 
 :::
 
-:::caution
-
 <!--
   TODO: Once we have a dedicated TypeScript page this should link to that instead of a code example.
   Including why augmenting with `never` works and the difference between that and augmenting with an object.
 -->
 
+### TypeScript
+
 Typescript users must augment Sapphire's [`Preconditions`][preconditions-interface] interface, which is needed to
 increase the security of Sapphire's types. Otherwise, you will run into type errors in the next section.
 
-```typescript {7-11}
-import { Precondition } from '@sapphire/framework';
+:::info
 
-export class OwnerOnlyPrecondition extends Precondition {
-  // ...
-}
+Make sure you first create an index.d.ts file in the TypeScript `root` directory (that is to say, the directory you have
+configured as `rootDir` in your `tsconfig`, generally this is `src`. Note that we are NOT talking about the actual root
+folder here!) of your project, then put the following code using the name of your new precondition, in this case
+`OwnerOnly`.
 
+:::
+
+```typescript {2-4} showLineNumbers
 declare module '@sapphire/framework' {
   interface Preconditions {
     OwnerOnly: never;
   }
 }
+
+export default undefined;
 ```
 
 Please see an official example [here][preconditions-augment].
-
-:::
 
 ## Using Preconditions in Commands
 
