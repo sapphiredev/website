@@ -26,12 +26,30 @@ export class TextBasedChannelsArgument extends Argument<TextBasedChannelTypes> {
     });
   }
 }
+```
 
+### Typescript
+
+Typescript users must augment Sapphire's [`ArgType`][argtype-interface] interface, which is needed to increase the
+security of Sapphire's types. Otherwise, you will run into type errors in the next section.
+
+:::info
+
+Make sure you first create an index.d.ts file in the TypeScript `root` directory (that is to say, the directory you have
+configured as `rootDir` in your `tsconfig`, generally this is `src`. Note that we are NOT talking about the actual root
+folder here!) of your project, then put the following code using the name of your new argument, in this case
+`textBasedChannels`.
+
+:::
+
+```typescript {2-4} showLineNumbers
 declare module '@sapphire/framework' {
   interface ArgType {
     textBasedChannels: string;
   }
 }
+
+export default undefined;
 ```
 
 The above code creates an argument which checks if the provided parameter is a valid text based channel. It first tries
@@ -76,12 +94,16 @@ export class ArrayArgument extends Argument<string> {
     });
   }
 }
+```
 
+```typescript {2-4} showLineNumbers
 declare module '@sapphire/framework' {
   interface ArgType {
     array: string;
   }
 }
+
+export default undefined;
 ```
 
 :::info
@@ -149,3 +171,4 @@ argument is created below using the Args.make method, which takes the parameter,
 nullish or empty and returns the value. If not, an error is returned.
 
 [bia]: ./built-in-arguments
+[argtype-interface]: ../../Documentation/api-framework/interfaces/ArgType.md
