@@ -20,6 +20,8 @@ This is no different than the rest - extend the [`InteractionHandler`][interacti
 and `run` method. Note here that you have access to `<AutocompleteInteraction>.commandName` or
 `<AutocompleteInteraction>.commandId` to differentiate the command the user is using.
 
+You will also want to ensure that your option has been configured for autocompletion with: `.setAutocomplete(true)`.
+
 Example:
 
 ```typescript ts2esm2cjs
