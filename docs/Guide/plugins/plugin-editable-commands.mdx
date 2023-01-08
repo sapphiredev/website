@@ -49,7 +49,7 @@ Then use `send` or `reply` from the package, as shown below:
 
 ```typescript ts2esm2cjs
 import { Command } from '@sapphire/framework';
-import { Message, MessageEmbed } from 'discord.js';
+import { Message, EmbedBuilder } from 'discord.js';
 import { send } from '@sapphire/plugin-editable-commands';
 
 export class UserCommand extends Command {
@@ -62,7 +62,7 @@ export class UserCommand extends Command {
   }
 
   messageRun(message: Message) {
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setURL('https://github.com/skyra-project/editable-commands')
       .setColor('#7586D8')
       .setDescription('Example description')

@@ -51,7 +51,7 @@ implemented all 3 methods.
 
 ```typescript ts2esm2cjs|{4-17}|{5-17}
 import { Precondition } from '@sapphire/framework';
-import type { CommandInteraction, ContextMenuInteraction, Message } from 'discord.js';
+import type { CommandInteraction, ContextMenuCommandInteraction, Message } from 'discord.js';
 
 export class OwnerOnlyPrecondition extends Precondition {
   public override async messageRun(message: Message) {
@@ -64,7 +64,7 @@ export class OwnerOnlyPrecondition extends Precondition {
     return this.checkOwner(interaction.user.id);
   }
 
-  public override async contextMenuRun(interaction: ContextMenuInteraction) {
+  public override async contextMenuRun(interaction: ContextMenuCommandInteraction) {
     // for Context Menu Command
     return this.checkOwner(interaction.user.id);
   }

@@ -11,7 +11,7 @@ Here's a simple example:
 
 ```typescript ts2esm2cjs
 import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
-import type { SelectMenuInteraction, ButtonInteraction } from 'discord.js';
+import type { StringSelectMenuInteraction, ButtonInteraction } from 'discord.js';
 
 export class MessageComponentHandler extends InteractionHandler {
   public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
@@ -21,13 +21,13 @@ export class MessageComponentHandler extends InteractionHandler {
     });
   }
 
-  public override parse(interaction: ButtonInteraction | SelectMenuInteraction) {
+  public override parse(interaction: ButtonInteraction | StringSelectMenuInteraction) {
     if (interaction.customId !== 'my-echo-button-or-select') return this.none();
 
     return this.some();
   }
 
-  public async run(interaction: ButtonInteraction | SelectMenuInteraction) {
+  public async run(interaction: ButtonInteraction | StringSelectMenuInteraction) {
     if (interaction.isButton()) {
       await interaction.reply({
         content: `You clicked a button`

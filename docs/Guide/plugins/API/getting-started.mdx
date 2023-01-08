@@ -15,7 +15,7 @@ to change those settings, and your website needs to interface with the bot for t
 ## Installation
 
 ```bash npm2yarn2pnpm
-npm install @sapphire/plugin-api @sapphire/framework discord.js@13.x discord-api-types@^0.33.5
+npm install @sapphire/plugin-api @sapphire/framework discord.js@latest discord-api-types@latest
 ```
 
 ## Usage
@@ -67,7 +67,7 @@ extension class.
 	// The URL that users should be redirected to after a successful authentication
     redirect: '',
 	// The scopes that should be given to the authentication
-    scopes: ['identify'],
+    scopes: [OAuth2Scopes.Identify],
 	// Transformers to transform the raw data from Discord to a different structure.
     transformers: []
   },

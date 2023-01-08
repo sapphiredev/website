@@ -23,7 +23,7 @@ In short: **Everything that is possible with [i18next] is also possible with [`@
 ## Installation
 
 ```bash npm2yarn2pnpm
-npm install @sapphire/plugin-i18next @sapphire/framework discord.js@13.x
+npm install @sapphire/plugin-i18next @sapphire/framework discord.js@latest
 ```
 
 ## Usage
@@ -213,7 +213,7 @@ export class PingCommand extends Command {
     await interaction.reply(await resolveKey(interaction, 'ping:success'));
   }
 
-  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+  public override async contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
     await interaction.reply(await resolveKey(interaction, 'ping:success'));
   }
 }
@@ -256,7 +256,7 @@ export class PingCommand extends Command {
     // ===> en-US
   }
 
-  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+  public override async contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
     const languageCodeForCurrentGuild = await fetchLanguage(interaction);
     // ===> en-US
   }
@@ -290,7 +290,7 @@ export class PingCommand extends Command {
     const translatedPingSuccess = tFunction('ping:success');
   }
 
-  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+  public override async contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
     const tFunction = await fetchT(interaction);
     const translatedPingSuccess = tFunction('ping:success');
   }
