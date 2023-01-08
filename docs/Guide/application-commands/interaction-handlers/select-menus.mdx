@@ -10,7 +10,7 @@ Here's a simple example that will echo the value the user selected back to them:
 
 ```typescript ts2esm2cjs
 import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
-import type { SelectMenuInteraction } from 'discord.js';
+import type { StringSelectMenuInteraction } from 'discord.js';
 
 export class MenuHandler extends InteractionHandler {
   public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
@@ -20,13 +20,13 @@ export class MenuHandler extends InteractionHandler {
     });
   }
 
-  public override parse(interaction: SelectMenuInteraction) {
+  public override parse(interaction: StringSelectMenuInteraction) {
     if (interaction.customId !== 'my-echo-select') return this.none();
 
     return this.some();
   }
 
-  public async run(interaction: SelectMenuInteraction) {
+  public async run(interaction: StringSelectMenuInteraction) {
     await interaction.reply({
       // Remember how we can have multiple values? Let's get the first one!
       content: `You selected: ${interaction.values[0]}`

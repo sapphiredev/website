@@ -49,7 +49,7 @@ the type specified in `.setType()`, this looks like:
 
 ```typescript ts2esm2cjs|{8,12-18}|{8,12-18}
 import { Command } from '@sapphire/framework';
-import { ApplicationCommandType } from 'discord-api-types/v9';
+import { ApplicationCommandType } from 'discord.js';
 
 export class SlashCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
@@ -67,7 +67,7 @@ export class SlashCommand extends Command {
     );
   }
 
-  public override contextMenuRun(interaction: Command.ContextMenuInteraction) {
+  public override contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
     // ...
   }
 }
@@ -93,7 +93,7 @@ Registering a User Context Menu is done in the same way, with the only differenc
 
 ```typescript ts2esm2cjs|{12-18}|{12-18}
 import { Command } from '@sapphire/framework';
-import { ApplicationCommandType } from 'discord-api-types/v9';
+import { ApplicationCommandType } from 'discord.js';
 
 export class SlashCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
@@ -111,7 +111,7 @@ export class SlashCommand extends Command {
     );
   }
 
-  public override contextMenuRun(interaction: Command.ContextMenuInteraction) {
+  public override contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
     // ...
   }
 }
@@ -132,8 +132,7 @@ Context Menu Command started above:
 
 ```typescript ts2esm2cjs|{21-38}|{21-38}
 import { Command } from '@sapphire/framework';
-import { ApplicationCommandType } from 'discord-api-types/v9';
-import { Formatters, GuildMember } from 'discord.js';
+import { ApplicationCommandType, userMention, GuildMember } from 'discord.js';
 
 export class SlashCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
@@ -151,7 +150,7 @@ export class SlashCommand extends Command {
     );
   }
 
-  public override async contextMenuRun(interaction: Command.ContextMenuInteraction) {
+  public override async contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
     // Use isUserContextMenu() to ensure this command was executed as a User Context Menu Command
     if (interaction.isUserContextMenu() && interaction.targetMember instanceof GuildMember) {
       await interaction.targetMember.ban({
@@ -159,7 +158,7 @@ export class SlashCommand extends Command {
         reason: 'Banned for for breaking the rules.'
       });
 
-      const userToGreetMention = Formatters.userMention(interaction.targetMember.id);
+      const userToGreetMention = userMention(interaction.targetMember.id);
 
       return interaction.reply({
         content: `${userToGreetMention} has been successfully banned`,
