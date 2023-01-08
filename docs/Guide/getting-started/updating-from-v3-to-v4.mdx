@@ -11,18 +11,18 @@ for the bulk of the breaking changes we want to refer you to [Updating from v13 
 
 ## Sapphire specific changes
 
-Sapphire has a few breaking changes that are not related to DiscordJS. These are:
+Sapphire has a few changes that are not related to DiscordJS. These are not necessarily breaking changes but should be
+noted nonetheless.
 
 - The [`Identifiers`][Identifiers] enum was changed from `const enum` to [`enum`][enum].
 - The [`CommandOptionsRunTypeEnum`][CommandOptionsRunTypeEnum] enum was changed from `const enum` to [`enum`][enum].
 - The [`CommandPreConditions`][CommandPreConditions] enum was changed from `const enum` to [`enum`][enum].
 - The [`InteractionHandlerTypes`][InteractionHandlerTypes] enum was changed from `const enum` to [`enum`][enum].
-- The [`InternalRegistryAPIType`][InternalRegistryAPIType] enum was changed from `const enum` to [`enum`][enum].
 - The [`LogLevel`][LogLevel] enum was changed from `const enum` to [`enum`][enum].
 - The [`PreconditionRunMode`][PreconditionRunMode] enum was changed from `const enum` to [`enum`][enum].
-- The type [`Command.ChatInputInteraction`][ChatInputInteraction] enum was changed to
+- The type alias [`Command.ChatInputInteraction`][ChatInputInteraction] was changed to
   [`Command.ChatInputCommandInteraction`][ChatInputCommandInteraction].
-- The type [`Command.ContextMenuInteraction`][ContextMenuInteraction] enum was changed to
+- The type alias [`Command.ContextMenuInteraction`][ContextMenuInteraction] was changed to
   [`Command.ContextMenuCommandInteraction`][ContextMenuCommandInteraction].
 - The `default_permission` option for Application Commands has been removed to match the removal on the discord.js and
   Discord API side.

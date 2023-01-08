@@ -15,7 +15,7 @@ to change those settings, and your website needs to interface with the bot for t
 ## Installation
 
 ```bash npm2yarn2pnpm
-npm install @sapphire/plugin-api @sapphire/framework discord.js@latest discord-api-types@latest
+npm install @sapphire/plugin-api @sapphire/framework discord.js@14.x discord-api-types@0.37.x
 ```
 
 ## Usage
@@ -54,6 +54,8 @@ either be located in your `new SapphireClient` constructor call, or `super` in y
 extension class.
 
 ```javascript
+const { OAuth2Scopes } = require('discord.js');
+
 {
   auth: {
 	// The application/client ID of your bot
