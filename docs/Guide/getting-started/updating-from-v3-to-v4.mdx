@@ -30,7 +30,7 @@ noted nonetheless.
 ## DiscordJS specific changes
 
 The new update on how intents are enabled requires you to have `GatewayIntentBits.MessageContent` as an intent if the
-bot uses message commands or requires `content`, `attachments`, `embeds` and `components` from messages, even if you 
+bot uses message commands or requires `content`, `attachments`, `embeds` and `components` from messages, even if you
 already have `GatewayIntentBits.GuildMessages` in your intents.
 
 [ChatInputCommandInteraction]: https://github.com/sapphiredev/framework/blob/main/src/lib/structures/Command.ts#L822
