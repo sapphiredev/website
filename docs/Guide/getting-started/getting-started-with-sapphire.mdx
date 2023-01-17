@@ -55,8 +55,9 @@ is available in [`SapphireClient`][sapphire]!
 
 ```typescript ts2esm2cjs|{3}|{3}
 import { SapphireClient } from '@sapphire/framework';
+import { GatewayIntentBits } from 'discord.js';
 
-const client = new SapphireClient({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
+const client = new SapphireClient({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
 client.login('your-token-goes-here');
 ```
