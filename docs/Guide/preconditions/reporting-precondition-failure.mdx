@@ -3,59 +3,165 @@ sidebar_position: 2
 title: Reporting precondition failure
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 When a precondition fails, it's usually important for the user to know why. For example, if they hit a cooldown or lack
 permissions, that should somehow be communicated. However, by default, nothing will happen if a precondition blocks a
 message.
 
-To change this, we'll need to create a `commandDenied` listener, which is triggered when a precondition fails. For more
+To change this, we'll need to create one or more of `chatInputCommandDenied`, `contexcontextMenuCommandDenied`, and/or
+`messageCommandDenied` listener, which is triggered when a precondition fails for the respective command type. For more
 information on how to create listeners, see the [`Creating Listeners`][listeners] section.
+
+:::info
+
+Going forward we will refer to various `commandDenied` listeners as `*CommandDenied`. Mentally fill out the name with
+whatever listener you are creating.
+
+:::
 
 :::caution
 
-The `commandDenied` event shouldn't be confused with the `commandError` event, which is triggered when a command throws
+The `*CommandDenied` event shouldn't be confused with the `commandError` event, which is triggered when a command throws
 an error.
 
 :::
 
-`commandDenied` supplies the following information: the [`UserError`][error] that was created from the precondition, and
-the [`CommandDeniedPayload`][payload], which includes necessary context.
+`*CommandDenied` receives the parameters:
 
-:::danger
+- The [`UserError`][error] that was created from the precondition
+- The payload ([MessageCommandDeniedPayload][payload-message], [ChatInputCommandDeniedPayload][payload-chatinput],
+  [ContextMenuCommandDeniedPayload][payload-contextmenu]), which includes necessary context.
 
-Clicking on [`CommandDeniedPayload`][payload] above will take you to an interface instead called
-`MessageCommandDeniedPayload`. This is because this documentation reflects the latest commit to the `main` branch of
-`@sapphire/framework` which is has a breaking change included that changed the name of the interface. For the purposes
-of this guide however, you can use `CommandDeniedPayload` as long as you are using the latest NPM published version of
-`@sapphire/framework`.
+Following are basic samples of all 3 variants of the `*CommandDenied` listener:
 
-:::
+<Tabs groupId="denied-listener-type">
+<TabItem value="message" label="Message Commands" default>
 
 ```typescript ts2esm2cjs|{4}|{5}
-import type { UserError, CommandDeniedPayload } from '@sapphire/framework';
-import { Listener } from '@sapphire/framework';
+import { Events, Listener, type MessageCommandDeniedPayload, type UserError } from '@sapphire/framework';
 
-export class CommandDeniedListener extends Listener {
-  public run(error: UserError, { message }: CommandDeniedPayload) {
+export class MessageCommandDenied extends Listener<typeof Events.MessageCommandDenied> {
+  public run(error: UserError, payload: MessageCommandDeniedPayload) {
     // ...
   }
 }
 ```
 
-The `message` property of the `error` parameter will include the error message, as the name suggests. In [Creating
-Preconditions][creating-preconditions], you can find that we defined this property within the `this.error()` method!
+</TabItem>
+
+<TabItem value="chat-input" label="Chat Input Commands" default>
+
+```typescript ts2esm2cjs|{4}|{5}
+import { Events, Listener, type ChatInputCommandDeniedPayload, type UserError } from '@sapphire/framework';
+
+export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputCommandDenied> {
+  public run(error: UserError, { interaction }: ChatInputCommandDeniedPayload) {
+    // ...
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="context-menu" label="Context Menu Commands" default>
+
+```typescript ts2esm2cjs|{4}|{5}
+import { Events, Listener, type ContextMenuCommandDeniedPayload, type UserError } from '@sapphire/framework';
+
+export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenuCommandDenied> {
+  public run(error: UserError, { interaction }: ContextMenuCommandDeniedPayload) {
+    // ...
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+Of particular note is the property `error.message`, which will have the error message that was provided by the failing
+precondition. In [Creating Preconditions][creating-preconditions], you can find that we defined this property within the
+`this.error()` method!
 
 There are many possibilities for what you can do with the error, but the simplest is to just send it directly to the
-user. That is what we'll do in this example:
+user. That is what we'll do in these example:
+
+<Tabs groupId="denied-listener-type">
+<TabItem value="message" label="Message Commands" default>
 
 ```typescript ts2esm2cjs|{5}|{5}
-import { Listener, UserError, CommandDeniedPayload } from '@sapphire/framework';
+import { Events, Listener, type MessageCommandDeniedPayload, type UserError } from '@sapphire/framework';
 
-export class CommandDeniedListener extends Listener {
-  public run(error: UserError, { message }: CommandDeniedPayload) {
+export class MessageCommandDenied extends Listener<typeof Events.MessageCommandDenied> {
+  public run(error: UserError, { message }: MessageCommandDeniedPayload) {
     return message.channel.send(error.message);
   }
 }
 ```
+
+</TabItem>
+
+<TabItem value="chat-input" label="Chat Input Commands" default>
+
+:::info
+
+Note that we check if the interaction has been deferred or replied to before replying, otherwise reply fail.
+
+:::
+
+```typescript ts2esm2cjs|{4}|{5}
+import { Events, Listener, type ChatInputCommandDeniedPayload, type UserError } from '@sapphire/framework';
+
+export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputCommandDenied> {
+  public run(error: UserError, { interaction }: ChatInputCommandDeniedPayload) {
+    if (interaction.deferred || interaction.replied) {
+      return interaction.editReply({
+        content: error.message
+      });
+    }
+
+    return interaction.reply({
+      content: error.message,
+      ephemeral: true
+    });
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="context-menu" label="Context Menu Commands" default>
+
+:::info
+
+Note that we check if the interaction has been deferred or replied to before replying, otherwise reply fail.
+
+:::
+
+```typescript ts2esm2cjs|{4}|{5}
+import { Events, Listener, type ContextMenuCommandDeniedPayload, type UserError } from '@sapphire/framework';
+
+export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenuCommandDenied> {
+  public run(error: UserError, { interaction }: ContextMenuCommandDeniedPayload) {
+    if (interaction.deferred || interaction.replied) {
+      return interaction.editReply({
+        content: error.message
+      });
+    }
+
+    return interaction.reply({
+      content: error.message,
+      ephemeral: true
+    });
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 ## Ignoring Precondition Failures
 
@@ -84,16 +190,73 @@ export class OwnerOnlyPrecondition extends Precondition {
 
 We can then check if this property exists on the error in our listener, and ignore the failure if we find it.
 
-```typescript ts2esm2cjs|{5}|{5}
-import { UserError, CommandDeniedPayload, Listener } from '@sapphire/framework';
+<Tabs groupId="denied-listener-type">
+<TabItem value="message" label="Message Commands" default>
 
-export class CommandDeniedListener extends Listener {
-  public run(error: UserError, { message }: CommandDeniedPayload) {
+```typescript ts2esm2cjs|{5}|{5}
+import { Events, Listener, type MessageCommandDeniedPayload, type UserError } from '@sapphire/framework';
+
+export class MessageCommandDenied extends Listener<typeof Events.MessageCommandDenied> {
+  public run(error: UserError, { message }: MessageCommandDeniedPayload) {
     if (Reflect.get(Object(error.context), 'silent')) return;
     return message.channel.send(error.message);
   }
 }
 ```
+
+</TabItem>
+
+<TabItem value="chat-input" label="Chat Input Commands" default>
+
+```typescript ts2esm2cjs|{4}|{5}
+import { Events, Listener, type ChatInputCommandDeniedPayload, type UserError } from '@sapphire/framework';
+
+export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputCommandDenied> {
+  public run(error: UserError, { interaction }: ChatInputCommandDeniedPayload) {
+    if (Reflect.get(Object(error.context), 'silent')) return;
+
+    if (interaction.deferred || interaction.replied) {
+      return interaction.editReply({
+        content: error.message
+      });
+    }
+
+    return interaction.reply({
+      content: error.message,
+      ephemeral: true
+    });
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="context-menu" label="Context Menu Commands" default>
+
+```typescript ts2esm2cjs|{4}|{5}
+import { Events, Listener, type ContextMenuCommandDeniedPayload, type UserError } from '@sapphire/framework';
+
+export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenuCommandDenied> {
+  public run(error: UserError, { interaction }: ContextMenuCommandDeniedPayload) {
+    if (Reflect.get(Object(error.context), 'silent')) return;
+
+    if (interaction.deferred || interaction.replied) {
+      return interaction.editReply({
+        content: error.message
+      });
+    }
+
+    return interaction.reply({
+      content: error.message,
+      ephemeral: true
+    });
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
 
 :::note
 
@@ -107,7 +270,9 @@ throw a TypeScript error for trying to read property `silent` of type `unknown`.
 
 [listeners]: ../listeners/creating-your-own-listeners
 [error]: ../../Documentation/api-framework/classes/UserError
-[payload]: ../../Documentation/api-framework/interfaces/MessageCommandDeniedPayload
+[payload-message]: ../../Documentation/api-framework/interfaces/MessageCommandDeniedPayload
+[payload-chatinput]: ../../Documentation/api-framework/interfaces/ChatInputCommandDeniedPayload
+[payload-contextmenu]: ../../Documentation/api-framework/interfaces/ContextMenuCommandDeniedPayload
 [context]: ../../Documentation/api-framework/classes/UserError#context
 [preconditionerror]: ../../Documentation/api-framework/classes/Precondition#error
 [creating-preconditions]: ./creating-your-own-preconditions
