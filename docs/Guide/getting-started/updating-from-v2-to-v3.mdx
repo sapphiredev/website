@@ -306,7 +306,7 @@ For instance, for `GuildSticker[Create/Delete/Update]`, you have the `GuildStick
 - CommandDoesNotHaveMessageCommandHandler (`commandDoesNotHaveMessageCommandHandler`) - emitted when a command exists
   but is not set up to handle message commands.
 - CommandApplicationCommandRegistryError (`commandApplicationCommandRegistryError`) - emitted when a command cannot
-  register its commands in the [`ApplicationCommandRegistry`][applicationcommandregistry].
+  register its commands in the [`ApplicationCommandRegistry`][acr].
 - InteractionHandlerParseError (`interactionHandlerParseError`) - emitted when an interaction handler's `parse` method
   throws an error.
 - InteractionHandlerError (`interactionHandlerError`) - emitted when an interaction handler's `run` method throws an
@@ -342,10 +342,9 @@ uppercase `P` represents the [`Events`][events] object name)
 [`ipreconditioncontainer`]: ../../Documentation/api-framework/interfaces/IPreconditionContainer
 [`preconditioncontainerarray`]: ../../Documentation/api-framework/classes/PreconditionContainerArray
 [`preconditioncontainersingle`]: ../../Documentation/api-framework/classes/PreconditionContainerSingle
-[acr]: ../application-commands/application-command-registry/what-is-it.mdx
+[acr]: ../commands/application-commands/application-command-registry/what-is-it
 [allflowsprecondition]: ../../Documentation/api-framework/classes/AllFlowsPrecondition
-[applicationcommandregistry]: ../application-commands/application-command-registry/what-is-it.mdx
-[autocomplete]: ../application-commands/interaction-handlers/autocomplete.mdx
+[autocomplete]: ../interaction-handlers/autocomplete
 [chat-input-parallel]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#chatinputparallel
 [chat-input-sequential]: ../../Documentation/api-framework/interfaces/IPreconditionCondition#chatinputsequential
 [command-acr]: ../../Documentation/api-framework/classes/Command#applicationcommandregistry
@@ -367,7 +366,7 @@ uppercase `P` represents the [`Events`][events] object name)
 [precondition-chat-input-run]: ../../Documentation/api-framework/classes/Precondition#chatinputrun
 [precondition-context-menu-run]: ../../Documentation/api-framework/classes/Precondition#contextmenurun
 [precondition-message-run]: ../../Documentation/api-framework/classes/Precondition#messagerun
-[rcic-idhints]: ../application-commands/application-command-registry/registering-chat-input-commands#idhints
+[rcic-idhints]: ../commands/application-commands/application-command-registry/registering-chat-input-commands#idhints
 [supportsautocompleteinteractions]: ../../Documentation/api-framework/classes/Command#supportsautocompleteinteractions
 [supportschatinputcommands]: ../../Documentation/api-framework/classes/Command#supportschatinputcommands
 [supportscontextmenucommands]: ../../Documentation/api-framework/classes/Command#supportscontextmenucommands

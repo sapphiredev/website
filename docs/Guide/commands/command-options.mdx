@@ -1,0 +1,198 @@
+---
+sidebar_position: 0
+title: Command Options
+---
+
+On this page we will cover the different options you can use when creating a [command]. For each option we will cover
+what it does, how to use it, and what the default value is. As a reminder, a [Command] extends a Piece and therefore
+inherits all of [Piece options][piece-options].
+
+:::note
+
+For a full list of available options, refer to the [CommandOptions] interface.
+
+:::
+
+Without further ado, lets go over all of the available options:
+
+## [`cooldownDelay`][cooldownDelay]
+
+The time in milliseconds for the cooldown entries to reset, if set to a non-zero value alongside
+[`cooldownLimit`][cooldownLimit], the `Cooldown` precondition will be added to the list.
+
+## [`cooldownFilteredUsers`][cooldownFilteredUsers]
+
+The users that are exempt from the Cooldown precondition. Use this to filter out someone like a bot owner
+
+## [`cooldownLimit`][cooldownLimit]
+
+The amount of entries the cooldown can have before filling up, if set to a non-zero value alongside
+[`cooldownDelay`][cooldownDelay], the `Cooldown` precondition will be added to the list.
+
+## [`cooldownScope`][cooldownScope]
+
+The scope of the cooldown entries. This has to use the enum [BucketScope]. This can be used to set the scope of the
+cooldown to for example the entire server, which will mean that a command cooldown applies to all members of that
+server.
+
+## [`description`][description]
+
+A basic summary about the command.
+
+## [`detailedDescription`][detailedDescription]
+
+Longer version of command's summary and how to use it. You can leverage this to more information about a command such as
+`usage`, `examples`, `extendedHelp`, etc. This can be useful for when writing a help command. If you would like to
+include these custom properties you will have to module augment the
+[`DetailedDescriptionCommandObject`][DetailedDescriptionCommandObject] interface:
+
+```typescript {2-6} showLineNumbers
+declare module '@sapphire/framework' {
+  export interface DetailedDescriptionCommandObject {
+    usage: string;
+    examples: string[];
+    extendedHelp: string;
+  }
+}
+```
+
+Every time you now provide the `detailedDescription` option, you will have to provide all of the properties defined in
+the module augmentation. You can then proceed to read these properties in your help command.
+
+## [`flags`][flags]
+
+The accepted flags. Flags are key-only identifiers that can be placed anywhere in the command. Two different types are
+accepted:
+
+- An array of strings, e.g. `['silent']`.
+- A boolean defining whether the strategy should accept all keys (`true`) or none at all (`false`).
+
+The default value of this option is `[]` (empty array)
+
+For more information, see the [Using Flags page][using-flags]
+
+## [`fullCategory`][fullCategory]
+
+:::caution
+
+By default this property will get resolved based on the path that the command file is in and in many cases you do not
+need to set this option. However, if for whatever reason you desire to customize the full category and not have it
+depend on the folder structure, then you can set it here.
+
+:::
+
+The full category for the command. Either an array of strings that denote every (sub)folder the command is in, or `null`
+if it could not be resolved automatically.
+
+## [`generateDashLessAliases`][generateDashLessAliases]
+
+Whether to add aliases for commands without dashes in them. For example if the command name is `foo-bar` and this option
+is set to true, then an alias of `foobar` will automatically be added.
+
+## [`generateUnderscoreLessAliases`][generateUnderscoreLessAliases]
+
+Whether to add aliases for commands without underscores in them. For example if the command name is `foo_bar` and this
+option is set to true, then an alias of `foobar` will automatically be added.
+
+## [`nsfw`][nsfw]
+
+Sets whether the command should be treated as NSFW. If set to true, the `NSFW` precondition will be added to the list.
+The `NSFW` precondition will throw an error if the command is ran in a non-NSFW channel.
+
+## [`options`][options]
+
+The accepted options. Options are key-value identifiers that can be placed anywhere in the command. Two different types
+are accepted:
+
+- An array of strings, e.g. [`silent`].
+- A boolean defining whether the strategy should accept all keys (`true`) or none at all (`false`).
+
+The default value of this option is `[]` (empty array)
+
+For more information, see the [Using Options page][using-options]
+
+## [`preconditions`][preconditions]
+
+The [`Preconditions`][preconditions] to be run, accepts an array of their names.
+
+## [`prefixes`][prefixes]
+
+The available prefixes for both `flags` and `options`.
+
+The default value is `['--', '-', '—']`.
+
+## [`quotes`][quotes]
+
+The quotes accepted by this command, pass `[]` to disable them.
+
+The default value is:
+
+```typescript
+[
+  ['"', '"'], // Double quotes
+  ['“', '”'], // Fancy quotes (on iOS)
+  ['「', '」'], // Corner brackets (CJK)
+  ['«', '»'] // French quotes (guillemets)
+];
+```
+
+## [`requiredClientPermissions`][requiredClientPermissions]
+
+The permissions the bot client requires to execute this command. Think for example if you're about to send an embed,
+then your bot needs the `EMBED_MESSAGES` permission. You can then add this option with the desired permission and
+Sapphire will ensure the command code doesn't error and instead you'll get a precondition rejection. You can use the
+[common-PermissionFlagsBits] enum to get the correct values.
+
+## [`requiredUserPermissions`][requiredUserPermissions]
+
+The permissions the user requires to execute this command. Think for example if you have a `ban` command, you'd only
+want people with Administrator to use that. You can then add this option with the desired permission and Sapphire will
+ensure the command code doesn't error and instead you'll get a precondition rejection. You can use the
+[common-PermissionFlagsBits] enum to get the correct values.
+
+## [`runIn`][runIn]
+
+The channel types in which this command can be ran.
+
+## [`separators`][separators]
+
+The separators for options (i.e. what separates the key from the value).
+
+The default values are `['=', ':']`. This allows for both `--key=value` and `--key:value` to be valid.
+
+## [`typing`][typing]
+
+If the `typing` option on your client is true, it can be overridden for a specific command using this property, set via
+its options. Otherwise, this property will be ignored.
+
+[piece-options]: ../../Documentation/api-pieces/interfaces/AliasPieceOptions
+[command]: ../../Documentation/api-framework/classes/Command
+[commandoptions]: ../../Documentation/api-framework/interfaces/CommandOptions
+[cooldowndelay]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldowndelay
+[cooldownFilteredUsers]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldownFilteredUsers
+[cooldownLimit]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldownLimit
+[cooldownScope]: ../../Documentation/api-framework/interfaces/CommandOptions#cooldownScope
+[description]: ../../Documentation/api-framework/interfaces/CommandOptions#description
+[detailedDescription]: ../../Documentation/api-framework/interfaces/CommandOptions#detailedDescription
+[flags]: ../../Documentation/api-framework/interfaces/CommandOptions#flags
+[fullCategory]: ../../Documentation/api-framework/interfaces/CommandOptions#fullCategory
+[generateDashLessAliases]: ../../Documentation/api-framework/interfaces/CommandOptions#generateDashLessAliases
+[generateUnderscoreLessAliases]:
+  ../../Documentation/api-framework/interfaces/CommandOptions#generateUnderscoreLessAliases
+[nsfw]: ../../Documentation/api-framework/interfaces/CommandOptions#nsfw
+[options]: ../../Documentation/api-framework/interfaces/CommandOptions#options
+[preconditions]: ../../Documentation/api-framework/interfaces/CommandOptions#preconditions
+[prefixes]: ../../Documentation/api-framework/interfaces/CommandOptions#prefixes
+[quotes]: ../../Documentation/api-framework/interfaces/CommandOptions#quotes
+[requiredClientPermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requiredClientPermissions
+[requiredUserPermissions]: ../../Documentation/api-framework/interfaces/CommandOptions#requiredUserPermissions
+[runIn]: ../../Documentation/api-framework/interfaces/CommandOptions#runIn
+[separators]: ../../Documentation/api-framework/interfaces/CommandOptions#separators
+[typing]: ../../Documentation/api-framework/interfaces/CommandOptions#typing
+[bucketscope]: ../../Documentation/api-framework/enums/BucketScope
+[DetailedDescriptionCommandObject]: ../../Documentation/api-framework/interfaces/DetailedDescriptionCommandObject
+[using-flags]: ../arguments/using-flags
+[using-options]: ../arguments/using-options
+[preconditions]: ../preconditions/what-are-preconditions
+[dapi-types-flag-bits]: https://discord-api-types.dev/api/discord-api-types-payloads/common#PermissionFlagsBits
+[common-PermissionFlagsBits]: https://discord-api-types.dev/api/discord-api-types-payloads/common#PermissionFlagsBits
