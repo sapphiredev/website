@@ -60,6 +60,7 @@ logging in with the `SapphireClient`. This way the database connection can be ac
 ```typescript ts2esm2cjs|{19,25,36}|{20,26,37,44-48}
 import { isGuildBasedChannel } from '@sapphire/discord.js-utilities';
 import { container, SapphireClient } from '@sapphire/framework';
+import { GatewayIntentBits } from 'discord.js';
 import type { Message } from 'discord.js';
 
 // First we extend SapphireClient
@@ -70,7 +71,7 @@ export class MyCustomClient extends SapphireClient {
       caseInsensitiveCommands: true,
       caseInsensitivePrefixes: true,
       defaultPrefix: '!',
-      intents: ['GUILDS', 'GUILD_MESSAGES'],
+      intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
       loadDefaultErrorListeners: false
     });
   }
