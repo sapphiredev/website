@@ -1,0 +1,58 @@
+---
+sidebar_position: 2
+title: Registering custom paths for a store
+---
+
+While Sapphire sets specific folder names for the stores, you may want to use different folder names. Sapphire enables
+you to have this level of customization, and we will cover how to achieve this on this page.
+
+For this guide we will use the store `interaction-handlers` as an example as it is one store name that even when we
+implemented it, we had a long open discussion with the community on how we would name this store. We switched between
+just `handlers` or `interactionHandlers`, to eventually `interaction-handlers`.
+
+Lets say we want Sapphire to also recognise the folder named `handlers`. To make sure Sapphire does this, we need to
+register the folder path for the store. The best way to do this is by first extending the [`SapphireClient`] and
+overloading the constructor:
+
+```typescript ts2esm2cjs|{3-7}|{4-8}
+import { SapphireClient } from '@sapphire/framework';
+import type { ClientOptions } from 'discord.js';
+
+export class MyOverloadedClient extends SapphireClient {
+  public constructor(options: ClientOptions) {
+    super(options);
+  }
+}
+```
+
+Next, we need to register the folder path for the store. We can do this by using the [`registerPath`] method of a
+[`Store`]. Here we use the [`getRootData`] method from `@sapphire/pieces` which is also the method that Sapphire uses
+internally to determine the base folder where the stores are (i.e. `dist` for TypeScript users, `src` for JavaScript
+users). We then use this the result of this [`getRootData`] function to join the root folder with the folder name
+`interaction`, which will handle the registering of the folder.
+
+```typescript ts2esm2cjs|{2,6,11}|{2,7,12}
+import { SapphireClient } from '@sapphire/framework';
+import { getRootData } from '@sapphire/pieces';
+import type { ClientOptions } from 'discord.js';
+import { join } from 'node:path';
+
+export class MyOverloadedClient extends SapphireClient {
+  private rootData = getRootData();
+
+  public constructor(options: ClientOptions) {
+    super(options);
+
+    this.stores.get('interaction-handlers').registerPath(join(this.rootData.root, 'interactions'));
+  }
+}
+```
+
+Once the `interactions` folder is registered this way, Sapphire will automatically also load [`InteractionHandler`]
+classes from this folder.
+
+[`getRootData`]: ../../Documentation/api-pieces/#getrootdata
+[`InteractionHandler`]: ../../Documentation/api-framework/classes/InteractionHandler
+[`registerPath`]: ../../Documentation/api-pieces/classes/Store#registerpath
+[`SapphireClient`]: ../../Documentation/api-framework/classes/SapphireClient
+[`Store`]: ../../Documentation/api-pieces/classes/Store
