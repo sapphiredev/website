@@ -1,0 +1,45 @@
+---
+title: Starting on a single cluster or shard
+sidebar_position: 10
+---
+
+Once your bot grows to a lot of servers, you will want to implement sharding, process clustering, or another form of
+scaling. When doing this you will notice that the API plugin will try to start on every shard, which will then cause a
+crash due to the port already being in use.
+
+To alleviate this issue you can configure the API plugin to not automatically start, which then allows you to start the
+API only 1 shard instead.
+
+To configure this, you will need to set the [`automaticallyConnect`] option to `false` within the `api` options in the
+[`ClientOptions`]:
+
+```typescript ts2esm2cjs|{5}|{5}
+import { SapphireClient } from '@sapphire/framework';
+
+const client = new SapphireClient({
+  api: {
+    automaticallyConnect: false
+  }
+});
+```
+
+Once you have done this, you can then start the API on a single shard by using the [`connect`] method on the initialised
+[`Server`]. For example, you can do this in your [`shardReady`] listener:
+
+```typescript ts2esm2cjs|{5-7}|{5-7}
+import { Events, Listener } from '@sapphire/framework';
+
+export class UserShardEvent extends Listener<typeof Events.ShardReady> {
+  public run(id: number, unavailableGuilds: Set<string> | undefined) {
+    if (id === 0) {
+      this.container.server.connect();
+    }
+  }
+}
+```
+
+[`automaticallyConnect`]: ../../../Documentation/api-plugins/interfaces/api_src.ServerOptions#automaticallyConnect
+[`ClientOptions`]: ../../../Documentation/api-framework/interfaces/SapphireClientOptions
+[`Server`]: ../../../Documentation/api-plugins/classes/api_src.Server
+[`connect`]: ../../../Documentation/api-plugins/classes/api_src.Server#connect
+[`shardReady`]: https://discord.js.org/#/docs/discord.js/main/class/Client?scrollTo=e-shardReady
