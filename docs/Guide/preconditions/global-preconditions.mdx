@@ -51,10 +51,8 @@ export class UserPrecondition extends AllFlowsPrecondition {
   }
 
   private async doBanlistCheck(guildId: string | null) {
-    // If the command is ran in a DM, return ok.
     if (guildId === null) return this.ok();
 
-    // Do a database query to check if the guild is banned. In this code snippet we use Prisma, but you can use any database library you want. We also use Result.fromAsync in combination with findFirstOrThrow to make checking if the guild was in the banlist or not easier.
     const isInBannedGuild = await Result.fromAsync(
       this.container.prisma.bannedGuilds.findFirstOrThrow({ where: { snowflake: BigInt(guildId) } })
     );
@@ -68,4 +66,18 @@ export class UserPrecondition extends AllFlowsPrecondition {
 }
 ```
 
+:::info A few notes about this code snippet
+
+- We use the [`AllFlowsPrecondition`] class, which is a special class that allows you to use the same precondition for
+  all flows. This is useful for global preconditions, as you want to use the same precondition for all flows.
+- If the command is executed in a DM, we return `this.ok()` to allow the command to run.
+- In this example we use [Prisma][prisma], but you can use any database library you want.
+- We use the [`Result`] class to make checking if the guild was in the banlist or not easier. This is not required, but
+  it is recommended.
+
+:::
+
 [`position`]: ../../Documentation/api-framework/interfaces/PreconditionOptions#position
+[`AllFlowsPrecondition`]: ../../Documentation/api-framework/classes/AllFlowsPrecondition
+[`Result`]: ../../Documentation/api-utilities/modules/result_src
+[prisma]: https://www.prisma.io/
