@@ -1,0 +1,71 @@
+---
+sidebar_position: 7
+title: Global preconditions
+---
+
+Sometimes you want a precondition that automatically runs for every command, without having to add it to each command.
+This is where global preconditions come in.
+
+Creating a global precondition is very similar to creating a normal precondition. The only difference is that you need
+to add the [`position`] option to the options of the particular precondition. The position determines the priority at
+which a global precondition is ran. A lower position means it runs before those with a higher position, and vice versa.
+
+:::info
+
+By default Sapphire ships with 1 single global precondition, the `Enabled` precondition, which checks if a piece is
+enabled through the optional `enabled?: boolean` option. This global precondition has a position of `10` to allow users
+to have global preconditions with a higher priority, however, we do not recommend you do this as piece enabled checks
+are recommended to be the first thing to check.
+
+:::
+
+Following is an example of a simple global precondition that checks if the command is used in a server that was added to
+an arbitrary banlist stored in a database. In this code snippet we set the [`position`] to value `20`, which means it
+will run _after_ the `Enabled` precondition.
+
+```typescript ts2esm2cjs|{7}|{7}
+import { AllFlowsPrecondition, Piece, Result } from '@sapphire/framework';
+import type { ChatInputCommandInteraction, ContextMenuCommandInteraction, Message } from 'discord.js';
+
+export class UserPrecondition extends AllFlowsPrecondition {
+  #message =
+    "Sorry but your server is banned from using this bot's commands. Contact the bot developer for more information.";
+
+  public constructor(context: Piece.Context, options: AllFlowsPrecondition.Options) {
+    super(context, {
+      ...options,
+      position: 20
+    });
+  }
+
+  public override chatInputRun(interaction: ChatInputCommandInteraction) {
+    return this.doBanlistCheck(interaction.guildId);
+  }
+
+  public override contextMenuRun(interaction: ContextMenuCommandInteraction) {
+    return this.doBanlistCheck(interaction.guildId);
+  }
+
+  public override messageRun(message: Message) {
+    return this.doBanlistCheck(message.guildId);
+  }
+
+  private async doBanlistCheck(guildId: string | null) {
+    // If the command is ran in a DM, return ok.
+    if (guildId === null) return this.ok();
+
+    // Do a database query to check if the guild is banned. In this code snippet we use Prisma, but you can use any database library you want. We also use Result.fromAsync in combination with findFirstOrThrow to make checking if the guild was in the banlist or not easier.
+    const isInBannedGuild = await Result.fromAsync(
+      this.container.prisma.bannedGuilds.findFirstOrThrow({ where: { snowflake: BigInt(guildId) } })
+    );
+
+    // SQL query failed, therefore no guild was found, therefore the guild is not banned.
+    if (isInBannedGuild.isErr()) return this.ok();
+
+    // Guild was found, therefore it is banned.
+    return this.error({ identifier: 'GuildNotInBanList', message: this.#message });
+  }
+}
+```
+
+[`position`]: ../../Documentation/api-framework/interfaces/PreconditionOptions#position
