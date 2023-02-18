@@ -130,7 +130,8 @@ const config = {
 					'./projects/plugins/packages/logger/src/index.ts',
 					'./projects/plugins/packages/pattern-commands/src/index.ts',
 					'./projects/plugins/packages/scheduled-tasks/src/index.ts',
-					'./projects/plugins/packages/subcommands/src/index.ts'
+					'./projects/plugins/packages/subcommands/src/index.ts',
+					'./projects/plugins/packages/utilities-store/src/index.ts'
 				],
 				tsconfig: './tsconfig.typedoc.json',
 				readme: 'none',

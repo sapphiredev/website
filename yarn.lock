@@ -3459,15 +3459,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:6.0.1":
-  version: 6.0.1
-  resolution: "@sapphire/discord.js-utilities@npm:6.0.1"
+"@sapphire/discord.js-utilities@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@sapphire/discord.js-utilities@npm:6.0.2"
   dependencies:
     "@sapphire/discord-utilities": ^3.0.0
     "@sapphire/duration": ^1.0.0
     "@sapphire/utilities": ^3.11.0
-    tslib: ^2.4.1
-  checksum: e5d95c97f10cf2b4ed249d2e553831522618cc18078a1dfbbf4d18d874b5b34a80930e172ab36fdd4b3099788f2a116fe44b2025d16ab14975a3201f6646e22e
+    tslib: ^2.5.0
+  checksum: 985b15b9d5f7bb2bed5e919ab7fc8a69dca9ef5baa3a44443b64558dce3303560027b0ed21a72ff849179e9181524316ffdfed6eb267020e3c10378b361c2f07
   languageName: node
   linkType: hard
 
@@ -3603,20 +3603,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/framework@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@sapphire/framework@npm:4.1.0"
+"@sapphire/framework@npm:^4.1.0, @sapphire/framework@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@sapphire/framework@npm:4.1.1"
   dependencies:
     "@discordjs/builders": ^1.4.0
     "@sapphire/discord-utilities": ^3.0.0
-    "@sapphire/discord.js-utilities": 6.0.1
+    "@sapphire/discord.js-utilities": 6.0.2
     "@sapphire/lexure": ^1.1.2
     "@sapphire/pieces": ^3.6.0
     "@sapphire/ratelimits": ^2.4.5
     "@sapphire/result": ^2.6.0
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/utilities": ^3.11.0
-  checksum: 3812018098c5a1fdba6468fecee5bbbd033c871214994e41dc8f241252933225e94479732eba7c8989a2a602cde88228cb5332175827a7fdd69f9b28c986afee
+  checksum: 40832cdd327bc5688535a647d3bda9c1ee9d1350c067805e9aa905c1d53a5916e66a29732cffb64ba17952385d3cd0342da239ebe20da9d2184623aa5c101178
   languageName: node
   linkType: hard
 
@@ -3624,14 +3624,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/framework@workspace:projects/framework"
   dependencies:
-    "@commitlint/cli": ^17.4.2
-    "@commitlint/config-conventional": ^17.4.2
+    "@commitlint/cli": ^17.4.4
+    "@commitlint/config-conventional": ^17.4.4
     "@discordjs/builders": ^1.4.0
     "@favware/cliff-jumper": ^1.10.0
     "@favware/npm-deprecate": ^1.0.7
     "@favware/rollup-type-bundler": ^2.0.0
     "@sapphire/discord-utilities": ^3.0.0
-    "@sapphire/discord.js-utilities": 6.0.1
+    "@sapphire/discord.js-utilities": 6.0.2
     "@sapphire/eslint-config": ^4.3.8
     "@sapphire/lexure": ^1.1.2
     "@sapphire/pieces": ^3.6.0
@@ -3641,11 +3641,11 @@ __metadata:
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/ts-config": ^3.3.4
     "@sapphire/utilities": ^3.11.0
-    "@types/node": ^18.13.0
+    "@types/node": ^18.14.0
     "@types/ws": ^8.5.4
-    "@typescript-eslint/eslint-plugin": ^5.51.0
-    "@typescript-eslint/parser": ^5.51.0
-    "@vitest/coverage-c8": ^0.28.4
+    "@typescript-eslint/eslint-plugin": ^5.52.0
+    "@typescript-eslint/parser": ^5.52.0
+    "@vitest/coverage-c8": ^0.28.5
     cz-conventional-changelog: ^3.3.0
     discord.js: ^14.7.1
     esbuild-plugin-file-path-extensions: ^1.0.0
@@ -3656,16 +3656,16 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     gen-esm-wrapper: ^1.1.3
     husky: ^8.0.3
-    lint-staged: ^13.1.1
+    lint-staged: ^13.1.2
     pinst: ^3.0.0
     prettier: ^2.8.4
     pretty-quick: ^3.1.3
-    tsup: ^6.6.0
+    tsup: 6.6.2
     typedoc: ^0.23.25
     typedoc-json-parser: ^7.1.0
     typescript: ^4.9.5
-    vite: ^4.1.1
-    vitest: ^0.28.4
+    vite: ^4.1.2
+    vitest: ^0.28.5
   languageName: unknown
   linkType: soft
 
@@ -3785,7 +3785,7 @@ __metadata:
     typedoc: ^0.23.25
     typedoc-json-parser: ^7.1.0
     typescript: ^4.9.5
-    undici: ^5.19.1
+    undici: ^5.20.0
   languageName: unknown
   linkType: soft
 
@@ -3901,9 +3901,9 @@ __metadata:
     "@favware/cliff-jumper": ^1.10.0
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.5.0
-    typedoc: ^0.23.24
+    typedoc: ^0.23.25
     typedoc-json-parser: ^7.1.0
-    typescript: ^4.9.4
+    typescript: ^4.9.5
   languageName: unknown
   linkType: soft
 
@@ -15373,7 +15373,7 @@ __metadata:
     "@favware/cliff-jumper": ^1.10.0
     "@favware/npm-deprecate": ^1.0.7
     "@sapphire/eslint-config": ^4.3.8
-    "@sapphire/framework": ^4.1.0
+    "@sapphire/framework": ^4.1.1
     "@sapphire/pieces": ^3.6.0
     "@sapphire/prettier-config": ^1.4.5
     "@sapphire/stopwatch": ^1.5.0
@@ -15396,7 +15396,7 @@ __metadata:
     prettier: ^2.8.4
     pretty-quick: ^3.1.3
     rimraf: ^4.1.2
-    turbo: ^1.8.0
+    turbo: ^1.8.1
     typescript: ^4.9.5
     vite: ^4.1.2
     vitest: ^0.28.5
@@ -17004,6 +17004,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsup@npm:6.6.2":
+  version: 6.6.2
+  resolution: "tsup@npm:6.6.2"
+  dependencies:
+    bundle-require: ^4.0.0
+    cac: ^6.7.12
+    chokidar: ^3.5.1
+    debug: ^4.3.1
+    esbuild: ^0.17.6
+    execa: ^5.0.0
+    globby: ^11.0.3
+    joycon: ^3.0.1
+    postcss-load-config: ^3.0.1
+    resolve-from: ^5.0.0
+    rollup: ^3.2.5
+    source-map: 0.8.0-beta.0
+    sucrase: ^3.20.3
+    tree-kill: ^1.2.2
+  peerDependencies:
+    "@swc/core": ^1
+    postcss: ^8.4.12
+    typescript: ^4.1.0
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    postcss:
+      optional: true
+    typescript:
+      optional: true
+  bin:
+    tsup: dist/cli-default.js
+    tsup-node: dist/cli-node.js
+  checksum: 80d52608f187d0cda8b8029acca52ed9da5f1152915f8e8b2c23efe1fb309a90229098005740596a6e30a91b3f270b39b3d81437d5a9b7b3d3e9ff8fc0aa98e6
+  languageName: node
+  linkType: hard
+
 "tsup@npm:^6.6.0, tsup@npm:^6.6.2":
   version: 6.6.3
   resolution: "tsup@npm:6.6.3"
@@ -17100,7 +17136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.7.4, turbo@npm:^1.8.0":
+"turbo@npm:^1.7.4, turbo@npm:^1.8.1":
   version: 1.8.1
   resolution: "turbo@npm:1.8.1"
   dependencies:
@@ -17363,12 +17399,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.13.0, undici@npm:^5.19.1":
-  version: 5.19.1
-  resolution: "undici@npm:5.19.1"
+"undici@npm:^5.13.0, undici@npm:^5.20.0":
+  version: 5.20.0
+  resolution: "undici@npm:5.20.0"
   dependencies:
     busboy: ^1.6.0
-  checksum: 57ee94ee74d944faa41dbcb2faf4e0c90069708d3aaae860185884e51376b5d457728352a8396d69a3c9cb752b62ff99a19a664c5aacb7ee61cc488af499a01c
+  checksum: 25412a785b2bd0b12f0bb0ec47ef00aa7a611ca0e570cb7af97cffe6a42e0d78e4b15190363a43771e9002defc3c6647c1b2d52201b3f64e2196819db4d150d3
   languageName: node
   linkType: hard
 
