@@ -55,12 +55,12 @@ import type { CommandInteraction, ContextMenuCommandInteraction, Message } from 
 
 export class OwnerOnlyPrecondition extends Precondition {
   public override async messageRun(message: Message) {
-    // for message command
+    // for Message Commands
     return this.checkOwner(message.author.id);
   }
 
   public override async chatInputRun(interaction: CommandInteraction) {
-    // for slash command
+    // for Slash Commands
     return this.checkOwner(interaction.user.id);
   }
 

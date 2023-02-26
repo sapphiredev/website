@@ -173,17 +173,33 @@ contain information about the context in which the error was thrown, and the val
 We can take advantage of this by adding `context: { silent: true }` to the [`this.error()`][preconditionerror] options.
 We'll use the `OwnerOnly` precondition we made in [Creating Preconditions][creating-preconditions] to demonstrate this.
 
-```typescript ts2esm2cjs|{9}|{9}
-import { Precondition, Message } from '@sapphire/framework';
+```typescript ts2esm2cjs|{24}|{25}
+import { Precondition } from '@sapphire/framework';
+import type { CommandInteraction, ContextMenuCommandInteraction, Message } from 'discord.js';
 
 export class OwnerOnlyPrecondition extends Precondition {
-  public run(message: Message) {
-    return message.author.id === 'YOUR_ID'
+  public override async messageRun(message: Message) {
+    // for Message Commands
+    return this.checkOwner(message.author.id);
+  }
+
+  public override async chatInputRun(interaction: CommandInteraction) {
+    // for Slash Commands
+    return this.checkOwner(interaction.user.id);
+  }
+
+  public override async contextMenuRun(interaction: ContextMenuCommandInteraction) {
+    // for Context Menu Commands
+    return this.checkOwner(interaction.user.id);
+  }
+
+  private async checkOwner(userId: string) {
+    return Config.bot.owners!.includes(userId)
       ? this.ok()
       : this.error({
-          message: 'Only the bot owner can use this command!'
+          message: 'Only the bot owner can use this command!',
           context: { silent: true }
-        })
+        });
   }
 }
 ```
