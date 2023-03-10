@@ -61,7 +61,7 @@ export class UserCommand extends Command {
     });
   }
 
-  messageRun(message: Message) {
+  public messageRun(message: Message) {
     const embed = new EmbedBuilder()
       .setURL('https://github.com/skyra-project/editable-commands')
       .setColor('#7586D8')
