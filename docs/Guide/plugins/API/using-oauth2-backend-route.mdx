@@ -1,7 +1,78 @@
 ---
 title: Using the built in Oauth2 route (backend)
 sidebar_position: 6
-draft: true
 ---
 
-## TODO
+If you want your bot to have a web dashboard, you will want to implement OAuth2 authentication. This is a way for users to log in to your bot's website using their Discord account. This is a very common feature in Discord bots, and is a great way to add a web dashboard to your bot.
+
+To implement this using Sapphire's built in OAuth2 feature, you will need to define OAuth2 information within the `api` options in the [`ClientOptions`]:
+
+```typescript ts2esm2cjs|{6-11}|{6-11}
+import { SapphireClient } from "@sapphire/framework";
+import type { OAuth2Scopes } from "discord.js";
+
+const client = new SapphireClient({
+  api: {
+    auth: {
+      id: "BOT_CLIENT_ID",
+      secret: "BOT_CLIENT_SECRET",
+      scopes: [OAuth2Scopes.Identify, OAuth2Scopes.Guilds],
+      cookie: "SAPPHIRE_AUTH",
+    },
+  },
+});
+```
+
+Once you have done this, we can create a test route in `routes/TestRoute.ts` to demonstrate how the [`auth`] property works.
+
+```typescript ts2esm2cjs|{17-20}|{17-20}
+import {
+  Route,
+  methods,
+  type ApiRequest,
+  type ApiResponse,
+} from "@sapphire/plugin-api";
+
+export class TestRoute extends Route {
+  public constructor(context: Route.Context, options: Route.Options) {
+    super(context, {
+      ...options,
+      route: "test",
+    });
+  }
+
+  public async [methods.GET](request: ApiRequest, response: ApiResponse) {
+    if (!request.auth) return response.unauthorized();
+
+    const data = await this.container.server.auth.fetchData(request.auth.token);
+    return response.json({ data });
+  }
+}
+```
+
+In the above code, `request.auth` is a property which will either contain [`AuthData`] or be null. This depends on the cookie stored in the client's browser, if the cookie is not there or invalid, then `request.auth` will be null.
+
+If the `request.auth` is not null and returns [`AuthData`], then we can use the `token` to obtain information from the Discord API depending on the scopes defined in our [`ClientOptions`] - in our case, we used the `identify` scope and the `guilds` scope, so we should receive [`LoginData`].
+
+:::warning
+
+If you are using localhost as your test environment, make sure you use `http://127.0.0.1` instead of `http://localhost` in your browser otherwise you may encounter problems with the cookie setting successfully.
+
+:::
+
+## Next steps
+
+Now that you have implemented OAuth2 authentication, you will need to create a front-end or use a client such as `Postman` to send the `code` query parameter to `http://your_domain/oauth/callback` to save the cookie to your browser and obtain your [`AuthData`].
+
+Your `code` query parameter is obtained from the Discord OAuth2 URL provided by your application. When obtaining this URL, make sure to add a redirect URI for `http://your_domain/oauth/callback`.
+
+Here is an example POST request using `axios` to swap the `code` for [`AuthData`] with your API.
+
+```typescript
+import axios from "axios";
+
+const authData = axios.post("http://your_domain/oauth/callback", {
+  code: "CODE_FROM_DISCORD",
+});
+console.log(authData.data);
+```
