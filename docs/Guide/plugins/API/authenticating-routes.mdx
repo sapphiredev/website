@@ -1,7 +1,55 @@
 ---
 title: Locking routes behind authentication
 sidebar_position: 9
-draft: true
 ---
 
-## TODO
+When writing an API that is publicly available for consumption, it is often desirable to lock some routes behind them
+requiring authentication. For example routes that would interact with your database. On this page we will guide you to
+write your own authentication system that integrates with Sapphire.
+
+Because authentication with the built-in OAUTH2 system always adds a [`request.auth`][request-auth] property it is
+actually quite easy to ensure a request is authenticated before processing it any further! The following code will check
+if [`request.auth.token`][request-auth-token] is defined or not. When it is not, we exit out of the function with a
+`401 Unauthorized` response.
+
+```typescript ts2esm2cjs|{6,8}|{6,8}
+import { HttpCodes, methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { isNullishOrEmpty } from '@sapphire/utilities';
+
+export class MyRoute extends Route {
+  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+    if (isNullishOrEmpty(request.auth?.token)) return response.error(HttpCodes.Unauthorized);
+  }
+}
+```
+
+An alternative way to implement this that is currently only possible for TypeScript users is by writing a decorator that
+does the check. This allows your code to be a bit cleaner, as you can remove the `if` statement and instead provide the
+decorator. A decorator that does the authentication check can look like:
+
+```typescript ts2esm2cjs|{{4-8}}|{{4-8}}
+import { createFunctionPrecondition } from '@sapphire/decorators';
+import { ApiRequest, ApiResponse, HttpCodes } from '@sapphire/plugin-api';
+
+export const authenticated = () =>
+  createFunctionPrecondition(
+    (request: ApiRequest) => Boolean(request.auth?.token),
+    (_request: ApiRequest, response: ApiResponse) => response.error(HttpCodes.Unauthorized)
+  );
+```
+
+You can then use the decorator on your route like so:
+
+```typescript {4} showLineNumbers
+import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+
+export class MyRoute extends Route {
+  @authenticated()
+  public [methods.POST](request: ApiRequest, response: ApiResponse) {
+    // Implementation
+  }
+}
+```
+
+[request-auth]: ../../../Documentation/api-plugins/classes/api_src.ApiRequest#auth
+[request-auth-token]: ../../../Documentation/api-plugins/interfaces/api_src.AuthData#token
