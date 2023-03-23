@@ -1,0 +1,211 @@
+---
+title: Refreshing OAUTH2 tokens and Discord data
+sidebar_position: 6
+---
+
+Now that you have implemented OAUTH2 on the backend and frontend you will experience that after some time the token
+expires. This is because the token is only valid for 7 days (`604800` seconds to be precise). To prevent the user from
+having to re-authenticate you can implement an automatic refresh system. This is also something you will likely want to
+implement anyway and offer as a "resync" button to the user in case they, for example, join a new server and want to
+setup your bot in that server so you need their latest [`LoginData`].
+
+:::caution
+
+On this page we are **not** guarding this route have rate limiting, however we very strongly recommend adding this kind
+of guard to the route so it cannot be spammed. You can read up on how to do this in the dedicated page [Applying rate
+limits to routes][rate-limiting].
+
+:::
+
+## Implementing the refresh route
+
+The first step is to add a new route, more information for adding routes can be found in the [Adding
+routes][adding-routes] page. For the rest of this guide we will assume the route is `/oauth/refresh` as path. Lets start
+by writing the basics:
+
+```typescript ts2esm2cjs|{4-6}|{4-6}
+import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+
+export class RefreshRoute extends Route {
+  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+    // implementation
+  }
+}
+```
+
+The first step in this route is to ensure that the route is called when the user is at least authenticated, regardless
+of whether their token is still valid or not. We can do so by checking the presence of [`request.auth`][request-auth].
+
+In this part of the code we also extract some nested variables into local variables so we can reference them easier
+later.
+
+```typescript ts2esm2cjs|{5-10}|{5-10}
+import { HttpCodes, methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+
+export class RefreshRoute extends Route {
+  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+    if (!request.auth) return response.error(HttpCodes.Unauthorized);
+
+    const requestAuth = request.auth;
+    const serverAuth = this.container.server.auth!;
+
+    let authToken = requestAuth.token;
+  }
+}
+```
+
+:::tip
+
+If you use an authenticated decorator on this route, you can remove the `if (!request.auth)` check and use
+`const requestAuth = request.auth!` instead.
+
+:::
+
+:::info Note regarding TypeScript example
+
+For the TypeScript example we are using the `!` operator on [`this.container.server.auth`][server-auth] to tell
+TypeScript that we are sure that the property exists. We can safely do this because we provided the OAUTH2 information
+in [Using the built in OAUTH2 route (backend)][oauth2-backend]
+
+:::
+
+Now that we have the authentication token we should check if it will soon expire. As the token is valid for 7 days
+(`604800` seconds), we check if it will expire within a day (`86400` seconds). If it will expire in a day we will
+refresh the token, and add the new token as a cookie to the response:
+
+```typescript ts2esm2cjs|{16-30,33-59}|{16-30,33-59}
+import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { HttpCodes, methods, MimeTypes, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { Time } from '@sapphire/time-utilities';
+import { OAuth2Routes, type RESTPostOAuth2AccessTokenResult } from 'discord.js';
+import { stringify } from 'node:querystring';
+
+export class RefreshRoute extends Route {
+  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+    if (!request.auth) return response.error(HttpCodes.Unauthorized);
+
+    const requestAuth = request.auth;
+    const serverAuth = this.container.server.auth!;
+
+    let authToken = requestAuth.token;
+
+    // If the token expires in a day, refresh
+    if (Date.now() + Time.Day >= requestAuth.expires) {
+      const body = await this.refreshToken(requestAuth.id, requestAuth.refresh);
+      if (body !== null) {
+        const authentication = serverAuth.encrypt({
+          id: requestAuth.id,
+          token: body.access_token,
+          refresh: body.refresh_token,
+          expires: Date.now() + body.expires_in * 1000
+        });
+
+        response.cookies.add(serverAuth.cookie, authentication, { maxAge: body.expires_in });
+        authToken = body.access_token;
+      }
+    }
+  }
+
+  private async refreshToken(id: string, refreshToken: string): Promise<RESTPostOAuth2AccessTokenResult | null> {
+    const { logger, server } = this.container;
+    try {
+      logger.debug(`Refreshing Token for ${id}`);
+      return await fetch<RESTPostOAuth2AccessTokenResult>(
+        OAuth2Routes.tokenURL,
+        {
+          method: 'POST',
+          body: stringify({
+            client_id: server.auth!.id,
+            client_secret: server.auth!.secret,
+            grant_type: 'refresh_token',
+            refresh_token: refreshToken,
+            redirect_uri: server.auth!.redirect,
+            scope: server.auth!.scopes
+          }),
+          headers: {
+            'Content-Type': MimeTypes.ApplicationFormUrlEncoded
+          }
+        },
+        FetchResultTypes.JSON
+      );
+    } catch (error) {
+      logger.fatal(error);
+      return null;
+    }
+  }
+}
+```
+
+There is quite a bit to take in here so lets go over it bit by bit. First of all, we check if the token will expire in
+day or less. We use the [`Time`][time-enum] enum here so easily get the amount of seconds that fit in a day. Next we
+call the `refreshToken` method. This method is responsible for making the request to Discord to refresh the token. We
+use the [`fetch`][fetch-method] method from the [`@sapphire/fetch`][fetch-package] package to make the request. We also
+use the [`stringify`][stringify-method] method from the [`node:querystring`][querystring-module] package to convert the
+body to a querystring. The [`fetch`][fetch-method] method returns a [`Promise`][promise] so we can use [`await`][await]
+to wait for the response. If the response is successful we return the body, otherwise we return `null`.
+
+Now back in the main function we have the body with the refreshed token, or `null`. If the body is `null` then we simply
+do nothing, otherwise we need to process the body further. First we encrypt the new token, then we add it to the
+response as a cookie. We also set the `authToken` variable to the new token so we can use it in the next step.
+
+## Refreshing the user's data
+
+The last step that we want to add to this route is to refresh the user's data. Note that you could skip the refreshing
+of the token here for this, however refreshing of data will fail with an expired token and you need to provide a way to
+refresh the token anyway which is why we do it all on this route. If you prefer to do these steps on a separate route
+then you can do so and you'll need to handle invalid responses yourself.
+
+To refresh the user's data you can call the [`auth.fetchData`] function. This will return the [`LoginData`], the same
+way it was returned when the user first logged in. You can then use this data to update the user's data in your
+frontend's storage.
+
+```typescript ts2esm2cjs|{18-24}|{18-24}
+import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { HttpCodes, methods, MimeTypes, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { Time } from '@sapphire/time-utilities';
+import { OAuth2Routes, type RESTPostOAuth2AccessTokenResult } from 'discord.js';
+import { stringify } from 'node:querystring';
+
+export class RefreshRoute extends Route {
+  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+    if (!request.auth) return response.error(HttpCodes.Unauthorized);
+
+    const requestAuth = request.auth;
+    const serverAuth = this.container.server.auth!;
+
+    let authToken = requestAuth.token;
+
+    // If the token expires in a day, refresh. Insert the code from the examples above here.
+
+    // Refresh the user's data
+    try {
+      return response.json(await serverAuth.fetchData(authToken));
+    } catch (error) {
+      this.container.logger.fatal(error);
+      return response.error(HttpCodes.InternalServerError);
+    }
+  }
+}
+```
+
+With the refreshed data fetched we return it as JSON response to the user. Because we also set the new cookie in the
+earlier code, the new token is also sent to the user and stored on the frontend side. Your frontend now knows all the
+latest data of the user, and can refresh the UI accordingly.
+
+Congratulations! You should now have a functioning dashboard that can refresh the user's data and token.
+
+[`LoginData`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData
+[oauth2-backend]: ./using-oauth2-backend-route
+[adding-routes]: ./adding-routes
+[rate-limiting]: ./rate-limiting
+[authenticating-routes]: ./authenticating-routes
+[`auth.fetchData`]: ../../../Documentation/api-plugins/classes/api_src.Auth#fetchdata
+[request-auth]: ../../../Documentation/api-plugins/classes/api_src.ApiRequest#auth
+[server-auth]: ../../../Documentation/api-plugins/classes/api_src.Server#auth
+[time-enum]: ../../../Documentation/api-utilities/enums/time_utilities_src.Time
+[fetch-method]: ../../../Documentation/api-utilities/modules/fetch_src#fetch
+[fetch-package]: https://www.npmjs.com/package/@sapphire/fetch
+[stringify-method]: https://nodejs.org/dist/lts/docs/api/querystring.html#querystringstringifyobj-sep-eq-options
+[querystring-module]: https://nodejs.org/dist/latest-v18.x/docs/api/querystring.html
+[promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[await]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
