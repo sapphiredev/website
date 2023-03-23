@@ -66,18 +66,17 @@ Discord API depending on the scopes defined in our [`ClientOptions`] - in our ca
 
 :::warning
 
-If you are using localhost as your test environment, make sure you use [`http://127.0.0.1`](http://127.0.0.1) instead of
-[`http://localhost`](`http://localhost`) in your browser otherwise you may encounter problems with the cookie setting
-successfully.
+If you are using localhost as your test environment, make sure you use http://127.0.0.1 instead of http://localhost in
+your browser otherwise you may encounter problems with the cookie setting successfully.
 
 :::
 
 ## Next steps
 
 Now that you have implemented OAuth2 authentication, you will need to create a front-end or use a client such as
-[`Postman`][postman] to send the `code` query parameter
-to[ `http://your_domain/oauth/callback`](http://your_domain/oauth/callback) to save the cookie to your browser and
-obtain your [`AuthData`].
+[`Postman`][postman] to send the `code` query parameter to
+[`http://your_domain/oauth/callback`](http://your_domain/oauth/callback) to save the cookie to your browser and obtain
+your [`AuthData`].
 
 The `code` query parameter is obtained from the Discord OAuth2 URL provided by your application. When obtaining this
 URL, make sure to add a redirect URI for [`http://your_domain/oauth/callback`](http://your_domain/oauth/callback).
