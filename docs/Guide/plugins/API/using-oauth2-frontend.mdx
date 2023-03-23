@@ -1,7 +1,117 @@
 ---
 title: Using the built in Oauth2 route (frontend)
 sidebar_position: 5
-draft: true
 ---
 
-## TODO
+:::warning
+
+As there are many different libraries for making web frontends these days we will only cover raw HTML and JavaScript on
+this page. You are responsible for translating this to your own frontend library of choice. Also take note that the data
+returned after [step 3](#step-3-and-4) will need to be stored in some kind of global state. There are many, many ways to
+do this and we will not cover that here. Refer to the best practises of your frontend library for how to do this.
+
+:::
+
+There are a few steps that you need to authenticate a user:
+
+1. You need to update the `OAuth2` page for your Discord app to include the redirect URL that the user will be sent back
+   to with the `code`. For example add `http://127.0.0.1:3000/oauth/authorize` to the list of redirect URLs.
+2. You need to provide a link or button that when clicked redirects the user to the OAUTH2 authorization URL.
+3. Once the user returns to your website you need to exchange the code for an access token.
+4. Once you have the access token and user data you need to store that somewhere in the current session.
+
+## Step 1
+
+Go to your Discord developer portal and to your application and add the redirect URL to the OAUTH2 page. Ideally you
+first do this for your testing bot, and eventually for your production bot, where you set your production URL.
+
+:::caution
+
+For the remainder of this guide we will use `http://127.0.0.1:3000` as the redirect URL. Your production URL will depend
+on whatever your website URL is.
+
+:::
+
+## Step 2
+
+Next up we need to provide the link for authorization. The link can be build up with the following code:
+
+```typescript ts2esm2cjs
+const DiscordOauthURL = `https://discord.com/oauth2/authorize`;
+
+export const oauthURL = new URL(DiscordOauthURL);
+oauthURL.search = new URLSearchParams([
+  ['redirect_uri', 'http://127.0.0.1:3000/oauth/authorize'],
+  ['response_type', 'code'],
+  ['scope', ['identify'].join(' ')],
+  ['client_id', '1234567890']
+]).toString();
+```
+
+Replace the value for `client_id` with the client ID of your Discord app. This is listed on the Discord developer portal
+on the OAUTH2 page. The `redirect_url` should be the URL on your frontend that the user is sent back to when they
+authorize with Discord successfully.
+
+If you want to request additional scopes, you can add them to the `scope`, for example you add `'guilds'` to the array
+of scopes so you get the user's list of guilds. Make sure you also update the OAUTH2 scopes on your backend to match.
+
+Finally add this link to your frontend somewhere, for example in a button or a link. The most basic implementation of
+this would be:
+
+```html {5-16,20} showLineNumbers
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const DiscordOauthURL = `https://discord.com/oauth2/authorize`;
+      const oauthURL = new URL(DiscordOauthURL);
+      oauthURL.search = new URLSearchParams([
+        ['redirect_uri', 'http://127.0.0.1:3000/oauth/authorize'],
+        ['response_type', 'code'],
+        ['scope', ['identify'].join(' ')],
+        ['client_id', '1234567890']
+      ]).toString();
+
+      function redirect() {
+        window.location.replace(oauthUrl);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="redirect()">Login</button>
+  </body>
+</html>
+```
+
+## Step 3 and 4
+
+Once the user returns on your authorization URL (i.e. `http://127.0.0.1:3000/oauth/authorize`) you need to exchange the
+`code` for an access token. This is done by taking the code from the search params, and sending it to the backend.
+
+```typescript ts2esm2cjs|{2-10}|{4-12}
+import type { LoginData } from '@sapphire/plugin-api';
+
+async function exchangeCodeForAccessToken() {
+  const codeSearchParam = new URL(window.location.href).searchParams.get('code');
+
+  // Call the backend to exchange the code for an access token.
+  const response = await fetch(`/oauth/callback`, {
+    method: 'POST',
+    body: JSON.stringify({
+      code: codeSearchParam
+    })
+  });
+
+  const data = (await response.json()) as Promise<LoginData>;
+
+  // Now store data somewhere so you can access it later.
+  localStorage.setItem('discord-data', JSON.stringify(data));
+
+  // Lastly, send the user back to the home page or similar:
+  window.location.replace('/');
+}
+```
+
+Now the user will be authenticated and you will have received the user's data. You can now use this data as you wish in
+your frontend. There is one last step to implement however and that is being able to refresh the token. For that, go to
+the next page.
