@@ -46,36 +46,13 @@ the [`LoginData`] from the Discord API. The specific data we get back depends on
 [`ClientOptions`] - in our case, we used the `identify` and the `guilds` scope, so we'll get both [`LoginData.user`] and
 [`LoginData.guilds`].
 
-## Next steps
-
-Now that you have implemented OAUTH2 authentication, you will need to create a front-end to send the `code` query
-parameter to [`http://your_domain/oauth/callback`](http://your_domain/oauth/callback) to save the cookie to your browser
-and obtain your [`AuthData`].
-
-The `code` query parameter is obtained from the Discord OAUTH2 URL provided by your application. When obtaining this
-URL, make sure to add a redirect URI for [`http://your_domain/oauth/callback`](http://your_domain/oauth/callback).
-
-Here is an example POST request to swap the `code` for [`AuthData`] with your API.
-
-```typescript
-const response = await fetch('http://your_domain/oauth/callback', {
-  method: 'POST',
-  body: JSON.stringify({
-    code: 'CODE_FROM_DISCORD'
-  })
-});
-
-const authData = await response.json();
-
-console.log(authData);
-```
+The next step is to implement the frontend part of the OAUTH2 process. This is covered on the next page.
 
 [discord-dev-oauth2scopes]: https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes
 [oauth2-identify]: https://discord-api-types.dev/api/discord-api-types-v10/enum/OAuth2Scopes#Identify
 [oauth2-guilds]: https://discord-api-types.dev/api/discord-api-types-v10/enum/OAuth2Scopes#Guilds
 [`ClientOptions`]: ../../../Documentation/api-framework/interfaces/SapphireClientOptions
 [`auth`]: ../../../Documentation/api-plugins/classes/api_src.ApiRequest#auth
-[`AuthData`]: ../../../Documentation/api-plugins/interfaces/api_src.AuthData
 [`LoginData`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData
 [`LoginData.user`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData#user
 [`LoginData.guilds`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData#guilds
