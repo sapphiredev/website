@@ -1,7 +1,58 @@
 ---
 title: Using data transformers
 sidebar_position: 6
-draft: true
 ---
 
-## TODO
+Sometimes you may want to add additional data from your bot to the [`LoginData`] response from [Using the built in
+OAUTH2 route (backend)][oauth2-backend] and [Refreshing OAUTH2 tokens and Discord data][oauth2-refresh]. This can be
+done by using a data transformer. On this page we will guide to writing and specifying your data transformer. Note that
+you can provide multiple data transformers if you want to separate concerns, each transformer is called in sequence and
+receives the data of the preceding transformer (or the base [`LoginData`] if it is the first). Each transformer should
+also return an object that satisfies interface of [`LoginData`].
+
+Lets say we want to add a property that tells us if the bot is in the specific guild, we can add the following
+transformer:
+
+```typescript ts2esm2cjs|{6-13}|{5-7,12-19}
+import { container } from '@sapphire/framework';
+import type { LoginData } from '@sapphire/plugin-api';
+import type { RESTAPIPartialCurrentUserGuild } from 'discord.js';
+
+interface TransformedLoginData extends LoginData {
+  transformedGuilds?: (RESTAPIPartialCurrentUserGuild & { botIsInGuild: boolean })[] | null;
+}
+
+export function transformOauthGuilds(loginData: LoginData): TransformedLoginData {
+  const { client } = container;
+
+  const transformedGuilds = loginData.guilds?.map((guild) => {
+    const cachedGuild = client.guilds.cache.get(guild.id);
+
+    return {
+      ...guild,
+      botIsInGuild: typeof cachedGuild !== 'undefined'
+    };
+  });
+
+  return { ...loginData, transformedGuilds };
+}
+```
+
+We now specify to the API plugin that we want to use this transformer:
+
+```typescript ts2esm2cjs|{7}|{7}
+import { SapphireClient } from '@sapphire/framework';
+
+const client = new SapphireClient({
+  api: {
+    auth: {
+      // The other options
+      transformers: [transformOauthGuilds]
+    }
+  }
+});
+```
+
+[oauth2-backend]: ./using-oauth2-backend-route
+[oauth2-refresh]: ./oauth2-refresh-token
+[`LoginData`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData
