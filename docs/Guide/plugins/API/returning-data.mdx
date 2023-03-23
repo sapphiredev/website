@@ -1,7 +1,93 @@
 ---
-title: Returning Data
+title: Returning Data and errors
 sidebar_position: 2
-draft: true
 ---
 
-## TODO
+Sapphire offers a custom [`ApiResponse`] with useful methods for returning data. The following is a code example of how
+to return JSON data with a status of 200 (OK):
+
+```typescript ts2esm2cjs|{5-7}|{5-7}
+import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+
+export class MyRoute extends Route {
+  public [methods.GET](request: ApiRequest, response: ApiResponse) {
+    return response.json({
+      myBestFriend: 'Sapphire'
+    });
+  }
+}
+```
+
+The following methods are available on the [`ApiResponse`] class:
+
+- ## [`badRequest`]
+
+Sets the status code to 400 (Bad Request) and returns the given data. The structure of the response will be
+`{ error: data }` wherein `data` is whatever you provided to the function, or `Bad Request` if none was provided.
+
+- ## [`conflict`]
+
+Sets the status code to 409 (Conflict) and returns the given data. The structure of the response will be
+`{ error: data }` wherein `data` is whatever you provided to the function, or `Conflict` if none was provided.
+
+- ## [`created`]
+
+Sets the status code to 201 (Created) and returns the given data. The structure of the response will be `{ data }`. If
+the data is a string then content type will be set to `text/plain`, otherwise it will be set to `application/json`.
+
+- ## [`forbidden`]
+
+Sets the status code to 403 (Forbidden) and returns the given data. The structure of the response will be
+`{ error: data }` wherein `data` is whatever you provided to the function, or `Forbidden` if none was provided.
+
+- ## [`json`]
+
+Does not set any specific status code, which means it will be set to 200 (OK) automatically by NodeJS. The structure of
+the response will be `{ data }`. If the data is a string then content type will be set to `text/plain`, otherwise it
+will be set to `application/json`.
+
+- ## [`noContent`]
+
+Sets the status code to 204 (No Content) and returns the given data. The structure of the response will be `{ data }`.
+If the data is a string then content type will be set to `text/plain`, otherwise it will be set to `application/json`.
+
+- ## [`notFound`]
+
+Sets the status code to 404 (Not Found) and returns the given data. The structure of the response will be
+`{ error: data }` wherein `data` is whatever you provided to the function, or `Not Found` if none was provided.
+
+- ## [`ok`]
+
+Sets the status code to 200 (OK) and returns the given data. The structure of the response will be `{ data }`. If the
+data is a string then content type will be set to `text/plain`, otherwise it will be set to `application/json`.
+
+- ## [`status`]
+
+Sets a custom status code on the response, and returns the response entity for method chaining. You can use
+[`HttpCodes`] from the library to get a human-readable status code.
+
+- ## [`text`]
+
+Does not set any specific status code, which means it will be set to 200 (OK) automatically by NodeJS. The data to be
+sent is set with the content type `text/plain` and has to be a raw string. Use this when data should NOT be JSON
+serializable.
+
+- ## [`unauthorized`]
+
+Sets the status code to 401 (Unauthorized) and returns the given data. The structure of the response will be
+`{ error: data }` wherein `data` is whatever you provided to the function, or `Unauthorized` if none was provided.
+
+[`ApiResponse`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse
+[`badRequest`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#badrequest
+[`conflict`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#conflict
+[`created`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#created
+[`forbidden`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#forbidden
+[`HttpCodes`]: ../../../Documentation/api-plugins/enums/api_src.HttpCodes
+[`json`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#json
+[`noContent`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#nocontent
+[`notFound`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#notfound
+[`ok`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#ok
+[`respond`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#respond
+[`status`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#status
+[`text`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#text
+[`unauthorized`]: ../../../Documentation/api-plugins/classes/api_src.ApiResponse#unauthorized
