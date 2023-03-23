@@ -1,12 +1,19 @@
 ---
-title: Using the built in Oauth2 route (backend)
-sidebar_position: 6
+title: Using the built in OAUTH2 route (backend)
+sidebar_position: 4
 ---
 
-If you want your bot to have a web dashboard, you need to implement OAuth2 authentication. This is a way for users to
+:::warning
+
+If you are using localhost as your test environment, make sure you use http://127.0.0.1 instead of http://localhost in
+your browser otherwise you may encounter problems with the cookie setting successfully.
+
+:::
+
+If you want your bot to have a web dashboard, you need to implement OAUTH2 authentication. This is a way for users to
 log in to your bot's website using their Discord account.
 
-In order to implement this using Sapphire's built-in OAuth2 feature, you will need to define OAuth2 information within
+In order to implement this using Sapphire's built-in OAUTH2 feature, you will need to define OAUTH2 information within
 the `api` options in the [`ClientOptions`]:
 
 ```typescript ts2esm2cjs|{6-11}|{6-11}
@@ -27,58 +34,25 @@ const client = new SapphireClient({
 
 :::info
 
-In the code block above we specify the Oauth2 scopes that we want. The default of the plugin is only
+In the code block above we specify the OAUTH2 scopes that we want. The default of the plugin is only
 [`OAuth2Scopes.Identify`][oauth2-identify], which means that no guild data will be fetched. Because we are creating a
-settings web dashboard we do want guild data, therefore we add the [`Guilds`][oauth2-guilds] Oauth2 scope. For more
-information on Oauth2 scopes see [the discord developer documentation][discord-dev-oauth2scopes]
+settings web dashboard we do want guild data, therefore we add the [`Guilds`][oauth2-guilds] OAUTH2 scope. For more
+information on OAUTH2 scopes see [the discord developer documentation][discord-dev-oauth2scopes]
 
 :::
 
-Once you have done this, we can create a test route in `routes/TestRoute.ts` to demonstrate how the [`auth`] property
-works.
-
-```typescript ts2esm2cjs|{12-15}|{12-15}
-import { Route, methods, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
-
-export class TestRoute extends Route {
-  public constructor(context: Route.Context, options: Route.Options) {
-    super(context, {
-      ...options,
-      route: 'test'
-    });
-  }
-
-  public async [methods.GET](request: ApiRequest, response: ApiResponse) {
-    if (!request.auth) return response.unauthorized();
-
-    const data = await this.container.server.auth.fetchData(request.auth.token);
-    return response.json({ data });
-  }
-}
-```
-
-In the above code, `request.auth` is a property which will either contain [`AuthData`] or be null. This depends on the
-cookie stored in the client's browser, if the cookie is not there or is invalid, then `request.auth` will be null.
-
-If the `request.auth` is not null and returns [`AuthData`], then we can use the `token` to obtain information from the
-Discord API depending on the scopes defined in our [`ClientOptions`] - in our case, we used the `identify` scope and the
-`guilds` scope, so we should receive [`LoginData`].
-
-:::warning
-
-If you are using localhost as your test environment, make sure you use http://127.0.0.1 instead of http://localhost in
-your browser otherwise you may encounter problems with the cookie setting successfully.
-
-:::
+Once you have done this, we can leverage the built-in `/oauth/callback` route to handle the OAUTH2 callback and retrieve
+the [`LoginData`] from the Discord API. The specific data we get back depends on the scopes defined in our
+[`ClientOptions`] - in our case, we used the `identify` and the `guilds` scope, so we'll get both [`LoginData.user`] and
+[`LoginData.guilds`].
 
 ## Next steps
 
-Now that you have implemented OAuth2 authentication, you will need to create a front-end or use a client such as
-[`Postman`][postman] to send the `code` query parameter to
-[`http://your_domain/oauth/callback`](http://your_domain/oauth/callback) to save the cookie to your browser and obtain
-your [`AuthData`].
+Now that you have implemented OAUTH2 authentication, you will need to create a front-end to send the `code` query
+parameter to [`http://your_domain/oauth/callback`](http://your_domain/oauth/callback) to save the cookie to your browser
+and obtain your [`AuthData`].
 
-The `code` query parameter is obtained from the Discord OAuth2 URL provided by your application. When obtaining this
+The `code` query parameter is obtained from the Discord OAUTH2 URL provided by your application. When obtaining this
 URL, make sure to add a redirect URI for [`http://your_domain/oauth/callback`](http://your_domain/oauth/callback).
 
 Here is an example POST request to swap the `code` for [`AuthData`] with your API.
@@ -93,14 +67,15 @@ const response = await fetch('http://your_domain/oauth/callback', {
 
 const authData = await response.json();
 
-console.log(authData.data);
+console.log(authData);
 ```
 
 [discord-dev-oauth2scopes]: https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes
 [oauth2-identify]: https://discord-api-types.dev/api/discord-api-types-v10/enum/OAuth2Scopes#Identify
 [oauth2-guilds]: https://discord-api-types.dev/api/discord-api-types-v10/enum/OAuth2Scopes#Guilds
-[postman]: https://postman.com/
 [`ClientOptions`]: ../../../Documentation/api-framework/interfaces/SapphireClientOptions
 [`auth`]: ../../../Documentation/api-plugins/classes/api_src.ApiRequest#auth
 [`AuthData`]: ../../../Documentation/api-plugins/interfaces/api_src.AuthData
 [`LoginData`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData
+[`LoginData.user`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData#user
+[`LoginData.guilds`]: ../../../Documentation/api-plugins/interfaces/api_src.LoginData#guilds
