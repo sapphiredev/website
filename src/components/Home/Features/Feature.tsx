@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { FC, memo } from 'react';
+import React, { memo, type FC } from 'react';
 import styles from './Feature.module.css';
 import type { FeatureItem } from './Types';
 

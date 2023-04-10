@@ -1,6 +1,6 @@
-import { ExternalLinkIcon } from '@heroicons/react/outline';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import styles from '@site/src/components/Docs/Link.module.css';
-import React, { FC, ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 
 interface Props {
 	linkName: string;
@@ -12,7 +12,7 @@ const OptionalPackageLink: FC<Props> = ({ description, href, linkName }) => (
 	<span className={styles.block}>
 		<a href={href} className={styles.link}>
 			<strong>{linkName}</strong>
-			<ExternalLinkIcon className={styles.linkIcon} />
+			<ArrowTopRightOnSquareIcon className={styles.linkIcon} />
 		</a>
 		{description}
 	</span>

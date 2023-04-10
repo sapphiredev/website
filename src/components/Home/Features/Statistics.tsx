@@ -1,6 +1,6 @@
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { formatNumber } from '@site/src/utils/Intl';
-import React, { FC, memo } from 'react';
+import React, { memo, type FC } from 'react';
 import useSWR from 'swr';
 import styles from './Statistics.module.css';
 import type { ContributorsData, NpmData, RepoData } from './Types';

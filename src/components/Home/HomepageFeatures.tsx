@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import Link from '@docusaurus/Link';
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import Feature from './Features/Feature';
 import StatisticsFeature from './Features/StatisticsFeature';
 import type { FeatureItem } from './Features/Types';

@@ -1,5 +1,5 @@
 import Head from '@docusaurus/Head';
-import React, { FC, memo } from 'react';
+import React, { memo, type FC } from 'react';
 
 const HeadTags: FC = () => {
 	return (
