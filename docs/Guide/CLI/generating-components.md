@@ -26,3 +26,7 @@ sapphire generate messagecommand HelloWorld
 - `listener`
 - `argument`
 - `precondition`
+- `autocompleteinteractionhandler`
+- `buttoninteractionhandler`
+- `selectmenuinteractionhandler`
+- `route`
