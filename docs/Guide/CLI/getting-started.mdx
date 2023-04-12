@@ -267,8 +267,8 @@ sapphire init
 ? Where do you store your arguments? (do not include the base) » arguments
 ```
 
-And lastly please specify in which folder you store your preconditions, without including the base as specified before.
-This will default to `preconditions`.
+Then we need to know in which folder you store your preconditions, without including the base as specified before. This
+will default to `preconditions`.
 
 ```bash {8}
 sapphire init
@@ -281,10 +281,41 @@ sapphire init
 ? Where do you store your preconditions? (do not include the base) » preconditions
 ```
 
+And lastly please specify in which folder you store your interaction-handlers, without including the base as specified
+before. This will default to `interaction-handlers`.
+
+```bash {9}
+sapphire init
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+√ Where do you store your commands? (do not include the base) ... commands
+√ Where do you store your listeners? (do not include the base) ... listeners
+√ Where do you store your arguments? (do not include the base) ... arguments
+√ Where do you store your preconditions? (do not include the base) » preconditions
+? Where do you store your interaction-handlers? (do not include the base) » interaction-handlers
+```
+
+The next to last step is to choose if you use the api plugin, type `y` and enter if you use it or go use it. If you
+don't use it or aren't going to use it, just enter.
+
+```bash {10}
+sapphire init
+√ What format do you want your config file to be in? » YAML
+√ Choose the language used in your project » TypeScript
+√ Your base directory ... src
+√ Where do you store your commands? (do not include the base) ... commands
+√ Where do you store your listeners? (do not include the base) ... listeners
+√ Where do you store your arguments? (do not include the base) ... arguments
+√ Where do you store your preconditions? (do not include the base) » preconditions
+√ Where do you store your interaction-handlers? (do not include the base) » interaction-handlers
+? Would you use the api plugin? » (y/N)
+```
+
 The last step is to choose if you want to enable custom file (piece) templates, type `y` and enter if you want to enable
 it. If you don't want to enable it, just enter.
 
-```bash {9}
+```bash {11}
 sapphire init
 √ What format do you want your config file to be in? » YAML
 √ Choose the language used in your project » TypeScript
