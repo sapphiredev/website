@@ -9,6 +9,10 @@ directory. In this document, we'll make a `ready` event listener.
 
 Your directory should now look something like this:
 
+<Tabs groupId="ts2esm2cjs">
+
+<TabItem value="javascript" label="JavaScript" default>
+
 ```bash {7-8}
 ├── node_modules
 ├── package.json
@@ -19,6 +23,37 @@ Your directory should now look something like this:
     └── listeners
         └── ready.js
 ```
+
+</TabItem>
+<TabItem value="esm" label="ESM">
+
+```bash {7-8}
+├── node_modules
+├── package.json
+└── src
+    ├── commands
+    │   └── ping.mjs
+    ├── index.mjs
+    └── listeners
+        └── ready.mjs
+```
+
+</TabItem>
+<TabItem value="typescript" label="TypeScript">
+
+```bash {7-8}
+├── node_modules
+├── package.json
+└── src
+    ├── commands
+    │   └── ping.ts
+    ├── index.ts
+    └── listeners
+        └── ready.ts
+```
+
+</TabItem>
+</Tabs>
 
 ## Creating a listener class
 
@@ -106,3 +141,4 @@ name them `guildMemberAddSendLog` and `guildMemberAddSendGreeting` respectively,
 
 [creating-commands]: ../getting-started/creating-a-basic-command
 [creating-preconditions]: ../preconditions/creating-your-own-preconditions
+[`Listener`]: ../../Documentation/api-framework/classes/Listener-1
