@@ -17,11 +17,11 @@ const HeadTags: FC = () => {
 			<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
 			<link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png" />
 			<link rel="icon" type="image/png" sizes="194x194" href="/icons/android-chrome-194x194.png" />
-			<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-			<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+			<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+			<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 			<link rel="manifest" href="/manifest.webmanifest" />
 			<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#23529B" />
-			<link rel="shortcut icon" href="/icons/favicon.ico" />
+			<link rel="shortcut icon" href="/favicon.ico" />
 			<link rel="apple-touch-startup-image" href="/icons/apple-startup.png" />
 		</Head>
 	);

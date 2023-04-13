@@ -17,7 +17,7 @@ const config = {
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
 	onDuplicateRoutes: 'warn',
-	favicon: 'img/favicon.ico',
+	favicon: 'favicon.ico',
 	tagline: Description,
 	organizationName: 'sapphiredev',
 	projectName: 'framework',
