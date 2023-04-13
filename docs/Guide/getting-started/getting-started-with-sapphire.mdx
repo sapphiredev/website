@@ -43,6 +43,31 @@ Here is an example of a package.json file:
 
 :::
 
+:::danger
+
+If you want to use message commands in your Sapphire bot, you have to make sure you meet the following prerequisites:
+
+1.  Enable the `Message Content Intent` under `Privileged Gateway Intents` on the [Discord Developer Portal][dev-portal]
+    for your application.
+2.  In your Sapphire client options, set the [`intents`] property to include the intents
+    [`GatewayIntentBits.GuildMessages`][guild_messages_intent], [`GatewayIntentBits.Guilds`][guilds_intent], and
+    [`GatewayIntentBits.MessageContent`][message_content_intent].
+3.  In your Sapphire client options set [`loadMessageCommandListeners`][loadMessageCommandListeners] to `true`.
+
+All in all your code should look something like this:
+
+```typescript ts2esm2cjs|{4-12}|{4-12}
+import { SapphireClient } from '@sapphire/framework';
+import { GatewayIntentBits } from 'discord.js';
+
+const client = new SapphireClient({
+  intents: [GatewayIntentBits.MessageContent, GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
+  loadMessageCommandListeners: true
+});
+```
+
+:::
+
 ## Creating an `index.js` file
 
 While it doesn't have to be called `index.js`, this file will be the main file for your bot (otherwise known as the
@@ -91,3 +116,11 @@ And that's it for your `index.js` file! In the end, your directory should look l
 [djs-client]: https://old.discordjs.dev/#/docs/discord.js/main/class/Client
 [baseuserdirectory]: ../../Documentation/api-framework/interfaces/SapphireClientOptions#baseuserdirectory
 [securing-your-token]: https://discordjs.guide/preparations/setting-up-a-bot-application.html#your-token
+[guild_messages_intent]: https://discord-api-types.dev/api/discord-api-types-v10/enum/GatewayIntentBits#GuildMessages
+[guilds_intent]: https://discord-api-types.dev/api/discord-api-types-v10/enum/GatewayIntentBits#Guilds
+[message_content_intent]: https://discord-api-types.dev/api/discord-api-types-v10/enum/GatewayIntentBits#MessageContent
+[`intents`]:
+  https://old.discordjs.dev/#/docs/discord.js/main/typedef/ClientOptions:~:text=use%20upon%20login-,intents,-IntentsResolvable
+[dev-portal]: https://discord.com/developers
+[loadMessageCommandListeners]:
+  ../../Documentation/api-framework/interfaces/SapphireClientOptions#loadmessagecommandlisteners

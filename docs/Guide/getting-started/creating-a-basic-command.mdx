@@ -74,10 +74,35 @@ Let's go over what is defined in the constructor in this code:
 - `aliases`: other ways users can call the command. You can have as many as you want!
 - `description`: some text that you can use to display when a "help" command is used.
 
-There are many other properties available, all of which can be seen in the [`CommandOptions`] interface, but will also
-be explained in upcoming sections.
+There are many other properties available, all of which can be seen in the [`CommandOptions`][commandoptions] interface,
+but will also be explained in upcoming sections.
 
 ## Creating the `messageRun` method
+
+:::danger
+
+If you want to use message commands in your Sapphire bot, you have to make sure you meet the following prerequisites:
+
+1.  Enable the `Message Content Intent` under `Privileged Gateway Intents` on the [Discord Developer Portal][dev-portal]
+    for your application.
+2.  In your Sapphire client options, set the [`intents`] property to include the intents
+    [`GatewayIntentBits.GuildMessages`][guild_messages_intent], [`GatewayIntentBits.Guilds`][guilds_intent], and
+    [`GatewayIntentBits.MessageContent`][message_content_intent].
+3.  In your Sapphire client options set [`loadMessageCommandListeners`][loadMessageCommandListeners] to `true`.
+
+All in all your code should look something like this:
+
+```typescript ts2esm2cjs|{4-12}|{4-12}
+import { SapphireClient } from '@sapphire/framework';
+import { GatewayIntentBits } from 'discord.js';
+
+const client = new SapphireClient({
+  intents: [GatewayIntentBits.MessageContent, GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
+  loadMessageCommandListeners: true
+});
+```
+
+:::
 
 Commands have a `messageRun` method, which executes the command logic when it is invoked from a message. Define this
 below the command's constructor:
@@ -150,3 +175,11 @@ For handling subcommands, please refer to the [Sapphire Plugin Subcommands][saph
 [load-message-commands-option]:
   ../../Documentation/api-framework/interfaces/SapphireClientOptions#loadmessagecommandlisteners
 [saph-plug-subcom]: ../plugins/Subcommands/getting-started
+[guild_messages_intent]: https://discord-api-types.dev/api/discord-api-types-v10/enum/GatewayIntentBits#GuildMessages
+[guilds_intent]: https://discord-api-types.dev/api/discord-api-types-v10/enum/GatewayIntentBits#Guilds
+[message_content_intent]: https://discord-api-types.dev/api/discord-api-types-v10/enum/GatewayIntentBits#MessageContent
+[`intents`]:
+  https://old.discordjs.dev/#/docs/discord.js/main/typedef/ClientOptions:~:text=use%20upon%20login-,intents,-IntentsResolvable
+[dev-portal]: https://discord.com/developers
+[loadMessageCommandListeners]:
+  ../../Documentation/api-framework/interfaces/SapphireClientOptions#loadmessagecommandlisteners
