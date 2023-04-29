@@ -26,11 +26,24 @@ const client = new SapphireClient({
       id: 'BOT_CLIENT_ID',
       secret: 'BOT_CLIENT_SECRET',
       scopes: [OAuth2Scopes.Identify, OAuth2Scopes.Guilds],
-      cookie: 'SAPPHIRE_AUTH'
+      cookie: 'SAPPHIRE_AUTH',
+      domainOverwrite: '127.0.0.1'
     }
   }
 });
 ```
+
+:::caution
+
+The [`domainOverwrite`][domainOverwrite] option is only required for your local testing environment where you need to
+use the `127.0.0.1` domain as mentioned above. The reason for this is that while we attempt to resolve the domain for
+you, `127.0.0.1` as a fully qualify IPv4 address is unique in that as a domain it would resolve to `0.1`
+(`domain.top-level-domain` format).
+
+You should either remove it when deploying to production, or make it dynamic in some way (i.e. by using environment
+variables or a ternary if statement)
+
+:::
 
 :::info
 
@@ -56,3 +69,4 @@ The next step is to implement the frontend part of the OAUTH2 process. This is c
 [`LoginData`]: ../../../Documentation/api-plugins/interfaces/sapphire_plugin_api.LoginData
 [`LoginData.user`]: ../../../Documentation/api-plugins/interfaces/sapphire_plugin_api.LoginData#user
 [`LoginData.guilds`]: ../../../Documentation/api-plugins/interfaces/sapphire_plugin_api.LoginData#guilds
+[domainOverwrite]: ../../../Documentation/api-plugins/interfaces/sapphire_plugin_api.ServerOptionsAuth#domainoverwrite
