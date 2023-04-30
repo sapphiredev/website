@@ -61,7 +61,7 @@ export class UserPrecondition extends AllFlowsPrecondition {
     if (isInBannedGuild.isErr()) return this.ok();
 
     // Guild was found, therefore it is banned.
-    return this.error({ identifier: 'GuildNotInBanList', message: this.#message });
+    return this.error({ identifier: 'GuildInBanList', message: this.#message });
   }
 }
 ```
