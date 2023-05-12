@@ -229,16 +229,16 @@ import { Events, Listener, type ChatInputCommandDeniedPayload, type UserError } 
 
 export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputCommandDenied> {
   public run(error: UserError, { interaction }: ChatInputCommandDeniedPayload) {
-    if (Reflect.get(Object(error.context), 'silent')) return;
+    const isSilent = Reflect.get(Object(error.context), 'silent');
 
     if (interaction.deferred || interaction.replied) {
       return interaction.editReply({
-        content: error.message
+        content: isSilent ? '\u200b' : error.message
       });
     }
 
     return interaction.reply({
-      content: error.message,
+      content: isSilent ? '\u200b' : error.message
       ephemeral: true
     });
   }
@@ -254,16 +254,16 @@ import { Events, Listener, type ContextMenuCommandDeniedPayload, type UserError 
 
 export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenuCommandDenied> {
   public run(error: UserError, { interaction }: ContextMenuCommandDeniedPayload) {
-    if (Reflect.get(Object(error.context), 'silent')) return;
+    const isSilent = Reflect.get(Object(error.context), 'silent');
 
     if (interaction.deferred || interaction.replied) {
       return interaction.editReply({
-        content: error.message
+        content: isSilent ? '\u200b' : error.message
       });
     }
 
     return interaction.reply({
-      content: error.message,
+      content: isSilent ? '\u200b' : error.message
       ephemeral: true
     });
   }
@@ -273,6 +273,13 @@ export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenu
 </TabItem>
 
 </Tabs>
+
+:::caution
+
+Keep in mind that every interaction requires a reply. If you don't provide it Discord will automatically reply the user
+saying `The application did not respond`
+
+:::
 
 :::note
 
