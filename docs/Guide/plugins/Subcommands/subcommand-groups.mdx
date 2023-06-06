@@ -86,7 +86,7 @@ export class UserCommand extends Subcommand {
     });
   }
 
-  registerApplicationCommands(registry: ChatInputCommand.Registry) {
+  registerApplicationCommands(registry: Subcommand.Registry) {
     registry.registerChatInputCommand((builder) =>
       builder
         .setName('vip')

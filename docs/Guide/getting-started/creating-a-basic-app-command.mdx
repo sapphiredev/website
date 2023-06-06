@@ -23,7 +23,7 @@ export class PingCommand extends Command {
     super(context, { ...options });
   }
 
-  public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
+  public override registerApplicationCommands(registry: Command.Registry) {
     registry.registerChatInputCommand((builder) =>
       builder.setName('ping').setDescription('Ping bot to see if it is alive')
     );
@@ -47,7 +47,7 @@ export class PingCommand extends Command {
     super(context, { ...options });
   }
 
-  public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
+  public override registerApplicationCommands(registry: Command.Registry) {
     registry.registerChatInputCommand((builder) =>
       builder.setName('ping').setDescription('Ping bot to see if it is alive')
     );
