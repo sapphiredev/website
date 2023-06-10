@@ -19,7 +19,7 @@ register a corresponding Message Context Menu Command with Discord:
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord.js';
 
-export class UserCommand extends Command {
+export class PingCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
     super(context, { ...options });
   }
@@ -42,7 +42,7 @@ the `contextMenuRun` method for the `Command` class.
 
 ```typescript ts2esm2cjs|{17-19}|{17-19}
 import { Command } from '@sapphire/framework';
-import type { Message } from 'discord.js';
+import { ApplicationCommandType } from 'discord.js';
 
 export class PingCommand extends Command {
   public constructor(context: Command.Context, options: Command.Options) {
