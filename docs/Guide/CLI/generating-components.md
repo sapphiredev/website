@@ -29,4 +29,5 @@ sapphire generate messagecommand HelloWorld
 - `autocompleteinteractionhandler`
 - `buttoninteractionhandler`
 - `selectmenuinteractionhandler`
+- `modalinteractionhandler`
 - `route`
