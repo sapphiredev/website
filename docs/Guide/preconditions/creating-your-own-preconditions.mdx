@@ -51,6 +51,7 @@ implemented all 3 methods.
 
 ```typescript ts2esm2cjs|{4-17}|{5-17}
 import { Precondition } from '@sapphire/framework';
+import { Config } from '#config'; 
 import type { CommandInteraction, ContextMenuCommandInteraction, Message } from 'discord.js';
 
 export class OwnerOnlyPrecondition extends Precondition {
