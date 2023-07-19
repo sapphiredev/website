@@ -52,7 +52,7 @@ implemented all 3 methods.
 ```typescript ts2esm2cjs|{5-17}|{6-17}
 import { Precondition } from '@sapphire/framework';
 import type { CommandInteraction, ContextMenuCommandInteraction, Message } from 'discord.js';
-import { Config } from '#config'; 
+import { Config } from '#config';
 
 export class OwnerOnlyPrecondition extends Precondition {
   public override async messageRun(message: Message) {
