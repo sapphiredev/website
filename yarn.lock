@@ -3008,22 +3008,22 @@ __metadata:
   linkType: hard
 
 "@favware/cliff-jumper@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@favware/cliff-jumper@npm:2.1.1"
+  version: 2.1.2
+  resolution: "@favware/cliff-jumper@npm:2.1.2"
   dependencies:
-    "@favware/conventional-changelog-angular": ^5.0.15
     "@sapphire/result": ^2.6.4
-    "@sapphire/utilities": 3.12.0
+    "@sapphire/utilities": 3.13.0
     colorette: ^2.0.20
-    commander: ^10.0.1
-    conventional-recommended-bump: ^7.0.1
-    git-cliff: ^1.2.0
+    commander: ^11.0.0
+    compare-func: ^2.0.0
+    conventional-recommended-bump: ^8.0.0
+    git-cliff: ~1.2.0
     js-yaml: ^4.1.0
-    semver: ^7.5.1
+    semver: ^7.5.4
   bin:
     cj: ./dist/cli.js
     cliff-jumper: ./dist/cli.js
-  checksum: 60f1f38ff5d66609054aee3f5bf477fe04783468aa45ce1b1b8c46efbed286fa0110fe81eaad4babe68c5483373931866c80fdf77db81cc0cbda24c8de339e71
+  checksum: 17921347e14067460b135e5ef6c8fc093d0aae878668436a8475745391c8c2c94280ead7433b10c7b8f75797e9f4d078363a0c5e5e3615ec8773cd6ab503a0c7
   languageName: node
   linkType: hard
 
@@ -3033,15 +3033,6 @@ __metadata:
   dependencies:
     colorette: "*"
   checksum: 839bfa3bd4480da4ce1c5cf34fe617769ed8c0298ceab440401d5849020d9cf95537a634c33e22f452390cd68034b818cf92c471e360cab0e68be45c954cd636
-  languageName: node
-  linkType: hard
-
-"@favware/conventional-changelog-angular@npm:^5.0.15":
-  version: 5.0.15
-  resolution: "@favware/conventional-changelog-angular@npm:5.0.15"
-  dependencies:
-    compare-func: ^2.0.0
-  checksum: 9ea3869f748831348b51aa6afbd4533ee3dbf94a2bd673b1cd8b7c6397a46b90b32f595b324b9074bd9608061046b456f7a97d06fba7abb8143bd8648a938870
   languageName: node
   linkType: hard
 
@@ -3108,13 +3099,13 @@ __metadata:
   linkType: hard
 
 "@humanwhocodes/config-array@npm:^0.11.10":
-  version: 0.11.10
-  resolution: "@humanwhocodes/config-array@npm:0.11.10"
+  version: 0.11.11
+  resolution: "@humanwhocodes/config-array@npm:0.11.11"
   dependencies:
     "@humanwhocodes/object-schema": ^1.2.1
     debug: ^4.1.1
     minimatch: ^3.0.5
-  checksum: 1b1302e2403d0e35bc43e66d67a2b36b0ad1119efc704b5faff68c41f791a052355b010fb2d27ef022670f550de24cd6d08d5ecf0821c16326b7dcd0ee5d5d8a
+  checksum: db84507375ab77b8ffdd24f498a5b49ad6b64391d30dd2ac56885501d03964d29637e05b1ed5aefa09d57ac667e28028bc22d2da872bfcd619652fbdb5f4ca19
   languageName: node
   linkType: hard
 
@@ -3604,12 +3595,12 @@ __metadata:
   resolution: "@sapphire/async-queue@workspace:projects/utilities/packages/async-queue"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3618,12 +3609,12 @@ __metadata:
   resolution: "@sapphire/bitfield@workspace:projects/utilities/packages/bitfield"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3642,12 +3633,12 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
     "@sapphire/utilities": "workspace:^"
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3670,22 +3661,22 @@ __metadata:
     "@sapphire/ratelimits": "workspace:^"
     "@sapphire/result": "workspace:^"
     "@sapphire/utilities": "workspace:^"
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tslib: ^2.6.2
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord-utilities@npm:^3.0.4, @sapphire/discord-utilities@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@sapphire/discord-utilities@npm:3.1.0"
+"@sapphire/discord-utilities@npm:^3.1.0, @sapphire/discord-utilities@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@sapphire/discord-utilities@npm:3.1.1"
   dependencies:
-    discord-api-types: ^0.37.51
-  checksum: a101c3c2a405ba81eae249c985aab3bbe90bfc4be8e34e44b806a064641a147289392026d52fed6fd8af2149f0674cc3b1fba94c2bf7754cb9b904883afa93cc
+    discord-api-types: ^0.37.55
+  checksum: 423c9cd541d2dbdbcaa18d7793ae40d557808c348d7fea1c6963b249bb647df3b99ac3fb24024820c8e84ae4300560d927cd7a3cefbf22fa0f0dfd49f5764ee8
   languageName: node
   linkType: hard
 
@@ -3694,25 +3685,25 @@ __metadata:
   resolution: "@sapphire/discord-utilities@workspace:projects/utilities/packages/discord-utilities"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     discord-api-types: ^0.37.55
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "@sapphire/discord.js-utilities@npm:7.0.1"
+"@sapphire/discord.js-utilities@npm:^7.0.1, @sapphire/discord.js-utilities@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "@sapphire/discord.js-utilities@npm:7.0.2"
   dependencies:
-    "@sapphire/discord-utilities": ^3.0.4
+    "@sapphire/discord-utilities": ^3.1.1
     "@sapphire/duration": ^1.1.0
     "@sapphire/utilities": ^3.13.0
-    tslib: ^2.6.0
-  checksum: cbc46da56b32071ba7fd4e2376de8ccf34860fe54aed124791f8eca6a7b73f00c11d659f79f08c2853e6de97b45776e6a58271a45af795f95a20978781a0549c
+    tslib: ^2.6.2
+  checksum: 55da08a85cb8113baa19f0b308df521495f9effa478c04b72dc41afa66dcbfff1250171113e7a64c4c847903d63a3de99cdcca467829f79be2f16ca66d0b2980
   languageName: node
   linkType: hard
 
@@ -3727,7 +3718,7 @@ __metadata:
     "@sapphire/utilities": "workspace:^"
     tslib: ^2.6.2
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
   languageName: unknown
@@ -3766,27 +3757,27 @@ __metadata:
   resolution: "@sapphire/duration@workspace:projects/utilities/packages/duration"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
-"@sapphire/eslint-config@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@sapphire/eslint-config@npm:5.0.1"
+"@sapphire/eslint-config@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@sapphire/eslint-config@npm:5.0.2"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^6.2.1
-    "@typescript-eslint/parser": ^6.2.1
-    eslint: ^8.46.0
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
-    prettier: ^3.0.1
-    typescript: ^5.1.6
-  checksum: 84da5e247838939609ab4214a002edbc05e4e0126b8b5105d6288266e520b3a7577f3fccc771b6fb24f3a72c655fcaf32af105b9b923c6b5fb1ed243c5087dd7
+    prettier: ^3.0.2
+    typescript: ^5.2.2
+  checksum: 34b4e2fc33cea2a589752702b605fed01c430992e4a6efaa5c1e55bee3c0f56415e8fc60e13757e78eac6d68f00fc026edcfd00c6531f2d2f939c8049ecb35f7
   languageName: node
   linkType: hard
 
@@ -3795,17 +3786,17 @@ __metadata:
   resolution: "@sapphire/eslint-config@workspace:projects/utilities/packages/eslint-config"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@typescript-eslint/eslint-plugin": ^6.4.1
-    "@typescript-eslint/parser": ^6.4.1
-    "@vitest/coverage-v8": ^0.34.2
-    eslint: ^8.47.0
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
+    "@vitest/coverage-v8": ^0.34.3
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     prettier: ^3.0.2
     tsup: ^7.2.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3815,15 +3806,15 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
     "@sapphire/result": "workspace:^"
-    "@typescript-eslint/rule-tester": ^6.4.1
-    "@typescript-eslint/typescript-estree": ^6.4.1
-    "@typescript-eslint/utils": ^6.4.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@typescript-eslint/rule-tester": ^6.5.0
+    "@typescript-eslint/typescript-estree": ^6.5.0
+    "@typescript-eslint/utils": ^6.5.0
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
     tsutils: ^3.21.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3832,13 +3823,13 @@ __metadata:
   resolution: "@sapphire/event-iterator@workspace:projects/utilities/packages/event-iterator"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tslib: ^2.6.2
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3856,13 +3847,13 @@ __metadata:
   resolution: "@sapphire/fetch@workspace:projects/utilities/packages/fetch"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     cross-fetch: ^4.0.0
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3893,27 +3884,27 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     "@favware/npm-deprecate": ^1.0.7
     "@favware/rollup-type-bundler": ^2.0.0
-    "@sapphire/discord-utilities": ^3.1.0
-    "@sapphire/discord.js-utilities": ^7.0.1
-    "@sapphire/eslint-config": ^5.0.1
+    "@sapphire/discord-utilities": ^3.1.1
+    "@sapphire/discord.js-utilities": ^7.0.2
+    "@sapphire/eslint-config": ^5.0.2
     "@sapphire/lexure": ^1.1.5
     "@sapphire/pieces": ^3.7.0
     "@sapphire/prettier-config": ^2.0.0
     "@sapphire/ratelimits": ^2.4.6
     "@sapphire/result": ^2.6.4
     "@sapphire/stopwatch": ^1.5.0
-    "@sapphire/ts-config": ^4.0.1
+    "@sapphire/ts-config": ^5.0.0
     "@sapphire/utilities": ^3.13.0
-    "@types/node": ^18.17.6
+    "@types/node": ^18.17.12
     "@types/ws": ^8.5.5
-    "@typescript-eslint/eslint-plugin": ^6.4.0
-    "@typescript-eslint/parser": ^6.4.0
-    "@vitest/coverage-v8": ^0.34.2
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
+    "@vitest/coverage-v8": ^0.34.3
     cz-conventional-changelog: ^3.3.0
     discord.js: ^14.13.0
     esbuild-plugin-file-path-extensions: ^1.0.0
     esbuild-plugin-version-injector: ^1.2.0
-    eslint: ^8.47.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-deprecation: ^1.5.0
     eslint-plugin-prettier: ^5.0.0
@@ -3923,11 +3914,11 @@ __metadata:
     pinst: ^3.0.0
     prettier: ^3.0.2
     tsup: 6.6.2
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
     vite: ^4.4.9
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3946,12 +3937,12 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
     "@sapphire/result": "workspace:^"
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3967,12 +3958,12 @@ __metadata:
   resolution: "@sapphire/node-utilities@workspace:projects/utilities/packages/node-utilities"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -3983,7 +3974,7 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     "@sapphire/fetch": "workspace:^"
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
   languageName: unknown
@@ -4010,26 +4001,26 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     "@favware/npm-deprecate": ^1.0.7
     "@favware/rollup-type-bundler": ^2.0.0
-    "@sapphire/eslint-config": ^5.0.1
+    "@sapphire/eslint-config": ^5.0.2
     "@sapphire/prettier-config": ^2.0.0
-    "@sapphire/ts-config": ^4.0.1
+    "@sapphire/ts-config": ^5.0.0
     "@sapphire/utilities": ^3.13.0
-    "@types/node": ^18.17.6
-    "@typescript-eslint/eslint-plugin": ^6.4.0
-    "@typescript-eslint/parser": ^6.4.0
+    "@types/node": ^18.17.12
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.47.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^8.0.3
-    lint-staged: ^14.0.0
+    lint-staged: ^14.0.1
     pinst: ^3.0.0
     prettier: ^3.0.2
     tslib: ^2.6.2
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4042,9 +4033,9 @@ __metadata:
     gen-esm-wrapper: ^1.1.3
     tldts: ^6.0.14
     tslib: ^2.6.2
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
     undici: ^5.23.0
   languageName: unknown
   linkType: soft
@@ -4056,9 +4047,9 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     "@skyra/editable-commands": ^3.0.1
     gen-esm-wrapper: ^1.1.3
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4069,9 +4060,9 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     chokidar: ^3.5.3
     gen-esm-wrapper: ^1.1.3
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4085,9 +4076,9 @@ __metadata:
     chokidar: ^3.5.3
     gen-esm-wrapper: ^1.1.3
     i18next: ^22.5.1
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4099,9 +4090,9 @@ __metadata:
     "@sapphire/timestamp": ^1.0.1
     colorette: ^2.0.20
     gen-esm-wrapper: ^1.1.3
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4111,9 +4102,9 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
     gen-esm-wrapper: ^1.1.3
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4127,9 +4118,9 @@ __metadata:
     bullmq: 3.15.8
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.6.2
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4141,9 +4132,9 @@ __metadata:
     "@sapphire/utilities": ^3.13.0
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.6.2
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4153,9 +4144,9 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
     gen-esm-wrapper: ^1.1.3
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4173,11 +4164,11 @@ __metadata:
   resolution: "@sapphire/prettier-config@workspace:projects/utilities/packages/prettier-config"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     prettier: ^3.0.2
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4193,12 +4184,12 @@ __metadata:
   resolution: "@sapphire/ratelimits@workspace:projects/utilities/packages/ratelimits"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4214,12 +4205,12 @@ __metadata:
   resolution: "@sapphire/result@workspace:projects/utilities/packages/result"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4241,34 +4232,34 @@ __metadata:
     "@commitlint/config-conventional": ^17.7.0
     "@favware/cliff-jumper": ^2.1.1
     "@favware/npm-deprecate": ^1.0.7
-    "@sapphire/eslint-config": ^5.0.1
+    "@sapphire/eslint-config": ^5.0.2
     "@sapphire/prettier-config": ^2.0.0
-    "@sapphire/ts-config": ^4.0.1
-    "@types/jsdom": ^21.1.1
+    "@sapphire/ts-config": ^5.0.0
+    "@types/jsdom": ^21.1.2
     "@types/lodash": ^4.14.197
-    "@types/node": ^18.17.6
-    "@typescript-eslint/eslint-plugin": ^6.4.0
-    "@typescript-eslint/parser": ^6.4.0
-    "@vitest/coverage-v8": ^0.34.2
+    "@types/node": ^18.17.12
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
+    "@vitest/coverage-v8": ^0.34.3
     cz-conventional-changelog: ^3.3.0
-    esbuild-plugins-node-modules-polyfill: ^1.4.0
-    eslint: ^8.47.0
+    esbuild-plugins-node-modules-polyfill: ^1.6.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     fast-deep-equal: ^3.1.3
     husky: ^8.0.3
     jsdom: ^22.1.0
-    lint-staged: ^14.0.0
+    lint-staged: ^14.0.1
     lodash: ^4.17.21
     pinst: ^3.0.0
     prettier: ^3.0.2
     ts-node: ^10.9.1
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
     vite: ^4.4.9
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4284,12 +4275,12 @@ __metadata:
   resolution: "@sapphire/snowflake@workspace:projects/utilities/packages/snowflake"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4308,14 +4299,14 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
     "@types/jsdom": ^21.1.2
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     jsdom: ^22.1.0
     tslib: ^2.6.2
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4329,7 +4320,7 @@ __metadata:
     "@sapphire/timer-manager": "workspace:^"
     "@sapphire/timestamp": "workspace:^"
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
   languageName: unknown
@@ -4347,12 +4338,12 @@ __metadata:
   resolution: "@sapphire/timer-manager@workspace:projects/utilities/packages/timer-manager"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4368,22 +4359,22 @@ __metadata:
   resolution: "@sapphire/timestamp@workspace:projects/utilities/packages/timestamp"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
-"@sapphire/ts-config@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@sapphire/ts-config@npm:4.0.1"
+"@sapphire/ts-config@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@sapphire/ts-config@npm:5.0.0"
   dependencies:
-    tslib: ^2.6.0
-    typescript: ^5.1.6
-  checksum: f8fae2d8c7cd85c254898cb9007681e35c8b093e1538f8ee7d1e2c22a5e2235b8e0f6e17fd37366dccc77a14762ad61e06382605347d4a49f8cf9a3f0a99b7d0
+    tslib: ^2.6.2
+    typescript: ^5.2.2
+  checksum: 5295e70762ec4e710c44d62c0706debb3d651d994b40c55586bfa93e7fae34c4f4f63d047b4fe3e66c4f545ad696485c904e79d2ed4e9ea45c89a0bf305ca945
   languageName: node
   linkType: hard
 
@@ -4394,11 +4385,11 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     "@sapphire/eslint-config": "workspace:^"
     "@sapphire/eslint-plugin-result": "workspace:^"
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     tslib: ^2.6.2
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4414,40 +4405,33 @@ __metadata:
     "@discordjs/node-pre-gyp": ^0.4.5
     "@favware/cliff-jumper": ^2.1.1
     "@favware/npm-deprecate": ^1.0.7
-    "@sapphire/eslint-config": ^5.0.1
+    "@sapphire/eslint-config": ^5.0.2
     "@sapphire/prettier-config": ^2.0.0
-    "@sapphire/ts-config": ^4.0.1
-    "@types/node": ^18.17.6
-    "@typescript-eslint/eslint-plugin": ^6.4.0
-    "@typescript-eslint/parser": ^6.4.0
-    "@vitest/coverage-v8": ^0.34.2
+    "@sapphire/ts-config": ^5.0.0
+    "@types/node": ^18.17.12
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
+    "@vitest/coverage-v8": ^0.34.3
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.47.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     gen-esm-wrapper: ^1.1.3
     husky: ^8.0.3
-    lint-staged: ^14.0.0
+    lint-staged: ^14.0.1
     nan: ^2.17.0
     prettier: ^3.0.2
     tslib: ^2.6.2
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
-    typescript: ^5.1.6
+    typescript: ^5.2.2
     vite: ^4.4.9
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
-"@sapphire/utilities@npm:3.12.0":
-  version: 3.12.0
-  resolution: "@sapphire/utilities@npm:3.12.0"
-  checksum: 002f15263f157fdbb0603c233a43a5660cd3b45a4f3fddaa9d7066d187eec23f473ee42c8d071b0e3dec4e22b08bed337fb7eb336a02b59743a78ebc8922004e
-  languageName: node
-  linkType: hard
-
-"@sapphire/utilities@npm:^3.11.0, @sapphire/utilities@npm:^3.13.0":
+"@sapphire/utilities@npm:3.13.0, @sapphire/utilities@npm:^3.11.0, @sapphire/utilities@npm:^3.13.0":
   version: 3.13.0
   resolution: "@sapphire/utilities@npm:3.13.0"
   checksum: c2f901c104459e01a24af71871294b700ff188925cf050558880486de6564792df2b7549796dd9fd6f309c12af7d4e2b2d2f4069ec9d4c27d9c3998eca3ac9a9
@@ -4459,13 +4443,13 @@ __metadata:
   resolution: "@sapphire/utilities@workspace:projects/utilities/packages/utilities"
   dependencies:
     "@favware/cliff-jumper": ^2.1.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@vitest/coverage-v8": ^0.34.3
     esbuild-plugin-file-path-extensions: ^1.0.0
     tsup: ^7.2.0
-    typedoc: ^0.24.8
+    typedoc: ^0.25.0
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -4940,7 +4924,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsdom@npm:^21.1.1, @types/jsdom@npm:^21.1.2":
+"@types/jsdom@npm:^21.1.2":
   version: 21.1.2
   resolution: "@types/jsdom@npm:21.1.2"
   dependencies:
@@ -5032,7 +5016,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.17.6, @types/node@npm:^18.17.8, @types/node@npm:^18.17.9":
+"@types/node@npm:^18.17.12":
   version: 18.17.12
   resolution: "@types/node@npm:18.17.12"
   checksum: 79f8bcca3067a3c529f30e172df8d14f25ab9e4cd6a05ed897a924ab1dec774e8ea172ef5c4a67ffec433d423a0c81778f17db22606d574bc83871b60aab298e
@@ -5122,7 +5106,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.20":
+"@types/react@npm:*, @types/react@npm:^18.2.21":
   version: 18.2.21
   resolution: "@types/react@npm:18.2.21"
   dependencies:
@@ -5266,7 +5250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.2.1, @typescript-eslint/eslint-plugin@npm:^6.4.0, @typescript-eslint/eslint-plugin@npm:^6.4.1":
+"@typescript-eslint/eslint-plugin@npm:^6.5.0":
   version: 6.5.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.5.0"
   dependencies:
@@ -5291,7 +5275,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.2.1, @typescript-eslint/parser@npm:^6.4.0, @typescript-eslint/parser@npm:^6.4.1":
+"@typescript-eslint/parser@npm:^6.5.0":
   version: 6.5.0
   resolution: "@typescript-eslint/parser@npm:6.5.0"
   dependencies:
@@ -5309,7 +5293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/rule-tester@npm:^6.4.1":
+"@typescript-eslint/rule-tester@npm:^6.5.0":
   version: 6.5.0
   resolution: "@typescript-eslint/rule-tester@npm:6.5.0"
   dependencies:
@@ -5394,7 +5378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:6.5.0, @typescript-eslint/typescript-estree@npm:^6.4.1":
+"@typescript-eslint/typescript-estree@npm:6.5.0, @typescript-eslint/typescript-estree@npm:^6.5.0":
   version: 6.5.0
   resolution: "@typescript-eslint/typescript-estree@npm:6.5.0"
   dependencies:
@@ -5412,7 +5396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:6.5.0, @typescript-eslint/utils@npm:^6.4.1":
+"@typescript-eslint/utils@npm:6.5.0, @typescript-eslint/utils@npm:^6.5.0":
   version: 6.5.0
   resolution: "@typescript-eslint/utils@npm:6.5.0"
   dependencies:
@@ -5467,7 +5451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-v8@npm:^0.34.2":
+"@vitest/coverage-v8@npm:^0.34.3":
   version: 0.34.3
   resolution: "@vitest/coverage-v8@npm:0.34.3"
   dependencies:
@@ -7202,13 +7186,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^10.0.1":
-  version: 10.0.1
-  resolution: "commander@npm:10.0.1"
-  checksum: 436901d64a818295803c1996cd856621a74f30b9f9e28a588e726b2b1670665bccd7c1a77007ebf328729f0139838a88a19265858a0fa7a8728c4656796db948
-  languageName: node
-  linkType: hard
-
 "commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -7420,10 +7397,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-preset-loader@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "conventional-changelog-preset-loader@npm:3.0.0"
-  checksum: 199c4730c5151f243d35c24585114900c2a7091eab5832cfeb49067a18a2b77d5c9a86b779e6e18b49278a1ff83c011c1d9bb6da95bd1f78d9e36d4d379216d5
+"conventional-changelog-preset-loader@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "conventional-changelog-preset-loader@npm:4.0.0"
+  checksum: 1f8859c0b8ccac8858af2913f4dd7c9b8412af98648a0de61b4449d4a331075b892653c649aa0ed82d2d72b6731c882b5627bd423525349bdff645c04b15d5f6
   languageName: node
   linkType: hard
 
@@ -7434,13 +7411,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-commits-filter@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "conventional-commits-filter@npm:3.0.0"
-  dependencies:
-    lodash.ismatch: ^4.4.0
-    modify-values: ^1.0.1
-  checksum: 73337f42acff7189e1dfca8d13c9448ce085ac1c09976cb33617cc909949621befb1640b1c6c30a1be4953a1be0deea9e93fa0dc86725b8be8e249a64fbb4632
+"conventional-commits-filter@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "conventional-commits-filter@npm:4.0.0"
+  checksum: 46d2d90531f024d596f61d353876276e5357adb5c4684e042467bb7d159feb0a2831b74656bd3038ac9ec38d99b0b24ac39f319ad511861e1299c4cdfb5a119a
   languageName: node
   linkType: hard
 
@@ -7458,20 +7432,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-recommended-bump@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "conventional-recommended-bump@npm:7.0.1"
+"conventional-commits-parser@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "conventional-commits-parser@npm:5.0.0"
+  dependencies:
+    JSONStream: ^1.3.5
+    is-text-path: ^2.0.0
+    meow: ^12.0.1
+    split2: ^4.0.0
+  bin:
+    conventional-commits-parser: cli.mjs
+  checksum: bb92a0bfe41802330d2d14ddb0f912fd65dd355f1aa294e708f4891aac95c580919a70580b9f26563c24c3335baaed2ce003104394a8fa5ba61eeb3889e45df0
+  languageName: node
+  linkType: hard
+
+"conventional-recommended-bump@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "conventional-recommended-bump@npm:8.0.0"
   dependencies:
     concat-stream: ^2.0.0
-    conventional-changelog-preset-loader: ^3.0.0
-    conventional-commits-filter: ^3.0.0
-    conventional-commits-parser: ^4.0.0
-    git-raw-commits: ^3.0.0
-    git-semver-tags: ^5.0.0
-    meow: ^8.1.2
+    conventional-changelog-preset-loader: ^4.0.0
+    conventional-commits-filter: ^4.0.0
+    conventional-commits-parser: ^5.0.0
+    git-raw-commits: ^4.0.0
+    git-semver-tags: ^6.0.0
+    meow: ^12.0.1
   bin:
-    conventional-recommended-bump: cli.js
-  checksum: e2d1f2f40f93612a6da035d0c1a12d70208e0da509a17a9c9296a05e73a6eca5d81fe8c6a7b45e973181fa7c876c6edb9a114a2d7da4f6df00c47c7684ab62d2
+    conventional-recommended-bump: cli.mjs
+  checksum: bc53495dc6aa9f5e93755a478857550ce8710eede11bffb03371e0b7baa392b0ec6a64927efeb9b0df30e2ede3af56c929a4bfb22191c7cc14e61f5306a97c63
   languageName: node
   linkType: hard
 
@@ -7902,6 +7890,13 @@ __metadata:
   version: 7.0.0
   resolution: "dargs@npm:7.0.0"
   checksum: b8f1e3cba59c42e1f13a114ad4848c3fc1cf7470f633ee9e9f1043762429bc97d91ae31b826fb135eefde203a3fdb20deb0c0a0222ac29d937b8046085d668d1
+  languageName: node
+  linkType: hard
+
+"dargs@npm:^8.0.0":
+  version: 8.1.0
+  resolution: "dargs@npm:8.1.0"
+  checksum: 33f1b8f5f08e72c8a28355a87c0e1a9b6a0fec99252ecd9cf4735e65dd5f2e19747c860251ed5747b38e7204c7915fd7a7146aee5aaef5882c69169aae8b1d09
   languageName: node
   linkType: hard
 
@@ -8700,16 +8695,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-plugins-node-modules-polyfill@npm:^1.4.0":
-  version: 1.6.0
-  resolution: "esbuild-plugins-node-modules-polyfill@npm:1.6.0"
+"esbuild-plugins-node-modules-polyfill@npm:^1.6.0":
+  version: 1.6.1
+  resolution: "esbuild-plugins-node-modules-polyfill@npm:1.6.1"
   dependencies:
     "@jspm/core": ^2.0.1
     local-pkg: ^0.4.3
     resolve.exports: ^2.0.2
   peerDependencies:
     esbuild: ^0.14.0 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0
-  checksum: 4ace1ac5a33011edc9df7fa1555e1508f533f4cb78a2bae08de78ed6d6d246aac2f34702791f2da1c9987c06b45441092ab21b87253a7cf26b89a52e27f654a6
+  checksum: 5275f6515084f0f10f004e16c8a2f07fa02a85707ce7fe27f23365865b9541b0225a0b526b9b5f931667ac19070b8764cab8d6d3672bce6ddb154d807a10f61b
   languageName: node
   linkType: hard
 
@@ -9084,7 +9079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.46.0, eslint@npm:^8.47.0":
+"eslint@npm:^8.48.0":
   version: 8.48.0
   resolution: "eslint@npm:8.48.0"
   dependencies:
@@ -9722,9 +9717,9 @@ __metadata:
   linkType: hard
 
 "fraction.js@npm:^4.2.0":
-  version: 4.2.1
-  resolution: "fraction.js@npm:4.2.1"
-  checksum: 94cc9844bf1e3071734fa70c7410cf26c09636a0e95f956f2f90d839bf516d60f07bac6f33fbe018dbdbba7bda360794c0232810900475295415a164c3c9cf78
+  version: 4.3.0
+  resolution: "fraction.js@npm:4.3.0"
+  checksum: 0bf61b96324cedc7af610e3f1c2790c6ee48c82ccb3b0f7800e53253fefb26cb89bc96dc0c0be01ff502c69c540d3f50c3b15c0b86fda60148820f70c2ef2a2e
   languageName: node
   linkType: hard
 
@@ -10007,7 +10002,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-cliff@npm:^1.2.0":
+"git-cliff@npm:~1.2.0":
   version: 1.2.0
   resolution: "git-cliff@npm:1.2.0"
   dependencies:
@@ -10051,28 +10046,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-raw-commits@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "git-raw-commits@npm:3.0.0"
+"git-raw-commits@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "git-raw-commits@npm:4.0.0"
   dependencies:
-    dargs: ^7.0.0
-    meow: ^8.1.2
-    split2: ^3.2.2
+    dargs: ^8.0.0
+    meow: ^12.0.1
+    split2: ^4.0.0
   bin:
-    git-raw-commits: cli.js
-  checksum: 198892f307829d22fc8ec1c9b4a63876a1fde847763857bb74bd1b04c6f6bc0d7464340c25d0f34fd0fb395759363aa1f8ce324357027320d80523bf234676ab
+    git-raw-commits: cli.mjs
+  checksum: 95546f4afcb33cf00ff638f7fec55ad61d4d927447737900e1f6fcbbdbb341b3f150908424cc62acb6d9faaea6f1e8f55d0697b899f0589af9d2733afb20abfb
   languageName: node
   linkType: hard
 
-"git-semver-tags@npm:^5.0.0":
-  version: 5.0.1
-  resolution: "git-semver-tags@npm:5.0.1"
+"git-semver-tags@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "git-semver-tags@npm:6.0.0"
   dependencies:
-    meow: ^8.1.2
-    semver: ^7.0.0
+    meow: ^12.0.1
+    semver: ^7.5.2
   bin:
-    git-semver-tags: cli.js
-  checksum: c181e1d9e7649fd90e6c347f400f791db08b236265d79874dfa60f09ca893fa7a4fceebf3fd5f01443705e7eac5c73c5235eb96c6bc4a39eb37746a1d7c49ec4
+    git-semver-tags: cli.mjs
+  checksum: 9e95149630c65ae6195ef40d9faeb9b4fc8b8fcf67c92fa6d31333388a0636a9fadc1a63489c1353eb52caa64b26728075cd488be81d7edd6ce19312cc51a42d
   languageName: node
   linkType: hard
 
@@ -10251,16 +10246,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:13.1.4":
-  version: 13.1.4
-  resolution: "globby@npm:13.1.4"
+"globby@npm:13.2.2, globby@npm:^13.1.1":
+  version: 13.2.2
+  resolution: "globby@npm:13.2.2"
   dependencies:
     dir-glob: ^3.0.1
-    fast-glob: ^3.2.11
-    ignore: ^5.2.0
+    fast-glob: ^3.3.0
+    ignore: ^5.2.4
     merge2: ^1.4.1
     slash: ^4.0.0
-  checksum: e8bc13879972082d590cd1b0e27080d90d2e12fff7eeb2cee9329c29115ace14cc5b9f899e3d6beb136ba826307a727016658919a6f383e1511d698acee81741
+  checksum: f3d84ced58a901b4fcc29c846983108c426631fe47e94872868b65565495f7bee7b3defd68923bd480582771fd4bbe819217803a164a618ad76f1d22f666f41e
   languageName: node
   linkType: hard
 
@@ -10275,19 +10270,6 @@ __metadata:
     merge2: ^1.4.1
     slash: ^3.0.0
   checksum: b4be8885e0cfa018fc783792942d53926c35c50b3aefd3fdcfb9d22c627639dc26bd2327a40a0b74b074100ce95bb7187bfeae2f236856aa3de183af7a02aea6
-  languageName: node
-  linkType: hard
-
-"globby@npm:^13.1.1":
-  version: 13.2.2
-  resolution: "globby@npm:13.2.2"
-  dependencies:
-    dir-glob: ^3.0.1
-    fast-glob: ^3.3.0
-    ignore: ^5.2.4
-    merge2: ^1.4.1
-    slash: ^4.0.0
-  checksum: f3d84ced58a901b4fcc29c846983108c426631fe47e94872868b65565495f7bee7b3defd68923bd480582771fd4bbe819217803a164a618ad76f1d22f666f41e
   languageName: node
   linkType: hard
 
@@ -11029,7 +11011,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"internal-slot@npm:^1.0.3, internal-slot@npm:^1.0.5":
+"internal-slot@npm:^1.0.5":
   version: 1.0.5
   resolution: "internal-slot@npm:1.0.5"
   dependencies:
@@ -11525,6 +11507,15 @@ __metadata:
   dependencies:
     text-extensions: ^1.0.0
   checksum: fb5d78752c22b3f73a7c9540768f765ffcfa38c9e421e2b9af869565307fa1ae5e3d3a2ba016a43549742856846566d327da406e94a5846ec838a288b1704fd2
+  languageName: node
+  linkType: hard
+
+"is-text-path@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "is-text-path@npm:2.0.0"
+  dependencies:
+    text-extensions: ^2.0.0
+  checksum: 3a8725fc7c0d4c7741a97993bc2fecc09a0963660394d3ee76145274366c98ad57c6791d20d4ef829835f573b1137265051c05ecd65fbe72f69bb9ab9e3babbd
   languageName: node
   linkType: hard
 
@@ -12134,7 +12125,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^14.0.0, lint-staged@npm:^14.0.1":
+"lint-staged@npm:^14.0.1":
   version: 14.0.1
   resolution: "lint-staged@npm:14.0.1"
   dependencies:
@@ -12286,13 +12277,6 @@ __metadata:
   version: 3.0.9
   resolution: "lodash.isfunction@npm:3.0.9"
   checksum: 99e54c34b1e8a9ba75c034deb39cedbd2aca7af685815e67a2a8ec4f73ec9748cda6ebee5a07d7de4b938e90d421fd280e9c385cc190f903ac217ac8aff30314
-  languageName: node
-  linkType: hard
-
-"lodash.ismatch@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "lodash.ismatch@npm:4.4.0"
-  checksum: a393917578842705c7fc1a30fb80613d1ac42d20b67eb26a2a6004d6d61ee90b419f9eb320508ddcd608e328d91eeaa2651411727eaa9a12534ed6ccb02fc705
   languageName: node
   linkType: hard
 
@@ -12617,28 +12601,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdownlint-cli2@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "markdownlint-cli2@npm:0.8.1"
+"markdownlint-cli2@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "markdownlint-cli2@npm:0.9.2"
   dependencies:
-    globby: 13.1.4
-    markdownlint: 0.29.0
+    globby: 13.2.2
+    markdownlint: 0.30.0
     markdownlint-cli2-formatter-default: 0.0.4
     micromatch: 4.0.5
-    strip-json-comments: 5.0.0
+    strip-json-comments: 5.0.1
     yaml: 2.3.1
   bin:
     markdownlint-cli2: markdownlint-cli2.js
     markdownlint-cli2-config: markdownlint-cli2-config.js
     markdownlint-cli2-fix: markdownlint-cli2-fix.js
-  checksum: 38464d73d91a1abe1cc43f925112e567ee27eb20f536e4a0c1329e28cea4366db68e9c365127bbd95f2580bf2983ec8ea61e98ece1c868c17994b542e37e495d
-  languageName: node
-  linkType: hard
-
-"markdownlint-micromark@npm:0.1.5":
-  version: 0.1.5
-  resolution: "markdownlint-micromark@npm:0.1.5"
-  checksum: fc69c340c31a06b46cf358759348a12b60b0080d82406ec1ed2e015e96b664e4075584980cf1bf029287109503ec37d0da012ec67827bc7a21a9f7d0b5a624b8
+  checksum: 6927f8befa23554b66ffb3e78618596598606cd0f00f665b85a9f0c7f5a0bc818c006e96bb59919477cc3961efe7bbe65a6c32f3c9ffd56c735c26b3c95da3f4
   languageName: node
   linkType: hard
 
@@ -12649,17 +12626,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdownlint@npm:0.29.0":
-  version: 0.29.0
-  resolution: "markdownlint@npm:0.29.0"
-  dependencies:
-    markdown-it: 13.0.1
-    markdownlint-micromark: 0.1.5
-  checksum: 5785f5173f553510516bf1f68a0768118dcae3a3a19234f6ed57d5d5a8f5beedcca859593fdcf0d8e90fdccb69fd0e168e77416f5712e04e2062c5bf2dca5612
-  languageName: node
-  linkType: hard
-
-"markdownlint@npm:^0.30.0":
+"markdownlint@npm:0.30.0, markdownlint@npm:^0.30.0":
   version: 0.30.0
   resolution: "markdownlint@npm:0.30.0"
   dependencies:
@@ -12746,6 +12713,13 @@ __metadata:
   dependencies:
     fs-monkey: ^1.0.4
   checksum: 18dfdeacad7c8047b976a6ccd58bc98ba76e122ad3ca0e50a21837fe2075fc0d9aafc58ab9cf2576c2b6889da1dd2503083f2364191b695273f40969db2ecc44
+  languageName: node
+  linkType: hard
+
+"meow@npm:^12.0.1":
+  version: 12.1.1
+  resolution: "meow@npm:12.1.1"
+  checksum: a6f3be85fbe53430ef53ab933dd790c39216eb4dbaabdbef593aa59efb40ecaa417897000175476bc33eed09e4cbce01df7ba53ba91e9a4bd84ec07024cb8914
   languageName: node
   linkType: hard
 
@@ -13057,13 +13031,6 @@ __metadata:
     pkg-types: ^1.0.3
     ufo: ^1.3.0
   checksum: b2b59ab3d70196127be4e54609d2a442bd252345727138940fb245672a238b2fbdd431e8c75ec5c741ff90410ce488c5fd6446d5d3e6476d21dbf4c3fa35d4a0
-  languageName: node
-  linkType: hard
-
-"modify-values@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "modify-values@npm:1.0.1"
-  checksum: 8296610c608bc97b03c2cf889c6cdf4517e32fa2d836440096374c2209f6b7b3e256c209493a0b32584b9cb32d528e99d0dd19dcd9a14d2d915a312d391cc7e9
   languageName: node
   linkType: hard
 
@@ -13509,13 +13476,13 @@ __metadata:
   linkType: hard
 
 "object.fromentries@npm:^2.0.6":
-  version: 2.0.6
-  resolution: "object.fromentries@npm:2.0.6"
+  version: 2.0.7
+  resolution: "object.fromentries@npm:2.0.7"
   dependencies:
     call-bind: ^1.0.2
-    define-properties: ^1.1.4
-    es-abstract: ^1.20.4
-  checksum: 453c6d694180c0c30df451b60eaf27a5b9bca3fb43c37908fd2b78af895803dc631242bcf05582173afa40d8d0e9c96e16e8874b39471aa53f3ac1f98a085d85
+    define-properties: ^1.2.0
+    es-abstract: ^1.22.1
+  checksum: 7341ce246e248b39a431b87a9ddd331ff52a454deb79afebc95609f94b1f8238966cf21f52188f2a353f0fdf83294f32f1ebf1f7826aae915ebad21fd0678065
   languageName: node
   linkType: hard
 
@@ -14548,12 +14515,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.0.1, prettier@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "prettier@npm:3.0.2"
+"prettier@npm:^3.0.0, prettier@npm:^3.0.2, prettier@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "prettier@npm:3.0.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 118b59ddb6c80abe2315ab6d0f4dd1b253be5cfdb20622fa5b65bb1573dcd362e6dd3dcf2711dd3ebfe64aecf7bdc75de8a69dc2422dcd35bdde7610586b677a
+  checksum: e10b9af02b281f6c617362ebd2571b1d7fc9fb8a3bd17e371754428cda992e5e8d8b7a046e8f7d3e2da1dcd21aa001e2e3c797402ebb6111b5cd19609dd228e0
   languageName: node
   linkType: hard
 
@@ -15184,7 +15151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regexp.prototype.flags@npm:^1.4.3, regexp.prototype.flags@npm:^1.5.0":
+"regexp.prototype.flags@npm:^1.5.0":
   version: 1.5.0
   resolution: "regexp.prototype.flags@npm:1.5.0"
   dependencies:
@@ -15605,22 +15572,22 @@ __metadata:
     "@commitlint/config-conventional": ^17.7.0
     "@favware/cliff-jumper": ^2.1.1
     "@favware/npm-deprecate": ^1.0.7
-    "@sapphire/eslint-config": ^5.0.1
+    "@sapphire/eslint-config": ^5.0.2
     "@sapphire/framework": ^4.5.3
     "@sapphire/pieces": ^3.7.0
     "@sapphire/prettier-config": ^2.0.0
     "@sapphire/stopwatch": ^1.5.0
-    "@sapphire/ts-config": ^4.0.1
+    "@sapphire/ts-config": ^5.0.0
     "@sapphire/utilities": ^3.13.0
-    "@types/node": ^18.17.8
+    "@types/node": ^18.17.12
     "@types/ws": ^8.5.5
-    "@typescript-eslint/eslint-plugin": ^6.4.1
-    "@typescript-eslint/parser": ^6.4.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
+    "@vitest/coverage-v8": ^0.34.3
     cz-conventional-changelog: ^3.3.0
-    discord-api-types: ^0.37.54
+    discord-api-types: ^0.37.55
     discord.js: ^14.13.0
-    eslint: ^8.47.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     gen-esm-wrapper: ^1.1.3
@@ -15629,9 +15596,9 @@ __metadata:
     prettier: ^3.0.2
     rimraf: ^5.0.1
     turbo: ^1.10.13
-    typescript: ^5.1.6
+    typescript: ^5.2.2
     vite: ^4.4.9
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -15648,15 +15615,15 @@ __metadata:
     "@favware/rollup-type-bundler": ^2.0.0
     "@sapphire/framework": ^4.5.3
     "@types/lodash": ^4.14.197
-    "@types/node": ^18.17.9
+    "@types/node": ^18.17.12
     "@types/ws": ^8.5.5
-    "@typescript-eslint/eslint-plugin": ^6.4.1
-    "@typescript-eslint/parser": ^6.4.1
-    "@vitest/coverage-v8": ^0.34.2
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
+    "@vitest/coverage-v8": ^0.34.3
     cz-conventional-changelog: ^3.3.0
     discord-api-types: ^0.37.55
     discord.js: ^14.13.0
-    eslint: ^8.47.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
     husky: ^8.0.3
@@ -15671,7 +15638,7 @@ __metadata:
     typedoc-json-parser: ^8.2.0
     typescript: ^5.2.2
     vite: ^4.4.9
-    vitest: ^0.34.2
+    vitest: ^0.34.3
   languageName: unknown
   linkType: soft
 
@@ -15693,25 +15660,25 @@ __metadata:
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": 1.1.4
     "@sapphire/docusaurus-plugin-ts2esm2cjs": 1.1.5
     "@sapphire/duration": ^1.1.0
-    "@sapphire/eslint-config": ^5.0.1
+    "@sapphire/eslint-config": ^5.0.2
     "@sapphire/fetch": ^2.4.1
     "@sapphire/prettier-config": ^2.0.0
     "@sapphire/result": ^2.6.4
     "@sapphire/timer-manager": ^1.0.0
     "@sapphire/timestamp": ^1.0.1
-    "@sapphire/ts-config": ^4.0.1
+    "@sapphire/ts-config": ^5.0.0
     "@svgr/webpack": ^6.5.1
     "@tippyjs/react": ^4.2.6
-    "@types/node": ^18.17.6
-    "@types/react": ^18.2.20
+    "@types/node": ^18.17.12
+    "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    "@typescript-eslint/eslint-plugin": ^6.4.0
-    "@typescript-eslint/parser": ^6.4.0
+    "@typescript-eslint/eslint-plugin": ^6.5.0
+    "@typescript-eslint/parser": ^6.5.0
     clsx: ^1.2.1
     cross-env: ^7.0.3
     cz-conventional-changelog: ^3.3.0
     docusaurus-plugin-typedoc: ^0.19.2
-    eslint: ^8.47.0
+    eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.28.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -15719,21 +15686,21 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     husky: ^8.0.3
-    lint-staged: ^14.0.0
+    lint-staged: ^14.0.1
     markdownlint: ^0.30.0
-    markdownlint-cli2: ^0.8.1
-    prettier: ^3.0.2
+    markdownlint-cli2: ^0.9.2
+    prettier: ^3.0.3
     prism-react-renderer: ^1.3.5
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^5.0.1
-    swr: ^2.2.1
+    swr: ^2.2.2
     ts-node: ^10.9.1
     typedoc: ^0.24.8
     typedoc-plugin-djs-links: ^2.0.0
-    typedoc-plugin-markdown: ^3.15.4
-    typedoc-plugin-mdn-links: ^3.0.3
-    typescript: 5.1.6
+    typedoc-plugin-markdown: ^3.16.0
+    typedoc-plugin-mdn-links: ^3.1.0
+    typescript: ~5.1.6
   languageName: unknown
   linkType: soft
 
@@ -15958,7 +15925,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.5.4, semver@npm:^7.0.0, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.1, semver@npm:^7.5.3, semver@npm:^7.5.4":
+"semver@npm:7.5.4, semver@npm:^7.0.0, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -16410,6 +16377,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"split2@npm:^4.0.0":
+  version: 4.2.0
+  resolution: "split2@npm:4.2.0"
+  checksum: 05d54102546549fe4d2455900699056580cca006c0275c334611420f854da30ac999230857a85fdd9914dc2109ae50f80fda43d2a445f2aa86eccdc1dfce779d
+  languageName: node
+  linkType: hard
+
 "sprintf-js@npm:~1.0.2":
   version: 1.0.3
   resolution: "sprintf-js@npm:1.0.3"
@@ -16512,18 +16486,18 @@ __metadata:
   linkType: hard
 
 "string.prototype.matchall@npm:^4.0.6, string.prototype.matchall@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "string.prototype.matchall@npm:4.0.8"
+  version: 4.0.9
+  resolution: "string.prototype.matchall@npm:4.0.9"
   dependencies:
     call-bind: ^1.0.2
-    define-properties: ^1.1.4
-    es-abstract: ^1.20.4
-    get-intrinsic: ^1.1.3
+    define-properties: ^1.2.0
+    es-abstract: ^1.22.1
+    get-intrinsic: ^1.2.1
     has-symbols: ^1.0.3
-    internal-slot: ^1.0.3
-    regexp.prototype.flags: ^1.4.3
+    internal-slot: ^1.0.5
+    regexp.prototype.flags: ^1.5.0
     side-channel: ^1.0.4
-  checksum: 952da3a818de42ad1c10b576140a5e05b4de7b34b8d9dbf00c3ac8c1293e9c0f533613a39c5cda53e0a8221f2e710bc2150e730b1c2278d60004a8a35726efb6
+  checksum: a68a9914755ec8c9b9129d6fb70603d78b839a1ca4a907e601fcb860109cecfbd1884e8b38989885f9c825c1c2015ff5b1ed9ddac7c8d040e4e4b3c9bc4ed5ed
   languageName: node
   linkType: hard
 
@@ -16665,10 +16639,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-json-comments@npm:5.0.0":
-  version: 5.0.0
-  resolution: "strip-json-comments@npm:5.0.0"
-  checksum: 99cad07ccc3b86cc7bb8a9274a801b0660cbd595189ad291f6e206b8d7b23d90eed3119cdae44e126d9563796024b3ef0e7de2eeee4634b3b9019bafb62803e7
+"strip-json-comments@npm:5.0.1":
+  version: 5.0.1
+  resolution: "strip-json-comments@npm:5.0.1"
+  checksum: b314af70c6666a71133e309a571bdb87687fc878d9fd8b38ebed393a77b89835b92f191aa6b0bc10dfd028ba99eed6b6365985001d64c5aef32a4a82456a156b
   languageName: node
   linkType: hard
 
@@ -16785,7 +16759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:^2.2.1":
+"swr@npm:^2.2.2":
   version: 2.2.2
   resolution: "swr@npm:2.2.2"
   dependencies:
@@ -16884,8 +16858,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.0.0, terser@npm:^5.10.0, terser@npm:^5.16.8":
-  version: 5.19.2
-  resolution: "terser@npm:5.19.2"
+  version: 5.19.3
+  resolution: "terser@npm:5.19.3"
   dependencies:
     "@jridgewell/source-map": ^0.3.3
     acorn: ^8.8.2
@@ -16893,7 +16867,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: e059177775b4d4f4cff219ad89293175aefbd1b081252270444dc83e42a2c5f07824eb2a85eae6e22ef6eb7ef04b21af36dd7d1dd7cfb93912310e57d416a205
+  checksum: dde1b387891ad953760cec56b168d1f2b1eae5f47410bec57f3587daa9719ee0cf3155961adf77cdff9ea88e086dd49c78a721eafdcbdd0dd590c47c8e660a37
   languageName: node
   linkType: hard
 
@@ -16912,6 +16886,13 @@ __metadata:
   version: 1.9.0
   resolution: "text-extensions@npm:1.9.0"
   checksum: 56a9962c1b62d39b2bcb369b7558ca85c1b55e554b38dfd725edcc0a1babe5815782a60c17ff6b839093b163dfebb92b804208aaaea616ec7571c8059ae0cf44
+  languageName: node
+  linkType: hard
+
+"text-extensions@npm:^2.0.0":
+  version: 2.4.0
+  resolution: "text-extensions@npm:2.4.0"
+  checksum: 9bdbc9959e004ccc86a6ec076d6c5bb6765978263e9d0d5febb640d7675c09919ea912f3fe9d50b68c3c7c43cc865610a7cb24954343abb31f74c205fbae4e45
   languageName: node
   linkType: hard
 
@@ -17571,7 +17552,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-markdown@npm:^3.15.4":
+"typedoc-plugin-markdown@npm:^3.16.0":
   version: 3.16.0
   resolution: "typedoc-plugin-markdown@npm:3.16.0"
   dependencies:
@@ -17582,7 +17563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-mdn-links@npm:^3.0.3":
+"typedoc-plugin-mdn-links@npm:^3.1.0":
   version: 3.1.0
   resolution: "typedoc-plugin-mdn-links@npm:3.1.0"
   peerDependencies:
@@ -17607,7 +17588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.1.6":
+"typescript@npm:~5.1.6":
   version: 5.1.6
   resolution: "typescript@npm:5.1.6"
   bin:
@@ -17617,7 +17598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A~5.1.6#~builtin<compat/typescript>":
   version: 5.1.6
   resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"
   bin:
@@ -18217,7 +18198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^0.34.2":
+"vitest@npm:^0.34.3":
   version: 0.34.3
   resolution: "vitest@npm:0.34.3"
   dependencies:

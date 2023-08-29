@@ -1,5 +1,5 @@
 {
-	"extends": "@sapphire/ts-config",
+	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/bundler"],
 	"compilerOptions": {
 		"allowJs": true,
 		"baseUrl": ".",
