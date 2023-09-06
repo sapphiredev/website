@@ -1,0 +1,31 @@
+---
+sidebar_position: 4
+title: Globally configuring guildIds
+---
+
+Previously at [Registering Chat Input Commands - guildIds][register-guildIds] we covered how to register single commands
+in one or multiple guilds. You may however want to register all your commands in the same guild and not have to repeat
+the same guildIds over and over again. There are two ways to do this.
+
+First of all your can leverage JavaScript modules. This means simply exporting a constant in another file that holds the
+guildIds and using that every command. This used to be the recommended way to achieve this, however because many people
+have asked about registering guildIds globally we have implemented this directly into the framework as well, and that
+brings us to the second way.
+
+In order to globally configure the guildIds can use
+[ApplicationCommandRegistries.setDefaultGuildIds][setDefaultGuildIds]. This method takes an array of guildIds and will
+use those for every command that is registered. The ids defined here will _only_ take effect if the command does _not_
+have any `guildIds` defined. This means that you can override the global configuration on a per-command basis by
+including `guildIds` in the configuration, and you _must_ remove the `guildIds` from the command configuration if you
+want to use the global configuration.
+
+To configure the global guildIds you can do the following:
+
+```typescript ts2esm2cjs|{3}|{3}
+import { ApplicationCommandRegistries } from '@sapphire/framework';
+
+ApplicationCommandRegistries.setDefaultGuildIds(['737141877803057244']);
+```
+
+[setDefaultGuildIds]: ../../../../Documentation/api-framework/#applicationcommandregistries
+[register-guildIds]: ./registering-chat-input-commands#guildids
