@@ -12,7 +12,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/core@npm:^1.10.0, @actions/core@npm:^1.10.1, @actions/core@npm:^1.9.1":
+"@actions/core@npm:^1.10.1, @actions/core@npm:^1.9.1":
   version: 1.10.1
   resolution: "@actions/core@npm:1.10.1"
   dependencies:
@@ -2853,7 +2853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/cliff-jumper@npm:^2.1.2, @favware/cliff-jumper@npm:^2.1.3":
+"@favware/cliff-jumper@npm:^2.1.3":
   version: 2.1.3
   resolution: "@favware/cliff-jumper@npm:2.1.3"
   dependencies:
@@ -3741,10 +3741,10 @@ __metadata:
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/ts-config": ^5.0.0
     "@sapphire/utilities": ^3.13.0
-    "@types/node": ^20.6.0
+    "@types/node": ^20.6.2
     "@types/ws": ^8.5.5
-    "@typescript-eslint/eslint-plugin": ^6.6.0
-    "@typescript-eslint/parser": ^6.6.0
+    "@typescript-eslint/eslint-plugin": ^6.7.0
+    "@typescript-eslint/parser": ^6.7.0
     "@vitest/coverage-v8": ^0.34.4
     cz-conventional-changelog: ^3.3.0
     discord.js: ^14.13.0
@@ -3851,9 +3851,9 @@ __metadata:
     "@sapphire/prettier-config": ^2.0.0
     "@sapphire/ts-config": ^5.0.0
     "@sapphire/utilities": ^3.13.0
-    "@types/node": ^20.6.0
-    "@typescript-eslint/eslint-plugin": ^6.6.0
-    "@typescript-eslint/parser": ^6.6.0
+    "@types/node": ^20.6.2
+    "@typescript-eslint/eslint-plugin": ^6.7.0
+    "@typescript-eslint/parser": ^6.7.0
     cz-conventional-changelog: ^3.3.0
     eslint: ^8.49.0
     eslint-config-prettier: ^9.0.0
@@ -4243,20 +4243,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/type@workspace:projects/type"
   dependencies:
-    "@actions/core": ^1.10.0
+    "@actions/core": ^1.10.1
     "@actions/github": ^5.1.1
     "@actions/glob": ^0.4.0
     "@commitlint/cli": ^17.7.1
     "@commitlint/config-conventional": ^17.7.0
     "@discordjs/node-pre-gyp": ^0.4.5
-    "@favware/cliff-jumper": ^2.1.2
+    "@favware/cliff-jumper": ^2.1.3
     "@favware/npm-deprecate": ^1.0.7
     "@sapphire/eslint-config": ^5.0.2
     "@sapphire/prettier-config": ^2.0.0
     "@sapphire/ts-config": ^5.0.0
-    "@types/node": ^20.6.0
-    "@typescript-eslint/eslint-plugin": ^6.6.0
-    "@typescript-eslint/parser": ^6.6.0
+    "@types/node": ^20.6.2
+    "@typescript-eslint/eslint-plugin": ^6.7.0
+    "@typescript-eslint/parser": ^6.7.0
     "@vitest/coverage-v8": ^0.34.4
     cz-conventional-changelog: ^3.3.0
     eslint: ^8.49.0
@@ -4265,7 +4265,7 @@ __metadata:
     gen-esm-wrapper: ^1.1.3
     husky: ^8.0.3
     lint-staged: ^14.0.1
-    nan: ^2.17.0
+    nan: ^2.18.0
     prettier: ^3.0.3
     tslib: ^2.6.2
     tsup: ^7.2.0
@@ -5075,7 +5075,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.5.0, @typescript-eslint/eslint-plugin@npm:^6.6.0, @typescript-eslint/eslint-plugin@npm:^6.7.0":
+"@typescript-eslint/eslint-plugin@npm:^6.5.0, @typescript-eslint/eslint-plugin@npm:^6.7.0":
   version: 6.7.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.7.0"
   dependencies:
@@ -5100,7 +5100,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.5.0, @typescript-eslint/parser@npm:^6.6.0, @typescript-eslint/parser@npm:^6.7.0":
+"@typescript-eslint/parser@npm:^6.5.0, @typescript-eslint/parser@npm:^6.7.0":
   version: 6.7.0
   resolution: "@typescript-eslint/parser@npm:6.7.0"
   dependencies:
@@ -6546,9 +6546,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001517, caniuse-lite@npm:^1.0.30001520":
-  version: 1.0.30001534
-  resolution: "caniuse-lite@npm:1.0.30001534"
-  checksum: 8e8b63c1ce0d5b944ee2d8223955b33f3d4f60c33fed394ff6353b5c7106b2dc55219fd07d80c79e66ed1f82ed9367cee17bda96789cbd2ab57c8d30b1b5c510
+  version: 1.0.30001535
+  resolution: "caniuse-lite@npm:1.0.30001535"
+  checksum: d66f71a3b97bc24108a54fe7ecaf9133c8a9466f91199185bdf43cff94dc89905860ea15ac18e57a109dd5dc85465d8df7dffa50e19324d03682f37a203468c1
   languageName: node
   linkType: hard
 
@@ -11476,15 +11476,15 @@ __metadata:
   linkType: hard
 
 "joi@npm:^17.6.0":
-  version: 17.10.1
-  resolution: "joi@npm:17.10.1"
+  version: 17.10.2
+  resolution: "joi@npm:17.10.2"
   dependencies:
     "@hapi/hoek": ^9.0.0
     "@hapi/topo": ^5.0.0
     "@sideway/address": ^4.1.3
     "@sideway/formula": ^3.0.1
     "@sideway/pinpoint": ^2.0.0
-  checksum: 7affbb27ae9283596d6471871352b85ebf73a1e782c0be1998bce1ecc86ba48bee834c8af9a44d7143bb470654d6ae1248a29009ee5463618675d655dbd69306
+  checksum: 2fac59e83b35465d04ffcd33a937c39795264bdd3d392bebee8034710f84631a400cd320a3bb0bb736e70ce930abb1ea551bc3ffbeca023b53417d864eb216a4
   languageName: node
   linkType: hard
 
@@ -12863,7 +12863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.17.0":
+"nan@npm:^2.18.0":
   version: 2.18.0
   resolution: "nan@npm:2.18.0"
   dependencies:
