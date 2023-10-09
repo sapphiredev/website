@@ -1,4 +1,10 @@
 {
 	"extends": "./tsconfig.json",
-	"include": ["babel.config.js", "docs/General", "docs/Guide", "docusaurus.config.js", "projects", "scripts", "sidebars.js", "src", "static"]
+	"compilerOptions": {
+		"lib": ["ESNext", "DOM"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"incremental": false
+	},
+	"include": ["babel.config.js", "docs/General", "docs/Guide", "docusaurus.config.js", "scripts", "sidebars.js", "src", "static", "json-parser"]
 }

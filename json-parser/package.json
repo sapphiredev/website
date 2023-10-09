@@ -1,0 +1,33 @@
+{
+	"name": "json-parser",
+	"version": "0.0.1",
+	"description": "Parses API documentation from typedoc-json-parser to markdown files for Docusaurus.",
+	"type": "module",
+	"main": "dist/cli.mjs",
+	"files": [
+		"dist/"
+	],
+	"scripts": {
+		"build": "tsup",
+		"debug": "node --inspect dist/cli.mjs",
+		"start": "NODE_NO_WARNINGS=1 node dist/cli.mjs 2>&1 | tee log_file.ini",
+		"type-check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@sapphire/fetch": "^2.4.1",
+		"@sapphire/result": "^2.6.4",
+		"@sapphire/utilities": "^3.13.0",
+		"colorette": "^2.0.20",
+		"common-tags": "^1.8.2",
+		"css": "^3.0.0",
+		"typedoc-json-parser": "^9.0.1"
+	},
+	"devDependencies": {
+		"@docusaurus/types": "^2.4.3",
+		"@types/common-tags": "^1.8.2",
+		"dotenv": "^16.3.1",
+		"esbuild-plugin-file-path-extensions": "^1.0.0",
+		"tsup": "^7.2.0",
+		"typescript": "^5.2.2"
+	}
+}
