@@ -27,8 +27,7 @@
 		"lint:md-no-fix": "markdownlint-cli2",
 		"clean": "rimraf docs/Documentation .docusaurus/ node_modules/cache build/",
 		"format": "prettier --write \"{src,static,scripts,docs}/**/*.{js,jsx,ts,tsx,css,json,md,mdx,yml}\"",
-		"format:check": "prettier --check \"{src,static,scripts,docs}/**/*.{js,jsx,ts,tsx,css,json,md,mdx,yml}\"",
-		"postinstall": "husky install .github/husky"
+		"format:check": "prettier --check \"{src,static,scripts,docs}/**/*.{js,jsx,ts,tsx,css,json,md,mdx,yml}\""
 	},
 	"dependencies": {
 		"@docusaurus/core": "2.4.3",
@@ -67,7 +66,6 @@
 		"eslint-plugin-prettier": "^5.0.0",
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
-		"husky": "^8.0.3",
 		"lint-staged": "^14.0.1",
 		"markdownlint": "^0.31.1",
 		"markdownlint-cli2": "^0.10.0",
