@@ -1,0 +1,58 @@
+---
+sidebar_position: 1
+title: Accessing the Client
+---
+
+Often when writing your [listeners], [commands], [preconditions], [arguments] and other pieces you will want to access
+your instance of [SapphireClient]. This can be done by accessing the `client` property on the [`container`] interface.
+The [`container`] is a way that Sapphire achieved [dependency injection][di]. There are several ways to access the
+[`container`]:
+
+## Using `this.container` inside pieces
+
+When writing code within the closure of a class that extends [`Piece`] such as a [`Command`], [`Listener`],
+[`Precondition`], or [`Argument`] you can access the container through `this.container`. This is by far the easiest way
+to then access the client, as you can simply write `this.container.client`. A quick and dirty example of this is:
+
+```typescript ts2esm2cjs|{5}|{5}
+import { Listener } from '@sapphire/framework';
+
+export class UserEvent extends Listener {
+  public override run() {
+    this.container.logger.info('A user event was received');
+  }
+}
+```
+
+## Importing `container` from Sapphire
+
+When writing code outside of the closure of a class that extends [`Piece`] you can import the [`container`] from either
+`@sapphire/framework` or `@sapphire/pieces`. A quick and dirty example of this is:
+
+```typescript ts2esm2cjs|{1,4}|{1,4}
+import { container } from '@sapphire/framework';
+
+export function myVeryCoolFunction() {
+  container.logger.info('myVeryCoolFunction was called');
+}
+```
+
+:::info
+
+`@sapphire/framework` re-exports the [`container`] from `@sapphire/pieces` so from which you import does not matter,
+they are identical.
+
+:::
+
+[SapphireClient]: ../../Documentation/api-framework/classes/SapphireClient
+[listeners]: ../listeners/what-are-listeners-and-how-do-they-work
+[commands]: ../commands/application-commands/what-are-application-commands
+[preconditions]: ../preconditions/what-are-preconditions
+[arguments]: ../arguments/creating-your-own-arguments
+[`container`]: ../../Documentation/api-pieces/interfaces/Container
+[di]: https://en.wikipedia.org/wiki/Dependency_injection
+[`Piece`]: ../../Documentation/api-pieces/classes/Piece-1
+[`Command`]: ../../Documentation/api-framework/classes/Command-1
+[`Listener`]: ../../Documentation/api-framework/classes/Listener-1
+[`Precondition`]: ../../Documentation/api-framework/classes/Precondition-1
+[`Argument`]: ../../Documentation/api-framework/classes/Argument-1
