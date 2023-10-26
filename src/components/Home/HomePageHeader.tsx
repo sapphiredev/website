@@ -11,7 +11,7 @@ const HomePageHeader: FC = () => {
 		<>
 			<header className={clsx('hero', styles.heroBanner)}>
 				<div className="container">
-					<img src="/img/gem.svg" alt="Sapphire Logo" className={styles.logo}></img>
+					<img src="/icons/gem.svg" alt="Sapphire Logo" className={styles.logo}></img>
 					<h1 className="hero__title">{siteConfig.title}</h1>
 					<h2 className={styles.imagineAFramework}>Imagine a Framework</h2>
 					<InstallTabs />

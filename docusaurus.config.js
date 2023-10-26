@@ -230,7 +230,7 @@ const config = {
 				title: 'Sapphire',
 				logo: {
 					alt: 'Sapphire Logo',
-					src: 'img/gem.svg'
+					src: 'icons/gem.svg'
 				},
 				items: [
 					{
@@ -267,7 +267,7 @@ const config = {
 				style: 'dark',
 				logo: {
 					alt: 'Powered By Vercel',
-					src: 'img/powered-by-vercel-and-polypane.svg'
+					src: 'icons/powered-by-vercel-and-polypane.svg'
 				},
 				links: [
 					{

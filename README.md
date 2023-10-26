@@ -23,8 +23,8 @@ This project is made possible thanks to the amazing teams at [Vercel] and [Polyp
 you always get the latest and greatest version of the documentation. Thank you [Vercel] and [Polypane]!
 
 <div align="center">
-<a href="https://vercel.com?utm_source=sapphiredev&utm_campaign=oss"><img height="40" src="./static/img/powered-by-vercel.svg" /></a>
-<a href="https://polypane.app"><img height="40" src="./static/img/powered-by-polypane.svg" /></a>
+<a href="https://vercel.com?utm_source=sapphiredev&utm_campaign=oss"><img height="40" src="./static/icons/powered-by-vercel.svg" /></a>
+<a href="https://polypane.app"><img height="40" src="./static/icons/powered-by-polypane.svg" /></a>
 </div>
 
 ## Buy us some doughnuts
