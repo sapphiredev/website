@@ -8,20 +8,44 @@ import TabItem from '@theme/TabItem';
 
 ## Installation
 
-```bash npm2yarn2pnpm
-npm install @sapphire/cli -g
-```
+Sapphire CLI is a utility that helps you create and manage Sapphire projects.
+
+To install `@sapphire/cli`, you can use one of the following methods:
+
+- With npm or pnpm, use the global flag:
+
+  ```bash
+  npm install -g @sapphire/cli
+  ```
+
+  or
+
+  ```bash
+  pnpm add -g @sapphire/cli
+  ```
+
+- With yarn (v2 and beyond), use the [dlx command][dlx] (note that this will immediately execute the CLI, not install it
+  globally for use later. Yarn no longer has global dependencies.):
+
+  ```bash
+  yarn dlx @sapphire/cli
+  ```
+
+- If you're using [Volta] to manage your NodeJS versions, you can install the CLI tools with the following command:
+  ```bash
+  volta install @sapphire/cli
+  ```
 
 :::info
 
-You can install the CLI as a development dependency, but we recommend installing it globally so you can reuse the
-utility in multiple projects.
+After setting up a project we also recommend adding the CLI as a development dependency, so you and all other
+contributors to your project can use the CLI for that particular project.
 
 :::
 
 :::danger
 
-CLI requires Node 16.7 or higher.
+CLI requires Node 18 or higher.
 
 :::
 
@@ -342,3 +366,6 @@ sapphire init
 ```
 
 </details>
+
+[volta]: https://volta.sh
+[dlx]: https://yarnpkg.com/cli/dlx
