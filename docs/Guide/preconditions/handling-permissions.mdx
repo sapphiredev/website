@@ -16,17 +16,17 @@ export class BanCommand extends Command {
   public constructor(context: Command.Context) {
     super(context, {
       // ...
-      requiredUserPermissions: ['BAN_MEMBERS']
+      requiredUserPermissions: ['BanMembers']
     });
   }
 }
 ```
 
-Users without the `BAN_MEMBERS` permission will now be unable to use the command!
+Users without the `BanMembers` permission will now be unable to use the command!
 
 ## Handling Client Permissions
 
-It's also a good idea to verify the inverse: does the _bot_ have the `BAN_MEMBERS` permission? We can use the
+It's also a good idea to verify the inverse: does the _bot_ have the `BanMembers` permission? We can use the
 [`requiredClientPermissions`][requiredclientpermissions] option the same way to prevent the command from being used if
 not.
 
@@ -39,14 +39,14 @@ export class BanCommand extends Command {
   public constructor(context: Command.Context) {
     super(context, {
       // ...
-      requiredUserPermissions: ['BAN_MEMBERS'],
-      requiredClientPermissions: ['BAN_MEMBERS']
+      requiredUserPermissions: ['BanMembers'],
+      requiredClientPermissions: ['BanMembers']
     });
   }
 }
 ```
 
-With these changes, `BanCommand` now requires the command executor _and_ the client to have the `BAN_MEMBERS` permission
+With these changes, `BanCommand` now requires the command executor _and_ the client to have the `BanMembers` permission
 to execute!
 
 :::tip
