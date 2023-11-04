@@ -11,22 +11,23 @@ people, so we can restrict usage using the [`requiredUserPermissions`][requiredu
 
 ```typescript ts2esm2cjs|{7}|{7}
 import { Command } from '@sapphire/framework';
+import { PermissionFlagsBits } from 'discord.js';
 
 export class BanCommand extends Command {
   public constructor(context: Command.Context) {
     super(context, {
       // ...
-      requiredUserPermissions: ['BAN_MEMBERS']
+      requiredUserPermissions: [PermissionFlagsBits.BanMembers]
     });
   }
 }
 ```
 
-Users without the `BAN_MEMBERS` permission will now be unable to use the command!
+Users without the "Ban Members" permission will now be unable to use the command!
 
 ## Handling Client Permissions
 
-It's also a good idea to verify the inverse: does the _bot_ have the `BAN_MEMBERS` permission? We can use the
+It's also a good idea to verify the inverse: does the _bot_ have the "Ban Members" permission? We can use the
 [`requiredClientPermissions`][requiredclientpermissions] option the same way to prevent the command from being used if
 not.
 
@@ -34,19 +35,20 @@ not.
 
 ```typescript ts2esm2cjs|{8}|{8}
 import { Command } from '@sapphire/framework';
+import { PermissionFlagsBits } from 'discord.js';
 
 export class BanCommand extends Command {
   public constructor(context: Command.Context) {
     super(context, {
       // ...
-      requiredUserPermissions: ['BAN_MEMBERS'],
-      requiredClientPermissions: ['BAN_MEMBERS']
+      requiredUserPermissions: [PermissionFlagsBits.BanMembers],
+      requiredClientPermissions: [PermissionFlagsBits.BanMembers]
     });
   }
 }
 ```
 
-With these changes, `BanCommand` now requires the command executor _and_ the client to have the `BAN_MEMBERS` permission
+With these changes, `BanCommand` now requires the command executor _and_ the client to have the "Ban Members" permission
 to execute!
 
 :::tip
