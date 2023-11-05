@@ -78,7 +78,7 @@ need more control over the application command, you can write the `discord.js`
 Chat Input Commands can take in options, which are similar to arguments for a function. These are similar to the
 [Arguments][arguments] that Sapphire offers for Message Commands, but they are built right into Discord instead!
 
-```typescript ts2esm2cjs|{16-21}|{16-21}
+```typescript ts2esm2cjs|{16-21}
 import { Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
@@ -188,7 +188,7 @@ commands and instead you're using something external to do so.
 Now that we've covered registering a Chat Input Command with Discord, the last step is to implement the `chatInputRun`
 method for the [`Command`][command] class so your bot can respond!
 
-```typescript ts2esm2cjs|{26-38}|{26-38}
+```typescript ts2esm2cjs|{26-38}
 import { Command } from '@sapphire/framework';
 import { userMention } from 'discord.js';
 

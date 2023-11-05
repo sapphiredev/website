@@ -15,7 +15,7 @@ To create a Message Context Menu Command (User Context Menu Commands are covered
 need to implement the `registerApplicationCommands` method in the `Command` class. Let's create a `ping` command and
 register a corresponding Message Context Menu Command with Discord:
 
-```typescript ts2esm2cjs|{4-16}|{4-16}
+```typescript ts2esm2cjs|{4-16}
 import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord.js';
 
@@ -40,7 +40,7 @@ The above will create a Message Context Menu Command called `ping`, note that we
 In order for your bot to respond to the Message Context Menu Command when it is invoked by the user, you must implement
 the `contextMenuRun` method for the `Command` class.
 
-```typescript ts2esm2cjs|{17-19}|{17-19}
+```typescript ts2esm2cjs|{17-19}
 import { Command } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 

@@ -26,7 +26,7 @@ const client = new SapphireClient({
 Once you have done this, you can then start the API on a single shard by using the [`connect`] method on the initialised
 [`Server`]. For example, you can do this in your [`shardReady`] listener:
 
-```typescript ts2esm2cjs|{5-7}|{5-7}
+```typescript ts2esm2cjs|{5-7}
 import { Events, Listener } from '@sapphire/framework';
 
 export class UserShardEvent extends Listener<typeof Events.ShardReady> {
