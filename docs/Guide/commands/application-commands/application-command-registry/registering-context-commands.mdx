@@ -78,7 +78,7 @@ Context Menu Commands to hold a description. This is why we recommend using the
 [ContextMenuCommandBuilder][djs-context-menu-command-builder-docs] here for input verificiation instead of alternatives
 such as writing the [`ApplicationCommandData`][djs-command-data-docs] JSON yourself.
 
-:::caution
+:::warning
 
 The [`registerContextMenuCommand`][rcmc] method, similar to the [`registerChatInputCommand`][rcic] method in the
 previous section, takes in a second options parameter. Please see [Chat Input Command Registry Options][cicro], since
@@ -117,7 +117,7 @@ export class SlashCommand extends Command {
 }
 ```
 
-:::caution
+:::warning
 
 Just like the Message Context Menu Command, the [`registerContextMenuCommand`][rcmc] method takes in a second options
 parameter. Please see [Chat Input Command Registry Options][cicro], since there are important details not repeated here.

@@ -3,7 +3,7 @@ sidebar_position: 2
 title: Registering Chat Input Commands
 ---
 
-:::caution
+:::warning
 
 To register a Chat Input Command (also known as a Slash Command) with Discord, you need to acquire an application
 command registry. If you missed how to do it, please see the [`Acquiring an Application Command Registry`][aaacr]
@@ -127,7 +127,7 @@ confused with a Chat Input Command's options in the previous section. Let's take
 At a high level, an application command registry maps application command IDs and/or names to your command. By providing
 ID(s) to the [`idHints`][idhints] option, we can prevent new commands from accidentally being created.
 
-:::caution
+:::warning
 
 As mentioned in [`What is it?`][what-is-it], Discord manages "Application Command Objects" on their end for each of your
 application commands. Whenever your bot registers a new application command with Discord, they create and store a new

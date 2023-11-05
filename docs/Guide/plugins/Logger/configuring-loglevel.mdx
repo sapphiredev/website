@@ -40,7 +40,7 @@ const client = new SapphireClient({
 
 Above example will set the `logger level` to `Debug` during development and to `Info` during production.
 
-:::caution
+:::warning
 
 Setting `logger level` to a specific level makes logger ignore the lower logger levels. This means that if level is set
 to `Warn` then logger will not log `Info` log messages.

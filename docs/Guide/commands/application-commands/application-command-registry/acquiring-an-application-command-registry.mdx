@@ -20,7 +20,7 @@ export class PingCommand extends Command {
 Acquiring and accessing the application command registry this way is only associated with `PingCommand` - it will not
 interact with any other of your commands.
 
-:::caution
+:::warning
 
 For most users, the method above should suffice. Another way of acquiring an application command registry is through
 `ApplicationCommandRegistries.acquire()`, but it should only be chosen for advanced usage such as handling application
