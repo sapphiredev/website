@@ -1,5 +1,5 @@
 {
-	"extends": ["@sapphire", "plugin:import/typescript"],
+	"extends": ["@sapphire", "plugin:import/typescript", "plugin:react/recommended", "plugin:react/jsx-runtime"],
 	"parserOptions": {
 		"ecmaVersion": 2020,
 		"sourceType": "module",
@@ -67,37 +67,6 @@
 		"import/first": "error",
 		"import/no-amd": "error",
 		"import/no-webpack-loader-syntax": "error",
-		"react/forbid-foreign-prop-types": [
-			"warn",
-			{
-				"allowInPropTypes": true
-			}
-		],
-		"react/jsx-no-comment-textnodes": "warn",
-		"react/jsx-no-duplicate-props": "warn",
-		"react/jsx-no-target-blank": "warn",
-		"react/jsx-no-undef": "error",
-		"react/jsx-pascal-case": [
-			"warn",
-			{
-				"allowAllCaps": true,
-				"ignore": []
-			}
-		],
-		"react/jsx-uses-react": "warn",
-		"react/jsx-uses-vars": "warn",
-		"react/no-children-prop": "warn",
-		"react/no-access-state-in-setstate": "warn",
-		"react/no-danger": "error",
-		"react/no-danger-with-children": "warn",
-		"react/no-direct-mutation-state": "warn",
-		"react/no-is-mounted": "warn",
-		"react/no-this-in-sfc": "warn",
-		"react/no-typos": "error",
-		"react/react-in-jsx-scope": "error",
-		"react/require-render-return": "error",
-		"react/style-prop-object": "warn",
-		"react/void-dom-elements-no-children": "warn",
 		"jsx-a11y/accessible-emoji": "warn",
 		"jsx-a11y/alt-text": "warn",
 		"jsx-a11y/anchor-has-content": "warn",
