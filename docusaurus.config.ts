@@ -21,9 +21,7 @@ const config: Config = {
 	tagline: Description,
 	organizationName: 'sapphiredev',
 	projectName: 'framework',
-
 	themes: [],
-
 	plugins: [
 		[
 			'@docusaurus/plugin-pwa',
