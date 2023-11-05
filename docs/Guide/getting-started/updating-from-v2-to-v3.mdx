@@ -24,7 +24,7 @@ However you end up handling situations like this will be up to you, but this our
 Per the deprecation in v2, the `run` method from commands is officially removed entirely and **will not be aliased nor
 emit a warning when it's present instead of [`messageRun`][command-message-run].**
 
-:::caution
+:::warning
 
 Again, we reiterate. If you want to keep using message based commands and have NOT moved your `run` method to
 [`messageRun`][command-message-run], you **MUST** do it. You **will not** get any more runtime warnings, nor TypeScript
@@ -38,7 +38,7 @@ Secondly, the [`messageRun`][command-message-run] method is **no longer `abstrac
 users, but to clarify, due to the nature of our implementation, you are no longer forced to implement any of the `*Run`
 methods in your code
 
-:::caution
+:::warning
 
 With that said, you ought to override at least one of the methods if you expect the command to work. That could be
 either the [`messageRun`][command-message-run] method, the [`chatInputRun`][command-chat-input-run] method or the
@@ -88,7 +88,7 @@ data for application commands. In the event the data you provided for registerin
 CommandApplicationCommandRegistryError (`commandApplicationCommandRegistryError`) event is emitted with the error and
 the command that had the error.
 
-:::caution
+:::warning
 
 If you've already registered the chat input command manually, or Sapphire registered it for you, copy the id from your
 console and paste it in the [`idHints`][idhints] property of the `chatInputCommand` object. That will make Sapphire
@@ -142,7 +142,7 @@ work. That could be either the `messageRun` method, the `chatInputRun` method or
 
 :::
 
-:::caution
+:::warning
 
 For TypeScript users, the Precondition class is **no longer** `abstract`. This is due to the fact we cannot mark the
 methods as conditionally abstract sadly, so it's up to you to implement the handlers required.
@@ -178,7 +178,7 @@ For that one person that's not us, the developers, that is working with Precondi
 [`chatInputSequential`][chat-input-sequential] / [`chatInputParallel`][chat-input-parallel] pair and a
 [`contextMenuSequential`][context-menu-sequential] / [`contextMenuParallel`][context-menu-parallel] pair.
 
-:::caution
+:::warning
 
 **All 3 pairs are mandatory.**
 

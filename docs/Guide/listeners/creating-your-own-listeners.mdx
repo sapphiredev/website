@@ -69,7 +69,7 @@ export class ReadyListener extends Listener {}
 Let's begin populating the listener class with our desired options, specifying that it'll only run once and listens for
 the `ready` event:
 
-```typescript ts2esm2cjs|{4-10}|{4-10}
+```typescript ts2esm2cjs|{4-10}
 import { Listener } from '@sapphire/framework';
 
 export class ReadyListener extends Listener {
@@ -97,7 +97,7 @@ file name matches the event's name and no other options need to be changed.
 
 ## Creating the `run` method
 
-:::caution
+:::warning
 
 Unlike commands, listeners use `run` methods instead of `messageRun`. This distinction is made because listeners do not
 typically run from message contexts, and commands need different methods to support slash commands or context actions.

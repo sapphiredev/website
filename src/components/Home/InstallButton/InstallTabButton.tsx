@@ -1,7 +1,7 @@
 import { ClipboardIcon } from '@heroicons/react/24/outline';
 import Tippy from '@tippyjs/react';
 import clsx from 'clsx';
-import React, { useState, type FC } from 'react';
+import { useState, type FC } from 'react';
 import styles from './InstallTabButton.module.css';
 
 interface Props {

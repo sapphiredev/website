@@ -1,7 +1,7 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import LoadingSkeleton from '@site/src/components/Home/LoadingSkeleton';
 import clsx from 'clsx';
-import React, { Suspense, memo, type FC } from 'react';
+import { Suspense, memo, type FC } from 'react';
 import Statistics from './Statistics';
 
 const StatisticsFeature: FC = () => (

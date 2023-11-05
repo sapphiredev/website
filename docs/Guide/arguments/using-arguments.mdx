@@ -102,7 +102,7 @@ This is troublesome if you want to allow sending quotes within the content, as t
 `quotes` must be set to an empty array. This way, when `@bot echo Hello "there!"` is sent, your bot will reply with
 `Hello "there!"`.
 
-:::caution
+:::warning
 
 [`args.rest()`][rest] consumes all the arguments and then processes them, so you will not be able to consume any more
 arguments after it.

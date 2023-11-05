@@ -9,7 +9,7 @@ having to re-authenticate you can implement an automatic refresh system. This is
 implement anyway and offer as a "resync" button to the user in case they, for example, join a new server and want to
 setup your bot in that server so you need their latest [`LoginData`].
 
-:::caution
+:::warning
 
 On this page we are **not** guarding this route have rate limiting, however we very strongly recommend adding this kind
 of guard to the route so it cannot be spammed. You can read up on how to do this in the dedicated page [Applying rate
@@ -23,7 +23,7 @@ The first step is to add a new route, more information for adding routes can be 
 routes][adding-routes] page. For the rest of this guide we will assume the route is `/oauth/refresh` as path. Lets start
 by writing the basics:
 
-```typescript ts2esm2cjs|{4-6}|{4-6}
+```typescript ts2esm2cjs|{4-6}
 import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
 
 export class RefreshRoute extends Route {
@@ -39,7 +39,7 @@ of whether their token is still valid or not. We can do so by checking the prese
 In this part of the code we also extract some nested variables into local variables so we can reference them easier
 later.
 
-```typescript ts2esm2cjs|{5-10}|{5-10}
+```typescript ts2esm2cjs|{5-10}
 import { HttpCodes, methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
 
 export class RefreshRoute extends Route {
@@ -159,7 +159,7 @@ To refresh the user's data you can call the [`auth.fetchData`] function. This wi
 way it was returned when the user first logged in. You can then use this data to update the user's data in your
 frontend's storage.
 
-```typescript ts2esm2cjs|{18-24}|{18-24}
+```typescript ts2esm2cjs|{18-24}
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { HttpCodes, methods, MimeTypes, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
 import { Time } from '@sapphire/time-utilities';
@@ -206,6 +206,6 @@ Congratulations! You should now have a functioning dashboard that can refresh th
 [fetch-method]: ../../../Documentation/api-utilities/modules/sapphire_fetch#fetch
 [fetch-package]: https://www.npmjs.com/package/@sapphire/fetch
 [stringify-method]: https://nodejs.org/dist/lts/docs/api/querystring.html#querystringstringifyobj-sep-eq-options
-[querystring-module]: https://nodejs.org/dist/latest-v18.x/docs/api/querystring.html
+[querystring-module]: https://nodejs.org/dist/latest-v20.x/docs/api/querystring.html
 [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [await]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await

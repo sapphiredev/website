@@ -54,7 +54,7 @@ confusion due to similar naming, please refer to the
 documentation for examples on how they are seen by your end users. In this guide, we are simply showing you how to map
 application commands in a "Subcommand" or "Subcommand Group" to a method using the plugin.
 
-:::caution
+:::warning
 
 Before you can use with Chat Input Commands (Slash Commands), we recommend you learn how to register and use regular
 Chat Input Commands first in order to understand what the `registerApplicationCommands()` method does. Please read
@@ -134,7 +134,7 @@ respective class methods mapped in the `subcommands` array.
 
 The answer to if you can use both at the same time is yes.
 
-```typescript ts2esm2cjs|{8-19}|{8-19}
+```typescript ts2esm2cjs|{8-19}
 import { Subcommand } from '@sapphire/plugin-subcommands';
 
 // Extend `Subcommand` instead of `Command`
