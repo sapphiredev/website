@@ -2,6 +2,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { convertNpmToPackageManagers } from '@sapphire/docusaurus-plugin-npm2yarn2pnpm';
 import { ts2esm2cjs } from '@sapphire/docusaurus-plugin-ts2esm2cjs';
+import { themes } from 'prism-react-renderer';
 
 const Description =
 	'Sapphire is a next-gen Discord bot framework for developers of all skill levels to make the best JavaScript/TypeScript based bots possible.';
@@ -322,7 +323,9 @@ const config: Config = {
 		},
 		prism: {
 			defaultLanguage: 'javascript',
-			additionalLanguages: ['powershell', 'batch']
+			additionalLanguages: ['powershell', 'batch'],
+			theme: themes.github,
+			darkTheme: themes.vsDark
 		},
 		algolia: {
 			appId: 'WWVT30WAIZ',
