@@ -90,8 +90,6 @@ const config: Config = {
 					'./projects/utilities/packages/prettier-config',
 					'./projects/utilities/packages/ts-config'
 				],
-				tsconfig: './tsconfig.typedoc.json',
-				readme: 'none',
 				out: 'Documentation/api-utilities',
 				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
 				sidebar: {
@@ -106,11 +104,7 @@ const config: Config = {
 				id: 'Plugins',
 				entryPointStrategy: 'packages',
 				entryPoints: ['./projects/plugins/packages/*'],
-				tsconfig: './tsconfig.typedoc.json',
-				readme: 'none',
 				out: 'Documentation/api-plugins',
-				excludeExternals: true,
-				externalPattern: ['node_modules/@types/**'],
 				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
 				sidebar: {
 					categoryLabel: 'Sapphire Plugins',
