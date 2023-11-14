@@ -2994,9 +2994,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/cliff-jumper@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@favware/cliff-jumper@npm:2.2.1"
+"@favware/cliff-jumper@npm:^2.2.1, @favware/cliff-jumper@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@favware/cliff-jumper@npm:2.2.3"
   dependencies:
     "@sapphire/result": "npm:^2.6.4"
     "@sapphire/utilities": "npm:3.13.0"
@@ -3010,7 +3010,7 @@ __metadata:
   bin:
     cj: ./dist/cli.js
     cliff-jumper: ./dist/cli.js
-  checksum: 70d361236ec3cffa6afa0f49a73f49383a5107f091505ec29e835e885e8e73ef8b1b4905a191931cc9624573aaf613efea25169356f61b8efa5ac325fac291af
+  checksum: feb00a1e0912a19b959c94cb621b50f80ce58ce595128511f6b61df43c32e807b1ea1525c05990fdff0dedb7a05c61169a059605d26c20ea341dda511ac125e8
   languageName: node
   linkType: hard
 
@@ -3449,13 +3449,13 @@ __metadata:
   linkType: hard
 
 "@octokit/plugin-rest-endpoint-methods@npm:^10.0.0":
-  version: 10.1.4
-  resolution: "@octokit/plugin-rest-endpoint-methods@npm:10.1.4"
+  version: 10.1.5
+  resolution: "@octokit/plugin-rest-endpoint-methods@npm:10.1.5"
   dependencies:
     "@octokit/types": "npm:^12.3.0"
   peerDependencies:
     "@octokit/core": ">=5"
-  checksum: d16753dc9dc884ead95c09c51ba316f53da59b95b97323858b52b76e28a0fb3f3db3db0545c4970d4c2aaf824999fd4425ab5c9516abdec33d8dd2db2e10696a
+  checksum: 2426314c1267edfbe0c21f1fbfadc7626a719134b7e235849f07b1611c7284f747c9f630e59257f29bfbf250b84977da98ad61564bdc51fd7088ae62f58fce48
   languageName: node
   linkType: hard
 
@@ -3716,7 +3716,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/async-queue@workspace:projects/utilities/packages/async-queue"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -3730,7 +3730,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/bitfield@workspace:projects/utilities/packages/bitfield"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -3753,7 +3753,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/cron@workspace:projects/utilities/packages/cron"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/utilities": "workspace:^"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
@@ -3777,7 +3777,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/decorators@workspace:projects/utilities/packages/decorators"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/discord-utilities": "workspace:^"
     "@sapphire/discord.js-utilities": "workspace:^"
     "@sapphire/ratelimits": "workspace:^"
@@ -3806,7 +3806,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/discord-utilities@workspace:projects/utilities/packages/discord-utilities"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     discord-api-types: "npm:^0.37.63"
     tsup: "npm:^7.2.0"
@@ -3818,14 +3818,14 @@ __metadata:
   linkType: soft
 
 "@sapphire/discord.js-utilities@npm:^7.0.2":
-  version: 7.0.2
-  resolution: "@sapphire/discord.js-utilities@npm:7.0.2"
+  version: 7.0.3
+  resolution: "@sapphire/discord.js-utilities@npm:7.0.3"
   dependencies:
     "@sapphire/discord-utilities": "npm:^3.1.1"
     "@sapphire/duration": "npm:^1.1.0"
     "@sapphire/utilities": "npm:^3.13.0"
     tslib: "npm:^2.6.2"
-  checksum: 8f241404a8812582dc936fbf5ef84c06ef01f156d18862e19cdcf02cec75b8b194342dceb439f12ab1d7ad9401e8388c44c2fc94503e08b825c6dcaea7bc8ac8
+  checksum: 36ba91e5144736f85180ca477d46b2077d10e7239512640d2ab307f352998475a48dbb3158597bf7f22d6d0281592e52d3cc0b0394bc2dda2fad61f6878825b5
   languageName: node
   linkType: hard
 
@@ -3833,7 +3833,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/discord.js-utilities@workspace:projects/utilities/packages/discord.js-utilities"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/rollup-type-bundler": "npm:^2.0.0"
     "@sapphire/discord-utilities": "workspace:^"
     "@sapphire/duration": "workspace:^"
@@ -3882,7 +3882,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/duration@workspace:projects/utilities/packages/duration"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -3911,14 +3911,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/eslint-config@workspace:projects/utilities/packages/eslint-config"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
-    "@typescript-eslint/eslint-plugin": "npm:^6.10.0"
-    "@typescript-eslint/parser": "npm:^6.10.0"
+    "@favware/cliff-jumper": "npm:^2.2.3"
+    "@typescript-eslint/eslint-plugin": "npm:^6.11.0"
+    "@typescript-eslint/parser": "npm:^6.11.0"
     "@vitest/coverage-v8": "npm:^0.34.6"
     eslint: "npm:^8.53.0"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-prettier: "npm:^5.0.1"
-    prettier: "npm:^3.0.3"
+    prettier: "npm:^3.1.0"
     tsup: "npm:^7.2.0"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.2.2"
@@ -3930,11 +3930,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/eslint-plugin-result@workspace:projects/utilities/packages/eslint-plugin-result"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/result": "workspace:^"
-    "@typescript-eslint/rule-tester": "npm:^6.10.0"
-    "@typescript-eslint/typescript-estree": "npm:^6.10.0"
-    "@typescript-eslint/utils": "npm:^6.10.0"
+    "@typescript-eslint/rule-tester": "npm:^6.11.0"
+    "@typescript-eslint/typescript-estree": "npm:^6.11.0"
+    "@typescript-eslint/utils": "npm:^6.11.0"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     tsutils: "npm:^3.21.0"
@@ -3948,7 +3948,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/event-iterator@workspace:projects/utilities/packages/event-iterator"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tslib: "npm:^2.6.2"
     tsup: "npm:^7.2.0"
@@ -3972,7 +3972,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/fetch@workspace:projects/utilities/packages/fetch"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     cross-fetch: "npm:^4.0.0"
     tsup: "npm:^7.2.0"
@@ -4014,7 +4014,7 @@ __metadata:
     "@sapphire/discord.js-utilities": "npm:^7.0.2"
     "@sapphire/eslint-config": "npm:^5.0.2"
     "@sapphire/lexure": "npm:^1.1.5"
-    "@sapphire/pieces": "npm:^3.7.0"
+    "@sapphire/pieces": "npm:^3.7.1"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ratelimits": "npm:^2.4.7"
     "@sapphire/result": "npm:^2.6.4"
@@ -4059,7 +4059,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/lexure@workspace:projects/utilities/packages/lexure"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/result": "workspace:^"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
@@ -4081,7 +4081,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/node-utilities@workspace:projects/utilities/packages/node-utilities"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4095,7 +4095,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/phisherman@workspace:projects/utilities/packages/phisherman"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/fetch": "workspace:^"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4104,7 +4104,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/pieces@npm:^3.7.0":
+"@sapphire/pieces@npm:^3.7.0, @sapphire/pieces@npm:^3.7.1":
   version: 3.7.1
   resolution: "@sapphire/pieces@npm:3.7.1"
   dependencies:
@@ -4197,7 +4197,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.4"
     chokidar: "npm:^3.5.3"
     gen-esm-wrapper: "npm:^1.1.3"
-    i18next: "npm:^23.7.3"
+    i18next: "npm:^23.7.6"
     typedoc: "npm:^0.25.3"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.2.2"
@@ -4285,9 +4285,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/prettier-config@workspace:projects/utilities/packages/prettier-config"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
-    prettier: "npm:^3.0.3"
+    prettier: "npm:^3.1.0"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.2.2"
     vitest: "npm:^0.34.6"
@@ -4305,7 +4305,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/ratelimits@workspace:projects/utilities/packages/ratelimits"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4326,7 +4326,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/result@workspace:projects/utilities/packages/result"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4360,8 +4360,8 @@ __metadata:
     "@types/jsdom": "npm:^21.1.5"
     "@types/lodash": "npm:^4.14.201"
     "@types/node": "npm:^20.9.0"
-    "@typescript-eslint/eslint-plugin": "npm:^6.10.0"
-    "@typescript-eslint/parser": "npm:^6.10.0"
+    "@typescript-eslint/eslint-plugin": "npm:^6.11.0"
+    "@typescript-eslint/parser": "npm:^6.11.0"
     "@vitest/coverage-v8": "npm:^0.34.6"
     cz-conventional-changelog: "npm:^3.3.0"
     esbuild-plugins-node-modules-polyfill: "npm:^1.6.1"
@@ -4372,7 +4372,7 @@ __metadata:
     jsdom: "npm:^22.1.0"
     lint-staged: "npm:^15.1.0"
     lodash: "npm:^4.17.21"
-    prettier: "npm:^3.0.3"
+    prettier: "npm:^3.1.0"
     ts-node: "npm:^10.9.1"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4394,7 +4394,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/snowflake@workspace:projects/utilities/packages/snowflake"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4417,7 +4417,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/stopwatch@workspace:projects/utilities/packages/stopwatch"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@types/jsdom": "npm:^21.1.5"
     "@vitest/coverage-v8": "npm:^0.34.6"
     jsdom: "npm:^22.1.0"
@@ -4434,7 +4434,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/time-utilities@workspace:projects/utilities/packages/time-utilities"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/cron": "workspace:^"
     "@sapphire/duration": "workspace:^"
     "@sapphire/timer-manager": "workspace:^"
@@ -4457,7 +4457,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/timer-manager@workspace:projects/utilities/packages/timer-manager"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4478,7 +4478,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/timestamp@workspace:projects/utilities/packages/timestamp"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4502,7 +4502,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/ts-config@workspace:projects/utilities/packages/ts-config"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/eslint-config": "workspace:^"
     "@sapphire/eslint-plugin-result": "workspace:^"
     "@vitest/coverage-v8": "npm:^0.34.6"
@@ -4529,8 +4529,8 @@ __metadata:
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.0"
     "@types/node": "npm:^20.9.0"
-    "@typescript-eslint/eslint-plugin": "npm:^6.10.0"
-    "@typescript-eslint/parser": "npm:^6.10.0"
+    "@typescript-eslint/eslint-plugin": "npm:^6.11.0"
+    "@typescript-eslint/parser": "npm:^6.11.0"
     "@vitest/coverage-v8": "npm:^0.34.6"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^8.53.0"
@@ -4539,7 +4539,7 @@ __metadata:
     gen-esm-wrapper: "npm:^1.1.3"
     lint-staged: "npm:^15.1.0"
     nan: "npm:^2.18.0"
-    prettier: "npm:^3.0.3"
+    prettier: "npm:^3.1.0"
     tslib: "npm:^2.6.2"
     tsup: "npm:^7.2.0"
     typedoc: "npm:^0.25.3"
@@ -4561,7 +4561,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/utilities@workspace:projects/utilities/packages/utilities"
   dependencies:
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@vitest/coverage-v8": "npm:^0.34.6"
     esbuild-plugin-file-path-extensions: "npm:^1.0.0"
     tsup: "npm:^7.2.0"
@@ -5575,7 +5575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.10.0, @typescript-eslint/eslint-plugin@npm:^6.11.0, @typescript-eslint/eslint-plugin@npm:^6.5.0":
+"@typescript-eslint/eslint-plugin@npm:^6.11.0, @typescript-eslint/eslint-plugin@npm:^6.5.0":
   version: 6.11.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.11.0"
   dependencies:
@@ -5600,7 +5600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.10.0, @typescript-eslint/parser@npm:^6.11.0, @typescript-eslint/parser@npm:^6.5.0":
+"@typescript-eslint/parser@npm:^6.11.0, @typescript-eslint/parser@npm:^6.5.0":
   version: 6.11.0
   resolution: "@typescript-eslint/parser@npm:6.11.0"
   dependencies:
@@ -5618,7 +5618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/rule-tester@npm:^6.10.0":
+"@typescript-eslint/rule-tester@npm:^6.11.0":
   version: 6.11.0
   resolution: "@typescript-eslint/rule-tester@npm:6.11.0"
   dependencies:
@@ -5668,7 +5668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:6.11.0, @typescript-eslint/typescript-estree@npm:^6.10.0":
+"@typescript-eslint/typescript-estree@npm:6.11.0, @typescript-eslint/typescript-estree@npm:^6.11.0":
   version: 6.11.0
   resolution: "@typescript-eslint/typescript-estree@npm:6.11.0"
   dependencies:
@@ -5686,7 +5686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:6.11.0, @typescript-eslint/utils@npm:^6.0.0, @typescript-eslint/utils@npm:^6.10.0":
+"@typescript-eslint/utils@npm:6.11.0, @typescript-eslint/utils@npm:^6.0.0, @typescript-eslint/utils@npm:^6.11.0":
   version: 6.11.0
   resolution: "@typescript-eslint/utils@npm:6.11.0"
   dependencies:
@@ -8571,14 +8571,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:0.37.63":
-  version: 0.37.63
-  resolution: "discord-api-types@npm:0.37.63"
-  checksum: 7ed40b03053b1f019a6d637ad3f873d38d7a347b9d7b846f78b5166e854868cf9690a5c5d9206d2c04087e98a5ec0333edcae7cf6c87f14e8625ecc3b6377376
+"discord-api-types@npm:0.37.61":
+  version: 0.37.61
+  resolution: "discord-api-types@npm:0.37.61"
+  checksum: f11d593722ab8ba72c07fd841d62484f22c30e36f4ce6b644f8bbf48422d20b0cd6acbf126d60aa2c535e4bd55df694745cc730c6c0382717dc10b2a81fb2805
   languageName: node
   linkType: hard
 
-"discord.js@npm:^14.13.0, discord.js@npm:^14.14.1":
+"discord.js@npm:^14.14.1":
   version: 14.14.1
   resolution: "discord.js@npm:14.14.1"
   dependencies:
@@ -11346,7 +11346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.7.3":
+"i18next@npm:^23.7.6":
   version: 23.7.6
   resolution: "i18next@npm:23.7.6"
   dependencies:
@@ -15765,7 +15765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.0.2, prettier@npm:^3.0.3, prettier@npm:^3.1.0":
+"prettier@npm:^3.0.0, prettier@npm:^3.0.2, prettier@npm:^3.1.0":
   version: 3.1.0
   resolution: "prettier@npm:3.1.0"
   bin:
@@ -16903,25 +16903,25 @@ __metadata:
     "@favware/npm-deprecate": "npm:^1.0.7"
     "@sapphire/eslint-config": "npm:^5.0.2"
     "@sapphire/framework": "npm:^4.7.2"
-    "@sapphire/pieces": "npm:^3.7.0"
+    "@sapphire/pieces": "npm:^3.7.1"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/stopwatch": "npm:^1.5.0"
     "@sapphire/ts-config": "npm:^5.0.0"
     "@sapphire/utilities": "npm:^3.13.0"
     "@types/node": "npm:^20.9.0"
     "@types/ws": "npm:^8.5.9"
-    "@typescript-eslint/eslint-plugin": "npm:^6.10.0"
-    "@typescript-eslint/parser": "npm:^6.10.0"
+    "@typescript-eslint/eslint-plugin": "npm:^6.11.0"
+    "@typescript-eslint/parser": "npm:^6.11.0"
     "@vitest/coverage-v8": "npm:^0.34.6"
     cz-conventional-changelog: "npm:^3.3.0"
     discord-api-types: "npm:^0.37.63"
-    discord.js: "npm:^14.13.0"
+    discord.js: "npm:^14.14.1"
     eslint: "npm:^8.53.0"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-prettier: "npm:^5.0.1"
     gen-esm-wrapper: "npm:^1.1.3"
     lint-staged: "npm:^15.1.0"
-    prettier: "npm:^3.0.3"
+    prettier: "npm:^3.1.0"
     rimraf: "npm:^5.0.5"
     turbo: "npm:^1.10.16"
     typescript: "npm:^5.2.2"
@@ -16938,26 +16938,26 @@ __metadata:
     "@commitlint/cli": "npm:^18.4.1"
     "@commitlint/config-conventional": "npm:^18.4.0"
     "@discordjs/collection": "npm:^1.5.3"
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
     "@favware/rollup-type-bundler": "npm:^2.0.0"
     "@sapphire/framework": "npm:^4.7.2"
     "@types/lodash": "npm:^4.14.201"
     "@types/node": "npm:^20.9.0"
     "@types/ws": "npm:^8.5.9"
-    "@typescript-eslint/eslint-plugin": "npm:^6.10.0"
-    "@typescript-eslint/parser": "npm:^6.10.0"
+    "@typescript-eslint/eslint-plugin": "npm:^6.11.0"
+    "@typescript-eslint/parser": "npm:^6.11.0"
     "@vitest/coverage-v8": "npm:^0.34.6"
     cz-conventional-changelog: "npm:^3.3.0"
     discord-api-types: "npm:^0.37.63"
-    discord.js: "npm:^14.13.0"
+    discord.js: "npm:^14.14.1"
     eslint: "npm:^8.53.0"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-prettier: "npm:^5.0.1"
     lint-staged: "npm:^15.1.0"
     lodash: "npm:^4.17.21"
     nock: "npm:^13.3.8"
-    prettier: "npm:^3.0.3"
+    prettier: "npm:^3.1.0"
     rimraf: "npm:^5.0.5"
     tslib: "npm:^2.6.2"
     tsup: "npm:^7.2.0"
@@ -19478,8 +19478,8 @@ __metadata:
   linkType: hard
 
 "vite@npm:^3.0.0 || ^4.0.0 || ^5.0.0-0, vite@npm:^3.1.0 || ^4.0.0 || ^5.0.0-0":
-  version: 5.0.0-beta.18
-  resolution: "vite@npm:5.0.0-beta.18"
+  version: 5.0.0-beta.19
+  resolution: "vite@npm:5.0.0-beta.19"
   dependencies:
     esbuild: "npm:^0.19.3"
     fsevents: "npm:~2.3.3"
@@ -19513,7 +19513,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: ed5a481cd0ab69a6dc6f7d6076c416e0fb371f8b40f396e98f717a2ac60ad2839607a39797b81cbd0389f988c86e734c27d29abdef37bbca59b633cb484f099f
+  checksum: 0f72ad8490df7293d34271185b5c7c734e1aedfee90494c568f6a3d583e98fe89add39622e073ed4e3e8403309fde9dd4bcaf9854fa81b939b91e248aa229767
   languageName: node
   linkType: hard
 
