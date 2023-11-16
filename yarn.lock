@@ -3793,12 +3793,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord-utilities@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@sapphire/discord-utilities@npm:3.1.1"
+"@sapphire/discord-utilities@npm:^3.1.1, @sapphire/discord-utilities@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@sapphire/discord-utilities@npm:3.2.0"
   dependencies:
-    discord-api-types: "npm:^0.37.55"
-  checksum: 93a9c17613838e9e4bb22ce0c5bd40d34f835477aa0eb2c27ab56e97fbc500f68fd31b9b39c7d29c1bdfef70d153274026b05a84165f41b2673438e6dc76ad5d
+    discord-api-types: "npm:^0.37.63"
+  checksum: d65c3ebe58a28a520547e120eb99eb12f0f62951e0ce055856089d35e4074c9e7773595d5bd04cc2b535799f722c8596dceaee7b8aff0794c0ca2fa7d91ca741
   languageName: node
   linkType: hard
 
@@ -3818,14 +3818,14 @@ __metadata:
   linkType: soft
 
 "@sapphire/discord.js-utilities@npm:^7.0.2":
-  version: 7.0.3
-  resolution: "@sapphire/discord.js-utilities@npm:7.0.3"
+  version: 7.1.1
+  resolution: "@sapphire/discord.js-utilities@npm:7.1.1"
   dependencies:
-    "@sapphire/discord-utilities": "npm:^3.1.1"
+    "@sapphire/discord-utilities": "npm:^3.2.0"
     "@sapphire/duration": "npm:^1.1.0"
     "@sapphire/utilities": "npm:^3.13.0"
     tslib: "npm:^2.6.2"
-  checksum: 36ba91e5144736f85180ca477d46b2077d10e7239512640d2ab307f352998475a48dbb3158597bf7f22d6d0281592e52d3cc0b0394bc2dda2fad61f6878825b5
+  checksum: 04610e51382c8fcc2ad6b208f74f33f26671e966858d2461e3dc5e840af8d61812fb8bd8f194a5728535727359517d291279035f5dec130375df6fb6eb851d0e
   languageName: node
   linkType: hard
 
@@ -4105,13 +4105,13 @@ __metadata:
   linkType: soft
 
 "@sapphire/pieces@npm:^3.7.0, @sapphire/pieces@npm:^3.7.1":
-  version: 3.7.1
-  resolution: "@sapphire/pieces@npm:3.7.1"
+  version: 3.9.0
+  resolution: "@sapphire/pieces@npm:3.9.0"
   dependencies:
     "@discordjs/collection": "npm:^1.5.3"
     "@sapphire/utilities": "npm:^3.13.0"
     tslib: "npm:^2.6.2"
-  checksum: 11d2a04860987dc52144851e2c484cfbb83d8b0924c0de7c1fb93eb348dc3820a6cfa046fc22bc3a0a4df0dce1d291fdd749c26a8e5c19b116aa1ec87715a62c
+  checksum: e553dcf65fcc80da37bc323ac2514062d798e7a7561b1aeaba16cd77c1d63024063181b9eb80022c425482bab04b4dc7cf69216cfdb975a728b3c248af29c027
   languageName: node
   linkType: hard
 
@@ -4122,7 +4122,7 @@ __metadata:
     "@commitlint/cli": "npm:^18.4.1"
     "@commitlint/config-conventional": "npm:^18.4.0"
     "@discordjs/collection": "npm:^1.5.3"
-    "@favware/cliff-jumper": "npm:^2.2.1"
+    "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
     "@favware/rollup-type-bundler": "npm:^2.0.0"
     "@sapphire/eslint-config": "npm:^5.0.2"
@@ -6560,13 +6560,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
+"axios@npm:^1.6.1":
+  version: 1.6.2
+  resolution: "axios@npm:1.6.2"
   dependencies:
-    follow-redirects: "npm:^1.14.9"
+    follow-redirects: "npm:^1.15.0"
     form-data: "npm:^4.0.0"
-  checksum: 2efaf18dd0805f7bc772882bc86f004abd92d51007b54c5081f74db0d08ce3593e2c010261896d25a14318eeaa2e966fd825e34f810e8a3339dc64b9d177cf70
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 612bc93f8f738a518e7c5f9de9cc782bcd36aac6bae279160ef6a10260378e21c1786520eab3336898e3d66e0839ebdf739f327fb6d0431baa4d3235703a7652
   languageName: node
   linkType: hard
 
@@ -8792,9 +8793,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.535":
-  version: 1.4.582
-  resolution: "electron-to-chromium@npm:1.4.582"
-  checksum: 6b1e9b9605d02c92d7d429dd22c93f7d7a6ea14613b49a3ad267e2d8d68862ff6072df1dcc833faf7077ecec2dbbd4e68e8c9f744cd1960ce258622cfd072db8
+  version: 1.4.585
+  resolution: "electron-to-chromium@npm:1.4.585"
+  checksum: c2d6b1c0214c588759399dc15efb06e3da294bf19ee86b26b26efd186f55ccb687ebbfefe3435d389fb4ee4334a8cfe68108aa4f89c6f44958885c3f900e43b2
   languageName: node
   linkType: hard
 
@@ -10089,7 +10090,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.0":
   version: 1.15.3
   resolution: "follow-redirects@npm:1.15.3"
   peerDependenciesMeta:
@@ -13170,12 +13171,12 @@ __metadata:
   linkType: hard
 
 "markdownlint@npm:^0.32.0":
-  version: 0.32.0
-  resolution: "markdownlint@npm:0.32.0"
+  version: 0.32.1
+  resolution: "markdownlint@npm:0.32.1"
   dependencies:
     markdown-it: "npm:13.0.2"
     markdownlint-micromark: "npm:0.1.7"
-  checksum: d281f18109a1144fd6148cfebfc03cb03a755ddb7c95f133f6b0d4e6bc5365b7d3bf2a6b0456becef3853bc8418904213139b5fa3c20eebba0fdf37d0fbb3c90
+  checksum: 7d6fb3ac1ea25be3851406249e91c6555089d82b0c1b31f9a6be39c08f11e999c308b8cca32d6e7f09febb0d87fab8fd5762be38a8c952f459b0cb38ba0174be
   languageName: node
   linkType: hard
 
@@ -15910,6 +15911,13 @@ __metadata:
     forwarded: "npm:0.2.0"
     ipaddr.js: "npm:1.9.1"
   checksum: f24a0c80af0e75d31e3451398670d73406ec642914da11a2965b80b1898ca6f66a0e3e091a11a4327079b2b268795f6fa06691923fef91887215c3d0e8ea3f68
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: f0bb4a87cfd18f77bc2fba23ae49c3b378fb35143af16cc478171c623eebe181678f09439707ad80081d340d1593cd54a33a0113f3ccb3f4bc9451488780ee23
   languageName: node
   linkType: hard
 
@@ -18967,9 +18975,9 @@ __metadata:
   linkType: hard
 
 "ufo@npm:^1.3.0":
-  version: 1.3.1
-  resolution: "ufo@npm:1.3.1"
-  checksum: cc10314a5065c50995167a2c4bbe04c3929f6a750f09e5a805cc647e2a16ea5556360b3c22a4cb03fe32cb18877d37c5f833a44930633916a916fac41be25d14
+  version: 1.3.2
+  resolution: "ufo@npm:1.3.2"
+  checksum: 7133290d495e2b3f9416de69982019e81cff40d28cfd3a07accff1122ee52f23d9165e495a140a1b34b183244e88fc4001cb649591385ecbad1d3d0d2264fa6e
   languageName: node
   linkType: hard
 
@@ -19478,8 +19486,8 @@ __metadata:
   linkType: hard
 
 "vite@npm:^3.0.0 || ^4.0.0 || ^5.0.0-0, vite@npm:^3.1.0 || ^4.0.0 || ^5.0.0-0":
-  version: 5.0.0-beta.19
-  resolution: "vite@npm:5.0.0-beta.19"
+  version: 5.0.0-beta.20
+  resolution: "vite@npm:5.0.0-beta.20"
   dependencies:
     esbuild: "npm:^0.19.3"
     fsevents: "npm:~2.3.3"
@@ -19513,7 +19521,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 0f72ad8490df7293d34271185b5c7c734e1aedfee90494c568f6a3d583e98fe89add39622e073ed4e3e8403309fde9dd4bcaf9854fa81b939b91e248aa229767
+  checksum: d810e80f99a5fca4387cb23a6849a795459946207d0af356382ab787c1d34bc2250dfc3278d013d2b98a43a051bf4bd3416d05a71e8940f51972325afb6567c9
   languageName: node
   linkType: hard
 
@@ -19641,17 +19649,17 @@ __metadata:
   linkType: hard
 
 "wait-on@npm:^7.0.1":
-  version: 7.1.0
-  resolution: "wait-on@npm:7.1.0"
+  version: 7.2.0
+  resolution: "wait-on@npm:7.2.0"
   dependencies:
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.1"
     joi: "npm:^17.11.0"
     lodash: "npm:^4.17.21"
     minimist: "npm:^1.2.8"
     rxjs: "npm:^7.8.1"
   bin:
     wait-on: bin/wait-on
-  checksum: 7fee48fdb58c13160239dddc65be203d3ae29e2d7759740846237a5b078ea27649905359b69752625b409db065b4a246f65fffdbf9b5e3d51d7d06bfdc7a95f1
+  checksum: 00299e3b651c70d7082d02b93d9d4784cbe851914f1674d795d578d4826876193fdc7bee7e9491264b7c2d242ac9fe6e1fd09e1143409f730f13a7ee2da67fff
   languageName: node
   linkType: hard
 
