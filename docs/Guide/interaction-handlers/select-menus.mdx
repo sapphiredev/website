@@ -13,7 +13,7 @@ import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework
 import type { StringSelectMenuInteraction } from 'discord.js';
 
 export class MenuHandler extends InteractionHandler {
-  public constructor(ctx: InteractionHandler.Context, options: InteractionHandler.Options) {
+  public constructor(ctx: InteractionHandler.LoaderContext, options: InteractionHandler.Options) {
     super(ctx, {
       ...options,
       interactionHandlerType: InteractionHandlerTypes.SelectMenu

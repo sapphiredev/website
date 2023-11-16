@@ -52,7 +52,7 @@ import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord.js';
 
 export class SlashCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'Delete message and ban author.'
@@ -96,7 +96,7 @@ import { Command } from '@sapphire/framework';
 import { ApplicationCommandType } from 'discord.js';
 
 export class SlashCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'Ban user.'
@@ -135,7 +135,7 @@ import { Command } from '@sapphire/framework';
 import { ApplicationCommandType, userMention, GuildMember } from 'discord.js';
 
 export class SlashCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'Ban user.'

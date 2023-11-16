@@ -11,7 +11,7 @@ import { Argument, Resolvers } from '@sapphire/framework';
 import { isNullish } from '@sapphire/utilities';
 
 export class TextBasedChannelsArgument extends Argument<TextBasedChannelTypes> {
-  public run(parameter: string, context: Argument.Context) {
+  public run(parameter: string, context: Argument.LoaderContext) {
     const { value } = Resolvers.resolveGuildChannel(parameter, context.message.guild!);
 
     if (!isNullish(value) && isTextBasedChannel(value)) {
@@ -69,7 +69,7 @@ file:
 import { Argument } from '@sapphire/framework';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 
-interface ArrayArgumentContext extends Argument.Context {
+interface ArrayArgumentContext extends Argument.LoaderContext {
   array?: string[];
 }
 

@@ -126,7 +126,7 @@ To attach a precondition to a command, you simply have to input its name in an a
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context) {
+  public constructor(context: Command.LoaderContext) {
     super(context, {
       // ...
       preconditions: ['OwnerOnly']

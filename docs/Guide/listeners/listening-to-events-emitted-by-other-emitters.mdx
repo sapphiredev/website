@@ -12,7 +12,7 @@ One method is to set the name a `Client` property containing the emitter like so
 import { Listener } from '@sapphire/framework';
 
 export class RawGuildMemberAddListener extends Listener {
-  public constructor(context: Listener.Context, options: Listener.Options) {
+  public constructor(context: Listener.LoaderContext, options: Listener.Options) {
     super(context, {
       ...options,
       emitter: 'ws',
@@ -28,7 +28,7 @@ The other way is to specify an emitter directly instead of a property name:
 import { Listener, container } from '@sapphire/framework';
 
 export class RawGuildMemberAddListener extends Listener {
-  public constructor(context: Listener.Context, options: Listener.Options) {
+  public constructor(context: Listener.LoaderContext, options: Listener.Options) {
     super(context, {
       ...options,
       emitter: container.client.ws,

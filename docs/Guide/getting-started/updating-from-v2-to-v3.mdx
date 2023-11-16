@@ -104,7 +104,7 @@ Here's a simple example of how you can easily register a chat input command and 
 import { Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'Says hello.'

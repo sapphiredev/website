@@ -12,7 +12,7 @@ milliseconds that a user will have to wait after using a command to use it again
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context) {
+  public constructor(context: Command.LoaderContext) {
     super(context, {
       // ...
       cooldownDelay: 10_000 // 10_000 milliseconds (10 seconds)
@@ -34,7 +34,7 @@ import { Command } from '@sapphire/framework';
 import { Time } from '@sapphire/time-utilities';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context) {
+  public constructor(context: Command.LoaderContext) {
     super(context, {
       // ...
       cooldownDelay: Time.Second * 10 // Much easier for humans to read
@@ -57,7 +57,7 @@ the bot can ignore when calculating cooldowns.
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context) {
+  public constructor(context: Command.LoaderContext) {
     super(context, {
       // ...
       cooldownDelay: 10_000 // 10_000 milliseconds (10 seconds)

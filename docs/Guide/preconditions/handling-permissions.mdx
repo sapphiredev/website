@@ -14,7 +14,7 @@ import { Command } from '@sapphire/framework';
 import { PermissionFlagsBits } from 'discord.js';
 
 export class BanCommand extends Command {
-  public constructor(context: Command.Context) {
+  public constructor(context: Command.LoaderContext) {
     super(context, {
       // ...
       requiredUserPermissions: [PermissionFlagsBits.BanMembers]
@@ -38,7 +38,7 @@ import { Command } from '@sapphire/framework';
 import { PermissionFlagsBits } from 'discord.js';
 
 export class BanCommand extends Command {
-  public constructor(context: Command.Context) {
+  public constructor(context: Command.LoaderContext) {
     super(context, {
       // ...
       requiredUserPermissions: [PermissionFlagsBits.BanMembers],

@@ -10,7 +10,7 @@ by setting the `nsfw` option in the command.
 import { Command } from '@sapphire/framework';
 
 export class NSFWCommand extends Command {
-  public constructor(context: Command.Context) {
+  public constructor(context: Command.LoaderContext) {
     super(context, {
       // ...
       nsfw: true

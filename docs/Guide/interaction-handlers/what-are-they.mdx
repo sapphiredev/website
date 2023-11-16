@@ -153,7 +153,7 @@ import type { ButtonInteraction } from 'discord.js';
 import type { Project } from '@prisma/client';
 
 export class HowDoWeUseThemExample extends InteractionHandler {
-  public constructor(ctx: InteractionHandler.Context, options: InteractionHandler.Options) {
+  public constructor(ctx: InteractionHandler.LoaderContext, options: InteractionHandler.Options) {
     super(ctx, {
       ...options,
       interactionHandlerType: InteractionHandlerTypes.Button
@@ -194,7 +194,7 @@ import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework
 import type { ButtonInteraction } from 'discord.js';
 
 export class ParseResultExample extends InteractionHandler {
-  public constructor(ctx: InteractionHandler.Context, options: InteractionHandler.Options) {
+  public constructor(ctx: InteractionHandler.LoaderContext, options: InteractionHandler.Options) {
     super(ctx, {
       ...options,
       interactionHandlerType: InteractionHandlerTypes.Button

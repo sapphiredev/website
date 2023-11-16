@@ -38,7 +38,7 @@ import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class OptionsCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       options: ['size']
@@ -74,7 +74,7 @@ import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class OptionsCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       options: ['size']
@@ -112,7 +112,7 @@ import { Command, Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class OptionsCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       options: true

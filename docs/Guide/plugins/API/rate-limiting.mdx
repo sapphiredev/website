@@ -20,7 +20,7 @@ export class UserRoute extends Route {
 
   private readonly rateLimitManager = new RateLimitManager(Time.Second * 5, 1);
 
-  public constructor(context: Route.Context, options: Route.Options) {
+  public constructor(context: Route.LoaderContext, options: Route.Options) {
     super(context, {
       ...options,
       route: 'hello-world'
@@ -117,7 +117,7 @@ export class UserRoute extends Route {
 
   private readonly rateLimitManager = new RateLimitManager(Time.Second * 5, 1);
 
-  public constructor(context: Route.Context, options: Route.Options) {
+  public constructor(context: Route.LoaderContext, options: Route.Options) {
     super(context, {
       ...options,
       route: 'hello-world'

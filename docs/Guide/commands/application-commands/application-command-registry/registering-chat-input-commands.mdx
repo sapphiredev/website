@@ -37,7 +37,7 @@ An example looks like the following:
 import { Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'Send a Slash Command.'
@@ -82,7 +82,7 @@ Chat Input Commands can take in options, which are similar to arguments for a fu
 import { Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'Say hello to a user.'
@@ -193,7 +193,7 @@ import { Command } from '@sapphire/framework';
 import { userMention } from 'discord.js';
 
 export class SlashCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'Say hello to a user.'

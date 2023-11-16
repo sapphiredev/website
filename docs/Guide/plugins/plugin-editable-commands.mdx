@@ -53,7 +53,7 @@ import { Message, EmbedBuilder } from 'discord.js';
 import { send } from '@sapphire/plugin-editable-commands';
 
 export class UserCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'A very cool command',

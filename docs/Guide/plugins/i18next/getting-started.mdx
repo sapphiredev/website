@@ -198,7 +198,7 @@ import { resolveKey } from '@sapphire/plugin-i18next';
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'ping pong'
@@ -239,7 +239,7 @@ import { fetchLanguage } from '@sapphire/plugin-i18next';
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'ping pong'
@@ -273,7 +273,7 @@ import { fetchLanguage } from '@sapphire/plugin-i18next';
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       description: 'ping pong'

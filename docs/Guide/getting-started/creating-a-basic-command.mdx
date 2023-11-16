@@ -54,7 +54,7 @@ That said, here is an example of a `ping` command:
 import { Command } from '@sapphire/framework';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       name: 'ping',
@@ -112,7 +112,7 @@ import { Command } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     // ...
   }
 
@@ -140,7 +140,7 @@ import { Command } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-  public constructor(context: Command.Context, options: Command.Options) {
+  public constructor(context: Command.LoaderContext, options: Command.Options) {
     super(context, {
       ...options,
       name: 'ping',

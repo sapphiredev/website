@@ -16,7 +16,7 @@ import type { Message } from 'discord.js';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
-  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
+  public constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
     super(context, {
       ...options,
       name: 'vip',
@@ -67,7 +67,7 @@ import { Subcommand } from '@sapphire/plugin-subcommands';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
-  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
+  public constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
     super(context, {
       ...options,
       name: 'vip',
@@ -138,7 +138,7 @@ import { Subcommand } from '@sapphire/plugin-subcommands';
 
 // Extend `Subcommand` instead of `Command`
 export class UserCommand extends Subcommand {
-  public constructor(context: Subcommand.Context, options: Subcommand.Options) {
+  public constructor(context: Subcommand.LoaderContext, options: Subcommand.Options) {
     super(context, {
       ...options,
       name: 'vip',
