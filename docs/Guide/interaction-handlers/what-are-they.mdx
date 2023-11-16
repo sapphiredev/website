@@ -148,13 +148,16 @@ I'm glad you asked! Here's an example that handles all button presses and return
 the button was pressed until the moment you received it)
 
 ```typescript ts2esm2cjs
-import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
 import type { ButtonInteraction } from 'discord.js';
 import type { Project } from '@prisma/client';
 
 export class HowDoWeUseThemExample extends InteractionHandler {
-  public constructor(ctx: PieceContext) {
-    super(ctx, { interactionHandlerType: InteractionHandlerTypes.Button });
+  public constructor(ctx: InteractionHandler.Context, options: InteractionHandler.Options) {
+    super(ctx, {
+      ...options,
+      interactionHandlerType: InteractionHandlerTypes.Button
+    });
   }
 
   public async run(interaction: ButtonInteraction, project: Project) {
@@ -187,11 +190,11 @@ There is a utility type on the InteractionHandler class called `ParseResult` tha
 parse method is what you'll get in the run method, with automatic updates! Here's how to do that:
 
 ```typescript ts2esm2cjs
-import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
 import type { ButtonInteraction } from 'discord.js';
 
 export class ParseResultExample extends InteractionHandler {
-  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+  public constructor(ctx: InteractionHandler.Context, options: InteractionHandler.Options) {
     super(ctx, {
       ...options,
       interactionHandlerType: InteractionHandlerTypes.Button

@@ -10,11 +10,11 @@ this [`InteractionHandler`][interaction-handler] trigger for both [`SelectMenus`
 Here's a simple example:
 
 ```typescript ts2esm2cjs
-import { InteractionHandler, InteractionHandlerTypes, PieceContext } from '@sapphire/framework';
+import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
 import type { StringSelectMenuInteraction, ButtonInteraction } from 'discord.js';
 
 export class MessageComponentHandler extends InteractionHandler {
-  public constructor(ctx: PieceContext, options: InteractionHandler.Options) {
+  public constructor(ctx: InteractionHandler.Context, options: InteractionHandler.Options) {
     super(ctx, {
       ...options,
       interactionHandlerType: InteractionHandlerTypes.MessageComponent
