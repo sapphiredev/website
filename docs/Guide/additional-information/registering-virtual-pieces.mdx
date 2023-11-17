@@ -1,0 +1,116 @@
+---
+sidebar_position: 5
+title: Registering and loading virtual pieces
+---
+
+Virtual pieces differ from normal pieces in that they are not loaded from the file system. Instead, they are registered
+directly into the container. This is useful for several purposes:
+
+- Pieces that are not stored in the file system, such as pieces that are generated at runtime.
+- Pieces that are stored in the file system, but are not loaded by Sapphire due to runtime limitations where file system
+  operations are either restricted or not possible.
+- Bundling the bot into a single file. This is useful for serverless deployments, where you cannot rely on the file
+  system.
+
+## Registering virtual pieces
+
+To register a virtual piece, you must use the `container`'s `loadPiece` method. This method accepts a piece constructor
+a name, and the store the piece belongs to.
+
+```typescript ts2esm2cjs|{8-12}
+import { container, Listener } from '@sapphire/framework';
+
+class UserListener extends Listener {
+  public run() {
+    // ...
+  }
+}
+
+void container.stores.loadPiece({
+  piece: UserListener,
+  name: 'ready',
+  store: 'listeners'
+});
+```
+
+Afterward, import the file that contains the above code in your entry point:
+
+```typescript ts2esm2cjs|{1}
+import './listeners/ready';
+// other imports
+```
+
+This will register the `UserListener` class as a listener with the name `ready`, and queue it for loading. The piece
+will be loaded and instantiated when its store's [`loadAll`] method is called.
+
+The [`loadPiece`] method returns a Promise, which:
+
+- If its store's [`loadAll`] was called, it will load the piece immediately and resolve once it has loaded.
+- Otherwise, it will queue the piece to be loaded by its store's [`loadAll`] and resolve it immediately.
+
+:::tip
+
+In `@sapphire/framework`, the [`loadAll`] method is called when the [`SapphireClient#login`] method is called.
+
+:::
+
+A common practice is to make a `_load` file in each folder that contains virtual pieces. For example, if you have a
+`listeners` folder, you can create a `listeners/_load.ts` file that imports all the listeners in that folder:
+
+```typescript ts2esm2cjs|{1}
+import './ready';
+// other imports
+```
+
+Then, import the `_load` file in your entry point:
+
+```typescript ts2esm2cjs|{1}
+import './listeners/_load';
+// other imports
+```
+
+## Disabling the File System
+
+By default, the file system is enabled. This means that pieces are loaded from the file system when their store's
+[`loadAll`] method is called. However, if you are using virtual pieces, you can disable the file system by passing
+`null` to the [`SapphireClientOptions#baseUserDirectory`] option when instantiating the client.
+
+```typescript ts2esm2cjs|{3,5}
+import { SapphireClient } from '@sapphire/framework';
+import './listeners/_load';
+
+const client = new SapphireClient({
+  baseUserDirectory: null
+});
+```
+
+By default, Sapphire registers the current path as the base user directory. However, since you are using virtual pieces,
+you do not need to load pieces from the file system, so you can disable this behavior by using `null`.
+
+If no paths are registered, then the file system will be disabled automatically.
+
+:::info
+
+`@sapphire/framework` and official plugins support virtual pieces. However, third-party plugins may not support virtual
+pieces. If you are using a third-party plugin, make sure to check its documentation or its source code to see if it
+supports virtual pieces.
+
+:::
+
+## Limitations
+
+Virtual pieces have the following limitations:
+
+- Virtual pieces cannot be reloaded. If you need to reload a virtual piece, you must restart your bot.
+- Virtual pieces have their location assigned as the value of `VirtualPath`, and return an empty array for
+  `directories`. This means that you cannot use the `directories` property to get the location of a virtual piece, which
+  may cause issues for structures that rely on this property, such as [`Command#fullCategory`].
+- Virtual pieces have to be imported manually, which can require long chains of imports.
+
+[`loadPiece`]: ../../Documentation/api-pieces/classes/StoreRegistry#loadpiece
+[`loadAll`]: ../../Documentation/api-pieces/classes/Store-1#loadall
+[`SapphireClient#login`]: ../../Documentation/api-framework/classes/SapphireClient#login
+[`SapphireClientOptions#baseUserDirectory`]:
+  ../../Documentation/api-framework/interfaces/SapphireClientOptions#baseuserdirectory#login
+[`VirtualPath`]: ../../Documentation/api-pieces/#virtualpath
+[`Command#fullCategory`]: ../../Documentation/api-framework/classes/Command-1#fullcategory
