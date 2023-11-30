@@ -66,7 +66,7 @@ export class AutocompleteHandler extends InteractionHandler {
 ## Autocomplete run method
 
 Sapphire will first attempt to find the command class for which the autocomplete is for, and if it exists _and_ it has
-the `autoCompleteRun` method set, call it, otherwise we pass it down to interaction handlers. It's the best of both
+the `autocompleteRun` method set, call it, otherwise we pass it down to interaction handlers. It's the best of both
 worlds, and lets you decide which is better for your projects.
 
 The downside of using `autocompleteRun` is if you have multiple commands that have a similar option and use the same
