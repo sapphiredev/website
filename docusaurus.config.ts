@@ -116,7 +116,7 @@ const config: Config = {
 			'docusaurus-plugin-typedoc',
 			{
 				id: 'Type',
-				entryPoints: ['./projects/type/src/index.ts'],
+				entryPoints: ['./projects/type/src/lib/index.ts'],
 				tsconfig: './projects/type/src/tsconfig.json',
 				readme: './projects/type/README.md',
 				out: 'Documentation/api-type',
