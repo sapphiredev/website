@@ -31,7 +31,7 @@ export class UserPrecondition extends AllFlowsPrecondition {
   #message =
     "Sorry but your server is banned from using this bot's commands. Contact the bot developer for more information.";
 
-  public constructor(context: Piece.LoaderContext, options: AllFlowsPrecondition.Options) {
+  public constructor(context: AllFlowsPrecondition.LoaderContext, options: AllFlowsPrecondition.Options) {
     super(context, {
       ...options,
       position: 20
