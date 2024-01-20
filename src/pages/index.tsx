@@ -1,10 +1,10 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import HeadTags from '@site/src/components/Home/HeadTags';
+import HomePageHeader from '@site/src/components/Home/HomePageHeader';
+import HomePageFeatures from '@site/src/components/Home/HomepageFeatures';
 import Layout from '@theme/Layout';
 import { useEffect } from 'react';
 import { SWRConfig } from 'swr';
-import HeadTags from '../components/Home/HeadTags';
-import HomePageHeader from '../components/Home/HomePageHeader';
-import HomePageFeatures from '../components/Home/HomepageFeatures';
 
 export default function Home(): JSX.Element {
 	const { siteConfig } = useDocusaurusContext();
