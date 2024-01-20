@@ -27,7 +27,9 @@
 		"format:check": "prettier --check \"{src,static,scripts,docs}/**/*.{js,jsx,ts,tsx,css,json,md,mdx,yml}\"",
 		"update": "yarn upgrade-interactive",
 		"clean-projects": "rimraf --glob \"./projects/**/node_modules\" \"./projects/**/dist\" \"./projects/**/build\" \"./projects/**/prebuild\"",
-		"update-submodules": "git pull --recurse-submodules && git submodule update --remote --recursive"
+		"update-submodules": "git pull --recurse-submodules && git submodule update --remote --recursive",
+		"pages:dev": "wrangler pages dev --compatibility-date=2024-01-17 --proxy 3000 -- yarn start",
+		"pages:deploy": "yarn build && wrangler pages deploy ./build"
 	},
 	"dependencies": {
 		"@docusaurus/core": "3.1.0",
@@ -84,7 +86,8 @@
 		"typedoc-plugin-djs-links": "^2.2.1",
 		"typedoc-plugin-markdown": "^3.17.1",
 		"typedoc-plugin-mdn-links": "3.1.12",
-		"typescript": "^5.3.3"
+		"typescript": "^5.3.3",
+		"wrangler": "^3.23.0"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
