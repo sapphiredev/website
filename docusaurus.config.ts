@@ -256,7 +256,7 @@ const config: Config = {
 			style: 'dark',
 			logo: {
 				alt: 'Powered By Vercel',
-				src: 'icons/powered-by-vercel-and-polypane.svg'
+				src: 'icons/powered-by-vercel-and-polypane-and-cloudflare.svg'
 			},
 			links: [
 				{
@@ -307,6 +307,10 @@ const config: Config = {
 						{
 							label: 'Polypane',
 							href: 'https://polypane.app'
+						},
+						{
+							label: 'Cloudflare',
+							href: 'https://www.cloudflare.com'
 						}
 					]
 				}
