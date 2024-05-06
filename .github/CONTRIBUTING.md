@@ -14,18 +14,13 @@ All guides for the Sapphire Community use Markdown formatting.
 
 When writing guides there are some rules to follow:
 
-1. All files should have the `.md` file extension.
+1. All files should have the `.mdx` file extension.
 2. Folder names are allowed to have spaces.
 3. All folder names should be in lower case and different words should be split by hyphens (e.g., `hello-world` or `getting-started`).
 4. File names should _never_ have spaces.
 5. File names that consist of multiple words should be PascalCased.
 6. Information in a guide page should be generally useful to the majority of people.
     - The single exception to this goes to guides in the "Advanced" folder, which can cover any kind of advanced or complex usage topic.
-7. There are several variables that will be replaced when parsing the `.md` file for the documentation website. Variables are denoted by the pattern `{@variableName (parameter)}`. The supported variables are:
-    - `{@branch}` - for the current branch name.
-    - `{@link <TSDoc symbol name>}` - wherein `<TSDoc symbol name>` is a reference to some TypeScript interface / class / function etc parsed from TSDoc. This will link the API page of that symbol.
-    - `{@typedef <TSDoc interface/type/class name>}` - wherein `<TSDoc interface/type/class name>` is the name of a TypeScript interface, class or type. This will inline all the properties of that interface/type/class as a table, with links back to their API documentation page.
-    - `{@guide <Guide file name>}` - wherein `<Guide file name>` is the name of another guide file in this same project _without file extension_. For example linking to `CreatingArguments.md` would be `{@guide CreatingArguments}`.
 
 ## Contributing to the code
 

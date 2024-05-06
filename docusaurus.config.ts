@@ -10,6 +10,19 @@ const BaseUrl = 'https://sapphirejs.dev';
 const Email = 'contact@sapphirejs.dev';
 const Title = 'Sapphire Framework';
 
+const baseTypedocOptions = {
+	/* typedoc */
+	includeVersion: true,
+
+	/* typedoc-plugin-markdown */
+	fileExtension: '.md',
+	excludeExternals: true,
+	expandParameters: true,
+	parametersFormat: 'table',
+	enumMembersFormat: 'table',
+	indexFormat: 'table'
+};
+
 const config: Config = {
 	title: 'Sapphire',
 	url: BaseUrl,
@@ -22,6 +35,9 @@ const config: Config = {
 	organizationName: 'sapphiredev',
 	projectName: 'framework',
 	themes: [],
+	markdown: {
+		format: 'detect'
+	},
 	plugins: [
 		[
 			'@docusaurus/plugin-pwa',
@@ -49,38 +65,31 @@ const config: Config = {
 		[
 			'docusaurus-plugin-typedoc',
 			{
+				...baseTypedocOptions,
 				id: 'framework',
 				entryPoints: ['./projects/framework/src/index.ts'],
 				tsconfig: './projects/framework/src/tsconfig.json',
-				readme: 'none',
-				out: 'Documentation/api-framework',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/framework',
-					position: 0,
-					fullNames: true
-				}
+				readme: './projects/framework/README.md',
+				out: 'docs/Documentation/api-framework',
+				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links']
 			}
 		],
 		[
 			'docusaurus-plugin-typedoc',
 			{
+				...baseTypedocOptions,
 				id: 'Pieces',
 				entryPoints: ['./projects/pieces/src/index.ts'],
 				tsconfig: './projects/pieces/src/tsconfig.json',
-				readme: 'none',
-				out: 'Documentation/api-pieces',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/pieces',
-					position: 1,
-					fullNames: true
-				}
+				readme: './projects/pieces/README.md',
+				out: 'docs/Documentation/api-pieces',
+				plugin: ['typedoc-plugin-mdn-links']
 			}
 		],
 		[
 			'docusaurus-plugin-typedoc',
 			{
+				...baseTypedocOptions,
 				id: 'Utilities',
 				entryPointStrategy: 'packages',
 				entryPoints: ['./projects/utilities/packages/*'],
@@ -90,58 +99,43 @@ const config: Config = {
 					'./projects/utilities/packages/prettier-config',
 					'./projects/utilities/packages/ts-config'
 				],
-				out: 'Documentation/api-utilities',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: 'Sapphire Utilities',
-					position: 2
-				}
+				out: 'docs/Documentation/api-utilities',
+				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links']
 			}
 		],
 		[
 			'docusaurus-plugin-typedoc',
 			{
+				...baseTypedocOptions,
 				id: 'Plugins',
 				entryPointStrategy: 'packages',
 				entryPoints: ['./projects/plugins/packages/*'],
-				out: 'Documentation/api-plugins',
-				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links'],
-				sidebar: {
-					categoryLabel: 'Sapphire Plugins',
-					position: 3
-				}
+				out: 'docs/Documentation/api-plugins',
+				plugin: ['typedoc-plugin-mdn-links', 'typedoc-plugin-djs-links']
 			}
 		],
 		[
 			'docusaurus-plugin-typedoc',
 			{
+				...baseTypedocOptions,
 				id: 'Type',
 				entryPoints: ['./projects/type/src/lib/index.ts'],
 				tsconfig: './projects/type/src/tsconfig.json',
 				readme: './projects/type/README.md',
-				out: 'Documentation/api-type',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/type',
-					position: 4,
-					fullNames: true
-				}
+				out: 'docs/Documentation/api-type',
+				plugin: ['typedoc-plugin-mdn-links']
 			}
 		],
 		[
 			'docusaurus-plugin-typedoc',
 			{
+				...baseTypedocOptions,
 				id: 'Shapeshift',
 				entryPoints: ['./projects/shapeshift/src/index.ts'],
 				tsconfig: './projects/shapeshift/src/tsconfig.json',
 				readme: './projects/shapeshift/README.md',
-				out: 'Documentation/api-shapeshift',
-				plugin: ['typedoc-plugin-mdn-links'],
-				sidebar: {
-					categoryLabel: '@sapphire/shapeshift',
-					position: 5,
-					fullNames: true
-				}
+				out: 'docs/Documentation/api-shapeshift',
+				plugin: ['typedoc-plugin-mdn-links']
 			}
 		]
 	],

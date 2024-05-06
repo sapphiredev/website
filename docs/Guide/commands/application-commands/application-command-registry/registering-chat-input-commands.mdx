@@ -22,9 +22,9 @@ call [`registerChatInputCommand`][rcic] to register your application command.
 This method is responsible for describing how a Chat Input Command will be registered. It takes two parameters:
 
 - `command`: This is the Chat Input Command data that the registry will register with Discord. This can be a
-  `@discordjs/builders` [`SlashCommandBuilder`][djs-slash-builder-docs], a method that returns a
-  [`SlashCommandBuilder`][djs-slash-builder-docs], or a `discord.js` [`ApplicationCommandData`][djs-command-data-docs]
-  object.
+  `@discordjs/builders` [`SlashCommandBuilder` ↗️][djs-slash-builder-docs], a method that returns a
+  [`SlashCommandBuilder` ↗️][djs-slash-builder-docs], or a `discord.js` [`ApplicationCommandData`
+  ↗️][djs-command-data-docs] object.
 
 - `options`: These are optional options that change how the Chat Input Command will be registered. These are discussed
   in the [Chat Input Command Registry Options][inner-ref-options] section below.
@@ -68,10 +68,10 @@ Prettier, or don't care, you can remove this.
 In the example above, we reused the class' `name` and `description` fields for brevity. However, you may set those to
 something else and the application command registry will still route the application command to the command.
 
-We recommend most people use the [`SlashCommandBuilder`][djs-slash-builder-docs] as the argument for the
+We recommend most people use the [`SlashCommandBuilder` ↗️][djs-slash-builder-docs] as the argument for the
 [`registerChatInputCommand`][rcic] method, since it will ensure the data sent to Discord is properly structured. If you
-need more control over the application command, you can write the `discord.js`
-[`ApplicationCommandData`][djs-command-data-docs] JSON object yourself as the argument instead.
+need more control over the application command, you can write the `discord.js` [`ApplicationCommandData`
+↗️][djs-command-data-docs] JSON object yourself as the argument instead.
 
 ### Registering Chat Input Commands with options
 
@@ -115,7 +115,7 @@ provided. This is really nice compared to using Sapphire's [Arguments][arguments
 commands.
 
 There are many other types of options that you can add to your Chat Input Command, and you can read all about them on
-the [`discord.js guide`][djs-slash-command-options].
+the [`discord.js guide` ↗️][djs-slash-command-options].
 
 ## Chat Input Command Registry Options
 
@@ -146,7 +146,7 @@ object like this:
 Let's say you want to change the application command's name (what users see in Discord). If you don't provide the ID
 above to `idHints`, then the application command registry will register an entirely new command with the new name, and
 the old one will still be there! You can delete an application command through `discord.js` or by interacting with
-[Discord's API directly][discord-deleting-application-commands], but it's better to prevent this in the first place!
+[Discord's API directly ↗️][discord-deleting-application-commands], but it's better to prevent this in the first place!
 
 The first time an application command is registered, Sapphire will log this ID at the [`info`][loglevel-info] level to
 the console. We **highly recommend** you copy this ID and add it to `idHints` option array. If you miss it the first
@@ -232,28 +232,30 @@ export class SlashCommand extends Command {
 
 The `chatInputRun` example above uses [interaction handlers][interaction-handlers], which are detailed in that section.
 
-[acr]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry-1
+[acr]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry
 [aaacr]: ./acquiring-an-application-command-registry
 [arguments]: ../../../arguments/creating-your-own-arguments
-[behavior-log]: ../../../../Documentation/api-framework/enums/RegisterBehavior#logtoconsole
-[behavior-overwrite]: ../../../../Documentation/api-framework/enums/RegisterBehavior#overwrite
-[command]: ../../../../Documentation/api-framework/classes/Command-1
+[behavior-log]: ../../../../Documentation/api-framework/enumerations/RegisterBehavior#logtoconsole
+[behavior-overwrite]: ../../../../Documentation/api-framework/enumerations/RegisterBehavior#overwrite
+[command]: ../../../../Documentation/api-framework/classes/Command
 [configure-logging]: ../../../plugins/Logger/configuring-loglevel
 [discord-deleting-application-commands]:
   https://discord.com/developers/docs/interactions/application-commands#updating-and-deleting-a-command
-[djs-command-data-docs]: https://old.discordjs.dev/#/docs/discord.js/main/typedef/ApplicationCommandData
-[djs-slash-builder-docs]: https://discordjs.dev/docs/packages/builders/main/SlashCommandBuilder:Class
+[djs-command-data-docs]: https://discord.js.org/docs/packages/discord.js/main/ApplicationCommandData:TypeAlias
+[djs-slash-builder-docs]: https://discord.js.org/docs/packages/builders/main/SlashCommandBuilder:Class
 [djs-slash-command-options]: https://discordjs.guide/slash-commands/advanced-creation.html#option-types
 [interaction-handlers]: ../../../interaction-handlers/what-are-they
-[loglevel-info]: ../../../../Documentation/api-framework/enums/LogLevel#info
-[loglevel-debug]: ../../../../Documentation/api-framework/enums/LogLevel#debug
-[rac]: ../../../../Documentation/api-framework/classes/Command-1#registerapplicationcommands
-[rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry-1#registerchatinputcommand
+[loglevel-info]: ../../../../Documentation/api-framework/enumerations/LogLevel#info
+[loglevel-debug]: ../../../../Documentation/api-framework/enumerations/LogLevel#debug
+[rac]: ../../../../Documentation/api-framework/classes/Command#registerapplicationcommands
+[rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
 [what-is-it]: ./what-is-it
-[idhints]: ../../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#idhints
-[guildids]: ../../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#guildids
+[idhints]:
+  ../../../../Documentation/api-framework/namespaces/ApplicationCommandRegistry/interfaces/RegisterOptions#idhints
+[guildids]:
+  ../../../../Documentation/api-framework/namespaces/ApplicationCommandRegistry/interfaces/RegisterOptions#guildids
 [behaviorwhennotidentical]:
-  ../../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#behaviorwhennotidentical
+  ../../../../Documentation/api-framework/namespaces/ApplicationCommandRegistry/interfaces/RegisterOptions#behaviorwhennotidentical
 [registercommandifmissing]:
-  ../../../../Documentation/api-framework/interfaces/ApplicationCommandRegistry.RegisterOptions#registercommandifmissing
+  ../../../../Documentation/api-framework/namespaces/ApplicationCommandRegistry/interfaces/RegisterOptions#registercommandifmissing
 [inner-ref-options]: #chat-input-command-registry-options

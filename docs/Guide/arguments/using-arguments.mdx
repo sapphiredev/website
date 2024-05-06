@@ -58,7 +58,7 @@ export class EchoCommand extends Command {
 ```
 
 Sapphire's arguments work by consuming the delimited elements of user input one by one upon success, similar to how an
-[iterator] works. We'll go into more details and examples in another command.
+[`iterator` ↗️][iterator] works. We'll go into more details and examples in another command.
 
 In this command, [`args.pick('<type>')`][pick] is used to read a single argument from the user's input. The `<type>`
 here is `string`, so it'll return the argument as-is since all data in a message's body is textual.
