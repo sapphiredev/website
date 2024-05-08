@@ -3693,11 +3693,11 @@ __metadata:
   linkType: hard
 
 "@npmcli/fs@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@npmcli/fs@npm:3.1.0"
+  version: 3.1.1
+  resolution: "@npmcli/fs@npm:3.1.1"
   dependencies:
     semver: "npm:^7.3.5"
-  checksum: f3a7ab3a31de65e42aeb6ed03ed035ef123d2de7af4deb9d4a003d27acc8618b57d9fb9d259fe6c28ca538032a028f37337264388ba27d26d37fff7dde22476e
+  checksum: 1e0e04087049b24b38bc0b30d87a9388ee3ca1d3fdfc347c2f77d84fcfe6a51f250bc57ba2c1f614d7e4285c6c62bf8c769bc19aa0949ea39e5b043ee023b0bd
   languageName: node
   linkType: hard
 
@@ -5658,9 +5658,9 @@ __metadata:
   linkType: hard
 
 "@types/prismjs@npm:^1.26.0":
-  version: 1.26.3
-  resolution: "@types/prismjs@npm:1.26.3"
-  checksum: 4bd55230ffc0b2b16f4008be3a7f1d7c6b32dd3bed8006e64d24fb22c44fc7e300dac77b856f732803ccdc9a3472b2c0ee7776cad048843c47d608c41a89b6a6
+  version: 1.26.4
+  resolution: "@types/prismjs@npm:1.26.4"
+  checksum: fcf7072c56835bfdc9bd9c06acd733440c5198b9fba33c5de09cd7bfe9e6663604120c5d602ffbeb806cdc06447fb711d84fc89c9039b8cc95078702a15e7ff1
   languageName: node
   linkType: hard
 
@@ -9085,9 +9085,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.757
-  resolution: "electron-to-chromium@npm:1.4.757"
-  checksum: 5ce5d8d7e62a9275333f2712bddf43262a286f223bb548500915625c7a03c6dab6d3535463f56df13102e739607e8d3ab2bc6e47368672244a39a2bc260dff5e
+  version: 1.4.758
+  resolution: "electron-to-chromium@npm:1.4.758"
+  checksum: b8d5bc1af54ed79de0782a64f562a1230f51c026e2704f8fa19c004fe8b24861e48e9048275a0acd6fee5de99a85048d2fca9259e795d1d20f9185b5a281b096
   languageName: node
   linkType: hard
 
@@ -9150,12 +9150,12 @@ __metadata:
   linkType: hard
 
 "enhanced-resolve@npm:^5.16.0":
-  version: 5.16.0
-  resolution: "enhanced-resolve@npm:5.16.0"
+  version: 5.16.1
+  resolution: "enhanced-resolve@npm:5.16.1"
   dependencies:
     graceful-fs: "npm:^4.2.4"
     tapable: "npm:^2.2.0"
-  checksum: 47f123676b9b179b35195769b9d9523f314f6fc3a13d4461a4d95d5beaec9adc26aaa3b60b61f93e21ed1290dff0e9d9e67df343ec47f4480669a8e26ffe52a3
+  checksum: 1c44474437ec52d938ee0776d5883d5fec8fc645bccbebf6eb58229f3223c111bc1f5cb94222949a5a4565e7a2d7c34f03a0f7e97c10d6cd800e7a46c95e3aec
   languageName: node
   linkType: hard
 
@@ -13318,15 +13318,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "lru-cache@npm:6.0.0"
-  dependencies:
-    yallist: "npm:^4.0.0"
-  checksum: fc1fe2ee205f7c8855fa0f34c1ab0bcf14b6229e35579ec1fd1079f31d6fc8ef8eb6fd17f2f4d99788d7e339f50e047555551ebd5e434dda503696e7c6591825
-  languageName: node
-  linkType: hard
-
 "lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1":
   version: 7.18.3
   resolution: "lru-cache@npm:7.18.3"
@@ -16503,16 +16494,15 @@ __metadata:
   linkType: hard
 
 "react-helmet-async@npm:*":
-  version: 2.0.4
-  resolution: "react-helmet-async@npm:2.0.4"
+  version: 2.0.5
+  resolution: "react-helmet-async@npm:2.0.5"
   dependencies:
     invariant: "npm:^2.2.4"
     react-fast-compare: "npm:^3.2.2"
     shallowequal: "npm:^1.1.0"
   peerDependencies:
     react: ^16.6.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
-  checksum: 8f18cb27e8f5821811d715906b5fe279d4ce7e1e0ef1a565d90d64db386d2e4676fe7f4182d27393eccf7b03ace7d65fb4c406f945d43de3b57acaaa54711831
+  checksum: 03a8fbf4779c90899012809da09a6b174a2e11e2db4c7f4e61672903dd4e2f3bb732619da4254fc874c502251a07c8da01c752ed7d6df429c7718cf8451d176a
   languageName: node
   linkType: hard
 
@@ -17632,13 +17622,11 @@ __metadata:
   linkType: hard
 
 "semver@npm:^7.3.2, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0":
-  version: 7.6.0
-  resolution: "semver@npm:7.6.0"
-  dependencies:
-    lru-cache: "npm:^6.0.0"
+  version: 7.6.1
+  resolution: "semver@npm:7.6.1"
   bin:
     semver: bin/semver.js
-  checksum: 1b41018df2d8aca5a1db4729985e8e20428c650daea60fcd16e926e9383217d00f574fab92d79612771884a98d2ee2a1973f49d630829a8d54d6570defe62535
+  checksum: a05a641ebaa65f4a35970bb587c4178dc50931e15261ca60c9d531b4fc2b70a2d24b3f300a3bf6c37f37ce9d007b0071abca2f87c0f947f09a253ecfb0df4026
   languageName: node
   linkType: hard
 
@@ -18505,8 +18493,8 @@ __metadata:
   linkType: hard
 
 "svgo@npm:^3.0.2, svgo@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "svgo@npm:3.2.0"
+  version: 3.3.0
+  resolution: "svgo@npm:3.3.0"
   dependencies:
     "@trysound/sax": "npm:0.2.0"
     commander: "npm:^7.2.0"
@@ -18516,8 +18504,8 @@ __metadata:
     csso: "npm:^5.0.5"
     picocolors: "npm:^1.0.0"
   bin:
-    svgo: ./bin/svgo
-  checksum: 2fdf3f2090e17b3c309e60f69c78a2afd5a9771247adb540bae3fce467243f7a601a2a5497ef40998292da41ad828b3eabf3c18b75bf449c2d2cbf6d7f6e96d9
+    svgo: ./bin/svgo.js
+  checksum: 660adcdf8514070092bc7fe2c7028af0e7c6171376b118352d67d0cfa22f78e8ac7c9c342d7f4d874efc8c71bf077ebe5c34534ac46052447b795e5deb9fd49d
   languageName: node
   linkType: hard
 
@@ -19315,9 +19303,9 @@ __metadata:
   linkType: hard
 
 "undici@npm:^6.15.0":
-  version: 6.15.0
-  resolution: "undici@npm:6.15.0"
-  checksum: 18584ea43a282fc157a7d8e4609075e8f92264e4f86c8b2c7e778a910d5630548294d355eabbacf2382a37102b6eebe4c49eff4b773a293fbadd7dab312f2fb7
+  version: 6.16.0
+  resolution: "undici@npm:6.16.0"
+  checksum: c9a794e83c9f49d510601389bdc1cdbd6448896de8b402562c99924d5bc0c0688dda5168e2a0c9df5b2ffe683a5af3906bd61524f230231500b42443ba82bf94
   languageName: node
   linkType: hard
 
@@ -20725,9 +20713,9 @@ __metadata:
   linkType: hard
 
 "zod@npm:^3.20.6":
-  version: 3.23.6
-  resolution: "zod@npm:3.23.6"
-  checksum: a3b0ea904f0615c67ef01ab3abc4e917d3bb87d46fc39515bcb68e59450b54f175dc9d29ddc7e13217dd456099729afa0b76609db135ca158e3ccebcac6153d9
+  version: 3.23.7
+  resolution: "zod@npm:3.23.7"
+  checksum: e98987daa99507eaa6017cad4cf9f7e1c28fd66e891725ad0332de45541cfa98875e01fa31656cd5131773d6ba2f62d34c6dbc0c23bebc9972b99a2aee3cd2f2
   languageName: node
   linkType: hard
 
