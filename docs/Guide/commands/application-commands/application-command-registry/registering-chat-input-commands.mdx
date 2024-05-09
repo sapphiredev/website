@@ -148,11 +148,11 @@ above to `idHints`, then the application command registry will register an entir
 the old one will still be there! You can delete an application command through `discord.js` or by interacting with
 [Discord's API directly ↗️][discord-deleting-application-commands], but it's better to prevent this in the first place!
 
-The first time an application command is registered, Sapphire will log this ID at the [`info`][loglevel-info] level to
-the console. We **highly recommend** you copy this ID and add it to `idHints` option array. If you miss it the first
-time, Sapphire will continue to log this ID at the [`debug`][loglevel-debug] level. If you have configured Sapphire's
-Logger to only log errors or fatal messages, please check [`Configuring Log Level Guide`][configure-logging] to learn
-how to change the log level visibility.
+The first time an application command is registered, Sapphire will log this ID at the [`info`][loglevel] level to the
+console. We **highly recommend** you copy this ID and add it to `idHints` option array. If you miss it the first time,
+Sapphire will continue to log this ID at the [`debug`][loglevel] level. If you have configured Sapphire's Logger to only
+log errors or fatal messages, please check [`Configuring Log Level Guide`][configure-logging] to learn how to change the
+log level visibility.
 
 :::
 
@@ -167,9 +167,9 @@ way which may be useful if you're fetching guild ids from another source (i.e. a
 ### [`behaviorWhenNotIdentical`][behaviorwhennotidentical]
 
 This option defines the registry's behavior when the application command's options in your code are not synced with
-Discord, such as a new description. It's set to [`OVERWRITE`][behavior-overwrite] by default, which will always
-overwrite Discord's corresponding Application Command Object with the data in your code. If you only want the registry
-to log differences instead, you should set this option to [`LOG_TO_CONSOLE`][behavior-log].
+Discord, such as a new description. It's set to [`OVERWRITE`][registerbehavior] by default, which will always overwrite
+Discord's corresponding Application Command Object with the data in your code. If you only want the registry to log
+differences instead, you should set this option to [`LOG_TO_CONSOLE`][registerbehavior].
 
 ### [`registerCommandIfMissing`][registercommandifmissing]
 
@@ -235,8 +235,7 @@ The `chatInputRun` example above uses [interaction handlers][interaction-handler
 [acr]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry
 [aaacr]: ./acquiring-an-application-command-registry
 [arguments]: ../../../arguments/creating-your-own-arguments
-[behavior-log]: ../../../../Documentation/api-framework/enumerations/RegisterBehavior#logtoconsole
-[behavior-overwrite]: ../../../../Documentation/api-framework/enumerations/RegisterBehavior#overwrite
+[registerbehavior]: ../../../../Documentation/api-framework/enumerations/RegisterBehavior
 [command]: ../../../../Documentation/api-framework/classes/Command
 [configure-logging]: ../../../plugins/Logger/configuring-loglevel
 [discord-deleting-application-commands]:
@@ -245,8 +244,7 @@ The `chatInputRun` example above uses [interaction handlers][interaction-handler
 [djs-slash-builder-docs]: https://discord.js.org/docs/packages/builders/main/SlashCommandBuilder:Class
 [djs-slash-command-options]: https://discordjs.guide/slash-commands/advanced-creation.html#option-types
 [interaction-handlers]: ../../../interaction-handlers/what-are-they
-[loglevel-info]: ../../../../Documentation/api-framework/enumerations/LogLevel#info
-[loglevel-debug]: ../../../../Documentation/api-framework/enumerations/LogLevel#debug
+[loglevel]: ../../../../Documentation/api-framework/enumerations/LogLevel
 [rac]: ../../../../Documentation/api-framework/classes/Command#registerapplicationcommands
 [rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
 [what-is-it]: ./what-is-it
