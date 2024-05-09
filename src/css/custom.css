@@ -33,6 +33,10 @@ html[data-theme='dark'] {
 	--ifm-footer-title-color: var(--ifm-font-color-base);
 }
 
+.menu__link {
+	word-break: break-all;
+}
+
 @media screen and (min-width: 966px) {
 	footer > .container {
 		display: grid;
@@ -47,9 +51,13 @@ html[data-theme='dark'] {
 	}
 }
 
+@media screen and (min-width: 1600px) {
+	:root {
+		--doc-sidebar-width: 450px !important;
+	}
+}
+
 [data-theme='light'] .DocSearch {
-	/* --docsearch-primary-color: var(--ifm-color-primary); */
-	/* --docsearch-text-color: var(--ifm-font-color-base); */
 	--docsearch-muted-color: var(--ifm-color-secondary-darkest);
 	--docsearch-container-background: rgba(94, 100, 112, 0.7);
 	/* Modal */

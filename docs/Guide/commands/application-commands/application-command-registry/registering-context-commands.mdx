@@ -32,9 +32,9 @@ This method is responsible for describing how a Message or User Context Menu Com
 parameters:
 
 - `command`: This is the Chat Input Command data that the registry will register with Discord. This can be a
-  `@discordjs/builders` [`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs], a method that returns a
-  [`ContextMenuCommandBuilder`][djs-context-menu-command-builder-docs], or a `discord.js`
-  [`ApplicationCommandData`][djs-command-data-docs] object.
+  `@discordjs/builders` [`ContextMenuCommandBuilder` ↗️][djs-context-menu-command-builder-docs], a method that returns a
+  [`ContextMenuCommandBuilder` ↗️][djs-context-menu-command-builder-docs], or a `discord.js` [`ApplicationCommandData`
+  ↗️][djs-command-data-docs] object.
 
 - `options`: These are optional options that change how the Context Menu Command will be registered. These are the same
   as the ones for [`registerChatInputCommand`][rcic], and are already discussed in [Chat Input Command Registry
@@ -74,9 +74,9 @@ export class SlashCommand extends Command {
 ```
 
 It should be noted that unlike [Registering Chat Input Commands][registering-chat-input-commands], it's not possible for
-Context Menu Commands to hold a description. This is why we recommend using the
-[ContextMenuCommandBuilder][djs-context-menu-command-builder-docs] here for input verificiation instead of alternatives
-such as writing the [`ApplicationCommandData`][djs-command-data-docs] JSON yourself.
+Context Menu Commands to hold a description. This is why we recommend using the [`ContextMenuCommandBuilder`
+↗️][djs-context-menu-command-builder-docs] here for input verification instead of alternatives such as writing the
+[`ApplicationCommandData` ↗️][djs-command-data-docs] JSON yourself.
 
 :::warning
 
@@ -178,14 +178,15 @@ Since `contextMenuRun` runs both kind of context commands, we recommend using ei
 
 :::
 
-[acr]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry-1
-[cicro]: ./registering-chat-input-commands.mdx#chat-input-command-registry-options
-[command]: ../../../../Documentation/api-framework/classes/Command-1
+[acr]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry
+[cicro]: ./registering-chat-input-commands#chat-input-command-registry-options
+[command]: ../../../../Documentation/api-framework/classes/Command
 [cmce]: ./message-context-menu-command.png
-[djs-command-data-docs]: https://old.discordjs.dev/#/docs/discord.js/main/typedef/ApplicationCommandData
-[djs-context-menu-command-builder-docs]: https://discord.js.org/#/docs/builders/0.16.0/class/ContextMenuCommandBuilder
-[rac]: ../../../../Documentation/api-framework/classes/Command-1#registerapplicationcommands
+[djs-command-data-docs]: https://discord.js.org/docs/packages/discord.js/main/ApplicationCommandData:TypeAlias
+[djs-context-menu-command-builder-docs]:
+  https://discord.js.org/docs/packages/builders/main/ContextMenuCommandBuilder:Class
+[rac]: ../../../../Documentation/api-framework/classes/Command#registerapplicationcommands
 [registering-chat-input-commands]: ./registering-chat-input-commands
-[registering-chat-input-commands-options]: ./registering-chat-input-commands.mdx#chat-input-command-registry-options
-[rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry-1#registerchatinputcommand
-[rcmc]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry-1#registercontextmenucommand
+[registering-chat-input-commands-options]: ./registering-chat-input-commands#chat-input-command-registry-options
+[rcic]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registerchatinputcommand
+[rcmc]: ../../../../Documentation/api-framework/classes/ApplicationCommandRegistry#registercontextmenucommand

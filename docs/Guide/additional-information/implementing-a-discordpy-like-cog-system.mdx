@@ -3,13 +3,13 @@ sidebar_position: 3
 title: Implementing a discord.py like Cog system
 ---
 
-Developer who come from the Python ecosystem may be familiar with the "[Cog]" system that discord.py has implemented.
-This system allows you to group commands, listeners and other pieces into a [Cog] (also sometimes called "module"),
-which can then be loaded and unloaded as a whole. This is a useful system for large bots, as it allows you to easily
-split your code into multiple files, and only load the parts you need.
+Developer who come from the Python ecosystem may be familiar with the "[Cog ↗️][cog]" system that discord.py has
+implemented. This system allows you to group commands, listeners and other pieces into a [Cog ↗️][cog] (also sometimes
+called "module"), which can then be loaded and unloaded as a whole. This is a useful system for large bots, as it allows
+you to easily split your code into multiple files, and only load the parts you need.
 
-While Sapphire does not natively have a built-in [Cog] system, it is possible to implement one yourself. This guide will
-teach you how to do this.
+While Sapphire does not natively have a built-in [Cog ↗️][cog] system, it is possible to implement one yourself. This
+guide will teach you how to do this.
 
 For this guide we will register an `audio` cog which will have commands and listeners related to playing music through
 your bot. This cog will be called `audio` and have subfolders of `commands` and `listeners`. That is to say, the general
@@ -72,7 +72,7 @@ is to say, pieces in `audio/commands` will be parsed as commands, pieces in `aud
 listeners, etc.
 
 [cog]: https://discordpy.readthedocs.io/en/stable/ext/commands/cogs.html
-[`getRootData`]: ../../Documentation/api-pieces/#getrootdata
-[`registerPath`]: ../../Documentation/api-pieces/classes/Store-1#registerpath
+[`getRootData`]: ../../Documentation/api-pieces/functions/getRootData
+[`registerPath`]: ../../Documentation/api-pieces/classes/Store#registerpath
 [`SapphireClient`]: ../../Documentation/api-framework/classes/SapphireClient
 [`StoreRegistry`]: ../../Documentation/api-pieces/classes/StoreRegistry
