@@ -4231,7 +4231,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord.js-utilities@npm:^7.2.0":
+"@sapphire/discord.js-utilities@npm:^7.2.0, @sapphire/discord.js-utilities@npm:^7.2.1":
   version: 7.2.1
   resolution: "@sapphire/discord.js-utilities@npm:7.2.1"
   dependencies:
@@ -4435,7 +4435,7 @@ __metadata:
     "@favware/npm-deprecate": "npm:^1.0.7"
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/discord-utilities": "npm:^3.2.3"
-    "@sapphire/discord.js-utilities": "npm:^7.2.0"
+    "@sapphire/discord.js-utilities": "npm:^7.2.1"
     "@sapphire/eslint-config": "npm:^5.0.4"
     "@sapphire/lexure": "npm:^1.1.7"
     "@sapphire/node-utilities": "npm:^1.0.2"
@@ -4446,7 +4446,7 @@ __metadata:
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:^3.15.3"
-    "@types/node": "npm:^20.12.8"
+    "@types/node": "npm:^20.12.11"
     "@types/ws": "npm:^8.5.10"
     "@typescript-eslint/eslint-plugin": "npm:^7.8.0"
     "@typescript-eslint/parser": "npm:^7.8.0"
@@ -4850,7 +4850,7 @@ __metadata:
     lint-staged: "npm:^15.2.2"
     lodash: "npm:^4.17.21"
     prettier: "npm:^3.2.5"
-    rimraf: "npm:^5.0.6"
+    rimraf: "npm:^5.0.7"
     tsup: "npm:^8.0.2"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
@@ -5634,7 +5634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.11.5, @types/node@npm:^20.12.11, @types/node@npm:^20.12.7, @types/node@npm:^20.12.8":
+"@types/node@npm:*, @types/node@npm:^20.11.5, @types/node@npm:^20.12.11, @types/node@npm:^20.12.7":
   version: 20.12.11
   resolution: "@types/node@npm:20.12.11"
   dependencies:
@@ -7596,15 +7596,15 @@ __metadata:
   linkType: hard
 
 "cli-table3@npm:^0.6.3":
-  version: 0.6.4
-  resolution: "cli-table3@npm:0.6.4"
+  version: 0.6.5
+  resolution: "cli-table3@npm:0.6.5"
   dependencies:
     "@colors/colors": "npm:1.5.0"
     string-width: "npm:^4.2.0"
   dependenciesMeta:
     "@colors/colors":
       optional: true
-  checksum: f610294fce327b1b36c40f7475f18d166f907627cab7991b35d233b8bf6e182a0d0753b5bab2d4c8571aea64ff880ff11334cef4e5eb0cee8a4b4b5fcd661486
+  checksum: 8dca71256f6f1367bab84c33add3f957367c7c43750a9828a4212ebd31b8df76bd7419d386e3391ac7419698a8540c25f1a474584028f35b170841cde2e055c5
   languageName: node
   linkType: hard
 
@@ -9335,9 +9335,9 @@ __metadata:
   linkType: hard
 
 "esbuild-plugin-file-path-extensions@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "esbuild-plugin-file-path-extensions@npm:2.0.0"
-  checksum: 1555a90dd8e32c1df9c1f8897a3f40e77c799224785a2f8972c84cc5224ca8263fdef0501fda8f982bf1c9ed2ad31b8217278f5ff09bb3bed81236206605bac5
+  version: 2.1.0
+  resolution: "esbuild-plugin-file-path-extensions@npm:2.1.0"
+  checksum: c2686b97d51372631d1addce188d4c21a733625996e09f7eea1c60e95a559436973a29cf4eeaaa01588a2e4d0d9fcf84a237202381e0737713de4f95b4bec30b
   languageName: node
   linkType: hard
 
@@ -17122,7 +17122,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5, rimraf@npm:^5.0.6, rimraf@npm:^5.0.7":
+"rimraf@npm:^5.0.5, rimraf@npm:^5.0.7":
   version: 5.0.7
   resolution: "rimraf@npm:5.0.7"
   dependencies:
@@ -17328,7 +17328,7 @@ __metadata:
     msw: "npm:^2.3.0"
     npm-run-all2: "npm:^6.1.2"
     prettier: "npm:^3.2.5"
-    rimraf: "npm:^5.0.6"
+    rimraf: "npm:^5.0.7"
     tslib: "npm:^2.6.2"
     tsup: "npm:^8.0.2"
     tsx: "npm:^4.10.0"
@@ -18920,8 +18920,8 @@ __metadata:
   linkType: hard
 
 "tsx@npm:^4.10.0":
-  version: 4.10.0
-  resolution: "tsx@npm:4.10.0"
+  version: 4.10.1
+  resolution: "tsx@npm:4.10.1"
   dependencies:
     esbuild: "npm:~0.20.2"
     fsevents: "npm:~2.3.3"
@@ -18931,7 +18931,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 7bc12234226acdc57933c1d87cf2cc73b521388a5c6db7cfc0ad48a4b1283106954fff48607d2cb7a3df8758b0b7e2ab370e1e4b64a8ffbf7b7be3bec99282d9
+  checksum: 7e72a9809c64f2603b7d0efa3aaaebbe4e685fed0dfc1404ba36a5904e214dc7b2ef903e05cf1e2258136a49f1348dfdd7eecc627032ae783fce708d12edea2d
   languageName: node
   linkType: hard
 
