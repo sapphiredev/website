@@ -4836,7 +4836,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@types/jsdom": "npm:^21.1.6"
     "@types/lodash": "npm:^4.17.4"
-    "@types/node": "npm:^20.11.5"
+    "@types/node": "npm:^20.12.12"
     "@typescript-eslint/eslint-plugin": "npm:^7.9.0"
     "@typescript-eslint/parser": "npm:^7.9.0"
     "@vitest/coverage-v8": "npm:^1.6.0"
@@ -5030,10 +5030,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/utilities@npm:3.15.3, @sapphire/utilities@npm:^3.11.0, @sapphire/utilities@npm:^3.15.2, @sapphire/utilities@npm:^3.15.3":
+"@sapphire/utilities@npm:3.15.3":
   version: 3.15.3
   resolution: "@sapphire/utilities@npm:3.15.3"
   checksum: 966db788486c01719d3d54cf00eccbc378fcd79f143c994480644f3af4dd22daa65f5e9ea7da6af0973d9730e5d10b762eaf391770d746278023fd012438eb13
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.11.0, @sapphire/utilities@npm:^3.15.2, @sapphire/utilities@npm:^3.15.3":
+  version: 3.16.0
+  resolution: "@sapphire/utilities@npm:3.16.0"
+  checksum: f87b4cd785f5f3a6efb0316bdd43aa5fc26d9693d391bb4f5b4adc92012c5020349c5dd79386a07abc30916258f3bd04a5694f97c64dc213c8fe780e15cd6a73
   languageName: node
   linkType: hard
 
@@ -5634,7 +5641,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.11.5, @types/node@npm:^20.12.11, @types/node@npm:^20.12.12":
+"@types/node@npm:*, @types/node@npm:^20.11.5, @types/node@npm:^20.12.12":
   version: 20.12.12
   resolution: "@types/node@npm:20.12.12"
   dependencies:
@@ -5726,7 +5733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.3.1":
+"@types/react@npm:*, @types/react@npm:^18.3.2":
   version: 18.3.2
   resolution: "@types/react@npm:18.3.2"
   dependencies:
@@ -5872,7 +5879,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^7.1.1, @typescript-eslint/eslint-plugin@npm:^7.8.0, @typescript-eslint/eslint-plugin@npm:^7.9.0":
+"@typescript-eslint/eslint-plugin@npm:^7.1.1, @typescript-eslint/eslint-plugin@npm:^7.9.0":
   version: 7.9.0
   resolution: "@typescript-eslint/eslint-plugin@npm:7.9.0"
   dependencies:
@@ -5895,7 +5902,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^7.1.1, @typescript-eslint/parser@npm:^7.8.0, @typescript-eslint/parser@npm:^7.9.0":
+"@typescript-eslint/parser@npm:^7.1.1, @typescript-eslint/parser@npm:^7.9.0":
   version: 7.9.0
   resolution: "@typescript-eslint/parser@npm:7.9.0"
   dependencies:
@@ -8877,10 +8884,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:0.37.83":
-  version: 0.37.83
-  resolution: "discord-api-types@npm:0.37.83"
-  checksum: 63aee8b4634f98e24921ba7ba82eab30105917d7bf40739b7fbe327a8c93134a78408d842bd7ad7cf3f45948d86db5ec0cb670d66e0fe0f8229cb15bfda5108f
+"discord-api-types@npm:0.37.84":
+  version: 0.37.84
+  resolution: "discord-api-types@npm:0.37.84"
+  checksum: 62d429a105c6b6e35204b070979f9129d712cf7820d05d96cf8b170586d720a35ae07ec33108f715e51b19871ce6b8922d4a7148bf6f4f5df32cda4365e4e787
   languageName: node
   linkType: hard
 
@@ -17117,7 +17124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5, rimraf@npm:^5.0.7":
+"rimraf@npm:^5.0.7":
   version: 5.0.7
   resolution: "rimraf@npm:5.0.7"
   dependencies:
@@ -17363,11 +17370,11 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@svgr/webpack": "npm:^8.1.0"
     "@tippyjs/react": "npm:^4.2.6"
-    "@types/node": "npm:^20.12.11"
-    "@types/react": "npm:^18.3.1"
+    "@types/node": "npm:^20.12.12"
+    "@types/react": "npm:^18.3.2"
     "@types/react-dom": "npm:^18.3.0"
-    "@typescript-eslint/eslint-plugin": "npm:^7.8.0"
-    "@typescript-eslint/parser": "npm:^7.8.0"
+    "@typescript-eslint/eslint-plugin": "npm:^7.9.0"
+    "@typescript-eslint/parser": "npm:^7.9.0"
     clsx: "npm:^2.1.1"
     cz-conventional-changelog: "npm:^3.3.0"
     docusaurus-plugin-typedoc: "npm:^1.0.1"
@@ -17385,14 +17392,14 @@ __metadata:
     prism-react-renderer: "npm:^2.3.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    rimraf: "npm:^5.0.5"
+    rimraf: "npm:^5.0.7"
     swr: "npm:^2.2.5"
     typedoc: "npm:0.25.13"
     typedoc-plugin-djs-links: "npm:^2.2.1"
-    typedoc-plugin-markdown: "npm:^4.0.1"
-    typedoc-plugin-mdn-links: "npm:3.1.24"
+    typedoc-plugin-markdown: "npm:^4.0.2"
+    typedoc-plugin-mdn-links: "npm:3.1.26"
     typescript: "npm:^5.4.5"
-    wrangler: "npm:^3.53.1"
+    wrangler: "npm:^3.57.0"
   languageName: unknown
   linkType: soft
 
@@ -19164,7 +19171,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-markdown@npm:^4.0.1":
+"typedoc-plugin-markdown@npm:^4.0.2":
   version: 4.0.2
   resolution: "typedoc-plugin-markdown@npm:4.0.2"
   peerDependencies:
@@ -19173,12 +19180,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-mdn-links@npm:3.1.24":
-  version: 3.1.24
-  resolution: "typedoc-plugin-mdn-links@npm:3.1.24"
+"typedoc-plugin-mdn-links@npm:3.1.26":
+  version: 3.1.26
+  resolution: "typedoc-plugin-mdn-links@npm:3.1.26"
   peerDependencies:
     typedoc: ">= 0.23.14 || 0.24.x || 0.25.x"
-  checksum: 1c1143f52360982ffb4a9375499e4a882396118220f8ae58af4676e31938dfa4ca6903c96e01a92de53962075e7188d8b2544f017eaa8cc429013b6eb5782d6e
+  checksum: 529dfe9caa5649b351d77213f0356386c52092ce15f329fbff96e08a77c8e121ebefdeeca7a757dcd7629e3d89b746d577adbc3e39178c8d78dfc32746216892
   languageName: node
   linkType: hard
 
@@ -19268,9 +19275,9 @@ __metadata:
   linkType: hard
 
 "undici@npm:^6.17.0":
-  version: 6.17.0
-  resolution: "undici@npm:6.17.0"
-  checksum: e54ae88f9ce4e923f2d1e209ad42d028e7d2b207ba81e6c1f3af9533b4aa33863120f61bc58fb5f7d4dd6a90c2bc8c96d892dbb8bf5be80e0cd422f31d15a9ef
+  version: 6.18.0
+  resolution: "undici@npm:6.18.0"
+  checksum: 0b4ff8a482f7ff5aeeb4a593dc823d2c7be884f802b048e3746125fab65eb34914d7f2793eb2eeed48482e37f62384043b407887e69ddff902a1eb3c9219809d
   languageName: node
   linkType: hard
 
@@ -20413,7 +20420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^3.53.1":
+"wrangler@npm:^3.57.0":
   version: 3.57.0
   resolution: "wrangler@npm:3.57.0"
   dependencies:
