@@ -4205,7 +4205,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/discord-utilities@npm:^3.2.3":
+"@sapphire/discord-utilities@npm:^3.2.3, @sapphire/discord-utilities@npm:^3.3.0":
   version: 3.3.0
   resolution: "@sapphire/discord-utilities@npm:3.3.0"
   dependencies:
@@ -4433,7 +4433,7 @@ __metadata:
     "@favware/cliff-jumper": "npm:^3.0.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
     "@favware/rollup-type-bundler": "npm:^3.3.0"
-    "@sapphire/discord-utilities": "npm:^3.2.3"
+    "@sapphire/discord-utilities": "npm:^3.3.0"
     "@sapphire/discord.js-utilities": "npm:^7.2.1"
     "@sapphire/eslint-config": "npm:^5.0.4"
     "@sapphire/lexure": "npm:^1.1.7"
@@ -4444,23 +4444,23 @@ __metadata:
     "@sapphire/result": "npm:^2.6.6"
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sapphire/utilities": "npm:^3.15.3"
+    "@sapphire/utilities": "npm:^3.16.2"
     "@types/node": "npm:^20.12.12"
     "@types/ws": "npm:^8.5.10"
-    "@typescript-eslint/eslint-plugin": "npm:^7.9.0"
-    "@typescript-eslint/parser": "npm:^7.9.0"
+    "@typescript-eslint/eslint-plugin": "npm:^7.10.0"
+    "@typescript-eslint/parser": "npm:^7.10.0"
     "@vitest/coverage-v8": "npm:^1.6.0"
     concurrently: "npm:^8.2.2"
     cz-conventional-changelog: "npm:^3.3.0"
     discord.js: "npm:^14.15.2"
-    esbuild-plugin-file-path-extensions: "npm:^2.1.0"
+    esbuild-plugin-file-path-extensions: "npm:^2.1.1"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-deprecation: "npm:^2.0.0"
     eslint-plugin-prettier: "npm:^5.1.3"
     gen-esm-wrapper: "npm:^1.1.3"
-    lint-staged: "npm:^15.2.2"
+    lint-staged: "npm:^15.2.5"
     prettier: "npm:^3.2.5"
     tsup: "npm:^8.0.2"
     typedoc: "npm:^0.25.13"
@@ -4604,7 +4604,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@types/ws": "npm:^8.5.10"
     concurrently: "npm:^8.2.2"
-    tldts: "npm:^6.1.21"
+    tldts: "npm:^6.1.22"
     tsup: "npm:^8.0.2"
     tsx: "npm:^4.11.0"
     typedoc: "npm:^0.25.13"
@@ -4845,7 +4845,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.1.3"
     fast-deep-equal: "npm:^3.1.3"
-    jsdom: "npm:^24.0.0"
+    jsdom: "npm:^24.1.0"
     lint-staged: "npm:^15.2.5"
     lodash: "npm:^4.17.21"
     prettier: "npm:^3.2.5"
@@ -4896,7 +4896,7 @@ __metadata:
     "@favware/cliff-jumper": "npm:^3.0.3"
     "@types/jsdom": "npm:^21.1.6"
     "@vitest/coverage-v8": "npm:^1.6.0"
-    jsdom: "npm:^24.0.0"
+    jsdom: "npm:^24.1.0"
     tslib: "npm:^2.6.2"
     tsup: "npm:^8.0.2"
     tsx: "npm:^4.11.0"
@@ -9335,7 +9335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-plugin-file-path-extensions@npm:^2.1.0, esbuild-plugin-file-path-extensions@npm:^2.1.1":
+"esbuild-plugin-file-path-extensions@npm:^2.1.1":
   version: 2.1.1
   resolution: "esbuild-plugin-file-path-extensions@npm:2.1.1"
   checksum: 7943d574791db1a9c8bf26e364b02c94338c4f26849f3039f8ed6b9fc249dbd394e8c026fce016b1b9d88a96b4eea8f90bd3f5b28756f69f5c37f08aa5cee631
@@ -11607,7 +11607,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-proxy-agent@npm:^7.0.0":
+"http-proxy-agent@npm:^7.0.0, http-proxy-agent@npm:^7.0.2":
   version: 7.0.2
   resolution: "http-proxy-agent@npm:7.0.2"
   dependencies:
@@ -11666,7 +11666,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"https-proxy-agent@npm:^7.0.1, https-proxy-agent@npm:^7.0.2":
+"https-proxy-agent@npm:^7.0.1, https-proxy-agent@npm:^7.0.4":
   version: 7.0.4
   resolution: "https-proxy-agent@npm:7.0.4"
   dependencies:
@@ -12723,37 +12723,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:^24.0.0":
-  version: 24.0.0
-  resolution: "jsdom@npm:24.0.0"
+"jsdom@npm:^24.1.0":
+  version: 24.1.0
+  resolution: "jsdom@npm:24.1.0"
   dependencies:
     cssstyle: "npm:^4.0.1"
     data-urls: "npm:^5.0.0"
     decimal.js: "npm:^10.4.3"
     form-data: "npm:^4.0.0"
     html-encoding-sniffer: "npm:^4.0.0"
-    http-proxy-agent: "npm:^7.0.0"
-    https-proxy-agent: "npm:^7.0.2"
+    http-proxy-agent: "npm:^7.0.2"
+    https-proxy-agent: "npm:^7.0.4"
     is-potential-custom-element-name: "npm:^1.0.1"
-    nwsapi: "npm:^2.2.7"
+    nwsapi: "npm:^2.2.10"
     parse5: "npm:^7.1.2"
-    rrweb-cssom: "npm:^0.6.0"
+    rrweb-cssom: "npm:^0.7.0"
     saxes: "npm:^6.0.0"
     symbol-tree: "npm:^3.2.4"
-    tough-cookie: "npm:^4.1.3"
+    tough-cookie: "npm:^4.1.4"
     w3c-xmlserializer: "npm:^5.0.0"
     webidl-conversions: "npm:^7.0.0"
     whatwg-encoding: "npm:^3.1.1"
     whatwg-mimetype: "npm:^4.0.0"
     whatwg-url: "npm:^14.0.0"
-    ws: "npm:^8.16.0"
+    ws: "npm:^8.17.0"
     xml-name-validator: "npm:^5.0.0"
   peerDependencies:
     canvas: ^2.11.2
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 75e9cc02566e9bf4be971de931044904601b83dc3c3a1559065b3b63912118de06bf668b639c569956d488d528aea67045bbb14a711962171af885dbf909eae8
+  checksum: 0821daf73ea4b486f93a51d304037e3864ef3ca515e4646afa997b4f7f6054e6a62aabf34e2e3f2d7e0e76d3ff3d70aa81df07e96145a37988e47318e976242d
   languageName: node
   linkType: hard
 
@@ -15054,7 +15054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nwsapi@npm:^2.2.7":
+"nwsapi@npm:^2.2.10":
   version: 2.2.10
   resolution: "nwsapi@npm:2.2.10"
   checksum: b310e9dd0886da338cbbb1be9fec473a50269e2935d537f95a03d0038f7ea831ce12b4816d97f42e458e5273158aea2a6c86bc4bb60f79911226154aa66740f7
@@ -17412,6 +17412,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rrweb-cssom@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "rrweb-cssom@npm:0.7.0"
+  checksum: b74af1643618a6c03d3923f21ef185638550a379d07fa6525aafc1e89ccdf0f7b66a65f88e7d32fddef4ce4981827372f60757d6ac7318064cd821d0c9457939
+  languageName: node
+  linkType: hard
+
 "rtl-detect@npm:^1.0.4":
   version: 1.1.2
   resolution: "rtl-detect@npm:1.1.2"
@@ -18707,21 +18714,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.21":
-  version: 6.1.21
-  resolution: "tldts-core@npm:6.1.21"
-  checksum: f1d5cd4e605c0ee5e1013e8e262454c42e1aba2fb972f4d89cb45a4f7128de73549c46a3baaa660063d6f05aed794a1e4dbf85fe554fde7df7ed5241c60f4da5
+"tldts-core@npm:^6.1.22":
+  version: 6.1.22
+  resolution: "tldts-core@npm:6.1.22"
+  checksum: 6d8ed7c616185c45c69ac8f7979e400da508f071b6ed043086959237ef11518f3623b139f63e43dd266f1d15049e2d99955308da13c67bd8da0a4d728dba3e2f
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.21":
-  version: 6.1.21
-  resolution: "tldts@npm:6.1.21"
+"tldts@npm:^6.1.22":
+  version: 6.1.22
+  resolution: "tldts@npm:6.1.22"
   dependencies:
-    tldts-core: "npm:^6.1.21"
+    tldts-core: "npm:^6.1.22"
   bin:
     tldts: bin/cli.js
-  checksum: a514a3f1e15cd388a55253fe555f717582023a9265468139d3da8360909f8099bde665500c63383614cbe31220d7ab9a8516d58883888045729d810adf21ebf4
+  checksum: 745255912853d5a4c35523e38962349dba327c9159a0fad93ce0257b1ff81507196b31395b626f9f2ffc86d356dbebc767d1eb99c13209d82b8966cb07149907
   languageName: node
   linkType: hard
 
@@ -18764,7 +18771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tough-cookie@npm:^4.1.3":
+"tough-cookie@npm:^4.1.4":
   version: 4.1.4
   resolution: "tough-cookie@npm:4.1.4"
   dependencies:
@@ -20534,7 +20541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.11.0, ws@npm:^8.13.0, ws@npm:^8.16.0":
+"ws@npm:^8.11.0, ws@npm:^8.13.0, ws@npm:^8.16.0, ws@npm:^8.17.0":
   version: 8.17.0
   resolution: "ws@npm:8.17.0"
   peerDependencies:
