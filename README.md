@@ -19,12 +19,49 @@ After forking/cloning this repo to a folder locally:
 
 ## Special thanks
 
-This project is made possible thanks to the amazing teams at [Vercel] and [Polypane]. We use their services to ensure
-you always get the latest and greatest version of the documentation. Thank you [Vercel] and [Polypane]!
+This project is made possible thanks to the amazing teams at [Vercel], [Polypane], and [Cloudflare]. We use their
+services to ensure you always get the latest and greatest version of the documentation. Thank you [Vercel], [Polypane]
+and [Cloudflare]!
 
 <div align="center">
-<a href="https://vercel.com?utm_source=sapphiredev&utm_campaign=oss"><img height="40" src="./static/icons/powered-by-vercel.svg" /></a>
-<a href="https://polypane.app"><img height="40" src="./static/icons/powered-by-polypane.svg" /></a>
+  <a
+    href="https://vercel.com/?utm_source=sapphiredev&utm_campaign=oss"
+    rel="noopener noreferrer"
+    target="_blank"
+    aria-label="Sponsor link to Vercel"
+    style="margin-right: 0.5rem"
+  >
+    <img
+      alt="Logo Vercel"
+      src="https://raw.githubusercontent.com/sapphiredev/resource-webhooks/main/public/icons/powered-by-vercel.svg"
+      style="height: 40px"
+    />
+  </a>
+  <a
+    href="https://polypane.app/"
+    rel="noopener noreferrer"
+    target="_blank"
+    aria-label="Sponsor link to Polypane"
+    style="margin-right: 0.5rem"
+  >
+    <img
+      alt="Logo Polypane"
+      src="https://raw.githubusercontent.com/sapphiredev/resource-webhooks/main/public/icons/powered-by-polypane.svg"
+      style="height: 40px"
+    />
+  </a>
+  <a
+    href="https://www.cloudflare.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+    aria-label="Sponsor link to Cloudflare"
+  >
+    <img
+      alt="Logo Cloudflare"
+      src="https://raw.githubusercontent.com/sapphiredev/resource-webhooks/feat/add-cloudflare-sponsor-logo/public/icons/powered-by-cloudflare.svg"
+      style="height: 40px"
+    />
+  </a>
 </div>
 
 ## Buy us some doughnuts
@@ -55,3 +92,4 @@ Thank you to all the people who already contributed to Sapphire!
 [contributing]: https://github.com/sapphiredev/.github/blob/main/.github/CONTRIBUTING.md
 [vercel]: https://vercel.com?utm_source=sapphiredev&utm_campaign=oss
 [polypane]: https://polypane.app
+[cloudflare]: https://www.cloudflare.com
