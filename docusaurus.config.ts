@@ -249,8 +249,8 @@ const config: Config = {
 		footer: {
 			style: 'dark',
 			logo: {
-				alt: 'Powered By Vercel',
-				src: 'icons/powered-by-vercel-and-polypane.svg'
+				alt: 'Powered By Polypane',
+				src: 'icons/powered-by-polypane.svg'
 			},
 			links: [
 				{
@@ -294,10 +294,6 @@ const config: Config = {
 				{
 					title: 'Our Sponsors',
 					items: [
-						{
-							label: 'Vercel',
-							href: 'https://vercel.com/?utm_source=sapphiredev&utm_campaign=oss'
-						},
 						{
 							label: 'Polypane',
 							href: 'https://polypane.app'
