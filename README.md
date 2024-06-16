@@ -19,11 +19,10 @@ After forking/cloning this repo to a folder locally:
 
 ## Special thanks
 
-This project is made possible thanks to the amazing teams at [Vercel] and [Polypane]. We use their services to ensure
-you always get the latest and greatest version of the documentation. Thank you [Vercel] and [Polypane]!
+This project is made possible thanks to the amazing team at [Polypane]. We use their service to ensure you always get
+the latest and greatest version of the documentation. Thank you [Polypane]!
 
 <div align="center">
-<a href="https://vercel.com?utm_source=sapphiredev&utm_campaign=oss"><img height="40" src="./static/icons/powered-by-vercel.svg" /></a>
 <a href="https://polypane.app"><img height="40" src="./static/icons/powered-by-polypane.svg" /></a>
 </div>
 
@@ -53,5 +52,4 @@ Thank you to all the people who already contributed to Sapphire!
 </a>
 
 [contributing]: https://github.com/sapphiredev/.github/blob/main/.github/CONTRIBUTING.md
-[vercel]: https://vercel.com?utm_source=sapphiredev&utm_campaign=oss
 [polypane]: https://polypane.app
