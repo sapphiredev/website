@@ -3242,21 +3242,21 @@ __metadata:
   linkType: hard
 
 "@inquirer/confirm@npm:^3.0.0":
-  version: 3.1.11
-  resolution: "@inquirer/confirm@npm:3.1.11"
+  version: 3.1.12
+  resolution: "@inquirer/confirm@npm:3.1.12"
   dependencies:
-    "@inquirer/core": "npm:^8.2.4"
-    "@inquirer/type": "npm:^1.3.3"
-  checksum: 351f0bb4e5eb328e304bf32ca80411e4c375ec88ca5ac4a1477ab31eb026b422c03af0ade97da62304ddb6c5b780f322b90c31e571b163b6c42942c3080e9083
+    "@inquirer/core": "npm:^9.0.0"
+    "@inquirer/type": "npm:^1.4.0"
+  checksum: a2803416ceaffc77fcff29ef0215390d63c4f682afbbf4b34596d559645e8645bead27fdeea423da2c1170fa3a28cf8c253ae48d8ada60579d2882ab38ec4f3a
   languageName: node
   linkType: hard
 
-"@inquirer/core@npm:^8.2.4":
-  version: 8.2.4
-  resolution: "@inquirer/core@npm:8.2.4"
+"@inquirer/core@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@inquirer/core@npm:9.0.0"
   dependencies:
     "@inquirer/figures": "npm:^1.0.3"
-    "@inquirer/type": "npm:^1.3.3"
+    "@inquirer/type": "npm:^1.4.0"
     "@types/mute-stream": "npm:^0.0.4"
     "@types/node": "npm:^20.14.9"
     "@types/wrap-ansi": "npm:^3.0.0"
@@ -3264,11 +3264,11 @@ __metadata:
     cli-spinners: "npm:^2.9.2"
     cli-width: "npm:^4.1.0"
     mute-stream: "npm:^1.0.0"
-    picocolors: "npm:^1.0.1"
     signal-exit: "npm:^4.1.0"
     strip-ansi: "npm:^6.0.1"
     wrap-ansi: "npm:^6.2.0"
-  checksum: 4835ce2828e833cf02aa74e8a5e330eca3d6659413516490f45fdca7e83f858fa6e50932742fb1371903e60fe99adada6f2177d64f335d6ca24464132034f662
+    yoctocolors-cjs: "npm:^2.1.1"
+  checksum: c1d2a1d9a986b3a44ceef93aac7b26f3bec9fe13aff77894c5e5246d1c4e89f8984a1bbc1e89ff071d06ed9e4202c6b93ccabdf3016e6d9493005e1ced69357c
   languageName: node
   linkType: hard
 
@@ -3279,10 +3279,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@inquirer/type@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "@inquirer/type@npm:1.3.3"
-  checksum: 1de6fed6bca013d1d84c6f280c5cb5d1ac7788aed1bbdb3315977abda33dcea234e1e9b7d917fcad573192af9de12b1363c4ea4bf81318f6c45299e3521dbee6
+"@inquirer/type@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@inquirer/type@npm:1.4.0"
+  dependencies:
+    mute-stream: "npm:^1.0.0"
+  checksum: 3b1be73ca418ad721d7527aea0bd83f21825484d6829fd4dbc830372b4aad68cf030486f8100d0f3883db8924fadcfaac1aa041ef6c51124f808f25825b22d85
   languageName: node
   linkType: hard
 
@@ -4391,7 +4393,7 @@ __metadata:
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:^3.16.2"
-    "@types/node": "npm:^20.14.8"
+    "@types/node": "npm:^20.14.9"
     "@types/ws": "npm:^8.5.10"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
@@ -4412,7 +4414,7 @@ __metadata:
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vite: "npm:^5.3.1"
+    vite: "npm:^5.3.2"
     vitest: "npm:^1.6.0"
   languageName: unknown
   linkType: soft
@@ -4497,13 +4499,13 @@ __metadata:
   linkType: soft
 
 "@sapphire/pieces@npm:^4.2.2":
-  version: 4.2.2
-  resolution: "@sapphire/pieces@npm:4.2.2"
+  version: 4.3.0
+  resolution: "@sapphire/pieces@npm:4.3.0"
   dependencies:
     "@discordjs/collection": "npm:^1.5.3"
-    "@sapphire/utilities": "npm:^3.15.3"
-    tslib: "npm:^2.6.2"
-  checksum: 4553358a677aef4bb7062e8be4cd021dd993a96b3c9fad7e91ab423feb733e4cd56f57400b06b3e13e724d90009eb9b1c79ea5b14c0ac062fea68f7dc2dbfd53
+    "@sapphire/utilities": "npm:^3.16.2"
+    tslib: "npm:^2.6.3"
+  checksum: 41c0e53c169cf79d9c89c3582a6c54fbcd07cd50071d0c4db59a22052059ff7eefe2f59a0dafe52d2dfed30928eb42647528f66da16696da5f077e7edad36dc5
   languageName: node
   linkType: hard
 
@@ -4954,7 +4956,7 @@ __metadata:
     "@sapphire/eslint-config": "npm:^5.0.5"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^20.14.8"
+    "@types/node": "npm:^20.14.9"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
     "@vitest/coverage-v8": "npm:^1.6.0"
@@ -4970,7 +4972,7 @@ __metadata:
     typedoc: "npm:^0.26.1"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:^5.5.2"
-    vite: "npm:^5.3.1"
+    vite: "npm:^5.3.2"
     vitest: "npm:^1.6.0"
   languageName: unknown
   linkType: soft
@@ -7276,9 +7278,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001599, caniuse-lite@npm:^1.0.30001629":
-  version: 1.0.30001638
-  resolution: "caniuse-lite@npm:1.0.30001638"
-  checksum: f30c80a5a33e659c990909046d5299af1584441059785460b012d10a58f0885da25fde08ab655ed0cf76b2695d0b3a32c41875bb9b7a730b34f992ec2512d430
+  version: 1.0.30001639
+  resolution: "caniuse-lite@npm:1.0.30001639"
+  checksum: c163080e08982de60b37d51130f088e9f8a745533621675694f0b079f53529308168adb0966051139ff71c75af439b2ce150b7142cff15aac421cbfd126bd481
   languageName: node
   linkType: hard
 
@@ -18248,13 +18250,13 @@ __metadata:
   linkType: hard
 
 "string-width@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "string-width@npm:7.1.0"
+  version: 7.2.0
+  resolution: "string-width@npm:7.2.0"
   dependencies:
     emoji-regex: "npm:^10.3.0"
     get-east-asian-width: "npm:^1.0.0"
     strip-ansi: "npm:^7.1.0"
-  checksum: a183573fe7209e0d294f661846d33f8caf72aa86d983e5b48a0ed45ab15bcccb02c6f0344b58b571988871105457137b8207855ea536827dbc4a376a0f31bf8f
+  checksum: 42f9e82f61314904a81393f6ef75b832c39f39761797250de68c041d8ba4df2ef80db49ab6cd3a292923a6f0f409b8c9980d120f7d32c820b4a8a84a2598a295
   languageName: node
   linkType: hard
 
@@ -19244,11 +19246,11 @@ __metadata:
   linkType: hard
 
 "typedoc-plugin-markdown@npm:^4.0.2":
-  version: 4.1.0
-  resolution: "typedoc-plugin-markdown@npm:4.1.0"
+  version: 4.1.1
+  resolution: "typedoc-plugin-markdown@npm:4.1.1"
   peerDependencies:
     typedoc: 0.26.x
-  checksum: ff968737d6d84086ce13f51f507f7db6157932444a690df95fe6d33f457e60b797ae666e62101102deaadbfc06f1e3d1bac6ca90b0a1279cc5771ae63eb9905d
+  checksum: df31b343e2bfce1724f760b59ef09781d8dc44e022d271fd0874e69ae259d23ee5784fde385d5edc3c10dc122afe5bc5c7d5091858c86df6fedaf2824b3424e3
   languageName: node
   linkType: hard
 
@@ -19812,7 +19814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0, vite@npm:^5.3.1, vite@npm:^5.3.2":
+"vite@npm:^5.0.0, vite@npm:^5.3.2":
   version: 5.3.2
   resolution: "vite@npm:5.3.2"
   dependencies:
@@ -20788,6 +20790,13 @@ __metadata:
   version: 1.1.1
   resolution: "yocto-queue@npm:1.1.1"
   checksum: f2e05b767ed3141e6372a80af9caa4715d60969227f38b1a4370d60bffe153c9c5b33a862905609afc9b375ec57cd40999810d20e5e10229a204e8bde7ef255c
+  languageName: node
+  linkType: hard
+
+"yoctocolors-cjs@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "yoctocolors-cjs@npm:2.1.1"
+  checksum: d7cbb833eb2fac85e38f5efeaf163ad2d468b7795eef595f034183a404253767d06ec6075e44ab0414436a7bbf5e4aad524e5a3f380dafbbd24e971a4ee51d37
   languageName: node
   linkType: hard
 
