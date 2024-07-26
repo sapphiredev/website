@@ -7,42 +7,41 @@ on:
 
 jobs:
   SubmoduleSync:
+    name: Update Git Submodules
     runs-on: ubuntu-latest
-
+    if: github.repository_owner == 'sapphiredev'
     steps:
-      - name: Update any submodules
+      - name: Checkout Project
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SKYRA_TOKEN }}
+          submodules: 'recursive'
+      - name: Use Node.js v20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          registry-url: https://registry.yarnpkg.com/
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Configure Git
         run: |
-          REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-
-          echo -e "\n# Checkout the repo in the target branch"
-          TARGET_BRANCH="main"
-          git clone --recurse-submodules -j8 -b $TARGET_BRANCH $REPO sapphiredev-website
-
-          echo -e "\n# Moving to newly cloned repository"
-          cd sapphiredev-website
-
-          echo -e "\n# Updating submodules"
-          git pull --recurse-submodules && git submodule update --remote --recursive
-
-          echo -e "\n# Add all files in current directory"
-          git add --all .
-
-          if git diff-index --quiet HEAD --; then
-            echo "No changes to commit, exiting with code 0"
-            exit 0;
-          else
-            echo -e "\n# Before pushing changes we update the lockfile"
-            echo -e "\nenableImmutableInstalls: false" >> ./.yarnrc.yml
-            rm -rf ./node_modules ./yarn.lock || true
-            yarn install
-            echo -e "\n# Adding yarn lockfile"
-            git add yarn.lock
-            git config user.name "${GITHUB_ACTOR}"
-            git config user.email "${GITHUB_EMAIL}"
-            git commit -snm "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')" || true
-            git push origin $TARGET_BRANCH
-          fi
+          git remote set-url origin "https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git"
+          git config --local user.email "${GITHUB_EMAIL}"
+          git config --local user.name "${GITHUB_USER}"
         env:
-          GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
-          GITHUB_ACTOR: NM-EEA-Y
-          GITHUB_EMAIL: contact@skyra.pw
+          GITHUB_USER: github-actions[bot]
+          GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update all submodules
+        run: yarn update-submodules
+      - name: Update lockfile
+        run: yarn install --mode=update-lockfile
+      - name: Commit and push any changes
+        run: |
+          git add --all .;
+          if ! git diff-index --quiet HEAD --; then
+            git add yarn.lock"
+            git commit -snm "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')"
+            git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+          fi
