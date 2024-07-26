@@ -41,7 +41,6 @@ jobs:
         run: |
           git add --all .;
           if ! git diff-index --quiet HEAD --; then
-            git add yarn.lock"
             git commit -snm "chore: updated GitHub Submodules at $(date '+%F %H:%M.%S')"
             git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
           fi
