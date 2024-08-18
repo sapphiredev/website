@@ -10,12 +10,17 @@ jobs:
   linting:
     name: Linting
     uses: sapphiredev/.github/.github/workflows/reusable-lint.yml@main
+    with:
+      with-submodules: true
 
   MarkdownLint:
     uses: sapphiredev/.github/.github/workflows/reusable-yarn-job.yml@main
     with:
       script-name: lint:md-no-fix
+      with-submodules: true
 
   formatting:
     name: Prettier Validation
     uses: sapphiredev/.github/.github/workflows/reusable-prettier.yml@main
+    with:
+      with-submodules: true
