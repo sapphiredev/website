@@ -5,13 +5,32 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@actions/core@npm:^1.10.1, @actions/core@npm:^1.9.1":
+"@actions/core@npm:^1.11.1":
+  version: 1.11.1
+  resolution: "@actions/core@npm:1.11.1"
+  dependencies:
+    "@actions/exec": "npm:^1.1.1"
+    "@actions/http-client": "npm:^2.0.1"
+  checksum: 10/94f260e33607cc16567ce4c88014f069cd7da92baaa443b72cff80fdf4f1dcd18192e135df0d51ec29e8b82cfe214218715d482f2a7804efa5095737d1245f38
+  languageName: node
+  linkType: hard
+
+"@actions/core@npm:^1.9.1":
   version: 1.10.1
   resolution: "@actions/core@npm:1.10.1"
   dependencies:
     "@actions/http-client": "npm:^2.0.1"
     uuid: "npm:^8.3.2"
   checksum: 10/d32af783ecb07f25a0f190112ee8e749a4c4cb88327d6df756ea1dcee146ab413c0e651a9c949294f8202ced1436c049d7b469485431a5cc4491d66926ec8323
+  languageName: node
+  linkType: hard
+
+"@actions/exec@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@actions/exec@npm:1.1.1"
+  dependencies:
+    "@actions/io": "npm:^1.0.1"
+  checksum: 10/c04bd25191e522841c7e17862d70099de8db61278d2b4c744b69ac0197a48f85c75dba548e1c29c695c4cc5363d558846b4dcd3db9013463c18ba8cf36497c6d
   languageName: node
   linkType: hard
 
@@ -44,6 +63,13 @@ __metadata:
     tunnel: "npm:^0.0.6"
     undici: "npm:^5.25.4"
   checksum: 10/83f3b75c5d06733a2ee8b662e9d98d07e24ab3cbe118c695a85c56d24ea0f7d260fb1031204b9e922bf9bbd36475f3ff26ea5f22cd778905ec8deebda176425f
+  languageName: node
+  linkType: hard
+
+"@actions/io@npm:^1.0.1":
+  version: 1.1.3
+  resolution: "@actions/io@npm:1.1.3"
+  checksum: 10/4de44e8d428ba9f20049c844b37ecd486b589ed201f8cc8c5b550a9e4c72d1f594271ee2a7a6cfe8a42ebfb5dd527ef65016454656db391a353d41eab4f147e1
   languageName: node
   linkType: hard
 
@@ -4546,13 +4572,13 @@ __metadata:
   resolution: "@sapphire/async-queue@workspace:projects/utilities/packages/async-queue"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4561,13 +4587,13 @@ __metadata:
   resolution: "@sapphire/bitfield@workspace:projects/utilities/packages/bitfield"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4586,13 +4612,13 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
     "@sapphire/utilities": "workspace:^"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4615,14 +4641,14 @@ __metadata:
     "@sapphire/ratelimits": "workspace:^"
     "@sapphire/result": "workspace:^"
     "@sapphire/utilities": "workspace:^"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tslib: "npm:^2.7.0"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4649,14 +4675,14 @@ __metadata:
   resolution: "@sapphire/discord-utilities@workspace:projects/utilities/packages/discord-utilities"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     discord-api-types: "npm:0.37.97"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4728,13 +4754,13 @@ __metadata:
   resolution: "@sapphire/duration@workspace:projects/utilities/packages/duration"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4760,7 +4786,7 @@ __metadata:
     "@favware/cliff-jumper": "npm:^4.1.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
@@ -4768,7 +4794,7 @@ __metadata:
     tsup: "npm:^8.3.0"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4781,12 +4807,12 @@ __metadata:
     "@typescript-eslint/rule-tester": "npm:^7.13.1"
     "@typescript-eslint/typescript-estree": "npm:^7.13.1"
     "@typescript-eslint/utils": "npm:^7.13.1"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsutils: "npm:^3.21.0"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4795,14 +4821,14 @@ __metadata:
   resolution: "@sapphire/event-iterator@workspace:projects/utilities/packages/event-iterator"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tslib: "npm:^2.7.0"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4827,13 +4853,13 @@ __metadata:
   resolution: "@sapphire/fetch@workspace:projects/utilities/packages/fetch"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4907,14 +4933,14 @@ __metadata:
   resolution: "@sapphire/iterator-utilities@workspace:projects/utilities/packages/iterator-utilities"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     npm-run-all2: "npm:^6.2.3"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4933,13 +4959,13 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
     "@sapphire/result": "workspace:^"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -4955,13 +4981,13 @@ __metadata:
   resolution: "@sapphire/node-utilities@workspace:projects/utilities/packages/node-utilities"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5009,7 +5035,7 @@ __metadata:
     "@types/node": "npm:^20.16.10"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     concurrently: "npm:^9.0.1"
     cz-conventional-changelog: "npm:^3.3.0"
     esbuild-plugin-file-path-extensions: "npm:^2.1.3"
@@ -5024,7 +5050,7 @@ __metadata:
     typedoc: "npm:^0.26.1"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:^5.5.2"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5038,7 +5064,7 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.0.1"
     cookie-es: "npm:^1.2.2"
-    tldts: "npm:^6.1.48"
+    tldts: "npm:^6.1.50"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
@@ -5090,7 +5116,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^4.0.1"
     concurrently: "npm:^9.0.1"
-    i18next: "npm:^23.15.1"
+    i18next: "npm:^23.15.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
@@ -5139,7 +5165,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/utilities": "npm:^3.17.0"
-    bullmq: "npm:5.13.2"
+    bullmq: "npm:5.15.0"
     concurrently: "npm:^9.0.1"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
@@ -5194,11 +5220,11 @@ __metadata:
   resolution: "@sapphire/prettier-config@workspace:projects/utilities/packages/prettier-config"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     prettier: "npm:^3.3.3"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5214,13 +5240,13 @@ __metadata:
   resolution: "@sapphire/ratelimits@workspace:projects/utilities/packages/ratelimits"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5236,13 +5262,13 @@ __metadata:
   resolution: "@sapphire/result@workspace:projects/utilities/packages/result"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5279,7 +5305,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@testing-library/jest-dom": "npm:^6.5.0"
     "@testing-library/vue": "npm:^8.1.0"
-    "@types/lodash": "npm:^4.17.9"
+    "@types/lodash": "npm:^4.17.10"
     "@types/node": "npm:^20.16.5"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -5287,7 +5313,7 @@ __metadata:
     "@vitest/browser": "npm:2.0.5"
     "@vitest/coverage-istanbul": "npm:2.0.5"
     cz-conventional-changelog: "npm:^3.3.0"
-    esbuild-plugins-node-modules-polyfill: "npm:^1.6.6"
+    esbuild-plugins-node-modules-polyfill: "npm:^1.6.7"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
@@ -5303,7 +5329,7 @@ __metadata:
     typescript: "npm:~5.4.5"
     vite-plugin-node-polyfills: "npm:^0.22.0"
     vitest: "npm:2.0.5"
-    vue: "npm:^3.5.10"
+    vue: "npm:^3.5.11"
   languageName: unknown
   linkType: soft
 
@@ -5319,13 +5345,13 @@ __metadata:
   resolution: "@sapphire/snowflake@workspace:projects/utilities/packages/snowflake"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5344,7 +5370,7 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
     "@types/jsdom": "npm:^21.1.7"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     jsdom: "npm:^25.0.1"
     tslib: "npm:^2.7.0"
     tsup: "npm:^8.3.0"
@@ -5352,7 +5378,7 @@ __metadata:
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5361,13 +5387,13 @@ __metadata:
   resolution: "@sapphire/string-store@workspace:projects/utilities/packages/string-store"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5400,13 +5426,13 @@ __metadata:
   resolution: "@sapphire/timer-manager@workspace:projects/utilities/packages/timer-manager"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5422,13 +5448,13 @@ __metadata:
   resolution: "@sapphire/timestamp@workspace:projects/utilities/packages/timestamp"
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5449,11 +5475,11 @@ __metadata:
     "@favware/cliff-jumper": "npm:^4.1.0"
     "@sapphire/eslint-config": "workspace:^"
     "@sapphire/eslint-plugin-result": "workspace:^"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     tslib: "npm:^2.7.0"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5461,7 +5487,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/type@workspace:projects/type"
   dependencies:
-    "@actions/core": "npm:^1.10.1"
+    "@actions/core": "npm:^1.11.1"
     "@actions/github": "npm:^6.0.0"
     "@actions/glob": "npm:^0.5.0"
     "@commitlint/cli": "npm:^19.5.0"
@@ -5475,9 +5501,9 @@ __metadata:
     "@types/node": "npm:^20.16.10"
     "@typescript-eslint/eslint-plugin": "npm:^7.16.1"
     "@typescript-eslint/parser": "npm:^7.16.1"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     cz-conventional-changelog: "npm:^3.3.0"
-    discord.js: "npm:^14.16.2"
+    discord.js: "npm:^14.16.3"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
@@ -5490,7 +5516,7 @@ __metadata:
     typedoc-json-parser: "npm:^10.1.5"
     typescript: "npm:^5.5.3"
     vite: "npm:^5.4.8"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -5508,7 +5534,7 @@ __metadata:
     "@favware/cliff-jumper": "npm:^4.1.0"
     "@sapphire/node-utilities": "workspace:^"
     "@sapphire/prettier-config": "workspace:^"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     esbuild-plugin-file-path-extensions: "npm:^2.1.3"
     npm-run-all2: "npm:^6.2.3"
     tsup: "npm:^8.3.0"
@@ -5516,7 +5542,7 @@ __metadata:
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -6163,10 +6189,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.17.9":
-  version: 4.17.9
-  resolution: "@types/lodash@npm:4.17.9"
-  checksum: 10/49e35caaf668686be0bad9e9bef88456903a21999d3fd8bf91c302e0d5328398fb59fee793d0afbaf6edeca1b46c3e8109899d85ff3a433075178f1ab693e597
+"@types/lodash@npm:^4.17.10":
+  version: 4.17.10
+  resolution: "@types/lodash@npm:4.17.10"
+  checksum: 10/10fe24a93adc6048cb23e4135c1ed1d52cc39033682e6513f4f51b74a9af6d7a24fbea92203c22dc4e01e35f1ab3aa0fd0a2b487e8a4a2bbdf1fc05970094066
   languageName: node
   linkType: hard
 
@@ -6707,6 +6733,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/coverage-v8@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/coverage-v8@npm:2.1.2"
+  dependencies:
+    "@ampproject/remapping": "npm:^2.3.0"
+    "@bcoe/v8-coverage": "npm:^0.2.3"
+    debug: "npm:^4.3.6"
+    istanbul-lib-coverage: "npm:^3.2.2"
+    istanbul-lib-report: "npm:^3.0.1"
+    istanbul-lib-source-maps: "npm:^5.0.6"
+    istanbul-reports: "npm:^3.1.7"
+    magic-string: "npm:^0.30.11"
+    magicast: "npm:^0.3.4"
+    std-env: "npm:^3.7.0"
+    test-exclude: "npm:^7.0.1"
+    tinyrainbow: "npm:^1.2.0"
+  peerDependencies:
+    "@vitest/browser": 2.1.2
+    vitest: 2.1.2
+  peerDependenciesMeta:
+    "@vitest/browser":
+      optional: true
+  checksum: 10/513b96310eacc99f97f8beb95801c725788b5d64434a820d0008dd94731a09250f68d31a84bbb6cdf3110ee9ad86b4c50d02c1d3d4d651bf56bac4b409b95a62
+  languageName: node
+  linkType: hard
+
 "@vitest/expect@npm:2.0.5":
   version: 2.0.5
   resolution: "@vitest/expect@npm:2.0.5"
@@ -6731,6 +6783,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/expect@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/expect@npm:2.1.2"
+  dependencies:
+    "@vitest/spy": "npm:2.1.2"
+    "@vitest/utils": "npm:2.1.2"
+    chai: "npm:^5.1.1"
+    tinyrainbow: "npm:^1.2.0"
+  checksum: 10/0e2991295a6b9c51e2d074d1185317dcb2d85d1e9b5045299431fd7b84e51a847942911b08efad2379f56bb4dfe2f02442abd267df348751c61c86bc7b3154a3
+  languageName: node
+  linkType: hard
+
 "@vitest/mocker@npm:2.1.1":
   version: 2.1.1
   resolution: "@vitest/mocker@npm:2.1.1"
@@ -6748,6 +6812,26 @@ __metadata:
     vite:
       optional: true
   checksum: 10/4fbdaac36e3f603235b131e25d9e561381bd989a34e49522e16652077021532ae6653907b47bbca93c14ae4629e3e6a8f61438e3812620dc5654b61595b45208
+  languageName: node
+  linkType: hard
+
+"@vitest/mocker@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/mocker@npm:2.1.2"
+  dependencies:
+    "@vitest/spy": "npm:^2.1.0-beta.1"
+    estree-walker: "npm:^3.0.3"
+    magic-string: "npm:^0.30.11"
+  peerDependencies:
+    "@vitest/spy": 2.1.2
+    msw: ^2.3.5
+    vite: ^5.0.0
+  peerDependenciesMeta:
+    msw:
+      optional: true
+    vite:
+      optional: true
+  checksum: 10/f6ec9aa061c21877322bf3f0b12bf4e78eba3f092174a506b2d2d479b78e36b4d46a6458cd23d3bf3cbdcf212276cf5d1a87234ae2014e8362ea2afc23e46bec
   languageName: node
   linkType: hard
 
@@ -6769,6 +6853,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/pretty-format@npm:2.1.2, @vitest/pretty-format@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/pretty-format@npm:2.1.2"
+  dependencies:
+    tinyrainbow: "npm:^1.2.0"
+  checksum: 10/5866fb3c45e794b695a9f62f76b886a8a8d07d711f7187e9e769fd614bc62df1f87d076880c032d5cd8c0272c385fe824c12191b04a3ca44a8bb9fed1a0c3693
+  languageName: node
+  linkType: hard
+
 "@vitest/runner@npm:2.0.5":
   version: 2.0.5
   resolution: "@vitest/runner@npm:2.0.5"
@@ -6786,6 +6879,16 @@ __metadata:
     "@vitest/utils": "npm:2.1.1"
     pathe: "npm:^1.1.2"
   checksum: 10/cf13a2f0bebb494484e60614ff0e7cab06f4310b36c96fe311035ab2eec9cbc057fa5702e904d43e8976fb2214fe550286ceb0b3dc1c72081e23eb1b1f8fa193
+  languageName: node
+  linkType: hard
+
+"@vitest/runner@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/runner@npm:2.1.2"
+  dependencies:
+    "@vitest/utils": "npm:2.1.2"
+    pathe: "npm:^1.1.2"
+  checksum: 10/60b086e39a31dd664875746b0da3a2402d4088801306e87fe25f20dc660abda50afd3e5ec6ea34ef0849f5652ac05ce2a93a13ea4d5dd16a549d9882941de328
   languageName: node
   linkType: hard
 
@@ -6811,6 +6914,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/snapshot@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/snapshot@npm:2.1.2"
+  dependencies:
+    "@vitest/pretty-format": "npm:2.1.2"
+    magic-string: "npm:^0.30.11"
+    pathe: "npm:^1.1.2"
+  checksum: 10/acd29f59883899c660eeba5950366e4f9f799cb29e7edd65575a7b6ad319a1df4d7a46a95048f8f9475f4c6f46cea198a7ecfab06e88e435dfd4989b365b917f
+  languageName: node
+  linkType: hard
+
 "@vitest/spy@npm:2.0.5":
   version: 2.0.5
   resolution: "@vitest/spy@npm:2.0.5"
@@ -6826,6 +6940,15 @@ __metadata:
   dependencies:
     tinyspy: "npm:^3.0.0"
   checksum: 10/47e83b4a3d091c4fdc2fbf861ccf2df697d3446a6c69d384b168f9c3e0fa1cabec03e52cc8bec1909735969176ac6272cc4dee8dda945ff059183a5c4568a488
+  languageName: node
+  linkType: hard
+
+"@vitest/spy@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/spy@npm:2.1.2"
+  dependencies:
+    tinyspy: "npm:^3.0.0"
+  checksum: 10/0183ab53b431bd6a08531752113780e15202ebd7579eed25b9bf87c849f75d74d0e4f346d886034cd9dd1381aa8814b3e468f141f41f7539b75f30268df35a79
   languageName: node
   linkType: hard
 
@@ -6852,6 +6975,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitest/utils@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@vitest/utils@npm:2.1.2"
+  dependencies:
+    "@vitest/pretty-format": "npm:2.1.2"
+    loupe: "npm:^3.1.1"
+    tinyrainbow: "npm:^1.2.0"
+  checksum: 10/fa898ea6312cb62e4027f55b06859d84ba50ac20e583bab2889eeadea41d73baf6022ed87547deec6251cd8021f1df13d2ea4515ab253582c3ca93226acd6313
+  languageName: node
+  linkType: hard
+
 "@vladfrangu/async_event_emitter@npm:2.4.6, @vladfrangu/async_event_emitter@npm:^2.2.4, @vladfrangu/async_event_emitter@npm:^2.4.6":
   version: 2.4.6
   resolution: "@vladfrangu/async_event_emitter@npm:2.4.6"
@@ -6859,103 +6993,103 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-core@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/compiler-core@npm:3.5.10"
+"@vue/compiler-core@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/compiler-core@npm:3.5.11"
   dependencies:
     "@babel/parser": "npm:^7.25.3"
-    "@vue/shared": "npm:3.5.10"
+    "@vue/shared": "npm:3.5.11"
     entities: "npm:^4.5.0"
     estree-walker: "npm:^2.0.2"
     source-map-js: "npm:^1.2.0"
-  checksum: 10/3207883dd018305d3a014c80e17057d1223ae5093c77300b9ad703f8282abf863a2264d8b366cb9fc64a9319e213bf59d8d3419d80f07e2d70a424c0ad1e386b
+  checksum: 10/c3c0902be07bafecb7a5b972cefda06890ac3722798c92a1241ee94f4df1dd1ce6d7b0fb98b4a7f0c6bee850c90c1129c8d730e53c7faba6a70836597cc844ce
   languageName: node
   linkType: hard
 
-"@vue/compiler-dom@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/compiler-dom@npm:3.5.10"
+"@vue/compiler-dom@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/compiler-dom@npm:3.5.11"
   dependencies:
-    "@vue/compiler-core": "npm:3.5.10"
-    "@vue/shared": "npm:3.5.10"
-  checksum: 10/36f0eb99428bff3d42b490015d9172db0f3ed03f5ad9e6e8fb76b9b7fdb1306bf25002959442c8771a77755ead8aeabc7c6fd8918eb7d34e2c8cf125bd50bcad
+    "@vue/compiler-core": "npm:3.5.11"
+    "@vue/shared": "npm:3.5.11"
+  checksum: 10/ff2bb2159b18747b843c8c4421c7d78dc2b26b8edbaee2483631bb37a31b324d7476f60f83f8cd9befcc81594cf2ca9d8ddf74758908f9166dc942b1e1ee8d53
   languageName: node
   linkType: hard
 
-"@vue/compiler-sfc@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/compiler-sfc@npm:3.5.10"
+"@vue/compiler-sfc@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/compiler-sfc@npm:3.5.11"
   dependencies:
     "@babel/parser": "npm:^7.25.3"
-    "@vue/compiler-core": "npm:3.5.10"
-    "@vue/compiler-dom": "npm:3.5.10"
-    "@vue/compiler-ssr": "npm:3.5.10"
-    "@vue/shared": "npm:3.5.10"
+    "@vue/compiler-core": "npm:3.5.11"
+    "@vue/compiler-dom": "npm:3.5.11"
+    "@vue/compiler-ssr": "npm:3.5.11"
+    "@vue/shared": "npm:3.5.11"
     estree-walker: "npm:^2.0.2"
     magic-string: "npm:^0.30.11"
     postcss: "npm:^8.4.47"
     source-map-js: "npm:^1.2.0"
-  checksum: 10/0047f519a6035c5263f82ab51dfc37e80ba869e1d8a05c15c4aa799b86a44ac8967084f39e2654d0afaa435e9f51625fcd76ff3c93e3352d73128f4603855d0d
+  checksum: 10/f1bcb68ac8586bdd346a50363071b0be820ce0ba2024a49f85998db838d58083d5f7e7c3fb6edc4f9dbf70f72d530c8f1803f52084b2217e8e8a471c98f4f037
   languageName: node
   linkType: hard
 
-"@vue/compiler-ssr@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/compiler-ssr@npm:3.5.10"
+"@vue/compiler-ssr@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/compiler-ssr@npm:3.5.11"
   dependencies:
-    "@vue/compiler-dom": "npm:3.5.10"
-    "@vue/shared": "npm:3.5.10"
-  checksum: 10/6c274c6b88151519565827132a80266f1d8aa8d88f901ed465d8034fe8d3bdcdf772036cc45afbe53ca58acd3fc6bcfdc31b9b36453bb2934eff43e631e71d5b
+    "@vue/compiler-dom": "npm:3.5.11"
+    "@vue/shared": "npm:3.5.11"
+  checksum: 10/d77c65c83aae171abd1563ab76bf2e7e111308bb893a579ae366775f773ec66737c46f16a0ebe30b35b4b7a63fd8d2f08560d1950d7e40e930bceba78edbe724
   languageName: node
   linkType: hard
 
-"@vue/reactivity@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/reactivity@npm:3.5.10"
+"@vue/reactivity@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/reactivity@npm:3.5.11"
   dependencies:
-    "@vue/shared": "npm:3.5.10"
-  checksum: 10/9b363933c6f9f5fd30b535124f77d689ec5273071642a53b81c0953ad7613a2352377095daa62beedafd706824f904c4022535d32a240e2a2931a9ef5d92fb09
+    "@vue/shared": "npm:3.5.11"
+  checksum: 10/08e3d16b7676efb91f72fb571391eebf0310b71a064966e0868f2fc74ca4eba7912107bbd95f506510557aeb42ea29661a8d8b17a1b3ff8554ae92dad0ac667e
   languageName: node
   linkType: hard
 
-"@vue/runtime-core@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/runtime-core@npm:3.5.10"
+"@vue/runtime-core@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/runtime-core@npm:3.5.11"
   dependencies:
-    "@vue/reactivity": "npm:3.5.10"
-    "@vue/shared": "npm:3.5.10"
-  checksum: 10/c176e758b4d16ef55d0799d1487112bd0714992b684cb4d97e76db3d3c8da2f9db2a45e66c04829f3cb5d62cc77eb6dc313917f6df9f2dfad2597177529021ed
+    "@vue/reactivity": "npm:3.5.11"
+    "@vue/shared": "npm:3.5.11"
+  checksum: 10/1e06687ab8b3d364a5be452525886790ca04b9b1a96cd8f21a2011dd31226c1cee2ea0e2ed9c0fcca325157fa4ca974ef7a1cc1cdaf352f70e6cc683f86d38bf
   languageName: node
   linkType: hard
 
-"@vue/runtime-dom@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/runtime-dom@npm:3.5.10"
+"@vue/runtime-dom@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/runtime-dom@npm:3.5.11"
   dependencies:
-    "@vue/reactivity": "npm:3.5.10"
-    "@vue/runtime-core": "npm:3.5.10"
-    "@vue/shared": "npm:3.5.10"
+    "@vue/reactivity": "npm:3.5.11"
+    "@vue/runtime-core": "npm:3.5.11"
+    "@vue/shared": "npm:3.5.11"
     csstype: "npm:^3.1.3"
-  checksum: 10/55f990feebbf09851f272a00ba25ac54769ad6cb28c9e235a9d8cd42d4c902fca9a7d6cd3215d7b09231e157d17dce09a35e019a7c466ffc94d35a99d3408729
+  checksum: 10/b0ebf86f56341ed216c4dd9cfdb5860d9a3a56dbaedd944c9b7f7fa16064476f94e7f876584819d12b638aa9705c079d168bdd26d0bce430a4dbee4184e383e8
   languageName: node
   linkType: hard
 
-"@vue/server-renderer@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/server-renderer@npm:3.5.10"
+"@vue/server-renderer@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/server-renderer@npm:3.5.11"
   dependencies:
-    "@vue/compiler-ssr": "npm:3.5.10"
-    "@vue/shared": "npm:3.5.10"
+    "@vue/compiler-ssr": "npm:3.5.11"
+    "@vue/shared": "npm:3.5.11"
   peerDependencies:
-    vue: 3.5.10
-  checksum: 10/30cff32fa903e5a21f44b85b99a7b1e6796e2490cc0d9179b84843ece408b05015cc69eac1cdb789b0edf1046e75c4a8e04305e65ae37d7d1b55d3776b64a83c
+    vue: 3.5.11
+  checksum: 10/974fec57080e5194c1276b9b7dc88c294ba98d26b03fa3631bbd430d442d89c14f72ab88ac313111c94ecf9a00108aadbeb1438d5b53d54e7d5c82be50dc716d
   languageName: node
   linkType: hard
 
-"@vue/shared@npm:3.5.10":
-  version: 3.5.10
-  resolution: "@vue/shared@npm:3.5.10"
-  checksum: 10/1f8534a58ed5320c7c5a137ed18fcb21addd3ef1cb155f926d9c815ef90198d9492d3f2aa3ffd3e1d6d7bbfdebde9a9aa5a847a3ff98b442d15eb194afb46ec8
+"@vue/shared@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@vue/shared@npm:3.5.11"
+  checksum: 10/0e2c53ba1f69378139535f7b9dd08adfdf3171de3edb535666e5b22afa4391100ecbf67a70c9f674b78526d27c0c9d9689c03bf6766051afc0f90d65d80bc89a
   languageName: node
   linkType: hard
 
@@ -8149,9 +8283,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.13.2":
-  version: 5.13.2
-  resolution: "bullmq@npm:5.13.2"
+"bullmq@npm:5.15.0":
+  version: 5.15.0
+  resolution: "bullmq@npm:5.15.0"
   dependencies:
     cron-parser: "npm:^4.6.0"
     ioredis: "npm:^5.4.1"
@@ -8160,7 +8294,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/c209700862934e872098e8107822da36ce93c5416d2190c2e82c8ad25c886e68b8108b83c88c4ad3510b34d4323d4eb34debcb08a0cb32116af5f22e8715d80b
+  checksum: 10/f5cc6c3325785d789f223840ff5b89c2e00ac0412b1e81a42edb0308e1ca90628aea8dfb37c7eb2dde718f974514ab7c92fe51ea73be4bd07c1a5ecb00f56075
   languageName: node
   linkType: hard
 
@@ -10591,16 +10725,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-plugins-node-modules-polyfill@npm:^1.6.6":
-  version: 1.6.6
-  resolution: "esbuild-plugins-node-modules-polyfill@npm:1.6.6"
+"esbuild-plugins-node-modules-polyfill@npm:^1.6.7":
+  version: 1.6.7
+  resolution: "esbuild-plugins-node-modules-polyfill@npm:1.6.7"
   dependencies:
     "@jspm/core": "npm:^2.0.1"
     local-pkg: "npm:^0.5.0"
     resolve.exports: "npm:^2.0.2"
   peerDependencies:
-    esbuild: ">=0.14.0 ^0.23.0"
-  checksum: 10/2aa87ad1f9398171153c5fdfd706b95c6d40e510daa4cc510bf1a255c380ba73f129ebd167566d9372a51c9ac33b1a1198e49fd798605764f754df5cb12860a0
+    esbuild: ">=0.14.0 <=0.23.x"
+  checksum: 10/202300e3801aeb72dad6f1e117fb2e9557347868a25007e84c2e5af28ee0e2fdbfbdd2439fce459ffcdbf21ca5506aa945fab0d179b96461b90be744f2aebd47
   languageName: node
   linkType: hard
 
@@ -13138,12 +13272,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.15.1":
-  version: 23.15.1
-  resolution: "i18next@npm:23.15.1"
+"i18next@npm:^23.15.2":
+  version: 23.15.2
+  resolution: "i18next@npm:23.15.2"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10/bfd4935517ddd68bd12ccc0b7bd454f1a19403b627d79a2fe81c9059380674f085804f8d7475dd248a887f90d9e2da0f9be64179ddf32e9eebac47e4b9f92889
+  checksum: 10/ed14a290ba8e761a06b6a6ce5e608861f367eb0806fa1b4eb77494340502ad20491748ab2b27423ba186f5602b89cbcb87565683a03443d0368cd4b182ae6ef9
   languageName: node
   linkType: hard
 
@@ -19253,11 +19387,11 @@ __metadata:
     "@types/ws": "npm:^8.5.12"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     concurrently: "npm:^9.0.1"
     cz-conventional-changelog: "npm:^3.3.0"
     discord-api-types: "npm:^0.37.100"
-    discord.js: "npm:^14.16.2"
+    discord.js: "npm:^14.16.3"
     esbuild-plugin-file-path-extensions: "npm:^2.1.3"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.57.1"
@@ -19268,10 +19402,10 @@ __metadata:
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
-    turbo: "npm:^2.1.2"
+    turbo: "npm:^2.1.3"
     typescript: "npm:~5.4.5"
     vite: "npm:^5.4.8"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -19286,12 +19420,12 @@ __metadata:
     "@favware/npm-deprecate": "npm:^1.0.7"
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/framework": "npm:^5.2.1"
-    "@types/lodash": "npm:^4.17.9"
+    "@types/lodash": "npm:^4.17.10"
     "@types/node": "npm:^20.16.10"
     "@types/ws": "npm:^8.5.12"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
-    "@vitest/coverage-v8": "npm:^2.1.1"
+    "@vitest/coverage-v8": "npm:^2.1.2"
     concurrently: "npm:^9.0.1"
     cz-conventional-changelog: "npm:^3.3.0"
     discord-api-types: "npm:0.37.97"
@@ -19308,12 +19442,12 @@ __metadata:
     tslib: "npm:^2.7.0"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
-    turbo: "npm:^2.1.2"
+    turbo: "npm:^2.1.3"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
     vite: "npm:^5.4.8"
-    vitest: "npm:^2.1.1"
+    vitest: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -20825,10 +20959,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.48":
-  version: 6.1.48
-  resolution: "tldts-core@npm:6.1.48"
-  checksum: 10/981a431a65e9514f2cf25513743b19b799502f2e2b074ce3294a247f9c5eef784c3025d2fdc47d727e7badf885d96fc85fe604e70300670265f94f4760039641
+"tldts-core@npm:^6.1.50":
+  version: 6.1.50
+  resolution: "tldts-core@npm:6.1.50"
+  checksum: 10/a08373740ceccdb470228e20c86478e61f8a29d5e9a4b4425cb8661b7200e57cc62c7ecd3c7ba487e661bd2a7c6bf947f94006394f8d28dd92b22ed32d877dc9
   languageName: node
   linkType: hard
 
@@ -20843,14 +20977,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.48":
-  version: 6.1.48
-  resolution: "tldts@npm:6.1.48"
+"tldts@npm:^6.1.50":
+  version: 6.1.50
+  resolution: "tldts@npm:6.1.50"
   dependencies:
-    tldts-core: "npm:^6.1.48"
+    tldts-core: "npm:^6.1.50"
   bin:
     tldts: bin/cli.js
-  checksum: 10/0b29a7a5190c7b96c29e7cd2fadfe528b593871c0cf4601f3f2ac13cd218de7b66d972d53101769b167fa023950498f7e3df092f167d30e03bea0f0eb7fbf720
+  checksum: 10/67bff64acd7798709442c8d77df362e6d3ee19a884f2b859468e07eaa55646c372a49d193fb57d443ed58dd565bcee09205d035b6991a3b29061a8a8039db683
   languageName: node
   linkType: hard
 
@@ -21134,58 +21268,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-darwin-64@npm:2.1.2"
+"turbo-darwin-64@npm:2.1.3":
+  version: 2.1.3
+  resolution: "turbo-darwin-64@npm:2.1.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-darwin-arm64@npm:2.1.2"
+"turbo-darwin-arm64@npm:2.1.3":
+  version: 2.1.3
+  resolution: "turbo-darwin-arm64@npm:2.1.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-linux-64@npm:2.1.2"
+"turbo-linux-64@npm:2.1.3":
+  version: 2.1.3
+  resolution: "turbo-linux-64@npm:2.1.3"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-linux-arm64@npm:2.1.2"
+"turbo-linux-arm64@npm:2.1.3":
+  version: 2.1.3
+  resolution: "turbo-linux-arm64@npm:2.1.3"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-windows-64@npm:2.1.2"
+"turbo-windows-64@npm:2.1.3":
+  version: 2.1.3
+  resolution: "turbo-windows-64@npm:2.1.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-windows-arm64@npm:2.1.2"
+"turbo-windows-arm64@npm:2.1.3":
+  version: 2.1.3
+  resolution: "turbo-windows-arm64@npm:2.1.3"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "turbo@npm:2.1.2"
+"turbo@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "turbo@npm:2.1.3"
   dependencies:
-    turbo-darwin-64: "npm:2.1.2"
-    turbo-darwin-arm64: "npm:2.1.2"
-    turbo-linux-64: "npm:2.1.2"
-    turbo-linux-arm64: "npm:2.1.2"
-    turbo-windows-64: "npm:2.1.2"
-    turbo-windows-arm64: "npm:2.1.2"
+    turbo-darwin-64: "npm:2.1.3"
+    turbo-darwin-arm64: "npm:2.1.3"
+    turbo-linux-64: "npm:2.1.3"
+    turbo-linux-arm64: "npm:2.1.3"
+    turbo-windows-64: "npm:2.1.3"
+    turbo-windows-arm64: "npm:2.1.3"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -21201,7 +21335,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10/8dea62fa29ff9ca6fc56b19c1558d2b2bf628e71de109bcd82374e2d745d2f825559c54f9c56d60449f4ddbb2b2d5e2d064a9d814474a7b72e058d6236f85703
+  checksum: 10/b8e90a38f47dc5c07e5f1c0bd708f9dc6b00b744847a45c06e5de5a5379a32bb155e8ad994eb03e60f697afc87f0815dd02fc680e22c0fad83d65c0a1fb6fc96
   languageName: node
   linkType: hard
 
@@ -21955,6 +22089,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite-node@npm:2.1.2":
+  version: 2.1.2
+  resolution: "vite-node@npm:2.1.2"
+  dependencies:
+    cac: "npm:^6.7.14"
+    debug: "npm:^4.3.6"
+    pathe: "npm:^1.1.2"
+    vite: "npm:^5.0.0"
+  bin:
+    vite-node: vite-node.mjs
+  checksum: 10/582843800ee968e7edf2cf6e6f1573634122cba74e47ef531a373337f6084c4a394c3c1c2abb210c178c8671200530412c09f5cc2f02a4519f0045a03c3eed02
+  languageName: node
+  linkType: hard
+
 "vite-plugin-node-polyfills@npm:^0.22.0":
   version: 0.22.0
   resolution: "vite-plugin-node-polyfills@npm:0.22.0"
@@ -22194,6 +22342,55 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vitest@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "vitest@npm:2.1.2"
+  dependencies:
+    "@vitest/expect": "npm:2.1.2"
+    "@vitest/mocker": "npm:2.1.2"
+    "@vitest/pretty-format": "npm:^2.1.2"
+    "@vitest/runner": "npm:2.1.2"
+    "@vitest/snapshot": "npm:2.1.2"
+    "@vitest/spy": "npm:2.1.2"
+    "@vitest/utils": "npm:2.1.2"
+    chai: "npm:^5.1.1"
+    debug: "npm:^4.3.6"
+    magic-string: "npm:^0.30.11"
+    pathe: "npm:^1.1.2"
+    std-env: "npm:^3.7.0"
+    tinybench: "npm:^2.9.0"
+    tinyexec: "npm:^0.3.0"
+    tinypool: "npm:^1.0.0"
+    tinyrainbow: "npm:^1.2.0"
+    vite: "npm:^5.0.0"
+    vite-node: "npm:2.1.2"
+    why-is-node-running: "npm:^2.3.0"
+  peerDependencies:
+    "@edge-runtime/vm": "*"
+    "@types/node": ^18.0.0 || >=20.0.0
+    "@vitest/browser": 2.1.2
+    "@vitest/ui": 2.1.2
+    happy-dom: "*"
+    jsdom: "*"
+  peerDependenciesMeta:
+    "@edge-runtime/vm":
+      optional: true
+    "@types/node":
+      optional: true
+    "@vitest/browser":
+      optional: true
+    "@vitest/ui":
+      optional: true
+    happy-dom:
+      optional: true
+    jsdom:
+      optional: true
+  bin:
+    vitest: vitest.mjs
+  checksum: 10/3a331a10499f5ed678530594903869e37a0de548598bcf540db9a6e015bb7a38f36c3585376b3aeeb53fee6b20d75b93081f32b1ea09fd8c2098aa541af28491
+  languageName: node
+  linkType: hard
+
 "vm-browserify@npm:^1.0.1":
   version: 1.1.2
   resolution: "vm-browserify@npm:1.1.2"
@@ -22222,21 +22419,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.5.10":
-  version: 3.5.10
-  resolution: "vue@npm:3.5.10"
+"vue@npm:^3.5.11":
+  version: 3.5.11
+  resolution: "vue@npm:3.5.11"
   dependencies:
-    "@vue/compiler-dom": "npm:3.5.10"
-    "@vue/compiler-sfc": "npm:3.5.10"
-    "@vue/runtime-dom": "npm:3.5.10"
-    "@vue/server-renderer": "npm:3.5.10"
-    "@vue/shared": "npm:3.5.10"
+    "@vue/compiler-dom": "npm:3.5.11"
+    "@vue/compiler-sfc": "npm:3.5.11"
+    "@vue/runtime-dom": "npm:3.5.11"
+    "@vue/server-renderer": "npm:3.5.11"
+    "@vue/shared": "npm:3.5.11"
   peerDependencies:
     typescript: "*"
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/6c1bc3b3f57aada05522270d162f51fe2be7fabe97d4fc108c298a278c3358cb9baf64f2622a159e2bac2ea89e32dd01252d8345492a319487c842e889713a20
+  checksum: 10/9b17dbc153b1e40872aefcd99c659775ff7a82cb847e64e618edc0b99698ad03adcdf0166440a8efd1e146cdb04abc777e86b93e6411c62709fd692f384aecbf
   languageName: node
   linkType: hard
 
