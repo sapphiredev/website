@@ -38,6 +38,9 @@ const config: Config = {
 	markdown: {
 		format: 'detect'
 	},
+	future: {
+		experimental_faster: true
+	},
 	plugins: [
 		[
 			'@docusaurus/plugin-pwa',
