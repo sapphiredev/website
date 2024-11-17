@@ -4953,24 +4953,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/framework@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "@sapphire/framework@npm:5.3.0"
-  dependencies:
-    "@discordjs/builders": "npm:^1.9.0"
-    "@sapphire/discord-utilities": "npm:^3.4.2"
-    "@sapphire/discord.js-utilities": "npm:^7.3.1"
-    "@sapphire/lexure": "npm:^1.1.9"
-    "@sapphire/pieces": "npm:^4.3.1"
-    "@sapphire/ratelimits": "npm:^2.4.10"
-    "@sapphire/result": "npm:^2.7.1"
-    "@sapphire/stopwatch": "npm:^1.5.3"
-    "@sapphire/utilities": "npm:^3.18.0"
-  checksum: 10/7b1d2dab7575bf0d151790077265b5635ed6a9752ed288e8c6bebaeae17fc973a3c38146c12e885361f25f06f7d00177d28fa22fb9b663902209befba472a6a5
-  languageName: node
-  linkType: hard
-
-"@sapphire/framework@npm:^5.3.1":
+"@sapphire/framework@npm:^5.3.0, @sapphire/framework@npm:^5.3.1":
   version: 5.3.1
   resolution: "@sapphire/framework@npm:5.3.1"
   dependencies:
@@ -5459,16 +5442,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/stopwatch@npm:^1.5.3":
-  version: 1.5.3
-  resolution: "@sapphire/stopwatch@npm:1.5.3"
-  dependencies:
-    tslib: "npm:^2.8.1"
-  checksum: 10/48c346c315ec77096cf0c208afae67c2d0d5a08c17b34942328f89c564f23026649b684bed3ab8155920032ff9855cd3feab2194ec59211ecc25324af4b6a7cc
-  languageName: node
-  linkType: hard
-
-"@sapphire/stopwatch@npm:^1.5.4":
+"@sapphire/stopwatch@npm:^1.5.3, @sapphire/stopwatch@npm:^1.5.4":
   version: 1.5.4
   resolution: "@sapphire/stopwatch@npm:1.5.4"
   dependencies:
@@ -5548,13 +5522,6 @@ __metadata:
     vitest: "npm:^2.1.4"
   languageName: unknown
   linkType: soft
-
-"@sapphire/timestamp@npm:^1.0.4, @sapphire/timestamp@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "@sapphire/timestamp@npm:1.0.5"
-  checksum: 10/ebd5216de2e2f63a481359c3f6beb76f6b07f855f07088ec0146d86d270d014a25661d337fa5abb9c4089345fc7f730c5e76cbad7154bce8208002e971d01ea0
-  languageName: node
-  linkType: hard
 
 "@sapphire/timestamp@npm:^1.0.5":
   version: 1.0.5
@@ -5648,13 +5615,6 @@ __metadata:
   linkType: hard
 
 "@sapphire/utilities@npm:^3.15.2, @sapphire/utilities@npm:^3.16.2, @sapphire/utilities@npm:^3.17.0, @sapphire/utilities@npm:^3.18.0, @sapphire/utilities@npm:^3.18.1":
-  version: 3.18.1
-  resolution: "@sapphire/utilities@npm:3.18.1"
-  checksum: 10/e13fdc6f83d2a326dfe124a65d0db4243cd5ca636cc770d881927a5e466221065d5f241e3e7673bf133b76c2359f86e4c0b1b834485f0470e25941457ee2cb90
-  languageName: node
-  linkType: hard
-
-"@sapphire/utilities@npm:^3.18.1":
   version: 3.18.1
   resolution: "@sapphire/utilities@npm:3.18.1"
   checksum: 10/e13fdc6f83d2a326dfe124a65d0db4243cd5ca636cc770d881927a5e466221065d5f241e3e7673bf133b76c2359f86e4c0b1b834485f0470e25941457ee2cb90
@@ -19913,7 +19873,7 @@ __metadata:
     typedoc-plugin-markdown: "npm:^4.2.10"
     typedoc-plugin-mdn-links: "npm:3.3.6"
     typescript: "npm:~5.4.5"
-    wrangler: "npm:^3.86.0"
+    wrangler: "npm:^3.87.0"
   languageName: unknown
   linkType: soft
 
@@ -21367,13 +21327,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.58":
-  version: 6.1.58
-  resolution: "tldts-core@npm:6.1.58"
-  checksum: 10/8dae4470ab6184e4df2c42421ee0dcdafe8c6baff699ee4a75f376d147a3675fff63c680e2c5d7318a3128bd90ae1c9a784ba3511dcd6d8ca5385a29169b29bf
-  languageName: node
-  linkType: hard
-
 "tldts-core@npm:^6.1.59":
   version: 6.1.59
   resolution: "tldts-core@npm:6.1.59"
@@ -21381,18 +21334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.32":
-  version: 6.1.58
-  resolution: "tldts@npm:6.1.58"
-  dependencies:
-    tldts-core: "npm:^6.1.58"
-  bin:
-    tldts: bin/cli.js
-  checksum: 10/0f36a72a645ff6b09b02e5935a80a0d100c500873520f9a69f33a92a64fe1e0602b008dd9ea959296916187ab2b41ae7e9e93039b3d930cc3031fde90d5ea127
-  languageName: node
-  linkType: hard
-
-"tldts@npm:^6.1.59":
+"tldts@npm:^6.1.32, tldts@npm:^6.1.59":
   version: 6.1.59
   resolution: "tldts@npm:6.1.59"
   dependencies:
@@ -23312,16 +23254,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^3.86.0":
-  version: 3.86.0
-  resolution: "wrangler@npm:3.86.0"
+"wrangler@npm:^3.87.0":
+  version: 3.87.0
+  resolution: "wrangler@npm:3.87.0"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:0.3.4"
     "@cloudflare/workers-shared": "npm:0.7.1"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
     "@esbuild-plugins/node-modules-polyfill": "npm:^0.2.2"
     blake3-wasm: "npm:^2.1.5"
-    chokidar: "npm:^3.5.3"
+    chokidar: "npm:^4.0.1"
     date-fns: "npm:^4.1.0"
     esbuild: "npm:0.17.19"
     fsevents: "npm:~2.3.2"
@@ -23347,7 +23289,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: 10/109c9bfb8e90594b4a5ff7302eac6aef0785891386dbafa276f75805f28b998e94482e482733d7479636ef9934997d18a2d16f207d36b6de6ad9937e4645ec9e
+  checksum: 10/a744b0343b81b3f8d13c95accc427398b22a2d3a2c5c98cdb0e94577d8beef8f67cc14c192249dd3c8ed0773fd3f34cb27241f1f21fd9fde5ff1280eaedd4f69
   languageName: node
   linkType: hard
 
