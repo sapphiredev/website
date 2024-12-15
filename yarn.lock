@@ -16060,9 +16060,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdownlint@npm:^0.37.0":
-  version: 0.37.0
-  resolution: "markdownlint@npm:0.37.0"
+"markdownlint@npm:^0.37.1":
+  version: 0.37.1
+  resolution: "markdownlint@npm:0.37.1"
   dependencies:
     markdown-it: "npm:14.1.0"
     micromark: "npm:4.0.1"
@@ -16072,7 +16072,7 @@ __metadata:
     micromark-extension-gfm-table: "npm:2.1.0"
     micromark-extension-math: "npm:3.1.0"
     micromark-util-types: "npm:2.0.1"
-  checksum: 10/c91b360cee7ef3f4f98b17a725408e47cea750e5d9e29e29bdead5b10e253accd1e14287e42e967d86ac17cfae3f1dac0dac4daa91c7a2f14a2deec9228ab4dc
+  checksum: 10/8e7fabf187cf5b65b3b385cac6d920297a328879e6eef2363d20e16239d5453fc2e16babde11f8edff50e67ab5901400f08e72b39717664d2980bcda34de8b2b
   languageName: node
   linkType: hard
 
@@ -20812,7 +20812,7 @@ __metadata:
     eslint-plugin-react: "npm:^7.37.2"
     eslint-plugin-react-hooks: "npm:^5.1.0"
     lint-staged: "npm:^15.2.11"
-    markdownlint: "npm:^0.37.0"
+    markdownlint: "npm:^0.37.1"
     markdownlint-cli2: "npm:^0.16.0"
     prettier: "npm:^3.4.2"
     prism-react-renderer: "npm:^2.4.1"
@@ -22279,13 +22279,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.66":
-  version: 6.1.66
-  resolution: "tldts-core@npm:6.1.66"
-  checksum: 10/bf09407a0f3a68509c2b2b21d36ea2919714cbd759f6dace0fe019925320ddcfafbd4d3e7659af29bd6edd4430ef8427a62c0b4d121a1fc2ede986d9529f7ed3
-  languageName: node
-  linkType: hard
-
 "tldts-core@npm:^6.1.68":
   version: 6.1.68
   resolution: "tldts-core@npm:6.1.68"
@@ -22293,18 +22286,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.32":
-  version: 6.1.66
-  resolution: "tldts@npm:6.1.66"
-  dependencies:
-    tldts-core: "npm:^6.1.66"
-  bin:
-    tldts: bin/cli.js
-  checksum: 10/24af5bba6d05c30c241f2fa18d943206ada402e6585a2b41eabf0803b2d495ba632b3abbb48a9f719d3151b1f6c05f75ed964561328f575d21b2873a5188ca15
-  languageName: node
-  linkType: hard
-
-"tldts@npm:^6.1.68":
+"tldts@npm:^6.1.32, tldts@npm:^6.1.68":
   version: 6.1.68
   resolution: "tldts@npm:6.1.68"
   dependencies:
