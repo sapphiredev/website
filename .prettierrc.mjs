@@ -5,7 +5,14 @@ export default {
 	overrides: [
 		...sapphirePrettierConfig.overrides,
 		{
-			files: ['README.md', 'docs/Guide/**/*.mdx', 'docs/Guide/**/*.md', 'docs/General/**/*.mdx', 'docs/General/**/*.md'],
+			files: [
+				'README.md',
+				'docs/Guide/**/*.mdx',
+				'docs/Guide/**/*.md',
+				'docs/General/**/*.mdx',
+				'docs/General/**/*.md',
+				'.github/CONTRIBUTING.md'
+			],
 			options: {
 				tabWidth: 2,
 				useTabs: false,
