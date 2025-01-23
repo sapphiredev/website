@@ -3,24 +3,13 @@ title: How to add routes
 sidebar_position: 1
 ---
 
-First we create a new folder called `routes` in the `src` directory. And make a new file `hello-world`
+First we create a new folder called `routes` in the `src` directory. And make a new file `hello-world.get`
 
 ```typescript ts2esm2cjs
-import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { Route } from '@sapphire/plugin-api';
 
 export class UserRoute extends Route {
-  public constructor(context: Route.LoaderContext, options: Route.Options) {
-    super(context, {
-      ...options,
-      route: 'hello-world'
-    });
-  }
-
-  public [methods.GET](_request: ApiRequest, response: ApiResponse) {
-    response.json({ message: 'Hello World' });
-  }
-
-  public [methods.POST](_request: ApiRequest, response: ApiResponse) {
+  public run(_request: Route.Request, response: Route.Response) {
     response.json({ message: 'Hello World' });
   }
 }
@@ -29,6 +18,5 @@ export class UserRoute extends Route {
 A quick glance on what we did above:
 
 - First we extended the `Route` class to make our route
-- Second we specified the route name in the constructor
-- Third we defined the GET method
-- Finally we responded to the request with a message which we would be able to use later when we fetch the route
+- Second we defined the handler for the `GET` method defined in the filename
+- Finally, when `GET /hello-world` is called, the route will reply with the defined body

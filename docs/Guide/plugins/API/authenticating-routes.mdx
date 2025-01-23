@@ -13,11 +13,11 @@ if [`request.auth.token`][request-auth-token] is defined or not. When it is not,
 `401 Unauthorized` response.
 
 ```typescript ts2esm2cjs|{6,8}|{6,8}
-import { HttpCodes, methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { HttpCodes, Route } from '@sapphire/plugin-api';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 
 export class MyRoute extends Route {
-  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     if (isNullishOrEmpty(request.auth?.token)) return response.error(HttpCodes.Unauthorized);
   }
 }
@@ -29,23 +29,23 @@ decorator. A decorator that does the authentication check can look like:
 
 ```typescript ts2esm2cjs|{{4-8}}|{{4-8}}
 import { createFunctionPrecondition } from '@sapphire/decorators';
-import { ApiRequest, ApiResponse, HttpCodes } from '@sapphire/plugin-api';
+import { HttpCodes, type Route } from '@sapphire/plugin-api';
 
 export const authenticated = () =>
   createFunctionPrecondition(
-    (request: ApiRequest) => Boolean(request.auth?.token),
-    (_request: ApiRequest, response: ApiResponse) => response.error(HttpCodes.Unauthorized)
+    (request: Route.Request) => Boolean(request.auth?.token),
+    (_request: Route.Request, response: Route.Response) => response.error(HttpCodes.Unauthorized)
   );
 ```
 
 You can then use the decorator on your route like so:
 
 ```typescript {4} showLineNumbers
-import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { Route } from '@sapphire/plugin-api';
 
 export class MyRoute extends Route {
   @authenticated()
-  public [methods.POST](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     // Implementation
   }
 }

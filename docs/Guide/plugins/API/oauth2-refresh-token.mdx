@@ -20,14 +20,14 @@ limits to routes][rate-limiting].
 ## Implementing the refresh route
 
 The first step is to add a new route, more information for adding routes can be found in the [Adding
-routes][adding-routes] page. For the rest of this guide we will assume the route is `/oauth/refresh` as path. Lets start
-by writing the basics:
+routes][adding-routes] page. For the rest of this guide we will assume the route is `/oauth/refresh.post` as path. Lets
+start by writing the basics:
 
 ```typescript ts2esm2cjs|{4-6}
-import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { methods, Route } from '@sapphire/plugin-api';
 
 export class RefreshRoute extends Route {
-  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     // implementation
   }
 }
@@ -40,10 +40,10 @@ In this part of the code we also extract some nested variables into local variab
 later.
 
 ```typescript ts2esm2cjs|{5-10}
-import { HttpCodes, methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { HttpCodes, Route } from '@sapphire/plugin-api';
 
 export class RefreshRoute extends Route {
-  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     if (!request.auth) return response.error(HttpCodes.Unauthorized);
 
     const requestAuth = request.auth;
@@ -75,13 +75,13 @@ refresh the token, and add the new token as a cookie to the response:
 
 ```typescript ts2esm2cjs|{16-30,33-59}|{16-30,33-59}
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
-import { HttpCodes, methods, MimeTypes, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { HttpCodes, MimeTypes, Route } from '@sapphire/plugin-api';
 import { Time } from '@sapphire/time-utilities';
 import { OAuth2Routes, type RESTPostOAuth2AccessTokenResult } from 'discord.js';
 import { stringify } from 'node:querystring';
 
 export class RefreshRoute extends Route {
-  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     if (!request.auth) return response.error(HttpCodes.Unauthorized);
 
     const requestAuth = request.auth;
@@ -167,7 +167,7 @@ import { OAuth2Routes, type RESTPostOAuth2AccessTokenResult } from 'discord.js';
 import { stringify } from 'node:querystring';
 
 export class RefreshRoute extends Route {
-  public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     if (!request.auth) return response.error(HttpCodes.Unauthorized);
 
     const requestAuth = request.auth;
