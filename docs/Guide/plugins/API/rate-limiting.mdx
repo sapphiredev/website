@@ -10,24 +10,16 @@ by a large number of users. On this page we will guide you to write your own rat
 The first step to creating a rate limiter is create an instance of `RateLimitManager`. This manager has to be created on
 a per-route basis, so it is advisable to create it as a class property or constant in the file of the route.
 
-```typescript ts2esm2cjs|{6,8}|{6,8}
-import { methods, Route } from '@sapphire/plugin-api';
+```typescript ts2esm2cjs|{5,6}|{5,6}
+import { Route } from '@sapphire/plugin-api';
 import { Time } from '@sapphire/time-utilities';
 import { RateLimitManager } from '@sapphire/ratelimits';
 
 export class UserRoute extends Route {
-  private timeForRateLimit = Time.Second * 5;
-
+  private readonly timeForRateLimit = Time.Second * 5;
   private readonly rateLimitManager = new RateLimitManager(Time.Second * 5, 1);
 
-  public constructor(context: Route.LoaderContext, options: Route.Options) {
-    super(context, {
-      ...options,
-      route: 'hello-world'
-    });
-  }
-
-  public [methods.GET](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     response.json({ message: 'Hello World' });
   }
 }
@@ -106,25 +98,17 @@ in an `if` check in the route to change the response behaviour, as seen below.
 
 Finally we can put this all together:
 
-```typescript ts2esm2cjs|{19-28}
-import { ApiRequest, ApiResponse, HttpCodes, methods, Route } from '@sapphire/plugin-api';
+```typescript ts2esm2cjs|{10-19}
+import { HttpCodes, Route } from '@sapphire/plugin-api';
 import { Time } from '@sapphire/time-utilities';
 import { RateLimitManager } from '@sapphire/ratelimits';
 import { isRateLimited } from '../lib/api/utils'; // Example, you can put the function anywhere you want.
 
 export class UserRoute extends Route {
-  private timeForRateLimit = Time.Second * 5;
-
+  private readonly timeForRateLimit = Time.Second * 5;
   private readonly rateLimitManager = new RateLimitManager(Time.Second * 5, 1);
 
-  public constructor(context: Route.LoaderContext, options: Route.Options) {
-    super(context, {
-      ...options,
-      route: 'hello-world'
-    });
-  }
-
-  public [methods.GET](request: ApiRequest, response: ApiResponse) {
+  public async run(request: Route.Request, response: Route.Response) {
     if (
       isRateLimited({
         time: this.timeForRateLimit,
