@@ -41,6 +41,12 @@ const config: Config = {
 	future: {
 		experimental_faster: true
 	},
+
+	i18n: {
+		defaultLocale: 'en',
+		locales: ['en']
+	},
+
 	plugins: [
 		[
 			'@docusaurus/plugin-pwa',
@@ -148,7 +154,7 @@ const config: Config = {
 			'classic',
 			{
 				docs: {
-					sidebarPath: require.resolve('./sidebars.js'),
+					sidebarPath: './sidebars.ts',
 					editUrl: 'https://github.com/sapphiredev/website/edit/main/',
 					remarkPlugins: [convertNpmToPackageManagers, ts2esm2cjs],
 					showLastUpdateAuthor: true,
@@ -156,7 +162,7 @@ const config: Config = {
 				},
 				blog: false,
 				theme: {
-					customCss: [require.resolve('./src/css/custom.css'), require.resolve('./src/css/tippy-discord.css')]
+					customCss: ['./src/css/custom.css', './src/css/tippy-discord.css']
 				}
 			} satisfies Preset.Options
 		]
