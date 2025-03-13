@@ -209,7 +209,7 @@ export class PingCommand extends Command {
     await message.channel.send(await resolveKey(message, 'ping:success'));
   }
 
-  public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+  public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
     await interaction.reply(await resolveKey(interaction, 'ping:success'));
   }
 
@@ -251,7 +251,7 @@ export class PingCommand extends Command {
     // ===> en-US
   }
 
-  public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+  public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
     const languageCodeForCurrentGuild = await fetchLanguage(interaction);
     // ===> en-US
   }
@@ -285,7 +285,7 @@ export class PingCommand extends Command {
     const translatedPingSuccess = tFunction('ping:success');
   }
 
-  public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+  public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
     const tFunction = await fetchT(interaction);
     const translatedPingSuccess = tFunction('ping:success');
   }
