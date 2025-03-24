@@ -43,9 +43,11 @@ folder here!) of your project, then put the following code using the name of you
 :::
 
 ```typescript {2-4} showLineNumbers
+import { type TextBasedChannelTypes } from '@sapphire/discord.js-utilities';
+
 declare module '@sapphire/framework' {
   interface ArgType {
-    textBasedChannels: string;
+    textBasedChannels: TextBasedChannelTypes;
   }
 }
 
