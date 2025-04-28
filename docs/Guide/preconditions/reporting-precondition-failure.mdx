@@ -125,7 +125,7 @@ export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputComm
 
     return interaction.reply({
       content: error.message,
-      ephemeral: true
+      flags: 'Ephemeral'
     });
   }
 }
@@ -154,7 +154,7 @@ export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenu
 
     return interaction.reply({
       content: error.message,
-      ephemeral: true
+      flags: 'Ephemeral'
     });
   }
 }
@@ -240,7 +240,7 @@ export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputComm
 
     return interaction.reply({
       content: isSilent ? '\u200b' : error.message
-      ephemeral: true
+      flags: 'Ephemeral'
     });
   }
 }
@@ -265,7 +265,7 @@ export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenu
 
     return interaction.reply({
       content: isSilent ? '\u200b' : error.message
-      ephemeral: true
+      flags: 'Ephemeral'
     });
   }
 }

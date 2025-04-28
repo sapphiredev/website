@@ -28,7 +28,7 @@ export class ButtonHandler extends InteractionHandler {
     await interaction.reply({
       content: 'Hello from a button interaction handler!',
       // Let's make it so only the person who pressed the button can see this message!
-      ephemeral: true
+      flags: 'Ephemeral'
     });
   }
 }
