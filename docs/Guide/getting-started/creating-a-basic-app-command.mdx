@@ -41,6 +41,7 @@ In order for your bot to respond to the slash command when it is invoked by a us
 ```typescript ts2esm2cjs|{15-25}
 import { isMessageInstance } from '@sapphire/discord.js-utilities';
 import { Command } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 
 export class PingCommand extends Command {
   public constructor(context: Command.LoaderContext, options: Command.Options) {
@@ -54,7 +55,7 @@ export class PingCommand extends Command {
   }
 
   public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
-    await interaction.reply({ content: `Ping?`, flags: 'Ephemeral' });
+    await interaction.reply({ content: `Ping?`, flags: MessageFlags.Ephemeral });
     const msg = await interaction.fetchReply();
 
     if (!isMessageInstance(msg)) return interaction.editReply('Failed to retrieve ping :(');
