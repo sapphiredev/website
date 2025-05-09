@@ -114,6 +114,7 @@ Note that we check if the interaction has been deferred or replied to before rep
 
 ```typescript ts2esm2cjs|{4}|{5}
 import { Events, Listener, type ChatInputCommandDeniedPayload, type UserError } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 
 export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputCommandDenied> {
   public run(error: UserError, { interaction }: ChatInputCommandDeniedPayload) {
@@ -125,7 +126,7 @@ export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputComm
 
     return interaction.reply({
       content: error.message,
-      ephemeral: true
+      flags: MessageFlags.Ephemeral
     });
   }
 }
@@ -143,6 +144,7 @@ Note that we check if the interaction has been deferred or replied to before rep
 
 ```typescript ts2esm2cjs|{4}|{5}
 import { Events, Listener, type ContextMenuCommandDeniedPayload, type UserError } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 
 export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenuCommandDenied> {
   public run(error: UserError, { interaction }: ContextMenuCommandDeniedPayload) {
@@ -154,7 +156,7 @@ export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenu
 
     return interaction.reply({
       content: error.message,
-      ephemeral: true
+      flags: MessageFlags.Ephemeral
     });
   }
 }
@@ -227,6 +229,7 @@ export class MessageCommandDenied extends Listener<typeof Events.MessageCommandD
 
 ```typescript ts2esm2cjs|{4}|{5}
 import { Events, Listener, type ChatInputCommandDeniedPayload, type UserError } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 
 export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputCommandDenied> {
   public run(error: UserError, { interaction }: ChatInputCommandDeniedPayload) {
@@ -240,7 +243,7 @@ export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputComm
 
     return interaction.reply({
       content: isSilent ? '\u200b' : error.message
-      ephemeral: true
+      flags: MessageFlags.Ephemeral
     });
   }
 }
@@ -252,6 +255,7 @@ export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputComm
 
 ```typescript ts2esm2cjs|{4}|{5}
 import { Events, Listener, type ContextMenuCommandDeniedPayload, type UserError } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 
 export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenuCommandDenied> {
   public run(error: UserError, { interaction }: ContextMenuCommandDeniedPayload) {
@@ -265,7 +269,7 @@ export class ContextMenuCommandDenied extends Listener<typeof Events.ContextMenu
 
     return interaction.reply({
       content: isSilent ? '\u200b' : error.message
-      ephemeral: true
+      flags: MessageFlags.Ephemeral
     });
   }
 }
