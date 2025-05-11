@@ -55,7 +55,11 @@ export class PingCommand extends Command {
   }
 
   public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
-    const callbackResponse = await interaction.reply({ content: `Ping?`, withResponse: true, flags: MessageFlags.Ephemeral });
+    const callbackResponse = await interaction.reply({
+      content: `Ping?`,
+      withResponse: true,
+      flags: MessageFlags.Ephemeral
+    });
     const msg = callbackResponse.resource?.message;
 
     if (msg && isMessageInstance(msg)) {
@@ -63,7 +67,7 @@ export class PingCommand extends Command {
       const ping = Math.round(this.container.client.ws.ping);
       return interaction.editReply(`Pong 🏓! (Round trip took: ${diff}ms. Heartbeat: ${ping}ms.)`);
     }
-    
+
     return interaction.editReply('Failed to retrieve ping :(');
   }
 }
