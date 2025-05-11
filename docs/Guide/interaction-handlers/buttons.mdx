@@ -8,6 +8,7 @@ example which will respond with an ephemeral message on each click:
 
 ```typescript ts2esm2cjs
 import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 import type { ButtonInteraction } from 'discord.js';
 
 export class ButtonHandler extends InteractionHandler {
@@ -28,7 +29,7 @@ export class ButtonHandler extends InteractionHandler {
     await interaction.reply({
       content: 'Hello from a button interaction handler!',
       // Let's make it so only the person who pressed the button can see this message!
-      ephemeral: true
+      flags: MessageFlags.Ephemeral
     });
   }
 }

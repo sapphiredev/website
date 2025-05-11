@@ -41,6 +41,7 @@ In order for your bot to respond to the slash command when it is invoked by a us
 ```typescript ts2esm2cjs|{15-25}
 import { isMessageInstance } from '@sapphire/discord.js-utilities';
 import { Command } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 
 export class PingCommand extends Command {
   public constructor(context: Command.LoaderContext, options: Command.Options) {
@@ -54,9 +55,14 @@ export class PingCommand extends Command {
   }
 
   public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
-    const msg = await interaction.reply({ content: `Ping?`, ephemeral: true, fetchReply: true });
+    const callbackResponse = await interaction.reply({
+      content: `Ping?`,
+      withResponse: true,
+      flags: MessageFlags.Ephemeral
+    });
+    const msg = callbackResponse.resource?.message;
 
-    if (isMessageInstance(msg)) {
+    if (msg && isMessageInstance(msg)) {
       const diff = msg.createdTimestamp - interaction.createdTimestamp;
       const ping = Math.round(this.container.client.ws.ping);
       return interaction.editReply(`Pong 🏓! (Round trip took: ${diff}ms. Heartbeat: ${ping}ms.)`);
