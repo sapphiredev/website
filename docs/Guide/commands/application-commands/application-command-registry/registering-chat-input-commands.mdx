@@ -52,7 +52,7 @@ export class SlashCommand extends Command {
     );
   }
 
-  public override chatInputRun(interaction: Command.ChatInputInteraction) {
+  public override chatInputRun(interaction: Command.ChatInputCommandInteraction) {
     // ...
   }
 }
@@ -103,7 +103,7 @@ export class SlashCommand extends Command {
     );
   }
 
-  public override chatInputRun(interaction: Command.ChatInputInteraction) {
+  public override chatInputRun(interaction: Command.ChatInputCommandInteraction) {
     // ...
   }
 }
@@ -214,7 +214,7 @@ export class SlashCommand extends Command {
     );
   }
 
-  public override chatInputRun(interaction: Command.ChatInputInteraction) {
+  public override chatInputRun(interaction: Command.ChatInputCommandInteraction) {
     const userToGreet = interaction.options.getUser('user', true);
 
     const userToGreetMention = userMention(userToGreet.id);
