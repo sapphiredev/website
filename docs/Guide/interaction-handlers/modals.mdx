@@ -15,6 +15,7 @@ There is no way to determine if or how the user closed the modal.
 
 ```typescript ts2esm2cjs
 import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
+import { MessageFlags } from 'discord.js';
 import type { ModalSubmitInteraction } from 'discord.js';
 
 export class ModalHandler extends InteractionHandler {
@@ -34,7 +35,7 @@ export class ModalHandler extends InteractionHandler {
   public async run(interaction: ModalSubmitInteraction) {
     await interaction.reply({
       content: 'Thank you for submitting the form!',
-      ephemeral: true
+      flags: MessageFlags.Ephemeral
     });
   }
 }

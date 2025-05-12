@@ -152,7 +152,7 @@ export class SlashCommand extends Command {
 
   public override async contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
     // Use isUserContextMenu() to ensure this command was executed as a User Context Menu Command
-    if (interaction.isUserContextMenu() && interaction.targetMember instanceof GuildMember) {
+    if (interaction.isUserContextMenuCommand() && interaction.targetMember instanceof GuildMember) {
       await interaction.targetMember.ban({
         days: 8,
         reason: 'Banned for for breaking the rules.'
