@@ -90,7 +90,7 @@ Here's how to convert an existing route from v6 to v7:
 ```typescript
 // Before (v6)
 // ../index.ts
-import { Route, ApiRequest, ApiResponse, methods, MimeTypes } from '@sapphire/plugin-api';
+import { ApiRequest, ApiResponse, methods, MimeTypes, Route } from '@sapphire/plugin-api';
 
 export class UserRoute extends Route {
   public acceptedContentMimeTypes = [MimeTypes.ApplicationJson];
@@ -103,12 +103,11 @@ export class UserRoute extends Route {
 
 // After (v7)
 // ../index.get.ts
-import { Route, ApiRequest, ApiResponse } from '@sapphire/plugin-api';
-import type { MimeType } from '@sapphire/plugin-api';
+import { ApiRequest, ApiResponse, Route } from '@sapphire/plugin-api';
 
 export class UserRoute extends Route {
   public async run(request: ApiRequest, response: ApiResponse) {
-    const data = await request.json();
+    const data = await request.readBodyJson();
     // ...
   }
 }
