@@ -1,0 +1,134 @@
+---
+sidebar_position: 10
+title: Upgrade from v6 to v7
+toc_max_heading_level: 5
+---
+
+# Overview
+
+Version 7 of the API plugin introduces major changes that modernize and simplify route management. This update aims to
+make API development more intuitive, faster, and aligned with current web standards.
+
+**Key highlights:**
+
+- **File-system-based routing:** Routes are automatically generated from your folder and file structure.
+- **Simplified HTTP method definition:** Specify the HTTP method directly in the filename (e.g., `users.get.ts` for a
+  GET route).
+- **Modern route parameters:** Use `[param]` syntax instead of `:param` for dynamic segments (e.g., `/guilds/[guild]`).
+- **Direct request handling:** The `MediaParser` is removed; use new parsing methods on the request object.
+- **Standardized MIME types:** Adoption of IANA MIME types for better compatibility.
+
+These changes make API creation clearer, safer, and easier to maintain.
+
+---
+
+## Breaking Changes
+
+### Removal of Media Parser
+
+- The `MediaParser` and `MediaParserStore` classes are removed.
+- The `Route#acceptedContentMimeTypes` property no longer exists.
+- The `ApiRequest#body` property is removed: use the new async parsing methods (`request.readBody()`,
+  `request.readBodyJson()`,,etc.).
+
+**Migration example:**
+
+```typescript
+// Before (v6)
+const data = request.body;
+
+// After (v7)
+const data = await request.readBody();
+```
+
+---
+
+### MIME Types Update
+
+- The `MimeTypes` enum is replaced by a string union type (`MimeType`) using IANA types (e.g., `"application/json"`).
+
+---
+
+### Routing System Changes
+
+#### Event and Property Renaming
+
+- `ServerEvents` is now `ServerEvent`
+- The `match` event is now `routerFound`
+- The `noMatch` event is now `routerBranchNotFound`
+
+#### Other Modifications
+
+- `RouteStore#match` is now a listener.
+- The `node:events` module is replaced by `@vladfrangu/async_event_emitter`.
+- The `route` parameter in `Middleware#run` is removed: use `request.route`.
+- The `Route#router` and `RouteStore#methods` properties are removed.
+- Route event objects are removed: use `request.route` and `request.routerNode`.
+
+---
+
+### HTTP Method Handling
+
+- The `headers` middleware now uses the HTTP methods supported by the route or store.
+- The `Route` class no longer matches by method name.
+- HTTP methods are defined in the filename: `<name>.<method>.ts` (e.g., `user.post.ts`).
+
+---
+
+### Route and Path Management
+
+- Prefixes are now suffixed with `/` before concatenation in `RouteData`.
+- If `options.route` is not set, the route defaults to the file path.
+- Route parameters use `/guilds/[guild]` syntax instead of `/guilds/:guild`.
+
+---
+
+## Example: Migrating a Route
+
+Here's how to convert an existing route from v6 to v7:
+
+```typescript
+// Before (v6)
+// ../index.ts
+import { ApiRequest, ApiResponse, methods, MimeTypes, Route } from '@sapphire/plugin-api';
+
+export class UserRoute extends Route {
+  public acceptedContentMimeTypes = [MimeTypes.ApplicationJson];
+
+  public async [methods.GET](request: ApiRequest, response: ApiResponse) {
+    const data = request.body;
+    // ...
+  }
+}
+
+// After (v7)
+// ../index.get.ts
+import { ApiRequest, ApiResponse, Route } from '@sapphire/plugin-api';
+
+export class UserRoute extends Route {
+  public async run(request: ApiRequest, response: ApiResponse) {
+    const data = await request.readBodyJson();
+    // ...
+  }
+}
+```
+
+## Filesystem Group Syntax
+
+v7 introduces a new, intuitive filesystem-based group syntax. For example:
+
+```
+routes/
+  ├── guilds/
+  │   ├── [guild]/
+  │   │   └── members.get.ts
+  │   └── index.get.ts
+  └── users/
+      └── @me.get.ts
+```
+
+This structure automatically generates the following routes:
+
+- `/guilds/[guild]/members`
+- `/guilds`
+- `/users/@me`
