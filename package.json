@@ -29,11 +29,11 @@
 		"pages:deploy": "yarn build && wrangler pages deploy ./build"
 	},
 	"dependencies": {
-		"@docusaurus/core": "^3.8.1",
-		"@docusaurus/faster": "^3.8.1",
-		"@docusaurus/plugin-pwa": "^3.8.1",
-		"@docusaurus/preset-classic": "^3.8.1",
-		"@docusaurus/theme-search-algolia": "^3.8.1",
+		"@docusaurus/core": "^3.9.2",
+		"@docusaurus/faster": "^3.9.2",
+		"@docusaurus/plugin-pwa": "^3.9.2",
+		"@docusaurus/preset-classic": "^3.9.2",
+		"@docusaurus/theme-search-algolia": "^3.9.2",
 		"@heroicons/react": "^2.2.0",
 		"@mdx-js/react": "^3.1.1",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
@@ -49,20 +49,20 @@
 	"devDependencies": {
 		"@commitlint/cli": "^20.1.0",
 		"@commitlint/config-conventional": "^20.0.0",
-		"@docusaurus/module-type-aliases": "^3.8.1",
-		"@docusaurus/tsconfig": "^3.8.1",
+		"@docusaurus/module-type-aliases": "^3.9.2",
+		"@docusaurus/tsconfig": "^3.9.2",
 		"@sapphire/cron": "^1.2.1",
 		"@sapphire/decorators": "^6.2.0",
 		"@sapphire/duration": "^1.2.0",
 		"@sapphire/eslint-config": "^5.0.6",
 		"@sapphire/fetch": "^3.0.5",
 		"@sapphire/prettier-config": "^2.0.0",
-		"@sapphire/result": "^2.7.2",
+		"@sapphire/result": "^2.7.3",
 		"@sapphire/timer-manager": "^1.0.4",
 		"@sapphire/timestamp": "^1.0.5",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^24.5.2",
-		"@types/react": "^18.3.24",
+		"@types/node": "^24.9.1",
+		"@types/react": "^18.3.26",
 		"@types/react-dom": "^18.3.7",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "^7.18.0",
@@ -75,8 +75,8 @@
 		"eslint-plugin-prettier": "^5.5.4",
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^5.2.0",
-		"lint-staged": "^16.1.6",
-		"markdownlint": "^0.38.0",
+		"lint-staged": "^16.2.5",
+		"markdownlint": "^0.39.0",
 		"markdownlint-cli2": "^0.18.1",
 		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",
@@ -85,7 +85,7 @@
 		"typedoc-plugin-markdown": "^4.8.1",
 		"typedoc-plugin-mdn-links": "5.0.9",
 		"typescript": "~5.4.5",
-		"wrangler": "^4.38.0"
+		"wrangler": "^4.44.0"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
@@ -128,8 +128,8 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"packageManager": "yarn@4.10.0",
+	"packageManager": "yarn@4.10.3",
 	"volta": {
-		"node": "22.19.0"
+		"node": "22.21.0"
 	}
 }
