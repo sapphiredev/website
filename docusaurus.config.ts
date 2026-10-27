@@ -28,7 +28,6 @@ const config: Config = {
 	url: BaseUrl,
 	baseUrl: '/',
 	onBrokenLinks: 'warn',
-	onBrokenMarkdownLinks: 'warn',
 	onDuplicateRoutes: 'warn',
 	favicon: 'favicon.ico',
 	tagline: Description,
@@ -36,10 +35,13 @@ const config: Config = {
 	projectName: 'framework',
 	themes: [],
 	markdown: {
-		format: 'detect'
+		format: 'detect',
+		hooks: {
+			onBrokenMarkdownLinks: 'warn'
+		}
 	},
 	future: {
-		experimental_faster: true,
+		faster: true,
 		v4: true
 	},
 
