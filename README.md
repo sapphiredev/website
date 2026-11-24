@@ -53,3 +53,4 @@ Thank you to all the people who already contributed to Sapphire!
 
 [contributing]: https://github.com/sapphiredev/.github/blob/main/.github/CONTRIBUTING.md
 [polypane]: https://polypane.app
+Minor documentation update.
